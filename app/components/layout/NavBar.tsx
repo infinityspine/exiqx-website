@@ -198,10 +198,10 @@ const NavBar = memo(function NavBar({
             <Image
               src="/exiqx-logo.png"
               alt="ExIQx Performance"
-              width={140}
-              height={40}
+              width={210}
+              height={60}
               priority
-              className="h-8 w-auto"
+              className="h-12 w-auto"
             />
           </a>
 
