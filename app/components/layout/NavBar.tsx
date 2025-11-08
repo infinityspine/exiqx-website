@@ -2,6 +2,7 @@
 
 import { memo, useState, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import Image from 'next/image'
 import { z } from 'zod'
 
 // ============================================================================
@@ -184,7 +185,7 @@ const NavBar = memo(function NavBar({
           className="relative z-10 mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8"
           aria-label="Main navigation"
         >
-          {/* Brand */}
+          {/* Brand Logo */}
           <a
             href="#hero"
             onClick={(e) => {
@@ -192,9 +193,16 @@ const NavBar = memo(function NavBar({
               window.scrollTo({ top: 0, behavior: 'smooth' })
               closeMobileMenu()
             }}
-            className="text-sm tracking-[0.16em] uppercase text-white/90 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2 focus-visible:ring-offset-black rounded px-2 py-1 -ml-2"
+            className="relative flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2 focus-visible:ring-offset-black rounded"
           >
-            {brandText}
+            <Image
+              src="/exiqx-logo.png"
+              alt="ExIQx Performance"
+              width={140}
+              height={40}
+              priority
+              className="h-8 w-auto"
+            />
           </a>
 
           {/* Desktop Links */}
