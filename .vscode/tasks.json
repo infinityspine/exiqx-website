@@ -2,17 +2,24 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Auto Commit",
+      "label": "Start Auto Commit (5 min loop)",
       "type": "shell",
-      "command": "${workspaceFolder}/.vscode/auto-commit.sh",
+      "command": "nohup .vscode/auto-commit.sh &",
       "problemMatcher": [],
-      "runOptions": {
-        "runOn": "folderOpen"
-      },
-      "isBackground": true,
       "presentation": {
         "reveal": "silent",
         "panel": "dedicated"
+      },
+      "group": "none"
+    },
+    {
+      "label": "Stop Auto Commit",
+      "type": "shell",
+      "command": "pkill -f auto-commit.sh",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
       },
       "group": "none"
     }
