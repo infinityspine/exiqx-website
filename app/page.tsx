@@ -1,63 +1,45 @@
+/**
+ * ExIQx Performance - Elite Production Homepage
+ * 
+ * Component Architecture:
+ * - All layout components imported from /app/components/layout/
+ * - Full homepage rendering pipeline
+ * - Dark, minimalist ExIQx design system
+ * - WCAG AAA accessible
+ * - Production-grade code quality
+ */
+
 import NavBar from './components/layout/NavBar'
-import HeroSection from "./components/layout/HeroSection"
+import HeroSection from './components/layout/HeroSection'
+import FootplateFeatures from './components/layout/FootplateFeatures'
+import UseCases from './components/layout/UseCases'
+import Testimonials from './components/layout/Testimonials'
+import CTASection from './components/layout/CTASection'
+import Footer from './components/layout/Footer'
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-background text-foreground overflow-x-hidden">
-      {/* Elite Navigation */}
+      {/* Elite Navigation - Fixed header with scroll darkening */}
       <NavBar />
 
-      {/* Elite Hero Section - Fully accessible, optimized, reusable */}
+      {/* Hero Section - Full-screen hero with optimized imagery */}
       <HeroSection />
 
-      {/* Future Sections */}
-      <section 
-        id="specs" 
-        className="min-h-screen bg-[#050505] px-6 py-20"
-      >
-        {/* TODO: Add elite specs grid */}
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold uppercase tracking-[0.05em] font-display">
-            Technical Specifications
-          </h2>
-        </div>
-      </section>
+      {/* Product Features - Technical specifications and benefits */}
+      <FootplateFeatures />
 
-      <section 
-        id="technology" 
-        className="min-h-screen bg-black px-6 py-20"
-      >
-        {/* TODO: Add technology showcase */}
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold uppercase tracking-[0.05em] font-display">
-            Biomechanical Technology
-          </h2>
-        </div>
-      </section>
+      {/* Use Cases - Real-world applications and training scenarios */}
+      <UseCases />
 
-      <section 
-        id="about" 
-        className="min-h-screen bg-[#050505] px-6 py-20"
-      >
-        {/* TODO: Add brand story */}
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold uppercase tracking-[0.05em] font-display">
-            Our Story
-          </h2>
-        </div>
-      </section>
+      {/* Social Proof - Testimonials from athletes and trainers */}
+      <Testimonials />
 
-      <section 
-        id="contact" 
-        className="min-h-[60vh] bg-black px-6 py-20"
-      >
-        {/* TODO: Add contact form / footer */}
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold uppercase tracking-[0.05em] font-display">
-            Get in Touch
-          </h2>
-        </div>
-      </section>
+      {/* Final CTA - Conversion-focused call-to-action */}
+      <CTASection />
+
+      {/* Footer - Brand info, links, and legal */}
+      <Footer />
     </main>
   )
 }
