@@ -3,7 +3,7 @@
 import React from "react"
 
 export default function GHDRetrofitPage() {
-  console.log("✅ GHD retrofit page build verified")
+  console.log("✅ GHD Retrofit page build verified")
 
   return (
     <main className="min-h-screen flex flex-col items-center justify-center bg-black text-white">
@@ -12,10 +12,9 @@ export default function GHDRetrofitPage() {
           GHD Retrofit Footplate Apparatus
         </h1>
         <p className="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto mb-10">
-          Designed to integrate seamlessly with existing GHD equipment, transforming
+          Designed to integrate seamlessly with existing GHD equipment — converting
           traditional setups into advanced posterior chain training systems.
-          Enables high-precision eccentric hamstring, glute, and plantarflexor
-          loading without external supports.
+          Enables precision eccentric hamstring, glute, and plantarflexor loading.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
