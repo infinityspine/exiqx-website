@@ -3,7 +3,7 @@
 import React, { memo, useRef } from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
-import { motion, useReducedMotion, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion'
+import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion'
 import { z } from 'zod'
 
 // ============================================================================
@@ -73,33 +73,6 @@ const RackHero = memo<Partial<RackHeroProps>>((props) => {
   const contentOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
   const contentScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95])
 
-  // Mouse parallax (desktop only)
-  const mouseX = useMotionValue(0)
-  const mouseY = useMotionValue(0)
-
-  const springConfig = { damping: 25, stiffness: 150 }
-  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [3, -3]), springConfig)
-  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-3, 3]), springConfig)
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
-    if (shouldReduceMotion) return
-
-    const rect = e.currentTarget.getBoundingClientRect()
-    const centerX = rect.left + rect.width / 2
-    const centerY = rect.top + rect.height / 2
-    
-    const mouseXPos = (e.clientX - centerX) / (rect.width / 2)
-    const mouseYPos = (e.clientY - centerY) / (rect.height / 2)
-
-    mouseX.set(mouseXPos)
-    mouseY.set(mouseYPos)
-  }
-
-  const handleMouseLeave = () => {
-    mouseX.set(0)
-    mouseY.set(0)
-  }
-
   const handleLinkClick = (href: string) => {
     if (href.startsWith('#')) {
       const element = document.querySelector(href)
@@ -124,11 +97,8 @@ const RackHero = memo<Partial<RackHeroProps>>((props) => {
   return (
     <section
       ref={containerRef}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
       className={`relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-black text-center ${className}`}
       aria-labelledby="hero-heading"
-      style={{ perspective: '1000px' }}
     >
       {/* Background Image with Parallax */}
       <motion.div
@@ -137,8 +107,6 @@ const RackHero = memo<Partial<RackHeroProps>>((props) => {
         transition={{ duration: ANIMATION_CONSTANTS.DURATION_SLOW }}
         style={{
           y: shouldReduceMotion ? 0 : backgroundY,
-          rotateX: shouldReduceMotion ? 0 : rotateX,
-          rotateY: shouldReduceMotion ? 0 : rotateY,
         }}
         className="absolute inset-0 z-0 will-change-transform"
       >
