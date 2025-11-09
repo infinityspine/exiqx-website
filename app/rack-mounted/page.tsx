@@ -49,9 +49,9 @@ export default function RackMountedPage() {
             alt="ExIQx Rack-Mounted Footplate"
             fill
             priority
-            className="object-cover object-center opacity-35 contrast-110 saturate-125"
+            className="object-cover object-center opacity-30 contrast-110 saturate-110"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black via-black/70 to-black" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/75 to-black/95" />
         </motion.div>
       </section>
 
