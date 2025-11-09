@@ -5,7 +5,7 @@ import RackKeyPoints from '@/components/sections/RackKeyPoints'
 import RackFeatureDetail from '@/components/sections/RackFeatureDetail'
 import BiomechanicsSection from '@/components/sections/BiomechanicsSection'
 import RackSpecs from '@/components/sections/RackSpecs'
-import CTASection from '@/components/sections/CTASection'
+import CTASection from '@/components/sections/HomePageCTA'
 
 export const metadata: Metadata = {
   title: 'Rack-Mounted Footplates | ExIQx Performance',
