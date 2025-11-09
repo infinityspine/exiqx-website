@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import RackHero from '@/components/sections/RackHero'
 import RackKeyPoints from '@/components/sections/RackKeyPoints'
 import RackFeatureDetail from '@/components/sections/RackFeatureDetail'
+import BiomechanicsSection from '@/components/sections/BiomechanicsSection'
 import RackSpecs from '@/components/sections/RackSpecs'
 import CTASection from '@/components/sections/CTASection'
 
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
 export default function RackMountedPage() {
   return (
     <main className="bg-[#0A0A0A]">
-      {/* Elite Hero with Parallax + Breathing Animation */}
+      {/* ================= ELITE HERO WITH PARALLAX ================= */}
       <RackHero
         headline="RACK-MOUNTED FOOTPLATE"
         subheadline="Precision-mounted to your squat rack uprights for elite posterior chain loading through the plantar surface."
@@ -29,14 +30,14 @@ export default function RackMountedPage() {
           href: '/#waitlist',
         }}
         secondaryCTA={{
-          text: 'Learn More',
+          text: 'Explore Features',
           href: '#key-points',
         }}
         backgroundImage="/rack-mounted-hero.jpg"
         showShimmer={true}
       />
 
-      {/* Product Benefits Grid - Elite Component */}
+      {/* ================= KEY BENEFITS GRID ================= */}
       <section id="key-points" className="scroll-mt-20">
         <RackKeyPoints
           sectionTitle="ENGINEERED FOR EXCELLENCE"
@@ -66,7 +67,7 @@ export default function RackMountedPage() {
         />
       </section>
 
-      {/* Feature Detail Section */}
+      {/* ================= FEATURE DETAIL ================= */}
       <section id="features" className="scroll-mt-20">
         <RackFeatureDetail
           title="Precision-Mounted Stability"
@@ -79,26 +80,19 @@ export default function RackMountedPage() {
           ]}
           imageSrc="/rack-mounted-side.jpg"
           imageAlt="Rack-Mounted Footplate Side View"
+          imagePosition="left"
         />
       </section>
 
-      {/* Biomechanics Section */}
-      <section id="biomechanics" className="scroll-mt-20 py-24 lg:py-32 bg-[#0A0A0A] border-t border-red-600/20">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 font-montserrat">
-            Aligned with Human Biomechanics
-          </h2>
-          <p className="max-w-3xl mx-auto text-gray-300 text-lg leading-relaxed font-inter">
-            The rack-mounted system is engineered around a ~38° plantarflexion alignment, 
-            mirroring the natural closed-chain vector of sprinting and acceleration. 
-            This geometry targets the soleus, gastrocnemius, and hamstrings through 
-            their full length-tension curve — enabling concentric, eccentric, and 
-            isometric loading without posterior ankle restraint.
-          </p>
-        </div>
+      {/* ================= BIOMECHANICS ================= */}
+      <section id="biomechanics" className="scroll-mt-20">
+        <BiomechanicsSection
+          title="Aligned with Human Biomechanics"
+          description="The rack-mounted system is engineered around a ~38° plantarflexion alignment, mirroring the natural closed-chain vector of sprinting and acceleration. This geometry targets the soleus, gastrocnemius, and hamstrings through their full length-tension curve — enabling concentric, eccentric, and isometric loading without posterior ankle restraint."
+        />
       </section>
 
-      {/* Technical Specs */}
+      {/* ================= TECHNICAL SPECS ================= */}
       <section id="specs" className="scroll-mt-20">
         <RackSpecs
           title="Technical Specifications"
@@ -108,15 +102,16 @@ export default function RackMountedPage() {
             { label: 'Angle Range', value: '10°–70° plantarflexion' },
             { label: 'Material', value: '11-gauge steel with powder-coated finish' },
             { label: 'Weight', value: '~30 lbs assembled' },
-            { label: 'Mount Type', value: 'Dual-bracket rack interface' },
+            { label: 'Mount Type', value: 'Dual-bracket rack interface (peg + collar)' },
             { label: 'Adjustability', value: 'Tool-free (hitch pin, detent, twist-lock)' },
           ]}
           imageSrc="/rack-mounted-detail.jpg"
           imageAlt="Rack-Mounted Footplate Detail"
+          imagePosition="right"
         />
       </section>
 
-      {/* Call to Action */}
+      {/* ================= FINAL CTA ================= */}
       <CTASection
         headline="The Foundation of the ExIQx System"
         description="Join the waitlist to be first in line when we launch."
