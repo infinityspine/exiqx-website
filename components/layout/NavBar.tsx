@@ -3,12 +3,12 @@
 import { memo, useState, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence, useAnimation } from 'framer-motion'
 import Image from 'next/image'
-import { useRouter } from 'next/navigation'
+import { useRouter, usePathname } from 'next/navigation'
 import { z } from 'zod'
 
 const NavItemSchema = z.object({
   label: z.string().min(1),
-  href: z.string().min(1), // allow both '#' and '/' links
+  href: z.string().min(1),
   id: z.string().min(1),
 })
 
@@ -28,6 +28,7 @@ const DEFAULT_NAV_ITEMS = [
 
 const SCROLL_THRESHOLD = 100
 const INTERSECTION_THRESHOLD = 0.5
+const MENU_CLOSE_DELAY = 300 // Match exit animation duration
 
 const NavBar = memo(function NavBar({
   brandText = DEFAULT_BRAND_TEXT,
@@ -39,6 +40,7 @@ const NavBar = memo(function NavBar({
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const controls = useAnimation()
   const router = useRouter()
+  const pathname = usePathname()
 
   const validatedItems = z.array(NavItemSchema).parse(navItems)
 
@@ -85,17 +87,22 @@ const NavBar = memo(function NavBar({
 
   const closeMobileMenu = useCallback(() => setIsMobileMenuOpen(false), [])
 
-  // 🧭 Smart navigation handler (works for both '#' and '/')
+  // 🔧 FIXED: Smart navigation handler with proper timing
   const handleNavigation = useCallback(
     (href: string) => {
-      closeMobileMenu()
       if (href.startsWith('#')) {
-        // Smooth scroll for in-page links
-        const element = document.querySelector(href)
-        if (element) element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        // Hash link - close menu then scroll
+        closeMobileMenu()
+        setTimeout(() => {
+          const element = document.querySelector(href)
+          if (element) element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }, MENU_CLOSE_DELAY)
       } else {
-        // Navigate to another page
-        router.push(href)
+        // Page navigation - close menu, WAIT for animation, then navigate
+        closeMobileMenu()
+        setTimeout(() => {
+          router.push(href)
+        }, MENU_CLOSE_DELAY)
       }
     },
     [closeMobileMenu, router]
@@ -141,7 +148,9 @@ const NavBar = memo(function NavBar({
             href="/"
             onClick={(e) => {
               e.preventDefault()
-              router.push('/')
+              if (pathname !== '/') {
+                router.push('/')
+              }
               closeMobileMenu()
             }}
             animate={controls}
@@ -160,7 +169,7 @@ const NavBar = memo(function NavBar({
           {/* Desktop Links */}
           <div className="hidden gap-8 text-[11px] font-medium uppercase tracking-[0.18em] md:flex">
             {validatedItems.map(({ label, href, id }) => (
-              <a
+              
                 key={id}
                 href={href}
                 onClick={(e) => {
