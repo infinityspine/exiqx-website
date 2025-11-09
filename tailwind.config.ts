@@ -22,6 +22,10 @@ const config: Config = {
         display: ['var(--font-display)', 'Montserrat', 'system-ui', 'sans-serif'],
         mono: ['var(--font-mono)', 'monospace'],
       },
+      spacing: {
+        '128': '32rem',
+        '160': '40rem',
+      },
     },
   },
   plugins: [],
