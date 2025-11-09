@@ -28,7 +28,7 @@ const DEFAULT_NAV_ITEMS = [
 
 const SCROLL_THRESHOLD = 100
 const INTERSECTION_THRESHOLD = 0.5
-const MENU_CLOSE_DELAY = 300 // Match exit animation duration
+const MENU_CLOSE_DELAY = 300
 
 const NavBar = memo(function NavBar({
   brandText = DEFAULT_BRAND_TEXT,
@@ -61,7 +61,7 @@ const NavBar = memo(function NavBar({
     return () => window.removeEventListener('scroll', handleScroll)
   }, [controls])
 
-  // Active section tracking for hash-based scrolling
+  // Active section tracking
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -87,18 +87,15 @@ const NavBar = memo(function NavBar({
 
   const closeMobileMenu = useCallback(() => setIsMobileMenuOpen(false), [])
 
-  // 🔧 FIXED: Smart navigation handler with proper timing
   const handleNavigation = useCallback(
     (href: string) => {
       if (href.startsWith('#')) {
-        // Hash link - close menu then scroll
         closeMobileMenu()
         setTimeout(() => {
           const element = document.querySelector(href)
           if (element) element.scrollIntoView({ behavior: 'smooth', block: 'start' })
         }, MENU_CLOSE_DELAY)
       } else {
-        // Page navigation - close menu, WAIT for animation, then navigate
         closeMobileMenu()
         setTimeout(() => {
           router.push(href)
@@ -118,7 +115,6 @@ const NavBar = memo(function NavBar({
     [handleNavigation]
   )
 
-  // Escape key closes menu
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape' && isMobileMenuOpen) closeMobileMenu()
@@ -127,7 +123,6 @@ const NavBar = memo(function NavBar({
     return () => document.removeEventListener('keydown', handleEscape)
   }, [isMobileMenuOpen, closeMobileMenu])
 
-  // Lock scroll when mobile menu open
   useEffect(() => {
     document.body.style.overflow = isMobileMenuOpen ? 'hidden' : ''
     return () => {
@@ -137,13 +132,11 @@ const NavBar = memo(function NavBar({
 
   return (
     <>
-      {/* STATIC BLACK HEADER */}
       <header className={`fixed top-0 left-0 right-0 z-50 bg-black shadow-lg ${className}`}>
         <nav
           className="relative z-10 mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8"
           aria-label="Main navigation"
         >
-          {/* Logo */}
           <motion.a
             href="/"
             onClick={(e) => {
@@ -166,39 +159,42 @@ const NavBar = memo(function NavBar({
             />
           </motion.a>
 
-          {/* Desktop Links */}
           <div className="hidden gap-8 text-[11px] font-medium uppercase tracking-[0.18em] md:flex">
-            {validatedItems.map(({ label, href, id }) => (
+            {validatedItems.map((item) => {
+              const { label, href, id } = item
+              const isActive = activeSection === id
               
-                key={id}
-                href={href}
-                onClick={(e) => {
-                  e.preventDefault()
-                  handleNavigation(href)
-                }}
-                onKeyDown={(e) => handleKeyDown(e, href)}
-                aria-current={activeSection === id ? 'page' : undefined}
-                className={`relative px-2 py-1 transition-colors duration-300 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
-                  activeSection === id
-                    ? 'text-white'
-                    : 'text-white/60 hover:text-white/90'
-                }`}
-              >
-                {label}
-                {activeSection === id && (
-                  <motion.div
-                    layoutId="activeIndicator"
-                    className="absolute -bottom-1 left-0 right-0 h-[2px] bg-red-600"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.3 }}
-                  />
-                )}
-              </a>
-            ))}
+              return (
+                
+                  key={id}
+                  href={href}
+                  onClick={(e) => {
+                    e.preventDefault()
+                    handleNavigation(href)
+                  }}
+                  onKeyDown={(e) => handleKeyDown(e, href)}
+                  aria-current={isActive ? 'page' : undefined}
+                  className={`relative px-2 py-1 transition-colors duration-300 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
+                    isActive
+                      ? 'text-white'
+                      : 'text-white/60 hover:text-white/90'
+                  }`}
+                >
+                  {label}
+                  {isActive && (
+                    <motion.div
+                      layoutId="activeIndicator"
+                      className="absolute -bottom-1 left-0 right-0 h-[2px] bg-red-600"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  )}
+                </a>
+              )
+            })}
           </div>
 
-          {/* Mobile Menu Button */}
           <button
             onClick={toggleMobileMenu}
             aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
@@ -227,7 +223,6 @@ const NavBar = memo(function NavBar({
         </nav>
       </header>
 
-      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <>
@@ -252,29 +247,34 @@ const NavBar = memo(function NavBar({
             >
               <div className="flex flex-col h-full pt-24 px-6">
                 <div className="flex flex-col gap-6">
-                  {validatedItems.map(({ label, href, id }, index) => (
-                    <motion.a
-                      key={id}
-                      href={href}
-                      onClick={(e) => {
-                        e.preventDefault()
-                        handleNavigation(href)
-                      }}
-                      onKeyDown={(e) => handleKeyDown(e, href)}
-                      aria-current={activeSection === id ? 'page' : undefined}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: 20 }}
-                      transition={{ delay: index * 0.05, duration: 0.3 }}
-                      className={`relative text-lg uppercase tracking-[0.16em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:rounded px-2 py-1 -ml-2 ${
-                        activeSection === id
-                          ? 'text-white font-medium'
-                          : 'text-white/70 hover:text-white'
-                      }`}
-                    >
-                      {label}
-                    </motion.a>
-                  ))}
+                  {validatedItems.map((item, index) => {
+                    const { label, href, id } = item
+                    const isActive = activeSection === id
+                    
+                    return (
+                      <motion.a
+                        key={id}
+                        href={href}
+                        onClick={(e) => {
+                          e.preventDefault()
+                          handleNavigation(href)
+                        }}
+                        onKeyDown={(e) => handleKeyDown(e, href)}
+                        aria-current={isActive ? 'page' : undefined}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: 20 }}
+                        transition={{ delay: index * 0.05, duration: 0.3 }}
+                        className={`relative text-lg uppercase tracking-[0.16em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:rounded px-2 py-1 -ml-2 ${
+                          isActive
+                            ? 'text-white font-medium'
+                            : 'text-white/70 hover:text-white'
+                        }`}
+                      >
+                        {label}
+                      </motion.a>
+                    )
+                  })}
                 </div>
 
                 <motion.div
