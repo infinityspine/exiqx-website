@@ -8,9 +8,14 @@ export default function RackMountedPage() {
   return (
     <main className="min-h-screen bg-black text-white overflow-hidden">
       {/* ================= HERO ================= */}
-      <section className="relative flex flex-col items-center justify-center text-center min-h-screen px-6">
-        {/* HERO IMAGE (Background) */}
-        <div className="absolute inset-0 z-0">
+      <section className="relative flex flex-col items-center justify-center text-center min-h-screen px-6 overflow-hidden">
+        {/* HERO BACKGROUND IMAGE + OVERLAY */}
+        <motion.div
+          initial={{ opacity: 0, scale: 1.05 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.4, duration: 1 }}
+          className="absolute inset-0 z-0"
+        >
           <Image
             src="/rack-mounted-hero.jpg"
             alt="ExIQx Rack-Mounted Footplate"
@@ -20,9 +25,9 @@ export default function RackMountedPage() {
             sizes="100vw"
             quality={90}
           />
-          {/* Gradient Overlay - Subtle top to bottom */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black" />
-        </div>
+          {/* Gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/60 to-black/95" />
+        </motion.div>
 
         {/* HERO CONTENT */}
         <motion.div
