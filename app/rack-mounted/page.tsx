@@ -19,8 +19,8 @@ export const metadata: Metadata = {
 
 export default function RackMountedPage() {
   return (
-    <main className="bg-[#0A0A0A]">
-      {/* ================= ELITE HERO WITH PARALLAX ================= */}
+    <main className="bg-black">
+      {/* Elite Hero with Parallax */}
       <RackHero
         headline="RACK-MOUNTED FOOTPLATE"
         subheadline="Precision-mounted to your squat rack uprights for elite posterior chain loading through the plantar surface."
@@ -37,7 +37,7 @@ export default function RackMountedPage() {
         showShimmer={true}
       />
 
-      {/* ================= KEY BENEFITS GRID ================= */}
+      {/* Key Benefits Grid */}
       <section id="key-points" className="scroll-mt-20">
         <RackKeyPoints
           sectionTitle="ENGINEERED FOR EXCELLENCE"
@@ -67,11 +67,11 @@ export default function RackMountedPage() {
         />
       </section>
 
-      {/* ================= FEATURE DETAIL ================= */}
+      {/* Feature Detail */}
       <section id="features" className="scroll-mt-20">
         <RackFeatureDetail
           title="Precision-Mounted Stability"
-          description="The rack-mounted footplate anchors securely to 3"×3" uprights using dual hitch-pin brackets, ensuring a rigid, stable interface for high-force posterior chain loading."
+          description="The rack-mounted footplate anchors securely to 3×3 uprights using dual hitch-pin brackets, ensuring a rigid, stable interface for high-force posterior chain loading."
           features={[
             'Fits all standard 43" rack widths (Rogue, Sorinex, Titan)',
             'Dual peg + U-collar attachment for rapid setup',
@@ -84,7 +84,7 @@ export default function RackMountedPage() {
         />
       </section>
 
-      {/* ================= BIOMECHANICS ================= */}
+      {/* Biomechanics */}
       <section id="biomechanics" className="scroll-mt-20">
         <BiomechanicsSection
           title="Aligned with Human Biomechanics"
@@ -92,7 +92,7 @@ export default function RackMountedPage() {
         />
       </section>
 
-      {/* ================= TECHNICAL SPECS ================= */}
+      {/* Technical Specs */}
       <section id="specs" className="scroll-mt-20">
         <RackSpecs
           title="Technical Specifications"
@@ -111,7 +111,7 @@ export default function RackMountedPage() {
         />
       </section>
 
-      {/* ================= FINAL CTA ================= */}
+      {/* Call to Action */}
       <CTASection
         headline="The Foundation of the ExIQx System"
         description="Join the waitlist to be first in line when we launch."

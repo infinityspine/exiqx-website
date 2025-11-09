@@ -3,41 +3,26 @@
 import React, { memo } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import { z } from 'zod'
-import { Ruler, Shield, Zap, Award } from 'lucide-react'
+import { Ruler, Zap, Award, Shield } from 'lucide-react'
 
 // ============================================================================
 // Schema Validation
 // ============================================================================
 
 const KeyPointSchema = z.object({
-  icon: z.enum(['ruler', 'shield', 'zap', 'award']),
+  icon: z.enum(['ruler', 'zap', 'award', 'shield']).default('shield'),
   headline: z.string(),
   description: z.string(),
 })
 
 const RackKeyPointsPropsSchema = z.object({
-  sectionTitle: z.string().default('ENGINEERED FOR EXCELLENCE'),
-  sectionSubtitle: z.string().default('Four pillars of biomechanical superiority'),
+  sectionTitle: z.string().optional(),
+  sectionSubtitle: z.string().optional(),
   keyPoints: z.array(KeyPointSchema).default([
     {
-      icon: 'ruler',
-      headline: 'Precision Engineering',
-      description: 'CNC-machined 6061-T6 aluminum with tolerances within 0.001" for consistent biomechanical alignment.',
-    },
-    {
-      icon: 'shield',
-      headline: 'Built to Last',
-      description: 'Type II anodized finish and commercial-grade construction. Rated for 500+ lbs and lifetime durability.',
-    },
-    {
-      icon: 'zap',
-      headline: 'Universal Compatibility',
-      description: 'Fits all major rack brands. Quick-mount system installs in 5 minutes without permanent modifications.',
-    },
-    {
-      icon: 'award',
-      headline: 'Performance Tested',
-      description: 'Validated by elite athletes and biomechanics labs. Optimized for glute-ham raises and posterior chain work.',
+      icon: 'shield' as const,
+      headline: 'Elite Performance',
+      description: 'Engineered for peak athletic achievement',
     },
   ]),
   className: z.string().optional(),
@@ -52,21 +37,21 @@ type RackKeyPointsProps = z.infer<typeof RackKeyPointsPropsSchema>
 const ANIMATION_CONSTANTS = {
   EASE_ATHLETIC: [0.43, 0.13, 0.23, 0.96],
   EASE_POWER: [0.77, 0, 0.175, 1],
-  DURATION_FAST: 0.3,
   DURATION_MEDIUM: 0.6,
-  STAGGER: 0.15,
+  DURATION_FAST: 0.3,
+  STAGGER: 0.1,
 } as const
 
 // ============================================================================
-// Icon Mapping
+// Icon Map
 // ============================================================================
 
-const ICON_MAP = {
+const iconMap = {
   ruler: Ruler,
-  shield: Shield,
   zap: Zap,
   award: Award,
-} as const
+  shield: Shield,
+}
 
 // ============================================================================
 // Component
@@ -77,7 +62,7 @@ const RackKeyPoints = memo<Partial<RackKeyPointsProps>>((props) => {
   const { sectionTitle, sectionSubtitle, keyPoints, className = '' } = validatedProps
   const shouldReduceMotion = useReducedMotion()
 
-  // Animation variants
+  // Container animation
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -89,36 +74,36 @@ const RackKeyPoints = memo<Partial<RackKeyPointsProps>>((props) => {
     },
   }
 
+  // Item animation
   const itemVariants = {
-    hidden: {
-      opacity: 0,
-      y: shouldReduceMotion ? 0 : 30,
-    },
+    initial: { opacity: 0, y: shouldReduceMotion ? 0 : 30 },
+    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 30 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
         duration: ANIMATION_CONSTANTS.DURATION_MEDIUM,
-        ease: ANIMATION_CONSTANTS.EASE_ATHLETIC,
       },
-    },
-  }
-
-  const cardHoverVariants = {
-    initial: {
-      y: 0,
-      boxShadow: '0 0 0 0 rgba(220, 38, 38, 0)',
     },
     hover: {
       y: shouldReduceMotion ? 0 : -8,
-      boxShadow: '0 20px 40px -10px rgba(220, 38, 38, 0.3)',
       transition: {
         duration: ANIMATION_CONSTANTS.DURATION_FAST,
-        ease: ANIMATION_CONSTANTS.EASE_POWER,
       },
     },
   }
 
+  // Card background hover
+  const cardHoverVariants = {
+    hover: {
+      backgroundColor: shouldReduceMotion ? undefined : 'rgba(17, 17, 17, 1)',
+      transition: {
+        duration: ANIMATION_CONSTANTS.DURATION_FAST,
+      },
+    },
+  }
+
+  // Icon hover animation
   const iconVariants = {
     initial: { scale: 1, rotate: 0 },
     hover: {
@@ -126,52 +111,54 @@ const RackKeyPoints = memo<Partial<RackKeyPointsProps>>((props) => {
       rotate: shouldReduceMotion ? 0 : 5,
       transition: {
         duration: ANIMATION_CONSTANTS.DURATION_FAST,
-        ease: ANIMATION_CONSTANTS.EASE_POWER,
       },
     },
   }
 
   return (
     <section
-      className={`py-24 lg:py-32 bg-[#0A0A0A] ${className}`}
-      aria-labelledby="key-points-title"
+      className={`py-24 lg:py-32 bg-[#0A0A0A] border-t border-red-600/20 ${className}`}
+      aria-labelledby={sectionTitle ? 'keypoints-title' : undefined}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <motion.div
-          className="text-center mb-16 lg:mb-20"
-          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{
-            duration: ANIMATION_CONSTANTS.DURATION_MEDIUM,
-            ease: ANIMATION_CONSTANTS.EASE_ATHLETIC,
-          }}
-        >
-          <h2
-            id="key-points-title"
-            className="text-xs sm:text-sm font-semibold tracking-[0.25em] uppercase text-red-600 mb-4 font-inter"
+        {(sectionTitle || sectionSubtitle) && (
+          <motion.div
+            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: ANIMATION_CONSTANTS.DURATION_MEDIUM }}
+            className="text-center mb-16"
           >
-            {sectionTitle}
-          </h2>
-          <p className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white font-montserrat">
-            {sectionSubtitle}
-          </p>
-        </motion.div>
+            {sectionTitle && (
+              <h2
+                id="keypoints-title"
+                className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 font-montserrat uppercase tracking-tight"
+              >
+                {sectionTitle}
+              </h2>
+            )}
+            {sectionSubtitle && (
+              <p className="text-gray-400 text-lg font-inter max-w-2xl mx-auto">
+                {sectionSubtitle}
+              </p>
+            )}
+          </motion.div>
+        )}
 
         {/* Key Points Grid */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
+          className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
         >
           {keyPoints.map((point, index) => {
-            const IconComponent = ICON_MAP[point.icon]
-            
+            const IconComponent = iconMap[point.icon]
+
             return (
-              <motion.article
+              <motion.div
                 key={index}
                 variants={itemVariants}
                 whileHover="hover"
@@ -188,52 +175,34 @@ const RackKeyPoints = memo<Partial<RackKeyPointsProps>>((props) => {
                     className="w-12 h-12 mb-6 bg-red-600/10 rounded-lg flex items-center justify-center"
                     aria-hidden="true"
                   >
-                    <IconComponent className="h-6 w-6 text-red-600" strokeWidth={1.5} />
+                    <IconComponent className="w-6 h-6 text-red-600" />
                   </motion.div>
 
                   {/* Headline */}
-                  <h3 className="text-xl lg:text-2xl font-bold text-white mb-3 font-montserrat">
+                  <h3 className="text-xl font-bold text-white mb-3 font-montserrat">
                     {point.headline}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-gray-400 text-sm lg:text-base leading-relaxed font-inter">
+                  <p className="text-gray-400 text-sm leading-relaxed font-inter">
                     {point.description}
                   </p>
 
-                  {/* Hover Accent Line */}
+                  {/* Decorative Line */}
                   {!shouldReduceMotion && (
                     <motion.div
-                      className="h-1 bg-red-600 mt-6 rounded-full"
-                      initial={{ width: 0 }}
-                      whileInView={{ width: '100%' }}
+                      initial={{ opacity: 0, scaleX: 0 }}
+                      whileInView={{ opacity: 1, scaleX: 1 }}
                       viewport={{ once: true }}
-                      transition={{
-                        duration: ANIMATION_CONSTANTS.DURATION_MEDIUM,
-                        delay: index * ANIMATION_CONSTANTS.STAGGER + 0.5,
-                        ease: ANIMATION_CONSTANTS.EASE_ATHLETIC,
-                      }}
+                      transition={{ delay: index * 0.1 + 0.3, duration: 0.6 }}
+                      className="mt-6 h-[2px] bg-gradient-to-r from-red-600 to-transparent origin-left"
                     />
                   )}
                 </motion.div>
-              </motion.article>
+              </motion.div>
             )
           })}
         </motion.div>
-
-        {/* Bottom Accent - Subtle depth indicator */}
-        <motion.div
-          className="mt-16 lg:mt-20 h-px bg-gradient-to-r from-transparent via-red-600/20 to-transparent"
-          initial={{ opacity: 0, scaleX: 0 }}
-          whileInView={{ opacity: 1, scaleX: 1 }}
-          viewport={{ once: true }}
-          transition={{
-            duration: ANIMATION_CONSTANTS.DURATION_MEDIUM,
-            delay: 0.8,
-            ease: ANIMATION_CONSTANTS.EASE_ATHLETIC,
-          }}
-          aria-hidden="true"
-        />
       </div>
     </section>
   )

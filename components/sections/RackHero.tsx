@@ -1,29 +1,28 @@
 'use client'
 
-import React, { memo, useRef } from 'react'
+import React, { memo } from 'react'
 import Image from 'next/image'
-import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion'
+import { useRouter } from 'next/navigation'
+import { motion, useReducedMotion } from 'framer-motion'
 import { z } from 'zod'
-import { ChevronRight } from 'lucide-react'
 
 // ============================================================================
 // Schema Validation
 // ============================================================================
 
+const CTAButtonSchema = z.object({
+  text: z.string(),
+  href: z.string(),
+})
+
 const RackHeroPropsSchema = z.object({
-  headline: z.string().default('RACK-MOUNTED FOOTPLATES'),
-  subheadline: z.string().default('Biomechanical precision engineered for peak athletic performance'),
-  tagline: z.string().default('REDEFINING POSTERIOR CHAIN TRAINING'),
-  primaryCTA: z.object({
-    text: z.string().default('Explore Features'),
-    href: z.string().default('#key-points'),
-  }).default({}),
-  secondaryCTA: z.object({
-    text: z.string().default('View Specifications'),
-    href: z.string().default('#specs'),
-  }).default({}),
-  backgroundImage: z.string().default('/images/rack-hero-bg.jpg'),
-  showShimmer: z.boolean().default(true),
+  headline: z.string().default('RACK-MOUNTED FOOTPLATE'),
+  subheadline: z.string().default('Precision-mounted to your squat rack uprights for elite posterior chain loading.'),
+  tagline: z.string().optional(),
+  primaryCTA: CTAButtonSchema.optional(),
+  secondaryCTA: CTAButtonSchema.optional(),
+  backgroundImage: z.string().default('/rack-mounted-hero.jpg'),
+  showShimmer: z.boolean().default(false),
   className: z.string().optional(),
 })
 
@@ -34,21 +33,11 @@ type RackHeroProps = z.infer<typeof RackHeroPropsSchema>
 // ============================================================================
 
 const ANIMATION_CONSTANTS = {
-  // Easing curves - athletic precision
-  EASE_ATHLETIC: [0.43, 0.13, 0.23, 0.96],
-  EASE_POWER: [0.77, 0, 0.175, 1],
-  
-  // Durations
-  DURATION_FAST: 0.3,
-  DURATION_MEDIUM: 0.6,
+  EASE_ATHLETIC: [0.43, 0.13, 0.23, 0.96] as const,
+  EASE_POWER: [0.77, 0, 0.175, 1] as const,
   DURATION_SLOW: 1.2,
-  
-  // Delays
-  STAGGER_CHILDREN: 0.1,
-  
-  // Motion ranges
-  PARALLAX_RANGE: [-50, 50],
-  BREATHING_SCALE: [1, 1.02, 1],
+  DURATION_MEDIUM: 0.8,
+  DURATION_FAST: 0.4,
 } as const
 
 // ============================================================================
@@ -68,251 +57,159 @@ const RackHero = memo<Partial<RackHeroProps>>((props) => {
     className = '',
   } = validatedProps
 
-  const containerRef = useRef<HTMLDivElement>(null)
+  const router = useRouter()
   const shouldReduceMotion = useReducedMotion()
 
-  // Parallax scroll effect
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start start', 'end start'],
-  })
-
-  const imageY = useTransform(
-    scrollYProgress,
-    [0, 1],
-    shouldReduceMotion ? [0, 0] : ANIMATION_CONSTANTS.PARALLAX_RANGE
-  )
-
-  // Smooth scroll to section
-  const handleScrollToSection = (href: string) => {
+  const handleLinkClick = (href: string) => {
     if (href.startsWith('#')) {
       const element = document.querySelector(href)
       if (element) {
         element.scrollIntoView({ behavior: 'smooth', block: 'start' })
       }
+    } else if (href.includes('#')) {
+      const [path, hash] = href.split('#')
+      if (path === '/' && window.location.pathname === '/') {
+        const element = document.querySelector(`#${hash}`)
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }
+      } else {
+        router.push(href)
+      }
+    } else {
+      router.push(href)
     }
-  }
-
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: ANIMATION_CONSTANTS.DURATION_MEDIUM,
-        staggerChildren: ANIMATION_CONSTANTS.STAGGER_CHILDREN,
-        ease: ANIMATION_CONSTANTS.EASE_ATHLETIC,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: ANIMATION_CONSTANTS.DURATION_MEDIUM,
-        ease: ANIMATION_CONSTANTS.EASE_ATHLETIC,
-      },
-    },
-  }
-
-  const buttonHoverVariants = {
-    initial: { scale: 1, y: 0 },
-    hover: {
-      scale: shouldReduceMotion ? 1 : 1.02,
-      y: shouldReduceMotion ? 0 : -2,
-      transition: {
-        duration: ANIMATION_CONSTANTS.DURATION_FAST,
-        ease: ANIMATION_CONSTANTS.EASE_POWER,
-      },
-    },
-    tap: { scale: 0.98 },
   }
 
   return (
     <section
-      ref={containerRef}
-      className={`relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0A0A0A] ${className}`}
-      aria-label="Rack-mounted footplates hero section"
+      className={`relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-black text-center ${className}`}
+      aria-labelledby="hero-heading"
     >
-      {/* Background Image with Parallax */}
+      {/* Background Image */}
       <motion.div
+        initial={{ opacity: 0, scale: shouldReduceMotion ? 1 : 1.1 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: ANIMATION_CONSTANTS.DURATION_SLOW }}
         className="absolute inset-0 z-0"
-        style={{ y: imageY }}
-        aria-hidden="true"
       >
-        <div className="relative w-full h-full">
-          <Image
-            src={backgroundImage}
-            alt=""
-            fill
-            priority
-            quality={90}
-            className="object-cover object-center"
-            sizes="100vw"
-          />
-          {/* Gradient Overlay - Engineered precision */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/70 via-[#0A0A0A]/50 to-[#0A0A0A]" />
-          
-          {/* Optional Shimmer Effect - Subtle industrial gleam */}
-          {showShimmer && !shouldReduceMotion && (
-            <motion.div
-              className="absolute inset-0 opacity-[0.03]"
-              style={{
-                background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%)',
-              }}
-              animate={{
-                x: ['-100%', '200%'],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                repeatDelay: 2,
-                ease: 'linear',
-              }}
-            />
-          )}
-        </div>
-
-        {/* Breathing Scale Effect on Background */}
-        {!shouldReduceMotion && (
+        <Image
+          src={backgroundImage}
+          alt=""
+          fill
+          priority
+          className="object-cover object-center"
+          sizes="100vw"
+          quality={90}
+        />
+        
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/70 to-black/95" />
+        
+        {/* Optional Shimmer Effect */}
+        {showShimmer && !shouldReduceMotion && (
           <motion.div
-            className="absolute inset-0 bg-[#0A0A0A]/10"
-            animate={{
-              scale: ANIMATION_CONSTANTS.BREATHING_SCALE,
-            }}
+            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent"
+            animate={{ x: ['-200%', '200%'] }}
             transition={{
-              duration: 4,
+              duration: 3,
               repeat: Infinity,
+              repeatDelay: 5,
               ease: 'easeInOut',
             }}
           />
         )}
       </motion.div>
 
-      {/* Content Container */}
+      {/* Hero Content */}
       <motion.div
-        className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
+        initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: ANIMATION_CONSTANTS.DURATION_MEDIUM, delay: 0.3 }}
+        className="relative z-10 max-w-5xl px-4 sm:px-6 lg:px-8"
       >
-        {/* Tagline - Engineering precision */}
-        <motion.div variants={itemVariants} className="mb-6">
-          <span
-            className="inline-block text-xs sm:text-sm font-semibold tracking-[0.25em] uppercase text-white/60 font-inter"
-            role="doc-subtitle"
+        {/* Optional Tagline */}
+        {tagline && (
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+            className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-red-600 font-inter"
           >
             {tagline}
-          </span>
-        </motion.div>
+          </motion.p>
+        )}
 
-        {/* Headline - Bold statement */}
-        <motion.h1
-          variants={itemVariants}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight text-white font-montserrat"
+        {/* Headline */}
+        <h1
+          id="hero-heading"
+          className="mb-6 text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl font-montserrat"
         >
-          {headline.split(' ').map((word, index) => (
-            <React.Fragment key={index}>
-              {word === 'FOOTPLATES' ? (
-                <span className="text-red-600 block mt-2">{word}</span>
-              ) : (
-                <>{word} </>
-              )}
-            </React.Fragment>
-          ))}
-        </motion.h1>
+          {headline}
+        </h1>
 
-        {/* Subheadline - Precision description */}
-        <motion.p
-          variants={itemVariants}
-          className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto font-inter leading-relaxed"
-        >
+        {/* Subheadline */}
+        <p className="mx-auto mb-10 max-w-3xl text-base leading-relaxed text-gray-200 sm:text-lg lg:text-xl font-inter">
           {subheadline}
-        </motion.p>
+        </p>
 
-        {/* CTA Buttons - Action hierarchy */}
-        <motion.div
-          variants={itemVariants}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-        >
-          {/* Primary CTA */}
-          <motion.button
-            onClick={() => handleScrollToSection(primaryCTA.href)}
-            variants={buttonHoverVariants}
-            initial="initial"
-            whileHover="hover"
-            whileTap="tap"
-            className="group relative px-8 py-4 bg-red-600 text-white font-semibold rounded-sm overflow-hidden transition-colors duration-300 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2 focus:ring-offset-[#0A0A0A] font-inter"
-            aria-label={primaryCTA.text}
-          >
-            <span className="relative z-10 flex items-center">
-              {primaryCTA.text}
-              <ChevronRight
-                className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"
-                aria-hidden="true"
-              />
-            </span>
-            {/* Hover glow effect */}
-            {!shouldReduceMotion && (
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-red-500 to-red-700 opacity-0 group-hover:opacity-20"
-                initial={false}
-                transition={{ duration: 0.3 }}
-              />
+        {/* CTA Buttons */}
+        {(primaryCTA || secondaryCTA) && (
+          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+            {/* Primary CTA */}
+            {primaryCTA && (
+              <motion.button
+                onClick={() => handleLinkClick(primaryCTA.href)}
+                initial={{ scale: 1 }}
+                whileHover={{ scale: shouldReduceMotion ? 1 : 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ duration: ANIMATION_CONSTANTS.DURATION_FAST }}
+                className="rounded-sm bg-red-600 px-8 py-4 text-sm font-semibold uppercase tracking-wider text-white transition-colors duration-300 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2 focus:ring-offset-black font-inter"
+                aria-label={primaryCTA.text}
+              >
+                {primaryCTA.text}
+              </motion.button>
             )}
-          </motion.button>
 
-          {/* Secondary CTA */}
-          <motion.button
-            onClick={() => handleScrollToSection(secondaryCTA.href)}
-            variants={buttonHoverVariants}
-            initial="initial"
-            whileHover="hover"
-            whileTap="tap"
-            className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-sm border border-white/20 hover:bg-white/20 hover:border-white/30 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#0A0A0A] font-inter"
-            aria-label={secondaryCTA.text}
-          >
-            {secondaryCTA.text}
-          </motion.button>
-        </motion.div>
-
-        {/* Scroll Indicator */}
-        {!shouldReduceMotion && (
-          <motion.div
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              delay: 1.5,
-              duration: ANIMATION_CONSTANTS.DURATION_MEDIUM,
-            }}
-            aria-hidden="true"
-          >
-            <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: 'easeInOut',
-              }}
-            >
-              <ChevronRight className="h-8 w-8 text-red-600 rotate-90" />
-            </motion.div>
-          </motion.div>
+            {/* Secondary CTA */}
+            {secondaryCTA && (
+              <motion.button
+                onClick={() => handleLinkClick(secondaryCTA.href)}
+                initial={{ scale: 1 }}
+                whileHover={{ scale: shouldReduceMotion ? 1 : 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ duration: ANIMATION_CONSTANTS.DURATION_FAST }}
+                className="rounded-sm border border-white/20 bg-white/10 px-8 py-4 text-sm font-semibold uppercase tracking-wider text-white backdrop-blur-sm transition-all duration-300 hover:border-white/40 hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black font-inter"
+                aria-label={secondaryCTA.text}
+              >
+                {secondaryCTA.text}
+              </motion.button>
+            )}
+          </div>
         )}
       </motion.div>
 
-      {/* Vignette Effect - Depth and focus */}
-      <div
-        className="absolute inset-0 pointer-events-none z-[5]"
-        style={{
-          background: 'radial-gradient(circle at center, transparent 0%, rgba(10,10,10,0.4) 100%)',
-        }}
-        aria-hidden="true"
-      />
+      {/* Scroll Indicator */}
+      {!shouldReduceMotion && (
+        <motion.div
+          className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2"
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1, duration: 0.6 }}
+        >
+          <motion.div
+            className="flex h-8 w-5 items-start justify-center rounded-full border-2 border-white/30 p-1"
+            animate={{ y: [0, 8, 0] }}
+            transition={{
+              duration: 1.5,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }}
+          >
+            <div className="h-2 w-1 rounded-full bg-white/50" />
+          </motion.div>
+        </motion.div>
+      )}
     </section>
   )
 })
