@@ -219,7 +219,7 @@ const HeroSection = memo(function HeroSection({
         {/* Headline */}
         <motion.h1
           {...variants.headline}
-          className="text-[clamp(2.4rem,5vw,4.8rem)] font-extrabold tracking-[0.05em] uppercase leading-[1.05] font-display mb-16 sm:mb-18"
+          className="text-[clamp(2.4rem,5vw,4.8rem)] font-extrabold tracking-[0.05em] uppercase leading-[1.05] font-display mb-16 sm:mb-20"
         >
           {validatedData.headline}
         </motion.h1>
@@ -260,7 +260,7 @@ const HeroSection = memo(function HeroSection({
           className="text-[10px] uppercase tracking-[0.25em] text-white/60"
         >
           {validatedData.tagline}
-        </motion.p}
+        </motion.p>
       </div>
     </section>
   )
