@@ -160,16 +160,19 @@ const RackHero = memo<Partial<RackHeroProps>>((props) => {
 
         {/* CTA Buttons */}
         {(primaryCTA || secondaryCTA) && (
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 sm:mb-14">
+          <div className="flex flex-col sm:flex-row gap-5 justify-center items-center mb-12 sm:mb-14">
             {/* Primary CTA */}
             {primaryCTA && (
               <motion.button
                 onClick={() => handleLinkClick(primaryCTA.href)}
                 initial={{ scale: 1 }}
-                whileHover={{ scale: shouldReduceMotion ? 1 : 1.02 }}
-                whileTap={{ scale: 0.98 }}
+                whileHover={shouldReduceMotion ? {} : {
+                  scale: 1.05,
+                  boxShadow: '0 10px 30px rgba(220,38,38,0.55)'
+                }}
+                whileTap={shouldReduceMotion ? {} : { scale: 0.96 }}
                 transition={{ duration: ANIMATION_CONSTANTS.DURATION_FAST }}
-                className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-full text-[10px] sm:text-xs uppercase tracking-[0.18em] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2 focus:ring-offset-black font-inter"
+                className="bg-accent text-white px-10 py-4 rounded-xl text-[11px] font-semibold uppercase tracking-[0.2em] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-black font-inter"
                 aria-label={primaryCTA.text}
               >
                 {primaryCTA.text}
@@ -181,10 +184,14 @@ const RackHero = memo<Partial<RackHeroProps>>((props) => {
               <motion.button
                 onClick={() => handleLinkClick(secondaryCTA.href)}
                 initial={{ scale: 1 }}
-                whileHover={{ scale: shouldReduceMotion ? 1 : 1.02 }}
-                whileTap={{ scale: 0.98 }}
+                whileHover={shouldReduceMotion ? {} : {
+                  scale: 1.05,
+                  backgroundColor: 'rgba(255,255,255,0.14)',
+                  borderColor: 'rgba(255,255,255,0.9)'
+                }}
+                whileTap={shouldReduceMotion ? {} : { scale: 0.96 }}
                 transition={{ duration: ANIMATION_CONSTANTS.DURATION_FAST }}
-                className="border border-red-500 text-red-400 hover:bg-red-600 hover:text-white hover:border-red-600 px-8 py-3 rounded-full text-[10px] sm:text-xs uppercase tracking-[0.18em] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-black font-inter"
+                className="border border-white/25 bg-white/10 text-white backdrop-blur-md px-10 py-4 rounded-xl text-[11px] font-semibold uppercase tracking-[0.2em] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black font-inter"
                 aria-label={secondaryCTA.text}
               >
                 {secondaryCTA.text}
