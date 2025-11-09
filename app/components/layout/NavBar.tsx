@@ -1,7 +1,7 @@
 'use client'
 
 import { memo, useState, useEffect, useCallback } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, useAnimation } from 'framer-motion'
 import Image from 'next/image'
 import { z } from 'zod'
 
@@ -12,7 +12,7 @@ import { z } from 'zod'
 const NavItemSchema = z.object({
   label: z.string().min(1),
   href: z.string().regex(/^#[a-z-]+$/),
-  id: z.string().min(1)
+  id: z.string().min(1),
 })
 
 interface NavBarProps {
@@ -31,7 +31,7 @@ const DEFAULT_NAV_ITEMS = [
   { label: 'Footplate', href: '#footplate', id: 'footplate' },
   { label: 'Technology', href: '#technology', id: 'technology' },
   { label: 'About', href: '#about', id: 'about' },
-  { label: 'Contact', href: '#contact', id: 'contact' }
+  { label: 'Contact', href: '#contact', id: 'contact' },
 ]
 
 const SCROLL_THRESHOLD = 100
@@ -44,57 +44,54 @@ const INTERSECTION_THRESHOLD = 0.5
 const NavBar = memo(function NavBar({
   brandText = DEFAULT_BRAND_TEXT,
   navItems = DEFAULT_NAV_ITEMS,
-  className = ''
+  className = '',
 }: NavBarProps) {
-  // State
   const [isScrolled, setIsScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState('')
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const controls = useAnimation()
 
   // Validate props
   const validatedItems = z.array(NavItemSchema).parse(navItems)
 
   // ============================================================================
-  // SCROLL DETECTION
+  // SCROLL DETECTION (logo animation trigger)
   // ============================================================================
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > SCROLL_THRESHOLD)
-    }
-
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    handleScroll() // Check initial state
-
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  // ============================================================================
-  // INTERSECTION OBSERVER FOR ACTIVE SECTIONS
-  // ============================================================================
-
-  useEffect(() => {
-    const observerOptions = {
-      rootMargin: '-20% 0px -70% 0px',
-      threshold: INTERSECTION_THRESHOLD
-    }
-
-    const observerCallback: IntersectionObserverCallback = (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id)
-        }
+      const scrolled = window.scrollY > SCROLL_THRESHOLD
+      setIsScrolled(scrolled)
+      controls.start({
+        scale: scrolled ? 0.85 : 1,
+        opacity: scrolled ? 0.9 : 1,
+        transition: { duration: 0.4, ease: 'easeOut' },
       })
     }
 
-    const observer = new IntersectionObserver(observerCallback, observerOptions)
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll()
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [controls])
 
-    // Observe all sections
+  // ============================================================================
+  // INTERSECTION OBSERVER (Active Section Tracking)
+  // ============================================================================
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveSection(entry.target.id)
+        })
+      },
+      { rootMargin: '-20% 0px -70% 0px', threshold: INTERSECTION_THRESHOLD }
+    )
+
     validatedItems.forEach(({ id }) => {
-      const element = document.getElementById(id)
-      if (element) observer.observe(element)
+      const el = document.getElementById(id)
+      if (el) observer.observe(el)
     })
-
     return () => observer.disconnect()
   }, [validatedItems])
 
@@ -106,18 +103,13 @@ const NavBar = memo(function NavBar({
     setIsMobileMenuOpen((prev) => !prev)
   }, [])
 
-  const closeMobileMenu = useCallback(() => {
-    setIsMobileMenuOpen(false)
-  }, [])
+  const closeMobileMenu = useCallback(() => setIsMobileMenuOpen(false), [])
 
   const handleLinkClick = useCallback(
     (href: string) => {
       closeMobileMenu()
-      // Smooth scroll to section
       const element = document.querySelector(href)
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      }
+      if (element) element.scrollIntoView({ behavior: 'smooth', block: 'start' })
     },
     [closeMobileMenu]
   )
@@ -132,26 +124,18 @@ const NavBar = memo(function NavBar({
     [handleLinkClick]
   )
 
-  // Close mobile menu on escape
+  // Escape Key
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && isMobileMenuOpen) {
-        closeMobileMenu()
-      }
+      if (e.key === 'Escape' && isMobileMenuOpen) closeMobileMenu()
     }
-
     document.addEventListener('keydown', handleEscape)
     return () => document.removeEventListener('keydown', handleEscape)
   }, [isMobileMenuOpen, closeMobileMenu])
 
-  // Prevent body scroll when mobile menu is open
+  // Lock Scroll on Mobile Menu
   useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = ''
-    }
-
+    document.body.style.overflow = isMobileMenuOpen ? 'hidden' : ''
     return () => {
       document.body.style.overflow = ''
     }
@@ -172,21 +156,22 @@ const NavBar = memo(function NavBar({
           Skip to main content
         </a>
 
-        {/* Glassmorphic Background with Scroll Darkening */}
+        {/* Gradient + Blur */}
         <div
           className={`pointer-events-none absolute inset-0 bg-gradient-to-b transition-all duration-500 ${
             isScrolled
-              ? 'from-black/80 via-black/60 to-black/20 backdrop-blur-lg'
+              ? 'from-black/90 via-black/70 to-black/20 backdrop-blur-xl'
               : 'from-black/40 via-black/10 to-transparent backdrop-blur-md'
           }`}
         />
 
+        {/* Main Nav */}
         <nav
           className="relative z-10 mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8"
           aria-label="Main navigation"
         >
-          {/* Brand Logo */}
-          <a
+          {/* Brand Logo (Animated) */}
+          <motion.a
             href="#hero"
             onClick={(e) => {
               e.preventDefault()
@@ -194,16 +179,17 @@ const NavBar = memo(function NavBar({
               closeMobileMenu()
             }}
             className="relative flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2 focus-visible:ring-offset-black rounded"
+            animate={controls}
           >
             <Image
               src="/exiqx-logo.png"
               alt="ExIQx Performance"
-              width={210}
-              height={60}
+              width={260}
+              height={80}
               priority
-              className="h-12 w-auto"
+              className="h-14 sm:h-16 w-auto transition-all duration-500"
             />
-          </a>
+          </motion.a>
 
           {/* Desktop Links */}
           <div className="hidden gap-8 text-[11px] font-medium uppercase tracking-[0.18em] md:flex">
@@ -217,12 +203,13 @@ const NavBar = memo(function NavBar({
                 }}
                 onKeyDown={(e) => handleKeyDown(e, href)}
                 aria-current={activeSection === id ? 'page' : undefined}
-                className={`relative px-2 py-1 transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2 focus-visible:ring-offset-black rounded ${
-                  activeSection === id ? 'text-white' : 'text-white/60 hover:text-white/90'
+                className={`relative px-2 py-1 transition-colors duration-300 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
+                  activeSection === id
+                    ? 'text-white'
+                    : 'text-white/60 hover:text-white/90'
                 }`}
               >
                 {label}
-                {/* Active indicator */}
                 {activeSection === id && (
                   <motion.div
                     layoutId="activeIndicator"
@@ -239,40 +226,25 @@ const NavBar = memo(function NavBar({
           {/* Mobile Menu Button */}
           <button
             onClick={toggleMobileMenu}
-            aria-label={isMobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={isMobileMenuOpen}
             aria-controls="mobile-menu"
             className="relative z-50 flex h-10 w-10 items-center justify-center rounded text-white/90 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2 focus-visible:ring-offset-black md:hidden"
           >
             <div className="relative w-6 h-5 flex flex-col justify-between">
-              {/* Top line */}
               <motion.span
                 className="block h-[2px] w-full bg-current origin-center"
-                animate={
-                  isMobileMenuOpen
-                    ? { rotate: 45, y: 9 }
-                    : { rotate: 0, y: 0 }
-                }
+                animate={isMobileMenuOpen ? { rotate: 45, y: 9 } : { rotate: 0, y: 0 }}
                 transition={{ duration: 0.3, ease: 'easeInOut' }}
               />
-              {/* Middle line */}
               <motion.span
                 className="block h-[2px] w-full bg-current"
-                animate={
-                  isMobileMenuOpen
-                    ? { opacity: 0, x: -20 }
-                    : { opacity: 1, x: 0 }
-                }
+                animate={isMobileMenuOpen ? { opacity: 0, x: -20 } : { opacity: 1, x: 0 }}
                 transition={{ duration: 0.2 }}
               />
-              {/* Bottom line */}
               <motion.span
                 className="block h-[2px] w-full bg-current origin-center"
-                animate={
-                  isMobileMenuOpen
-                    ? { rotate: -45, y: -9 }
-                    : { rotate: 0, y: 0 }
-                }
+                animate={isMobileMenuOpen ? { rotate: -45, y: -9 } : { rotate: 0, y: 0 }}
                 transition={{ duration: 0.3, ease: 'easeInOut' }}
               />
             </div>
@@ -284,7 +256,6 @@ const NavBar = memo(function NavBar({
       <AnimatePresence>
         {isMobileMenuOpen && (
           <>
-            {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -295,7 +266,6 @@ const NavBar = memo(function NavBar({
               aria-hidden="true"
             />
 
-            {/* Menu Panel */}
             <motion.nav
               id="mobile-menu"
               initial={{ x: '100%' }}
@@ -306,7 +276,6 @@ const NavBar = memo(function NavBar({
               aria-label="Mobile navigation"
             >
               <div className="flex flex-col h-full pt-24 px-6">
-                {/* Mobile Links */}
                 <div className="flex flex-col gap-6">
                   {validatedItems.map(({ label, href, id }, index) => (
                     <motion.a
@@ -329,7 +298,6 @@ const NavBar = memo(function NavBar({
                       }`}
                     >
                       {label}
-                      {/* Active indicator for mobile */}
                       {activeSection === id && (
                         <motion.div
                           className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-red-600 rounded-r"
@@ -343,7 +311,7 @@ const NavBar = memo(function NavBar({
                   ))}
                 </div>
 
-                {/* Mobile Menu Footer */}
+                {/* Mobile Footer */}
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
