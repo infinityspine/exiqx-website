@@ -1,45 +1,35 @@
-import type { Metadata } from "next"
-import { Geist, Geist_Mono } from "next/font/google"
-import "./globals.css"
-import NavBar from "./components/layout/NavBar"
-import Footer from "./components/layout/Footer"
+// app/layout.tsx
+import type { Metadata } from 'next'
+import { Inter, Montserrat } from 'next/font/google'
+import NavBar from '@/components/layout/NavBar'
+import Footer from '@/components/layout/Footer'
+import './globals.css'
 
-// Fonts
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const inter = Inter({ 
+  subsets: ['latin'],
+  variable: '--font-inter',
 })
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const montserrat = Montserrat({ 
+  subsets: ['latin'],
+  variable: '--font-montserrat',
 })
 
-// Metadata
 export const metadata: Metadata = {
-  title: "ExIQx Performance",
-  description:
-    "Biomechanical athletic equipment engineered for elite performance and injury prevention.",
+  title: 'ExIQx Performance',
+  description: 'Elite biomechanical athletic equipment',
 }
 
-// Root Layout
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode
-}>) {
+}) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white`}
-      >
-        {/* Global Nav */}
+    <html lang="en" className={`${inter.variable} ${montserrat.variable}`}>
+      <body className="bg-black text-white antialiased">
         <NavBar />
-
-        {/* Main Content */}
-        <main className="pt-20">{children}</main>
-
-        {/* Global Footer */}
+        {children}
         <Footer />
       </body>
     </html>
