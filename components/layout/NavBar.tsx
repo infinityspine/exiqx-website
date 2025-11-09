@@ -34,7 +34,6 @@ const MENU_CLOSE_DELAY = 300
 interface DesktopNavItemProps {
   label: string
   href: string
-  id: string
   isActive: boolean
   onNavigate: (href: string) => void
   onKeyDown: (e: React.KeyboardEvent, href: string) => void
@@ -43,14 +42,12 @@ interface DesktopNavItemProps {
 const DesktopNavItem = memo(function DesktopNavItem({
   label,
   href,
-  id,
   isActive,
   onNavigate,
   onKeyDown,
 }: DesktopNavItemProps) {
   return (
     
-      key={id}
       href={href}
       onClick={(e) => {
         e.preventDefault()
@@ -80,7 +77,6 @@ const DesktopNavItem = memo(function DesktopNavItem({
 interface MobileNavItemProps {
   label: string
   href: string
-  id: string
   index: number
   isActive: boolean
   onNavigate: (href: string) => void
@@ -90,7 +86,6 @@ interface MobileNavItemProps {
 const MobileNavItem = memo(function MobileNavItem({
   label,
   href,
-  id,
   index,
   isActive,
   onNavigate,
@@ -98,7 +93,6 @@ const MobileNavItem = memo(function MobileNavItem({
 }: MobileNavItemProps) {
   return (
     <motion.a
-      key={id}
       href={href}
       onClick={(e) => {
         e.preventDefault()
@@ -253,7 +247,6 @@ const NavBar = memo(function NavBar({
                 key={item.id}
                 label={item.label}
                 href={item.href}
-                id={item.id}
                 isActive={activeSection === item.id}
                 onNavigate={handleNavigation}
                 onKeyDown={handleKeyDown}
@@ -318,7 +311,6 @@ const NavBar = memo(function NavBar({
                       key={item.id}
                       label={item.label}
                       href={item.href}
-                      id={item.id}
                       index={index}
                       isActive={activeSection === item.id}
                       onNavigate={handleNavigation}
