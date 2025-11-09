@@ -22,7 +22,7 @@ export default function GHDRetrofitPage() {
           text: 'Explore Specs',
           href: '#specs',
         }}
-        backgroundImage="/ghd-retrofit-hero.jpg"
+        backgroundImage="/rack-mounted-hero.jpg"
         showShimmer={false}
       />
 
