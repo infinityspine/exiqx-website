@@ -44,7 +44,6 @@ const NavBar = memo(function NavBar({
 
   const validatedItems = z.array(NavItemSchema).parse(navItems)
 
-  // Scroll-based logo scaling
   useEffect(() => {
     const handleScroll = () => {
       const scrolled = window.scrollY > SCROLL_THRESHOLD
@@ -61,7 +60,6 @@ const NavBar = memo(function NavBar({
     return () => window.removeEventListener('scroll', handleScroll)
   }, [controls])
 
-  // Active section tracking
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -172,7 +170,9 @@ const NavBar = memo(function NavBar({
                     e.preventDefault()
                     handleNavigation(href)
                   }}
-                  onKeyDown={(e) => handleKeyDown(e, href)}
+                  onKeyDown={(e) => {
+                    handleKeyDown(e, href)
+                  }}
                   aria-current={isActive ? 'page' : undefined}
                   className={`relative px-2 py-1 transition-colors duration-300 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
                     isActive
@@ -259,7 +259,9 @@ const NavBar = memo(function NavBar({
                           e.preventDefault()
                           handleNavigation(href)
                         }}
-                        onKeyDown={(e) => handleKeyDown(e, href)}
+                        onKeyDown={(e) => {
+                          handleKeyDown(e, href)
+                        }}
                         aria-current={isActive ? 'page' : undefined}
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
