@@ -22,7 +22,7 @@ export default function FreestandingPage() {
           text: 'Explore Specs',
           href: '#specs',
         }}
-        backgroundImage="/freestanding-hero.jpg"
+        backgroundImage="/rack-mounted-hero.jpg"
         showShimmer={false}
       />
 
