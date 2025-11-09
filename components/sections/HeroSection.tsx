@@ -219,7 +219,7 @@ const HeroSection = memo(function HeroSection({
         {/* Headline */}
         <motion.h1
           {...variants.headline}
-          className="text-[clamp(2.4rem,5vw,4.8rem)] font-extrabold tracking-[0.05em] uppercase leading-[1.05] font-display"
+          className="text-[clamp(2.4rem,5vw,4.8rem)] font-extrabold tracking-[0.05em] uppercase leading-[1.05] font-display mb-16 sm:mb-18"
         >
           {validatedData.headline}
         </motion.h1>
@@ -227,7 +227,8 @@ const HeroSection = memo(function HeroSection({
         {/* Subheadline */}
         <motion.p
           {...variants.subheadline}
-          className="mt-6 text-[clamp(1.05rem,1.6vw,1.25rem)] font-medium text-white/85"
+          className="text-[clamp(1.05rem,1.6vw,1.25rem)] font-medium text-white/85 leading-[1.8] max-w-2xl"
+          style={{ marginBottom: 'clamp(3.5rem, 9vw, 5rem)' }}
         >
           {validatedData.subheadline}{' '}
           {validatedData.subheadlineAccent && (
@@ -240,7 +241,7 @@ const HeroSection = memo(function HeroSection({
         {/* CTA Buttons */}
         <motion.div
           {...variants.cta}
-          className="mt-10 flex flex-wrap items-center justify-center gap-5"
+          className="flex flex-wrap items-center justify-center gap-5 mb-12 sm:mb-14"
           role="group"
           aria-label="Call to action buttons"
         >
@@ -256,10 +257,10 @@ const HeroSection = memo(function HeroSection({
         {/* Tagline */}
         <motion.p
           {...variants.tagline}
-          className="mt-10 text-[10px] uppercase tracking-[0.25em] text-white/60"
+          className="text-[10px] uppercase tracking-[0.25em] text-white/60"
         >
           {validatedData.tagline}
-        </motion.p>
+        </motion.p}
       </div>
     </section>
   )
