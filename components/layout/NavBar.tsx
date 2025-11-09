@@ -158,8 +158,7 @@ const NavBar = memo(function NavBar({
           </motion.a>
 
           <div className="hidden gap-8 text-[11px] font-medium uppercase tracking-[0.18em] md:flex">
-            {validatedItems.map((item) => {
-              const { label, href, id } = item
+            {validatedItems.map(({ label, href, id }) => {
               const isActive = activeSection === id
               
               return (
@@ -247,8 +246,7 @@ const NavBar = memo(function NavBar({
             >
               <div className="flex flex-col h-full pt-24 px-6">
                 <div className="flex flex-col gap-6">
-                  {validatedItems.map((item, index) => {
-                    const { label, href, id } = item
+                  {validatedItems.map(({ label, href, id }, index) => {
                     const isActive = activeSection === id
                     
                     return (
