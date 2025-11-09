@@ -136,7 +136,7 @@ const RackHero = memo<Partial<RackHeroProps>>((props) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.6 }}
-            className="text-xs tracking-[0.2em] text-white/50 uppercase mb-4 font-inter"
+            className="text-xs tracking-[0.2em] text-white/50 uppercase mb-6 font-inter"
           >
             {eyebrow}
           </motion.p>
@@ -145,19 +145,19 @@ const RackHero = memo<Partial<RackHeroProps>>((props) => {
         {/* Headline */}
         <h1
           id="hero-heading"
-          className="text-5xl sm:text-7xl font-extrabold tracking-[0.05em] text-white mb-6 font-montserrat"
+          className="text-5xl sm:text-7xl font-extrabold tracking-[0.05em] text-white leading-tight mb-8 font-montserrat"
         >
           {headline}
         </h1>
 
         {/* Subheadline */}
-        <p className="text-sm sm:text-base text-white/80 max-w-xl mb-8 font-inter">
+        <p className="text-sm sm:text-base text-white/70 max-w-xl leading-relaxed mb-10 font-inter">
           {subheadline}
         </p>
 
         {/* CTA Buttons */}
         {(primaryCTA || secondaryCTA) && (
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8 sm:mb-10">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 sm:mb-14">
             {/* Primary CTA */}
             {primaryCTA && (
               <motion.button
