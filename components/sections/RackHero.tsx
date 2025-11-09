@@ -128,7 +128,7 @@ const RackHero = memo<Partial<RackHeroProps>>((props) => {
         initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: ANIMATION_CONSTANTS.DURATION_MEDIUM, delay: 0.3 }}
-        className="relative z-10 max-w-5xl px-4 sm:px-6 lg:px-8"
+        className="relative z-10 flex flex-col items-center justify-center text-center px-6 sm:px-8 lg:px-12"
       >
         {/* Optional Eyebrow */}
         {eyebrow && (
@@ -136,7 +136,7 @@ const RackHero = memo<Partial<RackHeroProps>>((props) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.6 }}
-            className="mb-6 text-xs font-medium uppercase tracking-[0.2em] text-white/50 font-inter"
+            className="text-xs tracking-[0.2em] text-white/50 uppercase mb-4 font-inter"
           >
             {eyebrow}
           </motion.p>
@@ -145,19 +145,19 @@ const RackHero = memo<Partial<RackHeroProps>>((props) => {
         {/* Headline */}
         <h1
           id="hero-heading"
-          className="mb-6 sm:mb-8 text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl font-montserrat"
+          className="text-5xl sm:text-7xl font-extrabold tracking-[0.05em] text-white mb-6 font-montserrat"
         >
           {headline}
         </h1>
 
         {/* Subheadline */}
-        <p className="mx-auto mb-8 sm:mb-12 max-w-[640px] text-sm sm:text-base leading-relaxed text-white/80 font-inter">
+        <p className="text-sm sm:text-base text-white/80 max-w-xl mb-8 font-inter">
           {subheadline}
         </p>
 
         {/* CTA Buttons */}
         {(primaryCTA || secondaryCTA) && (
-          <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-4 justify-center items-center mb-8 sm:mb-10">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8 sm:mb-10">
             {/* Primary CTA */}
             {primaryCTA && (
               <motion.button
@@ -166,7 +166,7 @@ const RackHero = memo<Partial<RackHeroProps>>((props) => {
                 whileHover={{ scale: shouldReduceMotion ? 1 : 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 transition={{ duration: ANIMATION_CONSTANTS.DURATION_FAST }}
-                className="rounded-full bg-red-600 px-8 py-3 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.18em] text-white transition-colors duration-300 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2 focus:ring-offset-black font-inter"
+                className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-full text-[10px] sm:text-xs uppercase tracking-[0.18em] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2 focus:ring-offset-black font-inter"
                 aria-label={primaryCTA.text}
               >
                 {primaryCTA.text}
@@ -181,7 +181,7 @@ const RackHero = memo<Partial<RackHeroProps>>((props) => {
                 whileHover={{ scale: shouldReduceMotion ? 1 : 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 transition={{ duration: ANIMATION_CONSTANTS.DURATION_FAST }}
-                className="rounded-full border border-red-500 text-red-400 px-8 py-3 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.18em] transition-all duration-300 hover:bg-red-600 hover:text-white hover:border-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-black font-inter"
+                className="border border-red-500 text-red-400 hover:bg-red-600 hover:text-white hover:border-red-600 px-8 py-3 rounded-full text-[10px] sm:text-xs uppercase tracking-[0.18em] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-black font-inter"
                 aria-label={secondaryCTA.text}
               >
                 {secondaryCTA.text}
@@ -196,7 +196,7 @@ const RackHero = memo<Partial<RackHeroProps>>((props) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8, duration: 0.6 }}
-            className="text-[10px] sm:text-xs uppercase tracking-[0.18em] text-white/45 font-inter"
+            className="text-[10px] sm:text-xs tracking-[0.18em] text-white/45 uppercase font-inter"
           >
             {microTagline}
           </motion.p>
