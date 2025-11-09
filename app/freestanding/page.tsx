@@ -1,4 +1,5 @@
 // Test edit to trigger commit
+console.log("✅ Freestanding page edit test");
 "use client"
 import React from "react"
 
