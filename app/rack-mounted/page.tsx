@@ -1,189 +1,128 @@
-'use client'
+// app/rack-mounted/page.tsx
+import type { Metadata } from 'next'
+import RackHero from '@/components/sections/RackHero'
+import RackKeyPoints from '@/components/sections/RackKeyPoints'
+import RackFeatureDetail from '@/components/sections/RackFeatureDetail'
+import RackSpecs from '@/components/sections/RackSpecs'
+import CTASection from '@/components/sections/CTASection'
 
-import { motion } from 'framer-motion'
-import Image from 'next/image'
-import Link from 'next/link'
+export const metadata: Metadata = {
+  title: 'Rack-Mounted Footplates | ExIQx Performance',
+  description: 'Precision-mounted to your squat rack uprights for elite posterior chain loading through the plantar surface.',
+  openGraph: {
+    title: 'Rack-Mounted Footplates | ExIQx Performance',
+    description: 'Elite biomechanical equipment for peak athletic performance.',
+    images: ['/rack-mounted-hero.jpg'],
+  },
+}
 
 export default function RackMountedPage() {
   return (
-    <main className="min-h-screen bg-black text-white overflow-hidden">
-      {/* ================= HERO ================= */}
-      <section className="relative flex flex-col items-center justify-center text-center min-h-screen px-6 overflow-hidden">
-        {/* HERO BACKGROUND IMAGE + OVERLAY */}
-        <motion.div
-          initial={{ opacity: 0, scale: 1.05 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.4, duration: 1 }}
-          className="absolute inset-0 z-0"
-        >
-          <Image
-            src="/rack-mounted-hero.jpg"
-            alt="ExIQx Rack-Mounted Footplate"
-            fill
-            priority
-            className="object-cover object-center"
-            sizes="100vw"
-            quality={90}
-          />
-          {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/60 to-black/95" />
-        </motion.div>
+    <main className="bg-[#0A0A0A]">
+      {/* Elite Hero with Parallax + Breathing Animation */}
+      <RackHero
+        headline="RACK-MOUNTED FOOTPLATE"
+        subheadline="Precision-mounted to your squat rack uprights for elite posterior chain loading through the plantar surface."
+        tagline="THE FLAGSHIP EXIQX CONFIGURATION"
+        primaryCTA={{
+          text: 'Join Waitlist',
+          href: '/#waitlist',
+        }}
+        secondaryCTA={{
+          text: 'Learn More',
+          href: '#key-points',
+        }}
+        backgroundImage="/rack-mounted-hero.jpg"
+        showShimmer={true}
+      />
 
-        {/* HERO CONTENT */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="relative z-10"
-        >
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6">
-            Rack-Mounted Footplate
-          </h1>
-          <p className="max-w-2xl mx-auto text-lg text-white/90 leading-relaxed">
-            The flagship ExIQx configuration — precision-mounted to your squat rack uprights
-            for elite posterior chain loading through the plantar surface.
-          </p>
-          <div className="mt-10 flex justify-center gap-4">
-            <Link
-              href="/#waitlist"
-              className="rounded-full border border-white/20 bg-white/10 px-8 py-3 text-sm uppercase tracking-[0.15em] hover:bg-white hover:text-black transition-all duration-300"
-            >
-              Join Waitlist
-            </Link>
-            <Link
-              href="/#technology"
-              className="rounded-full border border-white/20 px-8 py-3 text-sm uppercase tracking-[0.15em] hover:border-red-600 hover:text-red-500 transition-all duration-300"
-            >
-              Learn More
-            </Link>
-          </div>
-        </motion.div>
+      {/* Product Benefits Grid - Elite Component */}
+      <section id="key-points" className="scroll-mt-20">
+        <RackKeyPoints
+          sectionTitle="ENGINEERED FOR EXCELLENCE"
+          sectionSubtitle="Four pillars of biomechanical superiority"
+          keyPoints={[
+            {
+              icon: 'ruler',
+              headline: 'Precision-Mounted Stability',
+              description: 'Anchors securely to 3"×3" uprights using dual hitch-pin brackets. No wobble, no flex — just pure force transfer.',
+            },
+            {
+              icon: 'zap',
+              headline: 'Universal Compatibility',
+              description: 'Fits all standard 43" rack widths (Rogue, Sorinex, Titan). Tool-free locking system with hitch pin or detent.',
+            },
+            {
+              icon: 'award',
+              headline: 'Biomechanical Alignment',
+              description: 'Engineered around ~38° plantarflexion alignment, mirroring natural closed-chain vector of sprinting.',
+            },
+            {
+              icon: 'shield',
+              headline: 'Built to Last',
+              description: '11-gauge steel with powder-coated finish. 30 lbs assembled. Designed for commercial gym durability.',
+            },
+          ]}
+        />
       </section>
 
-      {/* ================= FEATURE SECTION ================= */}
-      <section className="relative py-28 px-6 border-t border-white/10">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <Image
-              src="/rack-mounted-side.jpg"
-              alt="Rack-Mounted Footplate Side View"
-              width={800}
-              height={800}
-              className="rounded-2xl border border-white/10 object-cover"
-            />
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl font-bold mb-4">Precision-Mounted Stability</h2>
-            <p className="text-white/70 leading-relaxed mb-6">
-              The rack-mounted footplate anchors securely to 3"×3" uprights using dual
-              hitch-pin brackets, ensuring a rigid, stable interface for high-force 
-              posterior chain loading. No wobble, no flex — just pure force transfer.
-            </p>
-            <ul className="space-y-3 text-white/70 text-sm">
-              <li>• Fits all standard 43" rack widths (Rogue, Sorinex, Titan)</li>
-              <li>• Dual peg + U-collar attachment for rapid setup</li>
-              <li>• Tool-free locking system with hitch pin or detent</li>
-              <li>• 10°–70° plantarflexion adjustment arc</li>
-            </ul>
-          </motion.div>
-        </div>
+      {/* Feature Detail Section */}
+      <section id="features" className="scroll-mt-20">
+        <RackFeatureDetail
+          title="Precision-Mounted Stability"
+          description="The rack-mounted footplate anchors securely to 3"×3" uprights using dual hitch-pin brackets, ensuring a rigid, stable interface for high-force posterior chain loading."
+          features={[
+            'Fits all standard 43" rack widths (Rogue, Sorinex, Titan)',
+            'Dual peg + U-collar attachment for rapid setup',
+            'Tool-free locking system with hitch pin or detent',
+            '10°–70° plantarflexion adjustment arc',
+          ]}
+          imageSrc="/rack-mounted-side.jpg"
+          imageAlt="Rack-Mounted Footplate Side View"
+        />
       </section>
 
-      {/* ================= BIOMECHANICAL SECTION ================= */}
-      <section className="relative py-28 px-6 border-t border-white/10">
-        <div className="max-w-5xl mx-auto text-center">
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-3xl sm:text-4xl font-bold mb-6"
-          >
+      {/* Biomechanics Section */}
+      <section id="biomechanics" className="scroll-mt-20 py-24 lg:py-32 bg-[#0A0A0A] border-t border-red-600/20">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 font-montserrat">
             Aligned with Human Biomechanics
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1, duration: 0.8 }}
-            viewport={{ once: true }}
-            className="max-w-3xl mx-auto text-white/70 leading-relaxed text-lg"
-          >
+          </h2>
+          <p className="max-w-3xl mx-auto text-gray-300 text-lg leading-relaxed font-inter">
             The rack-mounted system is engineered around a ~38° plantarflexion alignment, 
             mirroring the natural closed-chain vector of sprinting and acceleration. 
             This geometry targets the soleus, gastrocnemius, and hamstrings through 
             their full length-tension curve — enabling concentric, eccentric, and 
             isometric loading without posterior ankle restraint.
-          </motion.p>
+          </p>
         </div>
       </section>
 
-      {/* ================= SPECS SECTION ================= */}
-      <section className="relative py-28 px-6 border-t border-white/10">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl font-bold mb-4">Technical Specifications</h2>
-            <ul className="space-y-3 text-white/70 text-sm leading-relaxed">
-              <li>• Footplate Width: 20–24" (optional lateral stabilizers)</li>
-              <li>• Adjustment Plate Radius: ~4" with 15° hole spacing</li>
-              <li>• Angle Range: 10°–70° plantarflexion</li>
-              <li>• Material: 11-gauge steel with powder-coated finish</li>
-              <li>• Weight: ~30 lbs assembled</li>
-              <li>• Mount Type: Dual-bracket rack interface (peg + collar)</li>
-              <li>• Tool-Free Adjustability: Hitch pin, detent, or twist-lock collar</li>
-            </ul>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <Image
-              src="/rack-mounted-detail.jpg"
-              alt="Rack-Mounted Footplate Detail"
-              width={800}
-              height={800}
-              className="rounded-2xl border border-white/10 object-cover"
-            />
-          </motion.div>
-        </div>
+      {/* Technical Specs */}
+      <section id="specs" className="scroll-mt-20">
+        <RackSpecs
+          title="Technical Specifications"
+          specs={[
+            { label: 'Footplate Width', value: '20–24" (optional lateral stabilizers)' },
+            { label: 'Adjustment Plate Radius', value: '~4" with 15° hole spacing' },
+            { label: 'Angle Range', value: '10°–70° plantarflexion' },
+            { label: 'Material', value: '11-gauge steel with powder-coated finish' },
+            { label: 'Weight', value: '~30 lbs assembled' },
+            { label: 'Mount Type', value: 'Dual-bracket rack interface' },
+            { label: 'Adjustability', value: 'Tool-free (hitch pin, detent, twist-lock)' },
+          ]}
+          imageSrc="/rack-mounted-detail.jpg"
+          imageAlt="Rack-Mounted Footplate Detail"
+        />
       </section>
 
-      {/* ================= CTA ================= */}
-      <section className="py-24 text-center bg-gradient-to-b from-black via-black/80 to-red-950/20 border-t border-white/10">
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-4xl font-bold mb-6"
-        >
-          The Foundation of the ExIQx System
-        </motion.h2>
-        <Link
-          href="/#waitlist"
-          className="rounded-full bg-red-600 px-10 py-4 text-sm uppercase tracking-[0.15em] font-semibold hover:bg-red-700 transition-all duration-300"
-        >
-          Join Waitlist
-        </Link>
-      </section>
+      {/* Call to Action */}
+      <CTASection
+        headline="The Foundation of the ExIQx System"
+        description="Join the waitlist to be first in line when we launch."
+        ctaText="Join Waitlist"
+        ctaHref="/#waitlist"
+      />
     </main>
   )
 }
