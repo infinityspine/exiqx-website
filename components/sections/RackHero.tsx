@@ -1,9 +1,9 @@
 'use client'
 
-import React, { memo } from 'react'
+import React, { memo, useRef } from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
-import { motion, useReducedMotion } from 'framer-motion'
+import { motion, useReducedMotion, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion'
 import { z } from 'zod'
 
 // ============================================================================
@@ -18,8 +18,8 @@ const CTAButtonSchema = z.object({
 const RackHeroPropsSchema = z.object({
   headline: z.string().default('RACK-MOUNTED FOOTPLATE'),
   subheadline: z.string().default('Engineered for elite posterior-chain loading through the plantar surface.'),
-  eyebrow: z.string().optional(), // Small text above headline
-  microTagline: z.string().optional(), // Small text below CTAs
+  eyebrow: z.string().optional(),
+  microTagline: z.string().optional(),
   primaryCTA: CTAButtonSchema.optional(),
   secondaryCTA: CTAButtonSchema.optional(),
   backgroundImage: z.string().default('/rack-mounted-hero.jpg'),
@@ -61,6 +61,44 @@ const RackHero = memo<Partial<RackHeroProps>>((props) => {
 
   const router = useRouter()
   const shouldReduceMotion = useReducedMotion()
+  const containerRef = useRef<HTMLElement>(null)
+
+  // Scroll-based parallax
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ['start start', 'end start'],
+  })
+
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '50%'])
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
+  const contentScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95])
+
+  // Mouse parallax (desktop only)
+  const mouseX = useMotionValue(0)
+  const mouseY = useMotionValue(0)
+
+  const springConfig = { damping: 25, stiffness: 150 }
+  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [3, -3]), springConfig)
+  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-3, 3]), springConfig)
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    if (shouldReduceMotion) return
+
+    const rect = e.currentTarget.getBoundingClientRect()
+    const centerX = rect.left + rect.width / 2
+    const centerY = rect.top + rect.height / 2
+    
+    const mouseXPos = (e.clientX - centerX) / (rect.width / 2)
+    const mouseYPos = (e.clientY - centerY) / (rect.height / 2)
+
+    mouseX.set(mouseXPos)
+    mouseY.set(mouseYPos)
+  }
+
+  const handleMouseLeave = () => {
+    mouseX.set(0)
+    mouseY.set(0)
+  }
 
   const handleLinkClick = (href: string) => {
     if (href.startsWith('#')) {
@@ -85,22 +123,31 @@ const RackHero = memo<Partial<RackHeroProps>>((props) => {
 
   return (
     <section
+      ref={containerRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
       className={`relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-black text-center ${className}`}
       aria-labelledby="hero-heading"
+      style={{ perspective: '1000px' }}
     >
-      {/* Background Image */}
+      {/* Background Image with Parallax */}
       <motion.div
         initial={{ opacity: 0, scale: shouldReduceMotion ? 1 : 1.1 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: ANIMATION_CONSTANTS.DURATION_SLOW }}
-        className="absolute inset-0 z-0"
+        style={{
+          y: shouldReduceMotion ? 0 : backgroundY,
+          rotateX: shouldReduceMotion ? 0 : rotateX,
+          rotateY: shouldReduceMotion ? 0 : rotateY,
+        }}
+        className="absolute inset-0 z-0 will-change-transform"
       >
         <Image
           src={backgroundImage}
           alt=""
           fill
           priority
-          className="object-cover object-center"
+          className="object-cover object-center scale-110"
           sizes="100vw"
           quality={90}
         />
@@ -123,11 +170,15 @@ const RackHero = memo<Partial<RackHeroProps>>((props) => {
         )}
       </motion.div>
 
-      {/* Hero Content */}
+      {/* Hero Content with Fade-out */}
       <motion.div
         initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: ANIMATION_CONSTANTS.DURATION_MEDIUM, delay: 0.3 }}
+        style={{
+          opacity: shouldReduceMotion ? 1 : contentOpacity,
+          scale: shouldReduceMotion ? 1 : contentScale,
+        }}
         className="relative z-10 flex flex-col items-center justify-center text-center px-6 sm:px-8 lg:px-12"
       >
         {/* Optional Eyebrow */}
@@ -220,6 +271,7 @@ const RackHero = memo<Partial<RackHeroProps>>((props) => {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.6 }}
+          style={{ opacity: contentOpacity }}
         >
           <motion.div
             className="flex h-8 w-5 items-start justify-center rounded-full border-2 border-white/30 p-1"

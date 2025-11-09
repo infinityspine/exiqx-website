@@ -1,7 +1,7 @@
 'use client'
 
-import { memo } from 'react'
-import { motion, useReducedMotion } from 'framer-motion'
+import { memo, useRef } from 'react'
+import { motion, useReducedMotion, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion'
 import Image from 'next/image'
 import { z } from 'zod'
 
@@ -40,7 +40,7 @@ interface HeroSectionProps {
 }
 
 // ============================================================================
-// CONSTANTS - Zero Duplication
+// CONSTANTS
 // ============================================================================
 
 const DEFAULT_CONTENT = {
@@ -67,12 +67,14 @@ const DEFAULT_CONTENT = {
   ]
 }
 
-// Animation constants - defined once
 const EASE_CUSTOM = [0.16, 1, 0.3, 1] as const
 const DURATION_BASE = 1
 const DURATION_LONG = 1.2
 
-// Animation variants for reduced motion support
+// ============================================================================
+// ANIMATION FUNCTIONS
+// ============================================================================
+
 const createAnimationVariants = (shouldReduce: boolean) => ({
   backgroundImage: {
     initial: shouldReduce ? {} : { opacity: 0, scale: 1.02 },
@@ -101,7 +103,6 @@ const createAnimationVariants = (shouldReduce: boolean) => ({
   }
 })
 
-// Button hover/tap animations (respecting reduced motion)
 const createButtonAnimations = (shouldReduce: boolean) => ({
   primary: {
     whileHover: shouldReduce ? {} : {
@@ -168,10 +169,46 @@ const HeroSection = memo(function HeroSection({
   ctaButtons = DEFAULT_CONTENT.ctaButtons,
   priority = true
 }: HeroSectionProps) {
-  // Detect reduced motion preference
   const shouldReduceMotion = useReducedMotion() || false
+  const containerRef = useRef<HTMLElement>(null)
 
-  // Validate props at runtime
+  // Scroll-based parallax
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ['start start', 'end start'],
+  })
+
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '50%'])
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
+  const contentScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95])
+
+  // Mouse parallax
+  const mouseX = useMotionValue(0)
+  const mouseY = useMotionValue(0)
+
+  const springConfig = { damping: 25, stiffness: 150 }
+  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [3, -3]), springConfig)
+  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-3, 3]), springConfig)
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    if (shouldReduceMotion) return
+
+    const rect = e.currentTarget.getBoundingClientRect()
+    const centerX = rect.left + rect.width / 2
+    const centerY = rect.top + rect.height / 2
+    
+    const mouseXPos = (e.clientX - centerX) / (rect.width / 2)
+    const mouseYPos = (e.clientY - centerY) / (rect.height / 2)
+
+    mouseX.set(mouseXPos)
+    mouseY.set(mouseYPos)
+  }
+
+  const handleMouseLeave = () => {
+    mouseX.set(0)
+    mouseY.set(0)
+  }
+
   const validatedData = HeroSectionSchema.parse({
     id,
     backgroundImage,
@@ -183,19 +220,27 @@ const HeroSection = memo(function HeroSection({
     ctaButtons
   })
 
-  // Get animation variants based on motion preference
   const variants = createAnimationVariants(shouldReduceMotion)
 
   return (
     <section
+      ref={containerRef}
       id={validatedData.id}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
       className="relative flex h-screen items-center justify-center overflow-hidden px-6"
       aria-label="Hero section"
+      style={{ perspective: '1000px' }}
     >
-      {/* Optimized Background Image with Next.js Image */}
+      {/* Background Image with Parallax */}
       <motion.div
         {...variants.backgroundImage}
-        className="pointer-events-none absolute inset-0"
+        style={{
+          y: shouldReduceMotion ? 0 : backgroundY,
+          rotateX: shouldReduceMotion ? 0 : rotateX,
+          rotateY: shouldReduceMotion ? 0 : rotateY,
+        }}
+        className="pointer-events-none absolute inset-0 will-change-transform"
       >
         <Image
           src={validatedData.backgroundImage}
@@ -204,19 +249,24 @@ const HeroSection = memo(function HeroSection({
           priority={priority}
           quality={90}
           sizes="100vw"
-          className="object-cover object-center"
+          className="object-cover object-center scale-110"
         />
       </motion.div>
 
-      {/* Gradient Overlay for Contrast */}
+      {/* Gradient Overlay */}
       <div 
         className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/10 via-black/70 to-black/95"
         aria-hidden="true"
       />
 
-      {/* Content Container */}
-      <div className="relative z-10 flex max-w-5xl flex-col items-center text-center px-4">
-        {/* Headline */}
+      {/* Content with Fade-out */}
+      <motion.div
+        style={{
+          opacity: shouldReduceMotion ? 1 : contentOpacity,
+          scale: shouldReduceMotion ? 1 : contentScale,
+        }}
+        className="relative z-10 flex max-w-5xl flex-col items-center text-center px-4"
+      >
         <motion.h1
           {...variants.headline}
           className="text-[clamp(2.4rem,5vw,4.8rem)] font-extrabold tracking-[0.05em] uppercase leading-[1.05] font-display mb-16 sm:mb-20"
@@ -224,7 +274,6 @@ const HeroSection = memo(function HeroSection({
           {validatedData.headline}
         </motion.h1>
 
-        {/* Subheadline */}
         <motion.p
           {...variants.subheadline}
           className="text-[clamp(1.05rem,1.6vw,1.25rem)] font-medium text-white/85 leading-[1.8] max-w-2xl"
@@ -238,7 +287,6 @@ const HeroSection = memo(function HeroSection({
           )}
         </motion.p>
 
-        {/* CTA Buttons */}
         <motion.div
           {...variants.cta}
           className="flex flex-wrap items-center justify-center gap-5 mb-12 sm:mb-14"
@@ -254,14 +302,13 @@ const HeroSection = memo(function HeroSection({
           ))}
         </motion.div>
 
-        {/* Tagline */}
         <motion.p
           {...variants.tagline}
           className="text-[10px] uppercase tracking-[0.25em] text-white/60"
         >
           {validatedData.tagline}
         </motion.p>
-      </div>
+      </motion.div>
     </section>
   )
 })
