@@ -37,6 +37,7 @@ export default function RackMountedPage() {
           </div>
         </motion.div>
 
+        {/* HERO IMAGE */}
         <motion.div
           initial={{ opacity: 0, scale: 1.05 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -44,10 +45,11 @@ export default function RackMountedPage() {
           className="absolute inset-0 -z-10"
         >
           <Image
-            src="/images/rack-mounted-hero.jpg"
+            src="/rack-mounted-hero.jpg"
             alt="ExIQx Rack-Mounted Footplate"
             fill
-            className="object-cover opacity-25"
+            priority
+            className="object-cover object-center opacity-35 contrast-110 saturate-125"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black via-black/70 to-black" />
         </motion.div>
@@ -63,7 +65,7 @@ export default function RackMountedPage() {
             viewport={{ once: true }}
           >
             <Image
-              src="/images/rack-mounted-side.jpg"
+              src="/rack-mounted-side.jpg"
               alt="Rack-Mounted Footplate Side View"
               width={800}
               height={800}
@@ -149,7 +151,7 @@ export default function RackMountedPage() {
             viewport={{ once: true }}
           >
             <Image
-              src="/images/rack-mounted-detail.jpg"
+              src="/rack-mounted-detail.jpg"
               alt="Rack-Mounted Footplate Detail"
               width={800}
               height={800}
