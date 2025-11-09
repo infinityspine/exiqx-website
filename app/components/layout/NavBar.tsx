@@ -3,11 +3,12 @@
 import { memo, useState, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence, useAnimation } from 'framer-motion'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 import { z } from 'zod'
 
 const NavItemSchema = z.object({
   label: z.string().min(1),
-  href: z.string().regex(/^#[a-z-]+$/),
+  href: z.string().min(1), // allow both '#' and '/' links
   id: z.string().min(1),
 })
 
@@ -19,7 +20,7 @@ interface NavBarProps {
 
 const DEFAULT_BRAND_TEXT = 'EXIQX PERFORMANCE'
 const DEFAULT_NAV_ITEMS = [
-  { label: 'Footplate', href: '#footplate', id: 'footplate' },
+  { label: 'Footplate', href: '/rack-mounted', id: 'footplate' },
   { label: 'Technology', href: '#technology', id: 'technology' },
   { label: 'About', href: '#about', id: 'about' },
   { label: 'Contact', href: '#contact', id: 'contact' },
@@ -37,6 +38,7 @@ const NavBar = memo(function NavBar({
   const [activeSection, setActiveSection] = useState('')
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const controls = useAnimation()
+  const router = useRouter()
 
   const validatedItems = z.array(NavItemSchema).parse(navItems)
 
@@ -57,7 +59,7 @@ const NavBar = memo(function NavBar({
     return () => window.removeEventListener('scroll', handleScroll)
   }, [controls])
 
-  // Active section tracking
+  // Active section tracking for hash-based scrolling
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -68,9 +70,11 @@ const NavBar = memo(function NavBar({
       { rootMargin: '-20% 0px -70% 0px', threshold: INTERSECTION_THRESHOLD }
     )
 
-    validatedItems.forEach(({ id }) => {
-      const el = document.getElementById(id)
-      if (el) observer.observe(el)
+    validatedItems.forEach(({ id, href }) => {
+      if (href.startsWith('#')) {
+        const el = document.getElementById(id)
+        if (el) observer.observe(el)
+      }
     })
     return () => observer.disconnect()
   }, [validatedItems])
@@ -81,23 +85,30 @@ const NavBar = memo(function NavBar({
 
   const closeMobileMenu = useCallback(() => setIsMobileMenuOpen(false), [])
 
-  const handleLinkClick = useCallback(
+  // 🧭 Smart navigation handler (works for both '#' and '/')
+  const handleNavigation = useCallback(
     (href: string) => {
       closeMobileMenu()
-      const element = document.querySelector(href)
-      if (element) element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      if (href.startsWith('#')) {
+        // Smooth scroll for in-page links
+        const element = document.querySelector(href)
+        if (element) element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      } else {
+        // Navigate to another page
+        router.push(href)
+      }
     },
-    [closeMobileMenu]
+    [closeMobileMenu, router]
   )
 
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent, href: string) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault()
-        handleLinkClick(href)
+        handleNavigation(href)
       }
     },
-    [handleLinkClick]
+    [handleNavigation]
   )
 
   // Escape key closes menu
@@ -109,7 +120,7 @@ const NavBar = memo(function NavBar({
     return () => document.removeEventListener('keydown', handleEscape)
   }, [isMobileMenuOpen, closeMobileMenu])
 
-  // Lock scroll when menu open
+  // Lock scroll when mobile menu open
   useEffect(() => {
     document.body.style.overflow = isMobileMenuOpen ? 'hidden' : ''
     return () => {
@@ -125,12 +136,12 @@ const NavBar = memo(function NavBar({
           className="relative z-10 mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8"
           aria-label="Main navigation"
         >
-          {/* Logo (Animated on Scroll) */}
+          {/* Logo */}
           <motion.a
-            href="#hero"
+            href="/"
             onClick={(e) => {
               e.preventDefault()
-              window.scrollTo({ top: 0, behavior: 'smooth' })
+              router.push('/')
               closeMobileMenu()
             }}
             animate={controls}
@@ -154,7 +165,7 @@ const NavBar = memo(function NavBar({
                 href={href}
                 onClick={(e) => {
                   e.preventDefault()
-                  handleLinkClick(href)
+                  handleNavigation(href)
                 }}
                 onKeyDown={(e) => handleKeyDown(e, href)}
                 aria-current={activeSection === id ? 'page' : undefined}
@@ -238,7 +249,7 @@ const NavBar = memo(function NavBar({
                       href={href}
                       onClick={(e) => {
                         e.preventDefault()
-                        handleLinkClick(href)
+                        handleNavigation(href)
                       }}
                       onKeyDown={(e) => handleKeyDown(e, href)}
                       aria-current={activeSection === id ? 'page' : undefined}
@@ -257,7 +268,6 @@ const NavBar = memo(function NavBar({
                   ))}
                 </div>
 
-                {/* Mobile Footer */}
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
