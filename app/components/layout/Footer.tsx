@@ -80,41 +80,33 @@ const Footer = memo(function Footer() {
               and injury prevention.
             </p>
 
-            {/* Social Media */}
+            {/* ✅ Social Media */}
             <div className="mt-6 flex gap-4">
-              <motion.a
-                whileHover={{
-                  scale: [1, 1.1, 1],
-                  boxShadow: '0 0 22px rgba(220,38,38,0.45)',
-                  transition: { duration: 0.9, ease: 'easeInOut', repeat: Infinity },
-                }}
+              {/* Instagram */}
+              <a
                 href="https://www.instagram.com/exiqxperformance"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/60 transition-all duration-300 hover:border-red-600 hover:text-red-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-transparent text-white/80 transition-all duration-300 hover:border-red-600 hover:text-red-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
                 aria-label="Follow ExIQx Performance on Instagram"
               >
                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07..." />
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z" />
                 </svg>
-              </motion.a>
+              </a>
 
-              <motion.a
-                whileHover={{
-                  scale: [1, 1.1, 1],
-                  boxShadow: '0 0 22px rgba(220,38,38,0.45)',
-                  transition: { duration: 0.9, ease: 'easeInOut', repeat: Infinity },
-                }}
+              {/* YouTube */}
+              <a
                 href="https://www.youtube.com/@exiqxperformance"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/60 transition-all duration-300 hover:border-red-600 hover:text-red-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-transparent text-white/80 transition-all duration-300 hover:border-red-600 hover:text-red-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
                 aria-label="Subscribe to ExIQx Performance on YouTube"
               >
                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M23.498 6.186a3.016 3.016 0..." />
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
                 </svg>
-              </motion.a>
+              </a>
             </div>
           </div>
 
