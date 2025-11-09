@@ -17,8 +17,9 @@ const CTAButtonSchema = z.object({
 
 const RackHeroPropsSchema = z.object({
   headline: z.string().default('RACK-MOUNTED FOOTPLATE'),
-  subheadline: z.string().default('Precision-mounted to your squat rack uprights for elite posterior chain loading.'),
-  tagline: z.string().optional(),
+  subheadline: z.string().default('Engineered for elite posterior-chain loading through the plantar surface.'),
+  eyebrow: z.string().optional(), // Small text above headline
+  microTagline: z.string().optional(), // Small text below CTAs
   primaryCTA: CTAButtonSchema.optional(),
   secondaryCTA: CTAButtonSchema.optional(),
   backgroundImage: z.string().default('/rack-mounted-hero.jpg'),
@@ -49,7 +50,8 @@ const RackHero = memo<Partial<RackHeroProps>>((props) => {
   const {
     headline,
     subheadline,
-    tagline,
+    eyebrow,
+    microTagline,
     primaryCTA,
     secondaryCTA,
     backgroundImage,
@@ -128,43 +130,43 @@ const RackHero = memo<Partial<RackHeroProps>>((props) => {
         transition={{ duration: ANIMATION_CONSTANTS.DURATION_MEDIUM, delay: 0.3 }}
         className="relative z-10 max-w-5xl px-4 sm:px-6 lg:px-8"
       >
-        {/* Optional Tagline */}
-        {tagline && (
+        {/* Optional Eyebrow */}
+        {eyebrow && (
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.6 }}
-            className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-red-600 font-inter"
+            className="mb-6 text-xs font-medium uppercase tracking-[0.2em] text-white/50 font-inter"
           >
-            {tagline}
+            {eyebrow}
           </motion.p>
         )}
 
         {/* Headline */}
         <h1
           id="hero-heading"
-          className="mb-6 text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl font-montserrat"
+          className="mb-6 sm:mb-8 text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl font-montserrat"
         >
           {headline}
         </h1>
 
         {/* Subheadline */}
-        <p className="mx-auto mb-10 max-w-3xl text-base leading-relaxed text-gray-200 sm:text-lg lg:text-xl font-inter">
+        <p className="mx-auto mb-8 sm:mb-12 max-w-[640px] text-sm sm:text-base leading-relaxed text-white/80 font-inter">
           {subheadline}
         </p>
 
         {/* CTA Buttons */}
         {(primaryCTA || secondaryCTA) && (
-          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-4 justify-center items-center mb-8 sm:mb-10">
             {/* Primary CTA */}
             {primaryCTA && (
               <motion.button
                 onClick={() => handleLinkClick(primaryCTA.href)}
                 initial={{ scale: 1 }}
-                whileHover={{ scale: shouldReduceMotion ? 1 : 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: shouldReduceMotion ? 1 : 1.02 }}
+                whileTap={{ scale: 0.98 }}
                 transition={{ duration: ANIMATION_CONSTANTS.DURATION_FAST }}
-                className="rounded-sm bg-red-600 px-8 py-4 text-sm font-semibold uppercase tracking-wider text-white transition-colors duration-300 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2 focus:ring-offset-black font-inter"
+                className="rounded-full bg-red-600 px-8 py-3 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.18em] text-white transition-colors duration-300 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2 focus:ring-offset-black font-inter"
                 aria-label={primaryCTA.text}
               >
                 {primaryCTA.text}
@@ -176,16 +178,28 @@ const RackHero = memo<Partial<RackHeroProps>>((props) => {
               <motion.button
                 onClick={() => handleLinkClick(secondaryCTA.href)}
                 initial={{ scale: 1 }}
-                whileHover={{ scale: shouldReduceMotion ? 1 : 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: shouldReduceMotion ? 1 : 1.02 }}
+                whileTap={{ scale: 0.98 }}
                 transition={{ duration: ANIMATION_CONSTANTS.DURATION_FAST }}
-                className="rounded-sm border border-white/20 bg-white/10 px-8 py-4 text-sm font-semibold uppercase tracking-wider text-white backdrop-blur-sm transition-all duration-300 hover:border-white/40 hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black font-inter"
+                className="rounded-full border border-red-500 text-red-400 px-8 py-3 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.18em] transition-all duration-300 hover:bg-red-600 hover:text-white hover:border-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-black font-inter"
                 aria-label={secondaryCTA.text}
               >
                 {secondaryCTA.text}
               </motion.button>
             )}
           </div>
+        )}
+
+        {/* Optional Micro-Tagline */}
+        {microTagline && (
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.8, duration: 0.6 }}
+            className="text-[10px] sm:text-xs uppercase tracking-[0.18em] text-white/45 font-inter"
+          >
+            {microTagline}
+          </motion.p>
         )}
       </motion.div>
 

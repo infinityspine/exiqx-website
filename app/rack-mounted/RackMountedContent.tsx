@@ -43,17 +43,18 @@ export default function RackMountedContent() {
       <main className="relative bg-black overflow-hidden">
         {/* Hero Section - No animation wrapper to preserve RackHero's internal animations */}
         <RackHero
+          eyebrow="THE FLAGSHIP EXIQX CONFIGURATION"
           headline="RACK-MOUNTED FOOTPLATE"
-          subheadline="Precision-mounted to your squat rack uprights for elite posterior chain loading through the plantar surface."
-          tagline="THE FLAGSHIP EXIQX CONFIGURATION"
+          subheadline="Engineered for elite posterior-chain loading through the plantar surface."
           primaryCTA={{
             text: 'Join Waitlist',
-            href: '/#waitlist',
+            href: '#waitlist',
           }}
           secondaryCTA={{
-            text: 'Explore Features',
-            href: '#key-points',
+            text: 'Explore Specs',
+            href: '#specs',
           }}
+          microTagline="Patent-pending design. Engineered in Arizona."
           backgroundImage="/rack-mounted-hero.jpg"
           showShimmer={true}
         />
