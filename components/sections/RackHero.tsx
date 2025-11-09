@@ -145,7 +145,7 @@ const RackHero = memo<Partial<RackHeroProps>>((props) => {
         {/* Headline */}
         <h1
           id="hero-heading"
-          className="text-5xl sm:text-7xl font-extrabold tracking-[0.05em] text-white leading-tight mb-12 sm:mb-14 font-montserrat"
+          className="text-5xl sm:text-7xl font-extrabold tracking-[0.05em] text-white leading-tight mb-16 sm:mb-18 font-montserrat"
         >
           {headline}
         </h1>
@@ -153,7 +153,7 @@ const RackHero = memo<Partial<RackHeroProps>>((props) => {
         {/* Subheadline */}
         <p 
           className="text-sm sm:text-base text-white/70 max-w-2xl leading-[1.8] font-inter" 
-          style={{ marginBottom: 'clamp(3rem, 8vw, 4.5rem)' }}
+          style={{ marginBottom: 'clamp(3.5rem, 9vw, 5rem)' }}
         >
           {subheadline}
         </p>
