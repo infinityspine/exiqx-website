@@ -30,90 +30,6 @@ const SCROLL_THRESHOLD = 100
 const INTERSECTION_THRESHOLD = 0.5
 const MENU_CLOSE_DELAY = 300
 
-// Desktop Nav Item Component
-interface DesktopNavItemProps {
-  label: string
-  href: string
-  isActive: boolean
-  onNavigate: (href: string) => void
-  onKeyDown: (e: React.KeyboardEvent, href: string) => void
-}
-
-const DesktopNavItem = memo(function DesktopNavItem({
-  label,
-  href,
-  isActive,
-  onNavigate,
-  onKeyDown,
-}: DesktopNavItemProps) {
-  return (
-    
-      href={href}
-      onClick={(e) => {
-        e.preventDefault()
-        onNavigate(href)
-      }}
-      onKeyDown={(e) => onKeyDown(e, href)}
-      aria-current={isActive ? 'page' : undefined}
-      className={`relative px-2 py-1 transition-colors duration-300 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
-        isActive ? 'text-white' : 'text-white/60 hover:text-white/90'
-      }`}
-    >
-      {label}
-      {isActive && (
-        <motion.div
-          layoutId="activeIndicator"
-          className="absolute -bottom-1 left-0 right-0 h-[2px] bg-red-600"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3 }}
-        />
-      )}
-    </a>
-  )
-})
-
-// Mobile Nav Item Component
-interface MobileNavItemProps {
-  label: string
-  href: string
-  index: number
-  isActive: boolean
-  onNavigate: (href: string) => void
-  onKeyDown: (e: React.KeyboardEvent, href: string) => void
-}
-
-const MobileNavItem = memo(function MobileNavItem({
-  label,
-  href,
-  index,
-  isActive,
-  onNavigate,
-  onKeyDown,
-}: MobileNavItemProps) {
-  return (
-    <motion.a
-      href={href}
-      onClick={(e) => {
-        e.preventDefault()
-        onNavigate(href)
-      }}
-      onKeyDown={(e) => onKeyDown(e, href)}
-      aria-current={isActive ? 'page' : undefined}
-      initial={{ opacity: 0, x: 20 }}
-      animate={{ opacity: 1, x: 0 }}
-      exit={{ opacity: 0, x: 20 }}
-      transition={{ delay: index * 0.05, duration: 0.3 }}
-      className={`relative text-lg uppercase tracking-[0.16em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:rounded px-2 py-1 -ml-2 ${
-        isActive ? 'text-white font-medium' : 'text-white/70 hover:text-white'
-      }`}
-    >
-      {label}
-    </motion.a>
-  )
-})
-
-// Main NavBar Component
 const NavBar = memo(function NavBar({
   brandText = DEFAULT_BRAND_TEXT,
   navItems = DEFAULT_NAV_ITEMS,
@@ -187,16 +103,6 @@ const NavBar = memo(function NavBar({
     [closeMobileMenu, router]
   )
 
-  const handleKeyDown = useCallback(
-    (e: React.KeyboardEvent, href: string) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault()
-        handleNavigation(href)
-      }
-    },
-    [handleNavigation]
-  )
-
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape' && isMobileMenuOpen) closeMobileMenu()
@@ -242,16 +148,34 @@ const NavBar = memo(function NavBar({
           </motion.a>
 
           <div className="hidden gap-8 text-[11px] font-medium uppercase tracking-[0.18em] md:flex">
-            {validatedItems.map((item) => (
-              <DesktopNavItem
-                key={item.id}
-                label={item.label}
-                href={item.href}
-                isActive={activeSection === item.id}
-                onNavigate={handleNavigation}
-                onKeyDown={handleKeyDown}
-              />
-            ))}
+            {validatedItems.map((item) => {
+              const isActive = activeSection === item.id
+              return (
+                
+                  key={item.id}
+                  href={item.href}
+                  onClick={(e) => {
+                    e.preventDefault()
+                    handleNavigation(item.href)
+                  }}
+                  aria-current={isActive ? 'page' : undefined}
+                  className={`relative px-2 py-1 transition-colors duration-300 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
+                    isActive ? 'text-white' : 'text-white/60 hover:text-white/90'
+                  }`}
+                >
+                  {item.label}
+                  {isActive && (
+                    <motion.div
+                      layoutId="activeIndicator"
+                      className="absolute -bottom-1 left-0 right-0 h-[2px] bg-red-600"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  )}
+                </a>
+              )
+            })}
           </div>
 
           <button
@@ -306,17 +230,29 @@ const NavBar = memo(function NavBar({
             >
               <div className="flex flex-col h-full pt-24 px-6">
                 <div className="flex flex-col gap-6">
-                  {validatedItems.map((item, index) => (
-                    <MobileNavItem
-                      key={item.id}
-                      label={item.label}
-                      href={item.href}
-                      index={index}
-                      isActive={activeSection === item.id}
-                      onNavigate={handleNavigation}
-                      onKeyDown={handleKeyDown}
-                    />
-                  ))}
+                  {validatedItems.map((item, index) => {
+                    const isActive = activeSection === item.id
+                    return (
+                      <motion.a
+                        key={item.id}
+                        href={item.href}
+                        onClick={(e) => {
+                          e.preventDefault()
+                          handleNavigation(item.href)
+                        }}
+                        aria-current={isActive ? 'page' : undefined}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: 20 }}
+                        transition={{ delay: index * 0.05, duration: 0.3 }}
+                        className={`relative text-lg uppercase tracking-[0.16em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:rounded px-2 py-1 -ml-2 ${
+                          isActive ? 'text-white font-medium' : 'text-white/70 hover:text-white'
+                        }`}
+                      >
+                        {item.label}
+                      </motion.a>
+                    )
+                  })}
                 </div>
 
                 <motion.div
