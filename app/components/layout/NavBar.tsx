@@ -5,10 +5,6 @@ import { motion, AnimatePresence, useAnimation } from 'framer-motion'
 import Image from 'next/image'
 import { z } from 'zod'
 
-// ============================================================================
-// SCHEMAS & TYPES
-// ============================================================================
-
 const NavItemSchema = z.object({
   label: z.string().min(1),
   href: z.string().regex(/^#[a-z-]+$/),
@@ -21,12 +17,7 @@ interface NavBarProps {
   className?: string
 }
 
-// ============================================================================
-// CONSTANTS
-// ============================================================================
-
 const DEFAULT_BRAND_TEXT = 'EXIQX PERFORMANCE'
-
 const DEFAULT_NAV_ITEMS = [
   { label: 'Footplate', href: '#footplate', id: 'footplate' },
   { label: 'Technology', href: '#technology', id: 'technology' },
@@ -36,10 +27,6 @@ const DEFAULT_NAV_ITEMS = [
 
 const SCROLL_THRESHOLD = 100
 const INTERSECTION_THRESHOLD = 0.5
-
-// ============================================================================
-// COMPONENT
-// ============================================================================
 
 const NavBar = memo(function NavBar({
   brandText = DEFAULT_BRAND_TEXT,
@@ -51,13 +38,9 @@ const NavBar = memo(function NavBar({
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const controls = useAnimation()
 
-  // Validate props
   const validatedItems = z.array(NavItemSchema).parse(navItems)
 
-  // ============================================================================
-  // SCROLL DETECTION (logo animation trigger)
-  // ============================================================================
-
+  // Scroll-based logo scaling
   useEffect(() => {
     const handleScroll = () => {
       const scrolled = window.scrollY > SCROLL_THRESHOLD
@@ -74,10 +57,7 @@ const NavBar = memo(function NavBar({
     return () => window.removeEventListener('scroll', handleScroll)
   }, [controls])
 
-  // ============================================================================
-  // INTERSECTION OBSERVER (Active Section Tracking)
-  // ============================================================================
-
+  // Active section tracking
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -94,10 +74,6 @@ const NavBar = memo(function NavBar({
     })
     return () => observer.disconnect()
   }, [validatedItems])
-
-  // ============================================================================
-  // HANDLERS
-  // ============================================================================
 
   const toggleMobileMenu = useCallback(() => {
     setIsMobileMenuOpen((prev) => !prev)
@@ -124,7 +100,7 @@ const NavBar = memo(function NavBar({
     [handleLinkClick]
   )
 
-  // Escape Key
+  // Escape key closes menu
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape' && isMobileMenuOpen) closeMobileMenu()
@@ -133,7 +109,7 @@ const NavBar = memo(function NavBar({
     return () => document.removeEventListener('keydown', handleEscape)
   }, [isMobileMenuOpen, closeMobileMenu])
 
-  // Lock Scroll on Mobile Menu
+  // Lock scroll when menu open
   useEffect(() => {
     document.body.style.overflow = isMobileMenuOpen ? 'hidden' : ''
     return () => {
@@ -141,36 +117,15 @@ const NavBar = memo(function NavBar({
     }
   }, [isMobileMenuOpen])
 
-  // ============================================================================
-  // RENDER
-  // ============================================================================
-
   return (
     <>
-      <header className={`fixed top-0 left-0 right-0 z-50 ${className}`}>
-        {/* Skip Navigation */}
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:bg-red-600 focus:text-white focus:px-4 focus:py-2 focus:rounded focus:font-medium focus:tracking-wide"
-        >
-          Skip to main content
-        </a>
-
-        {/* Gradient + Blur */}
-        <div
-          className={`pointer-events-none absolute inset-0 bg-gradient-to-b transition-all duration-500 ${
-            isScrolled
-              ? 'from-black/90 via-black/70 to-black/20 backdrop-blur-xl'
-              : 'from-black/40 via-black/10 to-transparent backdrop-blur-md'
-          }`}
-        />
-
-        {/* Main Nav */}
+      {/* STATIC BLACK HEADER */}
+      <header className={`fixed top-0 left-0 right-0 z-50 bg-black shadow-lg ${className}`}>
         <nav
           className="relative z-10 mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8"
           aria-label="Main navigation"
         >
-          {/* Brand Logo (Animated) */}
+          {/* Logo (Animated on Scroll) */}
           <motion.a
             href="#hero"
             onClick={(e) => {
@@ -178,8 +133,8 @@ const NavBar = memo(function NavBar({
               window.scrollTo({ top: 0, behavior: 'smooth' })
               closeMobileMenu()
             }}
-            className="relative flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2 focus-visible:ring-offset-black rounded"
             animate={controls}
+            className="relative flex items-center rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
           >
             <Image
               src="/exiqx-logo.png"
@@ -272,7 +227,7 @@ const NavBar = memo(function NavBar({
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-              className="fixed right-0 top-0 z-40 h-full w-[280px] bg-black/95 backdrop-blur-xl border-l border-white/10 md:hidden"
+              className="fixed right-0 top-0 z-40 h-full w-[280px] bg-black backdrop-blur-xl border-l border-white/10 md:hidden"
               aria-label="Mobile navigation"
             >
               <div className="flex flex-col h-full pt-24 px-6">
@@ -298,15 +253,6 @@ const NavBar = memo(function NavBar({
                       }`}
                     >
                       {label}
-                      {activeSection === id && (
-                        <motion.div
-                          className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-red-600 rounded-r"
-                          layoutId="mobileActiveIndicator"
-                          initial={{ opacity: 0, x: -10 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ duration: 0.3 }}
-                        />
-                      )}
                     </motion.a>
                   ))}
                 </div>
