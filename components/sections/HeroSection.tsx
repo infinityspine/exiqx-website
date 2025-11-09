@@ -1,7 +1,7 @@
 'use client'
 
 import { memo, useRef } from 'react'
-import { motion, useReducedMotion, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion'
+import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
 import { z } from 'zod'
 
@@ -182,33 +182,6 @@ const HeroSection = memo(function HeroSection({
   const contentOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
   const contentScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95])
 
-  // Mouse parallax
-  const mouseX = useMotionValue(0)
-  const mouseY = useMotionValue(0)
-
-  const springConfig = { damping: 25, stiffness: 150 }
-  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [3, -3]), springConfig)
-  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-3, 3]), springConfig)
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
-    if (shouldReduceMotion) return
-
-    const rect = e.currentTarget.getBoundingClientRect()
-    const centerX = rect.left + rect.width / 2
-    const centerY = rect.top + rect.height / 2
-    
-    const mouseXPos = (e.clientX - centerX) / (rect.width / 2)
-    const mouseYPos = (e.clientY - centerY) / (rect.height / 2)
-
-    mouseX.set(mouseXPos)
-    mouseY.set(mouseYPos)
-  }
-
-  const handleMouseLeave = () => {
-    mouseX.set(0)
-    mouseY.set(0)
-  }
-
   const validatedData = HeroSectionSchema.parse({
     id,
     backgroundImage,
@@ -226,19 +199,14 @@ const HeroSection = memo(function HeroSection({
     <section
       ref={containerRef}
       id={validatedData.id}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
       className="relative flex h-screen items-center justify-center overflow-hidden px-6"
       aria-label="Hero section"
-      style={{ perspective: '1000px' }}
     >
       {/* Background Image with Parallax */}
       <motion.div
         {...variants.backgroundImage}
         style={{
           y: shouldReduceMotion ? 0 : backgroundY,
-          rotateX: shouldReduceMotion ? 0 : rotateX,
-          rotateY: shouldReduceMotion ? 0 : rotateY,
         }}
         className="pointer-events-none absolute inset-0 will-change-transform"
       >
