@@ -12,9 +12,9 @@ export default function FreestandingPage() {
           Freestanding Footplate Apparatus
         </h1>
         <p className="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto mb-10">
-          Engineered for independent closed-chain posterior chain loading—no wall,
-          rack, or external mounting required. Designed for elite biomechanical
-          precision and performance optimization.
+          Designed for independent closed-chain posterior chain loading — no wall,
+          rack, or external mounting required. Built for elite biomechanical precision
+          and performance optimization.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
