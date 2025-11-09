@@ -151,7 +151,7 @@ const NavBar = memo(function NavBar({
             {validatedItems.map((item) => {
               const isActive = activeSection === item.id
               return (
-                
+                <a
                   key={item.id}
                   href={item.href}
                   onClick={(e) => {
