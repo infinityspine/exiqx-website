@@ -1,32 +1,41 @@
-"use client"
+import type { Metadata } from 'next'
+import RackHero from '@/components/sections/RackHero'
 
-import React from "react"
+export const metadata: Metadata = {
+  title: 'GHD Retrofit Kit | ExIQx Performance',
+  description: 'Transform your existing GHD into an elite posterior-chain training station with our retrofit footplate system.',
+}
 
 export default function GHDRetrofitPage() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center bg-black text-white">
-      <section className="text-center px-6 py-24">
-        <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight mb-4">
-          GHD Retrofit Footplate Apparatus
-        </h1>
-        <p className="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto mb-10">
-          Converts traditional GHD units into advanced eccentric hamstring and
-          glute-loading platforms for performance training and rehabilitation.
-        </p>
+    <main className="min-h-screen bg-black">
+      <RackHero
+        headline="GHD RETROFIT KIT"
+        subheadline="Upgrade your existing glute-ham developer with precision-engineered footplate integration."
+        eyebrow="THE RETROFIT SOLUTION"
+        microTagline="Patent-Pending Design • Engineered in Arizona"
+        primaryCTA={{
+          text: 'Join Waitlist',
+          href: '#waitlist',
+        }}
+        secondaryCTA={{
+          text: 'Explore Specs',
+          href: '#specs',
+        }}
+        backgroundImage="/ghd-retrofit-hero.jpg"
+        showShimmer={false}
+      />
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href="/rack-mounted"
-            className="border border-red-600 text-red-500 px-8 py-3 rounded-full text-sm uppercase tracking-[0.15em] hover:bg-red-600 hover:text-white transition-all duration-300"
-          >
-            Rack-Mounted Version
-          </a>
-          <a
-            href="/freestanding"
-            className="bg-red-600 text-white px-8 py-3 rounded-full text-sm uppercase tracking-[0.15em] hover:bg-red-700 transition-all duration-300"
-          >
-            Freestanding Version
-          </a>
+      {/* Add more sections here as needed */}
+      <section className="min-h-screen flex items-center justify-center bg-black">
+        <div className="text-center px-6">
+          <h2 className="text-4xl sm:text-5xl font-extrabold text-white mb-6 font-display uppercase tracking-wide">
+            Maximize Your GHD
+          </h2>
+          <p className="text-lg text-white/70 max-w-2xl mx-auto leading-relaxed">
+            Our retrofit kit seamlessly integrates with most commercial GHD units, adding elite-level 
+            posterior-chain loading capabilities to your existing equipment. No need to replace your entire setup.
+          </p>
         </div>
       </section>
     </main>

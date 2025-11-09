@@ -1,33 +1,41 @@
-"use client"
+import type { Metadata } from 'next'
+import RackHero from '@/components/sections/RackHero'
 
-import React from "react"
+export const metadata: Metadata = {
+  title: 'Freestanding Footplate | ExIQx Performance',
+  description: 'Versatile freestanding footplate solution for elite posterior-chain training. No rack required.',
+}
 
 export default function FreestandingPage() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center bg-black text-white">
-      <section className="text-center px-6 py-24">
-        <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight mb-4">
-          Freestanding Footplate Apparatus
-        </h1>
-        <p className="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto mb-10">
-          Designed for independent closed-chain posterior chain loading — no wall,
-          rack, or external mounting required. Built for elite biomechanical precision
-          and performance optimization.
-        </p>
+    <main className="min-h-screen bg-black">
+      <RackHero
+        headline="FREESTANDING FOOTPLATE"
+        subheadline="Elite posterior-chain training with complete portability and versatility."
+        eyebrow="THE INDEPENDENT CONFIGURATION"
+        microTagline="Patent-Pending Design • Engineered in Arizona"
+        primaryCTA={{
+          text: 'Join Waitlist',
+          href: '#waitlist',
+        }}
+        secondaryCTA={{
+          text: 'Explore Specs',
+          href: '#specs',
+        }}
+        backgroundImage="/freestanding-hero.jpg"
+        showShimmer={false}
+      />
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href="/rack-mounted"
-            className="border border-red-600 text-red-500 px-8 py-3 rounded-full text-sm uppercase tracking-[0.15em] hover:bg-red-600 hover:text-white transition-all duration-300"
-          >
-            Rack-Mounted Version
-          </a>
-          <a
-            href="/ghd-retrofit"
-            className="bg-red-600 text-white px-8 py-3 rounded-full text-sm uppercase tracking-[0.15em] hover:bg-red-700 transition-all duration-300"
-          >
-            GHD-Retrofit Version
-          </a>
+      {/* Add more sections here as needed */}
+      <section className="min-h-screen flex items-center justify-center bg-black">
+        <div className="text-center px-6">
+          <h2 className="text-4xl sm:text-5xl font-extrabold text-white mb-6 font-display uppercase tracking-wide">
+            Train Anywhere
+          </h2>
+          <p className="text-lg text-white/70 max-w-2xl mx-auto leading-relaxed">
+            The freestanding configuration delivers the same elite posterior-chain loading without requiring a power rack. 
+            Perfect for home gyms, garage setups, or facilities with limited rack access.
+          </p>
         </div>
       </section>
     </main>
