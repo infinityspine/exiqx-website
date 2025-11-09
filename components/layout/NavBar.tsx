@@ -158,19 +158,19 @@ const NavBar = memo(function NavBar({
           </motion.a>
 
           <div className="hidden gap-8 text-[11px] font-medium uppercase tracking-[0.18em] md:flex">
-            {validatedItems.map(({ label, href, id }) => {
-              const isActive = activeSection === id
+            {validatedItems.map((navItem) => {
+              const isActive = activeSection === navItem.id
               
               return (
                 
-                  key={id}
-                  href={href}
+                  key={navItem.id}
+                  href={navItem.href}
                   onClick={(e) => {
                     e.preventDefault()
-                    handleNavigation(href)
+                    handleNavigation(navItem.href)
                   }}
                   onKeyDown={(e) => {
-                    handleKeyDown(e, href)
+                    handleKeyDown(e, navItem.href)
                   }}
                   aria-current={isActive ? 'page' : undefined}
                   className={`relative px-2 py-1 transition-colors duration-300 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
@@ -179,7 +179,7 @@ const NavBar = memo(function NavBar({
                       : 'text-white/60 hover:text-white/90'
                   }`}
                 >
-                  {label}
+                  {navItem.label}
                   {isActive && (
                     <motion.div
                       layoutId="activeIndicator"
@@ -246,19 +246,19 @@ const NavBar = memo(function NavBar({
             >
               <div className="flex flex-col h-full pt-24 px-6">
                 <div className="flex flex-col gap-6">
-                  {validatedItems.map(({ label, href, id }, index) => {
-                    const isActive = activeSection === id
+                  {validatedItems.map((navItem, index) => {
+                    const isActive = activeSection === navItem.id
                     
                     return (
                       <motion.a
-                        key={id}
-                        href={href}
+                        key={navItem.id}
+                        href={navItem.href}
                         onClick={(e) => {
                           e.preventDefault()
-                          handleNavigation(href)
+                          handleNavigation(navItem.href)
                         }}
                         onKeyDown={(e) => {
-                          handleKeyDown(e, href)
+                          handleKeyDown(e, navItem.href)
                         }}
                         aria-current={isActive ? 'page' : undefined}
                         initial={{ opacity: 0, x: 20 }}
@@ -271,7 +271,7 @@ const NavBar = memo(function NavBar({
                             : 'text-white/70 hover:text-white'
                         }`}
                       >
-                        {label}
+                        {navItem.label}
                       </motion.a>
                     )
                   })}
