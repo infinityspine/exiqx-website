@@ -3,8 +3,6 @@
 import React from "react"
 
 export default function FreestandingPage() {
-  console.log("✅ Freestanding page build verified")
-
   return (
     <main className="min-h-screen flex flex-col items-center justify-center bg-black text-white">
       <section className="text-center px-6 py-24">
