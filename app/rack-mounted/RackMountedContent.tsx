@@ -72,7 +72,7 @@ export default function RackMountedContent() {
           variants={sectionVariants}
           aria-labelledby="key-points-title"
         >
-          <div className="py-20 md:py-32">
+          <div className="py-24 lg:py-32">
             <RackKeyPoints
               sectionTitle="ENGINEERED FOR EXCELLENCE"
               sectionSubtitle="Four pillars of biomechanical superiority"
@@ -117,7 +117,7 @@ export default function RackMountedContent() {
           variants={sectionVariants}
           aria-labelledby="features-title"
         >
-          <div className="py-20 md:py-32">
+          <div className="py-24 lg:py-32">
             <RackFeatureDetail
               title="Precision-Mounted Stability"
               description="The rack-mounted footplate anchors securely to 3×3 uprights using dual hitch-pin brackets, ensuring a rigid, stable interface for high-force posterior chain loading."
@@ -147,7 +147,7 @@ export default function RackMountedContent() {
           variants={sectionVariants}
           aria-labelledby="biomechanics-title"
         >
-          <div className="py-20 md:py-32">
+          <div className="py-24 lg:py-32">
             <BiomechanicsSection
               title="Aligned with Human Biomechanics"
               description="The rack-mounted system is engineered around a ~38° plantarflexion alignment, mirroring the natural closed-chain vector of sprinting and acceleration. This geometry targets the soleus, gastrocnemius, and hamstrings through their full length-tension curve — enabling concentric, eccentric, and isometric loading without posterior ankle restraint."
@@ -170,7 +170,7 @@ export default function RackMountedContent() {
           variants={sectionVariants}
           aria-labelledby="specs-title"
         >
-          <div className="py-20 md:py-32">
+          <div className="py-24 lg:py-32">
             <RackSpecs
               title="Technical Specifications"
               specs={[
@@ -198,7 +198,7 @@ export default function RackMountedContent() {
           variants={sectionVariants}
           aria-labelledby="testimonials-title"
         >
-          <div className="py-20 md:py-32">
+          <div className="py-24 lg:py-32">
             <Testimonials />
           </div>
         </motion.section>
