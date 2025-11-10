@@ -93,7 +93,7 @@ const CTASection = memo<Partial<CTASectionProps>>((props) => {
 
   return (
     <section
-      className={`py-24 lg:py-32 text-center ${
+      className={`text-center ${
         showGradient
           ? 'bg-gradient-to-b from-[#0A0A0A] via-[#0A0A0A] to-red-950/20'
           : 'bg-[#0A0A0A]'

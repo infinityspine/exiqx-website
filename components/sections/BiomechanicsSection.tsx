@@ -36,7 +36,7 @@ const BiomechanicsSection = memo<Partial<BiomechanicsSectionProps>>((props) => {
 
   return (
     <section
-      className={`py-24 lg:py-32 bg-[#0A0A0A] border-t border-red-600/20 ${className}`}
+      className={`bg-[#0A0A0A] border-t border-red-600/20 ${className}`}
       aria-labelledby="biomechanics-title"
     >
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
