@@ -72,7 +72,7 @@ export default function GHDRetrofitContent() {
           variants={sectionVariants}
           aria-labelledby="key-points-title"
         >
-          <div className="py-20 md:py-32">
+          <div className="py-24 lg:py-32">
             <GHDKeyPoints
               sectionTitle="MAXIMIZE YOUR GHD INVESTMENT"
               sectionSubtitle="Four pillars of athlete-focused innovation"
@@ -117,7 +117,7 @@ export default function GHDRetrofitContent() {
           variants={sectionVariants}
           aria-labelledby="features-title"
         >
-          <div className="py-20 md:py-32">
+          <div className="py-24 lg:py-32">
             <GHDFeatureDetail
               title="Seamless GHD Integration"
               description="The GHD-mounted footplate retrofits directly to your existing glute-ham developer, transforming it into a dual-purpose training station for both traditional GHD work and precision posterior-chain loading."
@@ -147,7 +147,7 @@ export default function GHDRetrofitContent() {
           variants={sectionVariants}
           aria-labelledby="biomechanics-title"
         >
-          <div className="py-20 md:py-32">
+          <div className="py-24 lg:py-32">
             <BiomechanicsSection
               title="Aligned with Human Biomechanics"
               description="The GHD-mounted system is engineered around a ~38° plantarflexion alignment, mirroring the natural closed-chain vector of sprinting and athletic acceleration. This geometry targets the soleus, gastrocnemius, and hamstrings through their full length-tension curve — enabling concentric, eccentric, and isometric loading without posterior ankle restraint."
@@ -170,7 +170,7 @@ export default function GHDRetrofitContent() {
           variants={sectionVariants}
           aria-labelledby="specs-title"
         >
-          <div className="py-20 md:py-32">
+          <div className="py-24 lg:py-32">
             <GHDSpecs
               title="Technical Specifications"
               specs={[
@@ -198,7 +198,7 @@ export default function GHDRetrofitContent() {
           variants={sectionVariants}
           aria-labelledby="testimonials-title"
         >
-          <div className="py-20 md:py-32">
+          <div className="py-24 lg:py-32">
             <Testimonials />
           </div>
         </motion.section>

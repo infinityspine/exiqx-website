@@ -72,7 +72,7 @@ export default function FreestandingContent() {
           variants={sectionVariants}
           aria-labelledby="key-points-title"
         >
-          <div className="py-20 md:py-32">
+          <div className="py-24 lg:py-32">
             <FreestandingKeyPoints
               sectionTitle="PORTABLE PRECISION TRAINING"
               sectionSubtitle="Four pillars of freestanding performance"
@@ -117,7 +117,7 @@ export default function FreestandingContent() {
           variants={sectionVariants}
           aria-labelledby="features-title"
         >
-          <div className="py-20 md:py-32">
+          <div className="py-24 lg:py-32">
             <FreestandingFeatureDetail
               title="Rack-Free Performance"
               description="The freestanding configuration delivers the same precision biomechanics as the rack-mounted system, with a stabilized base design that requires only standard weight plates — perfect for home gyms and portable training setups."
@@ -147,7 +147,7 @@ export default function FreestandingContent() {
           variants={sectionVariants}
           aria-labelledby="biomechanics-title"
         >
-          <div className="py-20 md:py-32">
+          <div className="py-24 lg:py-32">
             <BiomechanicsSection
               title="Aligned with Human Biomechanics"
               description="The freestanding system is engineered around a ~38° plantarflexion alignment, mirroring the natural closed-chain vector of sprinting and athletic performance. This geometry targets the soleus, gastrocnemius, and hamstrings through their full length-tension curve — enabling concentric, eccentric, and isometric loading without posterior ankle restraint."
@@ -170,7 +170,7 @@ export default function FreestandingContent() {
           variants={sectionVariants}
           aria-labelledby="specs-title"
         >
-          <div className="py-20 md:py-32">
+          <div className="py-24 lg:py-32">
             <FreestandingSpecs
               title="Technical Specifications"
               specs={[
@@ -198,7 +198,7 @@ export default function FreestandingContent() {
           variants={sectionVariants}
           aria-labelledby="testimonials-title"
         >
-          <div className="py-20 md:py-32">
+          <div className="py-24 lg:py-32">
             <Testimonials />
           </div>
         </motion.section>

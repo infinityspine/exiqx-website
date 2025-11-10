@@ -134,7 +134,7 @@ const CTASection = memo<Partial<CTASectionProps>>((props) => {
               initial="initial"
               whileHover="hover"
               whileTap="tap"
-              className="group relative px-8 py-4 bg-red-600 text-white font-semibold rounded-sm overflow-hidden transition-colors duration-300 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2 focus:ring-offset-[#0A0A0A] font-inter uppercase tracking-wider text-sm"
+              className="group relative px-10 py-4 bg-red-600 text-white font-semibold rounded-xl overflow-hidden transition-colors duration-300 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2 focus:ring-offset-[#0A0A0A] font-inter uppercase tracking-[0.2em] text-[11px]"
               aria-label={ctaText}
             >
               <span className="relative z-10 flex items-center">
@@ -162,7 +162,7 @@ const CTASection = memo<Partial<CTASectionProps>>((props) => {
                 initial="initial"
                 whileHover="hover"
                 whileTap="tap"
-                className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-sm border border-white/20 hover:bg-white/20 hover:border-white/30 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#0A0A0A] font-inter uppercase tracking-wider text-sm"
+                className="px-10 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-xl border border-white/20 hover:bg-white/20 hover:border-white/30 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#0A0A0A] font-inter uppercase tracking-[0.2em] text-[11px]"
                 aria-label={secondaryCtaText}
               >
                 {secondaryCtaText}
