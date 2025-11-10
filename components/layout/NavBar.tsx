@@ -20,7 +20,9 @@ interface NavBarProps {
 
 const DEFAULT_BRAND_TEXT = 'EXIQX PERFORMANCE'
 const DEFAULT_NAV_ITEMS = [
-  { label: 'Footplate', href: '/rack-mounted', id: 'footplate' },
+  { label: 'Rack-Mounted', href: '/rack-mounted', id: 'rack-mounted' },
+  { label: 'GHD Retrofit', href: '/ghd-retrofit', id: 'ghd-retrofit' },
+  { label: 'Freestanding', href: '/freestanding', id: 'freestanding' },
   { label: 'Technology', href: '#technology', id: 'technology' },
   { label: 'About', href: '#about', id: 'about' },
   { label: 'Contact', href: '#contact', id: 'contact' },
@@ -149,7 +151,12 @@ const NavBar = memo(function NavBar({
 
           <div className="hidden gap-8 text-[11px] font-medium uppercase tracking-[0.18em] md:flex">
             {validatedItems.map((item) => {
-              const isActive = activeSection === item.id
+              // Check if this is a page route or section anchor
+              const isPageRoute = !item.href.startsWith('#')
+              const isActive = isPageRoute
+                ? pathname === item.href
+                : activeSection === item.id
+
               return (
                 <a
                   key={item.id}
@@ -231,7 +238,12 @@ const NavBar = memo(function NavBar({
               <div className="flex flex-col h-full pt-24 px-6">
                 <div className="flex flex-col gap-6">
                   {validatedItems.map((item, index) => {
-                    const isActive = activeSection === item.id
+                    // Check if this is a page route or section anchor
+                    const isPageRoute = !item.href.startsWith('#')
+                    const isActive = isPageRoute
+                      ? pathname === item.href
+                      : activeSection === item.id
+
                     return (
                       <motion.a
                         key={item.id}
@@ -250,6 +262,15 @@ const NavBar = memo(function NavBar({
                         }`}
                       >
                         {item.label}
+                        {isActive && (
+                          <motion.div
+                            className="absolute -bottom-1 left-2 right-2 h-[2px] bg-red-600"
+                            layoutId="mobileActiveIndicator"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.3 }}
+                          />
+                        )}
                       </motion.a>
                     )
                   })}
