@@ -153,7 +153,7 @@ const GHDKeyPoints = memo<Partial<GHDKeyPointsProps>>((props) => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4 sm:px-6 lg:px-8 max-w-[87.5rem] mx-auto items-stretch"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-4 sm:px-6 lg:px-12 xl:px-16 max-w-[120rem] mx-auto items-stretch"
         >
           {keyPoints.map((point, index) => {
             const IconComponent = iconMap[point.icon]
