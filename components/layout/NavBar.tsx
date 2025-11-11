@@ -23,7 +23,7 @@ const DEFAULT_NAV_ITEMS = [
   { label: 'Rack-Mounted', href: '/rack-mounted', id: 'rack-mounted' },
   { label: 'GHD Retrofit', href: '/ghd-retrofit', id: 'ghd-retrofit' },
   { label: 'Freestanding', href: '/freestanding', id: 'freestanding' },
-  { label: 'Technology', href: '#technology', id: 'technology' },
+  { label: 'Technology', href: '/technology', id: 'technology' },
   { label: 'About', href: '#about', id: 'about' },
   { label: 'Contact', href: '#contact', id: 'contact' },
 ]
