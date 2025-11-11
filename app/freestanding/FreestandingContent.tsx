@@ -3,7 +3,7 @@
 
 import { motion, useScroll, useSpring } from 'framer-motion'
 import FreestandingHero from '@/components/sections/FreestandingHero'
-import FreestandingKeyPoints from '@/components/sections/FreestandingKeyPoints'
+import EngineeredForExcellenceSection from '@/components/sections/EngineeredForExcellence'
 import FreestandingFeatureDetail from '@/components/sections/FreestandingFeatureDetail'
 import BiomechanicsSection from '@/components/sections/BiomechanicsSection'
 import FreestandingSpecs from '@/components/sections/FreestandingSpecs'
@@ -63,46 +63,32 @@ export default function FreestandingContent() {
         <div className="h-32 bg-gradient-to-b from-black via-zinc-950 to-black" aria-hidden="true" />
 
         {/* Key Benefits Grid */}
-        <motion.section
-          id="key-points"
-          className="scroll-mt-24 relative"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={sectionVariants}
-          aria-labelledby="key-points-title"
-        >
-          <div className="py-24 lg:py-32">
-            <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-              <FreestandingKeyPoints
-              sectionTitle="PORTABLE PRECISION TRAINING"
-              sectionSubtitle="Four pillars of freestanding performance"
-              keyPoints={[
-                {
-                  icon: 'ruler',
-                  headline: 'Ultimate Portability',
-                  description: 'No rack required. Stabilized base design allows for setup in any space — home gyms, garage training areas, or facilities without dedicated rack systems.',
-                },
-                {
-                  icon: 'zap',
-                  headline: 'Space-Efficient Design',
-                  description: 'Compact footprint with integrated weight-plate stabilization. Move and store with ease while maintaining commercial-grade stability under load.',
-                },
-                {
-                  icon: 'award',
-                  headline: 'Biomechanical Alignment',
-                  description: 'Engineered around ~38° plantarflexion alignment, mirroring natural closed-chain vector of sprinting — no compromise on precision.',
-                },
-                {
-                  icon: 'shield',
-                  headline: 'Robust Construction',
-                  description: '11-gauge steel with powder-coated finish. Stabilized with standard weight plates. Built for serious training without the infrastructure.',
-                },
-              ]}
-            />
-            </div>
-          </div>
-        </motion.section>
+        <EngineeredForExcellenceSection
+          sectionTitle="PORTABLE PRECISION TRAINING"
+          sectionSubtitle="Four pillars of freestanding performance"
+          features={[
+            {
+              icon: 'ruler',
+              title: 'Ultimate Portability',
+              body: 'No rack required. Stabilized base design allows for setup in any space — home gyms, garage training areas, or facilities without dedicated rack systems.',
+            },
+            {
+              icon: 'zap',
+              title: 'Space-Efficient Design',
+              body: 'Compact footprint with integrated weight-plate stabilization. Move and store with ease while maintaining commercial-grade stability under load.',
+            },
+            {
+              icon: 'award',
+              title: 'Biomechanical Alignment',
+              body: 'Engineered around ~38° plantarflexion alignment, mirroring natural closed-chain vector of sprinting — no compromise on precision.',
+            },
+            {
+              icon: 'shield',
+              title: 'Robust Construction',
+              body: '11-gauge steel with powder-coated finish. Stabilized with standard weight plates. Built for serious training without the infrastructure.',
+            },
+          ]}
+        />
 
         {/* Visual spacer with subtle line */}
         <div className="relative h-px max-w-7xl mx-auto" aria-hidden="true">

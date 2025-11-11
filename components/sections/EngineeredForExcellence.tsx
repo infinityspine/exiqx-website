@@ -38,7 +38,7 @@ const cardVariants = {
     transition: {
       delay: 0.08 * i,
       duration: 0.35,
-      ease: 'easeOut',
+      ease: [0.43, 0.13, 0.23, 0.96] as [number, number, number, number],
     },
   }),
 }
@@ -51,7 +51,7 @@ export function EngineeredForExcellenceSection({
   sectionTitle = 'Engineered for Excellence',
   sectionSubtitle = 'Four pillars of biomechanical superiority',
   features,
-}: EngineeredForExcellenceSectionProps): JSX.Element {
+}: EngineeredForExcellenceSectionProps) {
   return (
     <section className="relative w-full bg-black py-24">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-10">
