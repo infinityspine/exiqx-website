@@ -168,25 +168,25 @@ const RackKeyPoints = memo<Partial<RackKeyPointsProps>>((props) => {
               >
                 <motion.div
                   variants={cardHoverVariants}
-                  className="bg-[#111111] border border-red-600/20 rounded-lg px-8 py-6 sm:px-10 sm:py-6 lg:px-12 lg:py-6 transition-colors duration-300 hover:border-red-600/40 flex flex-col justify-between w-full h-full overflow-hidden"
+                  className="bg-[#111111] border border-red-600/20 rounded-lg px-8 py-4 sm:px-10 sm:py-4 lg:px-12 lg:py-4 transition-colors duration-300 hover:border-red-600/40 flex flex-col justify-between w-full h-full overflow-hidden"
                 >
                   <div className="text-left">
                     {/* Icon Container */}
                     <motion.div
                       variants={iconVariants}
-                      className="w-12 h-12 mb-4 bg-red-600/10 rounded-lg flex items-center justify-center"
+                      className="w-10 h-10 mb-3 bg-red-600/10 rounded-lg flex items-center justify-center"
                       aria-hidden="true"
                     >
-                      <IconComponent className="w-6 h-6 text-red-600" />
+                      <IconComponent className="w-5 h-5 text-red-600" />
                     </motion.div>
 
                     {/* Headline */}
-                    <h3 className="text-xl font-bold text-white mb-2 font-montserrat">
+                    <h3 className="text-lg font-bold text-white mb-2 font-montserrat">
                       {point.headline}
                     </h3>
 
                     {/* Description */}
-                    <p className="text-gray-400 text-sm leading-relaxed font-inter break-words">
+                    <p className="text-gray-400 text-sm leading-snug font-inter break-words">
                       {point.description}
                     </p>
                   </div>
