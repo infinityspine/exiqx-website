@@ -122,23 +122,24 @@ const RackKeyPoints = memo<Partial<RackKeyPointsProps>>((props) => {
     >
         {/* Section Header */}
         {(sectionTitle || sectionSubtitle) && (
-          <div className="max-w-3xl mx-auto text-center px-4 sm:px-6 lg:px-8 mb-16">
+          <div className="w-full flex flex-col items-center text-center px-4 sm:px-6 lg:px-8 mb-12">
             <motion.div
               initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-100px' }}
               transition={{ duration: ANIMATION_CONSTANTS.DURATION_MEDIUM }}
+              className="w-full flex flex-col items-center"
             >
               {sectionTitle && (
                 <h2
                   id="keypoints-title"
-                  className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 font-montserrat uppercase tracking-tight text-center mx-auto"
+                  className="text-white font-bold text-4xl sm:text-5xl mb-4 font-montserrat uppercase tracking-tight"
                 >
                   {sectionTitle}
                 </h2>
               )}
               {sectionSubtitle && (
-                <p className="text-lg text-gray-400 mx-auto text-center font-inter">
+                <p className="text-lg text-gray-400 max-w-2xl text-center mx-auto font-inter">
                   {sectionSubtitle}
                 </p>
               )}
