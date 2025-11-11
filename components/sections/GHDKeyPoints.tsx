@@ -177,10 +177,10 @@ const GHDKeyPoints = memo<Partial<GHDKeyPointsProps>>((props) => {
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full items-stretch"
-          style={{ 
-            gap: 'clamp(1.5rem, 3vw, 2.5rem)',
-            paddingLeft: 'clamp(1rem, 4vw, 3rem)',
-            paddingRight: 'clamp(1rem, 4vw, 3rem)',
+          style={{
+            gap: 'clamp(1.25rem, 2.5vw, 2rem)',
+            paddingLeft: 'clamp(1rem, 3vw, 2rem)',
+            paddingRight: 'clamp(1rem, 3vw, 2rem)',
           }}
         >
           {keyPoints.map((point, index) => {
@@ -198,8 +198,8 @@ const GHDKeyPoints = memo<Partial<GHDKeyPointsProps>>((props) => {
                   variants={cardHoverVariants}
                   className="bg-[#111111] border border-red-600/20 rounded-lg transition-colors duration-300 hover:border-red-600/40 flex flex-col justify-between w-full"
                   style={{
-                    padding: 'clamp(2rem, 4vw, 3rem)',
-                    minHeight: 'clamp(380px, 40vh, 480px)',
+                    padding: 'clamp(1.75rem, 3vw, 2.25rem)',
+                    minHeight: 'clamp(300px, 32vh, 360px)',
                   }}
                 >
                   <div className="text-left flex-1 flex flex-col">
@@ -208,9 +208,9 @@ const GHDKeyPoints = memo<Partial<GHDKeyPointsProps>>((props) => {
                       variants={iconVariants}
                       className="bg-red-600/10 rounded-lg flex items-center justify-center"
                       style={{
-                        width: 'clamp(3.5rem, 6vw, 5rem)',
-                        height: 'clamp(3.5rem, 6vw, 5rem)',
-                        marginBottom: 'clamp(1.5rem, 3vw, 2rem)',
+                        width: 'clamp(3rem, 5vw, 3.5rem)',
+                        height: 'clamp(3rem, 5vw, 3.5rem)',
+                        marginBottom: 'clamp(1.25rem, 2.5vw, 1.5rem)',
                       }}
                       aria-hidden="true"
                     >
