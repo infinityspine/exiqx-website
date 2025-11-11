@@ -139,7 +139,7 @@ const GHDKeyPoints = memo<Partial<GHDKeyPointsProps>>((props) => {
               </h2>
             )}
             {sectionSubtitle && (
-              <p className="text-gray-400 text-lg font-inter max-w-2xl mx-auto">
+              <p className="text-gray-400 text-lg font-inter max-w-2xl mx-auto text-center">
                 {sectionSubtitle}
               </p>
             )}
