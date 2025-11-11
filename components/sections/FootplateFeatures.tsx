@@ -83,7 +83,7 @@ const FootplateFeatures = memo(function FootplateFeatures() {
         {/* Technical Specs Link (Optional) */}
         <div className="mt-16 text-center">
           <a
-            href="#specs"
+            href="/specifications"
             className="inline-block text-sm font-semibold uppercase tracking-[0.2em] text-accent transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-black"
           >
             View Full Specifications →
