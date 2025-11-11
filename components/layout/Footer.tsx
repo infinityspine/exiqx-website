@@ -33,8 +33,7 @@ const Footer = memo(function Footer() {
             </div>
 
             <p className="mt-4 text-sm text-white/60 leading-relaxed">
-              Biomechanical athletic equipment engineered for elite performance 
-              and injury prevention.
+              Precision-engineered biomechanics for authentic ground-force performance.
             </p>
 
             {/* Social Media */}
@@ -83,9 +82,9 @@ const Footer = memo(function Footer() {
               Products
             </h3>
             <ul className="space-y-3" role="list">
-              <li><a href="#footplate" className="text-sm text-white/60 hover:text-white">Rack-Mounted Footplate</a></li>
-              <li><a href="#ghd" className="text-sm text-white/60 hover:text-white">GHD Retrofit System</a></li>
-              <li><a href="#accessories" className="text-sm text-white/60 hover:text-white">Accessories</a></li>
+              <li><a href="/rack-mounted" className="text-sm text-white/60 hover:text-white">Rack-Mounted Footplate</a></li>
+              <li><a href="/ghd-retrofit" className="text-sm text-white/60 hover:text-white">GHD Retrofit System</a></li>
+              <li><a href="/freestanding" className="text-sm text-white/60 hover:text-white">Freestanding Footplate</a></li>
             </ul>
           </div>
 
@@ -95,9 +94,9 @@ const Footer = memo(function Footer() {
               Company
             </h3>
             <ul className="space-y-3" role="list">
-              <li><a href="#about" className="text-sm text-white/60 hover:text-white">About Us</a></li>
-              <li><a href="#technology" className="text-sm text-white/60 hover:text-white">Technology</a></li>
-              <li><a href="#contact" className="text-sm text-white/60 hover:text-white">Contact</a></li>
+              <li><a href="/about" className="text-sm text-white/60 hover:text-white">About Us</a></li>
+              <li><a href="/technology" className="text-sm text-white/60 hover:text-white">Technology</a></li>
+              <li><a href="/contact" className="text-sm text-white/60 hover:text-white">Contact</a></li>
             </ul>
           </div>
 
