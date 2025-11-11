@@ -73,7 +73,8 @@ export default function GHDRetrofitContent() {
           aria-labelledby="key-points-title"
         >
           <div className="py-24 lg:py-32">
-            <GHDKeyPoints
+            <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+              <GHDKeyPoints
               sectionTitle="MAXIMIZE YOUR GHD INVESTMENT"
               sectionSubtitle="Four pillars of athlete-focused innovation"
               keyPoints={[

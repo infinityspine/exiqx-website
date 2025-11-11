@@ -73,7 +73,8 @@ export default function RackMountedContent() {
           aria-labelledby="key-points-title"
         >
           <div className="py-24 lg:py-32">
-            <RackKeyPoints
+            <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+              <RackKeyPoints
               sectionTitle="ENGINEERED FOR EXCELLENCE"
               sectionSubtitle="Four pillars of biomechanical superiority"
               keyPoints={[
@@ -99,6 +100,7 @@ export default function RackMountedContent() {
                 },
               ]}
             />
+            </div>
           </div>
         </motion.section>
 
@@ -148,10 +150,12 @@ export default function RackMountedContent() {
           aria-labelledby="biomechanics-title"
         >
           <div className="py-24 lg:py-32">
-            <BiomechanicsSection
+            <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+              <BiomechanicsSection
               title="Aligned with Human Biomechanics"
               description="The rack-mounted system is engineered around a ~38° plantarflexion alignment, mirroring the natural closed-chain vector of sprinting and acceleration. This geometry targets the soleus, gastrocnemius, and hamstrings through their full length-tension curve — enabling concentric, eccentric, and isometric loading without posterior ankle restraint."
             />
+            </div>
           </div>
         </motion.section>
 
@@ -214,12 +218,14 @@ export default function RackMountedContent() {
           viewport={{ once: true, margin: "-100px" }}
           variants={sectionVariants}
         >
-          <CTASection
+          <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+            <CTASection
             headline="The Foundation of the ExIQx System"
             description="Join the waitlist to be first in line when we launch."
             ctaText="Join Waitlist"
             ctaHref="/#waitlist"
           />
+          </div>
         </motion.section>
       </main>
     </>
