@@ -128,12 +128,12 @@ const GHDKeyPoints = memo<Partial<GHDKeyPointsProps>>((props) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: ANIMATION_CONSTANTS.DURATION_MEDIUM }}
-            className="text-center mb-16"
+            className="text-center mb-16 max-w-4xl mx-auto"
           >
             {sectionTitle && (
               <h2
                 id="keypoints-title"
-                className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 font-montserrat uppercase tracking-tight"
+                className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 font-montserrat uppercase tracking-tight text-center mx-auto"
               >
                 {sectionTitle}
               </h2>

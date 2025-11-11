@@ -133,7 +133,7 @@ const RackKeyPoints = memo<Partial<RackKeyPointsProps>>((props) => {
             {sectionTitle && (
               <h2
                 id="keypoints-title"
-                className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 font-montserrat uppercase tracking-tight"
+                className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 font-montserrat uppercase tracking-tight text-center mx-auto"
               >
                 {sectionTitle}
               </h2>
