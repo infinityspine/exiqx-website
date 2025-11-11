@@ -330,17 +330,17 @@ export default function TechnologyContent() {
 
         {/* CTA Section */}
         <motion.section
-          className="relative flex flex-col items-center justify-center text-center w-full bg-black py-40 px-6 sm:px-8"
+          className="relative flex flex-col items-center justify-center text-center w-full bg-black py-44 px-6 sm:px-8"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={sectionVariants}
         >
-          <div className="flex flex-col items-center justify-center text-center w-full max-w-5xl mx-auto">
-            <h2 className="text-white font-extrabold text-5xl sm:text-6xl leading-snug mb-12 font-montserrat text-center">
+          <div className="flex flex-col items-center justify-center text-center w-full max-w-4xl mx-auto">
+            <h2 className="text-white font-extrabold text-5xl sm:text-6xl leading-snug mb-14 font-montserrat text-center">
               Explore the Full Technical Specifications
             </h2>
-            <p className="text-gray-400 text-lg sm:text-xl leading-relaxed max-w-3xl w-full text-center mx-auto mb-16 font-inter">
+            <p className="text-gray-400 text-lg sm:text-xl leading-relaxed max-w-2xl w-full text-center mx-auto mb-20 font-inter">
               Dive deeper into the engineering, materials, and biomechanical design that make the ExIQx Footplate the most advanced posterior-chain training system available.
             </p>
             <Link
