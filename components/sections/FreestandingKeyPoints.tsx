@@ -153,7 +153,7 @@ const FreestandingKeyPoints = memo<Partial<FreestandingKeyPointsProps>>((props) 
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-4 sm:px-8 lg:px-12 xl:px-16 max-w-[120rem] mx-auto"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 px-4 sm:px-8 lg:px-12 xl:px-16 max-w-[130rem] mx-auto items-stretch"
         >
           {keyPoints.map((point, index) => {
             const IconComponent = iconMap[point.icon]
@@ -164,11 +164,11 @@ const FreestandingKeyPoints = memo<Partial<FreestandingKeyPointsProps>>((props) 
                 variants={itemVariants}
                 whileHover="hover"
                 initial="initial"
-                className="group"
+                className="group flex"
               >
                 <motion.div
                   variants={cardHoverVariants}
-                  className="bg-[#111111] border border-red-600/20 rounded-lg p-6 lg:p-8 transition-colors duration-300 hover:border-red-600/40 flex flex-col"
+                  className="bg-[#111111] border border-red-600/20 rounded-lg p-6 lg:p-8 transition-colors duration-300 hover:border-red-600/40 flex flex-col justify-between w-full h-full min-h-[28rem]"
                 >
                   <div className="text-left">
                     {/* Icon Container */}
