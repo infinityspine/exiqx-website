@@ -118,12 +118,22 @@ const FreestandingKeyPoints = memo<Partial<FreestandingKeyPointsProps>>((props) 
   return (
     <section
       className={`bg-[#0A0A0A] border-t border-red-600/20 ${className}`}
-      style={{ padding: 'clamp(4rem, 8vw, 8rem) 0' }}
+      style={{ 
+        paddingTop: 'clamp(5rem, 10vw, 10rem)',
+        paddingBottom: 'clamp(5rem, 10vw, 10rem)',
+      }}
       aria-labelledby={sectionTitle ? 'keypoints-title' : undefined}
     >
         {/* Section Header */}
         {(sectionTitle || sectionSubtitle) && (
-          <div className="w-full flex flex-col items-center text-center px-4 sm:px-6 lg:px-8" style={{ marginBottom: 'clamp(3rem, 6vw, 6rem)' }}>
+          <div 
+            className="w-full flex flex-col items-center text-center"
+            style={{ 
+              marginBottom: 'clamp(4rem, 8vw, 8rem)',
+              paddingLeft: 'clamp(1rem, 4vw, 3rem)',
+              paddingRight: 'clamp(1rem, 4vw, 3rem)',
+            }}
+          >
             <motion.div
               initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -134,14 +144,25 @@ const FreestandingKeyPoints = memo<Partial<FreestandingKeyPointsProps>>((props) 
               {sectionTitle && (
                 <h2
                   id="keypoints-title"
-                  className="text-white font-bold text-4xl sm:text-5xl font-montserrat uppercase tracking-tight"
-                  style={{ marginBottom: 'clamp(1rem, 2vw, 1.5rem)', lineHeight: '1.3' }}
+                  className="text-white font-bold font-montserrat uppercase tracking-tight"
+                  style={{ 
+                    fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+                    lineHeight: '1.1',
+                    letterSpacing: '-0.02em',
+                    marginBottom: 'clamp(1.5rem, 3vw, 2.5rem)',
+                  }}
                 >
                   {sectionTitle}
                 </h2>
               )}
               {sectionSubtitle && (
-                <p className="text-lg text-gray-400 max-w-2xl text-center mx-auto font-inter" style={{ lineHeight: '1.7' }}>
+                <p 
+                  className="text-gray-400 max-w-3xl mx-auto font-inter"
+                  style={{ 
+                    fontSize: 'clamp(1.125rem, 2vw, 1.375rem)',
+                    lineHeight: '1.7',
+                  }}
+                >
                   {sectionSubtitle}
                 </p>
               )}
@@ -155,8 +176,12 @@ const FreestandingKeyPoints = memo<Partial<FreestandingKeyPointsProps>>((props) 
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 px-4 sm:px-6 lg:px-4 xl:px-6 w-full items-stretch"
-          style={{ gap: 'clamp(1rem, 2vw, 1.5rem)' }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full items-stretch"
+          style={{ 
+            gap: 'clamp(1.5rem, 3vw, 2.5rem)',
+            paddingLeft: 'clamp(1rem, 4vw, 3rem)',
+            paddingRight: 'clamp(1rem, 4vw, 3rem)',
+          }}
         >
           {keyPoints.map((point, index) => {
             const IconComponent = iconMap[point.icon]
@@ -171,40 +196,41 @@ const FreestandingKeyPoints = memo<Partial<FreestandingKeyPointsProps>>((props) 
               >
                 <motion.div
                   variants={cardHoverVariants}
-                  className="bg-[#111111] border border-red-600/20 rounded-lg transition-colors duration-300 hover:border-red-600/40 flex flex-col justify-between w-full h-full"
+                  className="bg-[#111111] border border-red-600/20 rounded-lg transition-colors duration-300 hover:border-red-600/40 flex flex-col justify-between w-full"
                   style={{
-                    padding: 'clamp(1.5rem, 3vw, 2.5rem)',
-                    minHeight: 'clamp(280px, 30vh, 400px)'
+                    padding: 'clamp(2rem, 4vw, 3rem)',
+                    minHeight: 'clamp(380px, 40vh, 480px)',
                   }}
                 >
-                  <div className="text-left">
+                  <div className="text-left flex-1 flex flex-col">
                     {/* Icon Container */}
                     <motion.div
                       variants={iconVariants}
                       className="bg-red-600/10 rounded-lg flex items-center justify-center"
                       style={{
-                        width: 'clamp(3rem, 5vw, 4rem)',
-                        height: 'clamp(3rem, 5vw, 4rem)',
-                        marginBottom: 'clamp(1rem, 2vw, 1.5rem)'
+                        width: 'clamp(3.5rem, 6vw, 5rem)',
+                        height: 'clamp(3.5rem, 6vw, 5rem)',
+                        marginBottom: 'clamp(1.5rem, 3vw, 2rem)',
                       }}
                       aria-hidden="true"
                     >
                       <IconComponent
                         className="text-red-600"
                         style={{
-                          width: 'clamp(1.5rem, 2.5vw, 2rem)',
-                          height: 'clamp(1.5rem, 2.5vw, 2rem)'
+                          width: 'clamp(1.75rem, 3vw, 2.5rem)',
+                          height: 'clamp(1.75rem, 3vw, 2.5rem)',
                         }}
                       />
                     </motion.div>
 
                     {/* Headline */}
                     <h3
-                      className="text-lg font-bold text-white font-montserrat"
+                      className="font-bold text-white font-montserrat"
                       style={{
-                        marginBottom: 'clamp(0.75rem, 1.5vw, 1rem)',
-                        lineHeight: '1.3',
-                        letterSpacing: '0.02em'
+                        fontSize: 'clamp(1.25rem, 2.5vw, 1.5rem)',
+                        lineHeight: '1.25',
+                        letterSpacing: '-0.01em',
+                        marginBottom: 'clamp(1rem, 2vw, 1.5rem)',
                       }}
                     >
                       {point.headline}
@@ -212,10 +238,11 @@ const FreestandingKeyPoints = memo<Partial<FreestandingKeyPointsProps>>((props) 
 
                     {/* Description */}
                     <p
-                      className="text-gray-400 text-sm font-inter"
+                      className="text-gray-400 font-inter flex-1"
                       style={{
-                        lineHeight: '1.7',
-                        letterSpacing: '0.01em'
+                        fontSize: 'clamp(0.9375rem, 1.75vw, 1.0625rem)',
+                        lineHeight: '1.75',
+                        letterSpacing: '0.01em',
                       }}
                     >
                       {point.description}
@@ -229,8 +256,11 @@ const FreestandingKeyPoints = memo<Partial<FreestandingKeyPointsProps>>((props) 
                       whileInView={{ opacity: 1, scaleX: 1 }}
                       viewport={{ once: true }}
                       transition={{ delay: index * 0.1 + 0.3, duration: 0.6 }}
-                      className="h-[2px] bg-gradient-to-r from-red-600 to-transparent origin-left"
-                      style={{ marginTop: 'clamp(1.5rem, 3vw, 2rem)' }}
+                      className="bg-gradient-to-r from-red-600 to-transparent origin-left"
+                      style={{ 
+                        marginTop: 'clamp(2rem, 4vw, 3rem)',
+                        height: '2px',
+                      }}
                     />
                   )}
                 </motion.div>
