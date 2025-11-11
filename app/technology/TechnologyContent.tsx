@@ -331,7 +331,7 @@ export default function TechnologyContent() {
         {/* CTA Section */}
         <motion.section
           className="relative flex flex-col items-center justify-center text-center w-full bg-black px-6 sm:px-8"
-          style={{ paddingTop: 'clamp(8rem, 15vw, 12rem)', paddingBottom: 'clamp(8rem, 15vw, 12rem)' }}
+          style={{ paddingTop: 'clamp(4rem, 15vw, 12rem)', paddingBottom: 'clamp(4rem, 15vw, 12rem)' }}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -342,7 +342,7 @@ export default function TechnologyContent() {
               className="text-white font-extrabold leading-[1.1] font-montserrat text-center"
               style={{ 
                 fontSize: 'clamp(2.5rem, 5vw, 4rem)',
-                marginBottom: 'clamp(2.5rem, 5vw, 4rem)'
+                marginBottom: 'clamp(1.5rem, 5vw, 4rem)'
               }}
             >
               Explore the Full Technical Specifications
@@ -352,7 +352,7 @@ export default function TechnologyContent() {
               style={{ 
                 fontSize: 'clamp(1rem, 2vw, 1.25rem)',
                 lineHeight: '1.6',
-                marginBottom: 'clamp(3rem, 6vw, 5rem)'
+                marginBottom: 'clamp(2rem, 6vw, 5rem)'
               }}
             >
               Dive deeper into the engineering, materials, and biomechanical design that make the ExIQx Footplate the most advanced posterior-chain training system available.
