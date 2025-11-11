@@ -100,7 +100,7 @@ const CTASection = memo<Partial<CTASectionProps>>((props) => {
       } border-t border-red-600/20 ${className}`}
       aria-labelledby="cta-heading"
     >
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full flex flex-col items-center text-center px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -109,24 +109,25 @@ const CTASection = memo<Partial<CTASectionProps>>((props) => {
             duration: ANIMATION_CONSTANTS.DURATION_MEDIUM,
             ease: ANIMATION_CONSTANTS.EASE_ATHLETIC,
           }}
+          className="w-full flex flex-col items-center"
         >
           {/* Headline */}
           <h2
             id="cta-heading"
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 font-montserrat"
+            className="text-3xl sm:text-4xl font-bold text-white mb-4 font-montserrat"
           >
             {headline}
           </h2>
 
           {/* Description */}
           {description && (
-            <p className="text-lg text-gray-300 mb-10 max-w-2xl mx-auto font-inter text-center">
+            <p className="text-lg text-gray-300 mb-10 text-center mx-auto w-full max-w-3xl font-inter">
               {description}
             </p>
           )}
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-wrap justify-center gap-4">
             {/* Primary CTA */}
             <motion.button
               onClick={() => handleLinkClick(ctaHref)}
