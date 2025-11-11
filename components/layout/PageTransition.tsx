@@ -24,8 +24,8 @@ const pageVariants = {
     scale: 1,
     transition: {
       duration: 0.5,
-      ease: [0.22, 1, 0.36, 1], // Apple's signature cubic-bezier easing
-      when: 'beforeChildren',
+      ease: [0.22, 1, 0.36, 1] as [number, number, number, number], // Apple's signature cubic-bezier easing
+      when: 'beforeChildren' as const,
       staggerChildren: 0.1,
     },
   },
@@ -35,7 +35,7 @@ const pageVariants = {
     scale: 0.98,
     transition: {
       duration: 0.4,
-      ease: [0.43, 0.13, 0.23, 0.96],
+      ease: [0.43, 0.13, 0.23, 0.96] as [number, number, number, number],
     },
   },
 }
