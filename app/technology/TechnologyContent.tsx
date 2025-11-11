@@ -36,7 +36,7 @@ export default function TechnologyContent() {
 
       <main className="relative bg-black overflow-hidden">
         {/* Hero Section */}
-        <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+        <section className="relative flex flex-col items-center justify-center overflow-hidden bg-black py-32 px-4 sm:px-6 lg:px-8">
           {/* Background gradient */}
           <div className="absolute inset-0 bg-gradient-to-b from-zinc-950 via-black to-black" />
 
@@ -51,23 +51,22 @@ export default function TechnologyContent() {
           />
 
           {/* Content */}
-          <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
-            >
-              <p className="text-sm font-semibold tracking-[0.25em] text-red-500 mb-6 uppercase">
-                The Science
-              </p>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 font-montserrat leading-tight">
-                The Science Behind the<br />ExIQx Footplate
-              </h1>
-              <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto font-inter leading-relaxed">
-                Biomechanics, precision, and performance — re-engineered from the ground up.
-              </p>
-            </motion.div>
-          </div>
+          <motion.div
+            className="relative z-10 max-w-5xl mx-auto text-center"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
+          >
+            <p className="text-sm tracking-[0.3em] text-gray-400 uppercase mb-4 font-inter">
+              The Science
+            </p>
+            <h1 className="text-white font-extrabold text-5xl sm:text-6xl leading-tight mb-6 font-montserrat">
+              The Science Behind the<br className="hidden sm:block" /> ExIQx Footplate
+            </h1>
+            <p className="text-gray-400 text-lg sm:text-xl max-w-2xl mx-auto font-inter leading-relaxed">
+              Biomechanics, precision, and performance — re-engineered from the ground up.
+            </p>
+          </motion.div>
         </section>
 
         {/* Gradient separator */}
@@ -331,27 +330,24 @@ export default function TechnologyContent() {
 
         {/* CTA Section */}
         <motion.section
-          className="relative py-24"
+          className="relative text-center py-32 px-4 sm:px-6 lg:px-8 bg-black"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={sectionVariants}
         >
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6 font-montserrat">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-white font-extrabold text-5xl sm:text-6xl leading-tight mb-6 font-montserrat">
               Explore the Full Technical Specifications
             </h2>
-            <p className="text-lg text-gray-400 mb-10 font-inter max-w-2xl mx-auto">
+            <p className="text-gray-400 text-lg sm:text-xl mb-10 font-inter leading-relaxed">
               Dive deeper into the engineering, materials, and biomechanical design that makes the ExIQx Footplate the most advanced posterior-chain training system available.
             </p>
             <Link
               href="/specifications"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition-colors duration-200"
+              className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300"
             >
-              View Full Specifications
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
+              View Full Specifications →
             </Link>
           </div>
         </motion.section>
