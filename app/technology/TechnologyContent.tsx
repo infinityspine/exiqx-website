@@ -36,7 +36,7 @@ export default function TechnologyContent() {
 
       <main className="relative bg-black overflow-hidden">
         {/* Hero Section */}
-        <section className="relative flex flex-col items-center justify-center overflow-hidden bg-black py-32 px-4 sm:px-6 lg:px-8">
+        <section className="relative flex flex-col items-center justify-center min-h-[80vh] text-center bg-black px-6">
           {/* Background gradient */}
           <div className="absolute inset-0 bg-gradient-to-b from-zinc-950 via-black to-black" />
 
@@ -52,18 +52,18 @@ export default function TechnologyContent() {
 
           {/* Content */}
           <motion.div
-            className="relative z-10 max-w-5xl mx-auto text-center"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
+            transition={{ duration: 0.8, ease: [0.43, 0.13, 0.23, 0.96] as [number, number, number, number] }}
+            className="relative z-10 max-w-5xl mx-auto"
           >
-            <p className="text-sm tracking-[0.3em] text-gray-400 uppercase mb-4 font-inter">
+            <p className="text-sm tracking-[0.3em] text-gray-400 uppercase mb-6 font-inter">
               The Science
             </p>
-            <h1 className="text-white font-extrabold text-5xl sm:text-6xl leading-tight mb-6 font-montserrat">
+            <h1 className="text-white font-extrabold text-6xl sm:text-7xl leading-tight mb-8 font-montserrat">
               The Science Behind the<br className="hidden sm:block" /> ExIQx Footplate
             </h1>
-            <p className="text-gray-400 text-lg sm:text-xl max-w-2xl mx-auto font-inter leading-relaxed text-center">
+            <p className="text-gray-400 text-xl sm:text-2xl leading-relaxed max-w-3xl mx-auto font-inter">
               Biomechanics, precision, and performance — re-engineered from the ground up.
             </p>
           </motion.div>
