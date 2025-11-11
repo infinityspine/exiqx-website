@@ -100,6 +100,7 @@ export default function FreestandingContent() {
                 },
               ]}
             />
+            </div>
           </div>
         </motion.section>
 
@@ -149,10 +150,12 @@ export default function FreestandingContent() {
           aria-labelledby="biomechanics-title"
         >
           <div className="py-24 lg:py-32">
-            <BiomechanicsSection
+            <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+              <BiomechanicsSection
               title="Aligned with Human Biomechanics"
               description="The freestanding system is engineered around a ~38° plantarflexion alignment, mirroring the natural closed-chain vector of sprinting and athletic performance. This geometry targets the soleus, gastrocnemius, and hamstrings through their full length-tension curve — enabling concentric, eccentric, and isometric loading without posterior ankle restraint."
             />
+            </div>
           </div>
         </motion.section>
 
@@ -215,12 +218,14 @@ export default function FreestandingContent() {
           viewport={{ once: true, margin: "-100px" }}
           variants={sectionVariants}
         >
-          <CTASection
+          <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+            <CTASection
             headline="Elite Training Without the Infrastructure"
             description="Join the waitlist to be first in line when we launch."
             ctaText="Join Waitlist"
             ctaHref="/#waitlist"
           />
+          </div>
         </motion.section>
       </main>
     </>
