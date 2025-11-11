@@ -118,20 +118,20 @@ const RackKeyPoints = memo<Partial<RackKeyPointsProps>>((props) => {
   return (
     <section
       className={`bg-[#0A0A0A] border-t border-red-600/20 ${className}`}
-      style={{ 
-        paddingTop: 'clamp(5rem, 10vw, 10rem)',
-        paddingBottom: 'clamp(5rem, 10vw, 10rem)',
+      style={{
+        paddingTop: 'clamp(3rem, 6vw, 6rem)',
+        paddingBottom: 'clamp(3rem, 6vw, 6rem)',
       }}
       aria-labelledby={sectionTitle ? 'keypoints-title' : undefined}
     >
         {/* Section Header */}
         {(sectionTitle || sectionSubtitle) && (
-          <div 
+          <div
             className="w-full flex flex-col items-center text-center"
-            style={{ 
-              marginBottom: 'clamp(4rem, 8vw, 8rem)',
-              paddingLeft: 'clamp(1rem, 4vw, 3rem)',
-              paddingRight: 'clamp(1rem, 4vw, 3rem)',
+            style={{
+              marginBottom: 'clamp(2.5rem, 5vw, 4rem)',
+              paddingLeft: 'clamp(1rem, 3vw, 2rem)',
+              paddingRight: 'clamp(1rem, 3vw, 2rem)',
             }}
           >
             <motion.div
@@ -145,22 +145,22 @@ const RackKeyPoints = memo<Partial<RackKeyPointsProps>>((props) => {
                 <h2
                   id="keypoints-title"
                   className="text-white font-bold font-montserrat uppercase tracking-tight"
-                  style={{ 
-                    fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+                  style={{
+                    fontSize: 'clamp(2rem, 4vw, 3rem)',
                     lineHeight: '1.1',
                     letterSpacing: '-0.02em',
-                    marginBottom: 'clamp(1.5rem, 3vw, 2.5rem)',
+                    marginBottom: 'clamp(1rem, 2vw, 1.5rem)',
                   }}
                 >
                   {sectionTitle}
                 </h2>
               )}
               {sectionSubtitle && (
-                <p 
-                  className="text-gray-400 max-w-3xl mx-auto font-inter"
-                  style={{ 
-                    fontSize: 'clamp(1.125rem, 2vw, 1.375rem)',
-                    lineHeight: '1.7',
+                <p
+                  className="text-gray-400 max-w-2xl mx-auto font-inter"
+                  style={{
+                    fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
+                    lineHeight: '1.6',
                   }}
                 >
                   {sectionSubtitle}
@@ -177,10 +177,10 @@ const RackKeyPoints = memo<Partial<RackKeyPointsProps>>((props) => {
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full items-stretch"
-          style={{ 
-            gap: 'clamp(1.5rem, 3vw, 2.5rem)',
-            paddingLeft: 'clamp(1rem, 4vw, 3rem)',
-            paddingRight: 'clamp(1rem, 4vw, 3rem)',
+          style={{
+            gap: 'clamp(1.25rem, 2.5vw, 2rem)',
+            paddingLeft: 'clamp(1rem, 3vw, 2rem)',
+            paddingRight: 'clamp(1rem, 3vw, 2rem)',
           }}
         >
           {keyPoints.map((point, index) => {
@@ -198,8 +198,8 @@ const RackKeyPoints = memo<Partial<RackKeyPointsProps>>((props) => {
                   variants={cardHoverVariants}
                   className="bg-[#111111] border border-red-600/20 rounded-lg transition-colors duration-300 hover:border-red-600/40 flex flex-col justify-between w-full"
                   style={{
-                    padding: 'clamp(2rem, 4vw, 3rem)',
-                    minHeight: 'clamp(380px, 40vh, 480px)',
+                    padding: 'clamp(1.75rem, 3vw, 2.25rem)',
+                    minHeight: 'clamp(300px, 32vh, 360px)',
                   }}
                 >
                   <div className="text-left flex-1 flex flex-col">
@@ -208,17 +208,17 @@ const RackKeyPoints = memo<Partial<RackKeyPointsProps>>((props) => {
                       variants={iconVariants}
                       className="bg-red-600/10 rounded-lg flex items-center justify-center"
                       style={{
-                        width: 'clamp(3.5rem, 6vw, 5rem)',
-                        height: 'clamp(3.5rem, 6vw, 5rem)',
-                        marginBottom: 'clamp(1.5rem, 3vw, 2rem)',
+                        width: 'clamp(3rem, 5vw, 3.5rem)',
+                        height: 'clamp(3rem, 5vw, 3.5rem)',
+                        marginBottom: 'clamp(1.25rem, 2.5vw, 1.5rem)',
                       }}
                       aria-hidden="true"
                     >
                       <IconComponent
                         className="text-red-600"
                         style={{
-                          width: 'clamp(1.75rem, 3vw, 2.5rem)',
-                          height: 'clamp(1.75rem, 3vw, 2.5rem)',
+                          width: 'clamp(1.5rem, 2.5vw, 1.75rem)',
+                          height: 'clamp(1.5rem, 2.5vw, 1.75rem)',
                         }}
                       />
                     </motion.div>
@@ -227,10 +227,10 @@ const RackKeyPoints = memo<Partial<RackKeyPointsProps>>((props) => {
                     <h3
                       className="font-bold text-white font-montserrat"
                       style={{
-                        fontSize: 'clamp(1.25rem, 2.5vw, 1.5rem)',
-                        lineHeight: '1.25',
+                        fontSize: 'clamp(1.125rem, 2vw, 1.25rem)',
+                        lineHeight: '1.3',
                         letterSpacing: '-0.01em',
-                        marginBottom: 'clamp(1rem, 2vw, 1.5rem)',
+                        marginBottom: 'clamp(0.75rem, 1.5vw, 1rem)',
                       }}
                     >
                       {point.headline}
@@ -240,8 +240,8 @@ const RackKeyPoints = memo<Partial<RackKeyPointsProps>>((props) => {
                     <p
                       className="text-gray-400 font-inter flex-1"
                       style={{
-                        fontSize: 'clamp(0.9375rem, 1.75vw, 1.0625rem)',
-                        lineHeight: '1.75',
+                        fontSize: 'clamp(0.875rem, 1.5vw, 0.9375rem)',
+                        lineHeight: '1.7',
                         letterSpacing: '0.01em',
                       }}
                     >
@@ -257,8 +257,8 @@ const RackKeyPoints = memo<Partial<RackKeyPointsProps>>((props) => {
                       viewport={{ once: true }}
                       transition={{ delay: index * 0.1 + 0.3, duration: 0.6 }}
                       className="bg-gradient-to-r from-red-600 to-transparent origin-left"
-                      style={{ 
-                        marginTop: 'clamp(2rem, 4vw, 3rem)',
+                      style={{
+                        marginTop: 'clamp(1.5rem, 3vw, 2rem)',
                         height: '2px',
                       }}
                     />
