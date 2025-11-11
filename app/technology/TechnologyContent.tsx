@@ -36,7 +36,7 @@ export default function TechnologyContent() {
 
       <main className="relative bg-black overflow-hidden">
         {/* Hero Section */}
-        <section className="relative flex flex-col items-center justify-center min-h-[80vh] text-center bg-black px-6">
+        <section className="relative flex flex-col items-center justify-center text-center min-h-[80vh] w-full bg-black px-4 sm:px-6 lg:px-8">
           {/* Background gradient */}
           <div className="absolute inset-0 bg-gradient-to-b from-zinc-950 via-black to-black" />
 
@@ -55,12 +55,12 @@ export default function TechnologyContent() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.43, 0.13, 0.23, 0.96] as [number, number, number, number] }}
-            className="relative z-10 max-w-5xl mx-auto"
+            className="relative z-10 flex flex-col items-center justify-center text-center w-full"
           >
-            <p className="text-sm tracking-[0.3em] text-gray-400 uppercase mb-6 font-inter">
+            <p className="text-sm tracking-[0.3em] text-gray-400 uppercase mb-6 font-inter text-center">
               The Science
             </p>
-            <h1 className="text-white font-extrabold text-6xl sm:text-7xl leading-tight mb-8 font-montserrat">
+            <h1 className="text-white font-extrabold text-6xl sm:text-7xl leading-tight mb-8 font-montserrat text-center">
               The Science Behind the<br className="hidden sm:block" /> ExIQx Footplate
             </h1>
             <p className="text-gray-400 text-xl sm:text-2xl leading-relaxed max-w-3xl mx-auto font-inter text-center">
@@ -330,22 +330,22 @@ export default function TechnologyContent() {
 
         {/* CTA Section */}
         <motion.section
-          className="relative text-center py-32 px-4 sm:px-6 lg:px-8 bg-black"
+          className="relative text-center py-40 px-6 sm:px-8 bg-black"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={sectionVariants}
         >
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-white font-extrabold text-5xl sm:text-6xl leading-tight mb-6 font-montserrat">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-white font-extrabold text-5xl sm:text-6xl leading-snug mb-10 font-montserrat">
               Explore the Full Technical Specifications
             </h2>
-            <p className="text-gray-400 text-lg sm:text-xl mb-10 font-inter leading-relaxed">
-              Dive deeper into the engineering, materials, and biomechanical design that makes the ExIQx Footplate the most advanced posterior-chain training system available.
+            <p className="text-gray-400 text-lg sm:text-xl leading-relaxed max-w-2xl mx-auto mb-14 font-inter">
+              Dive deeper into the engineering, materials, and biomechanical design that make the ExIQx Footplate the most advanced posterior-chain training system available.
             </p>
             <Link
               href="/specifications"
-              className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300"
+              className="inline-block bg-red-600 hover:bg-red-700 text-white font-semibold text-lg px-10 py-5 rounded-lg transition-all duration-300"
             >
               View Full Specifications →
             </Link>
