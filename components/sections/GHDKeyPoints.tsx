@@ -120,30 +120,30 @@ const GHDKeyPoints = memo<Partial<GHDKeyPointsProps>>((props) => {
       className={`bg-[#0A0A0A] border-t border-red-600/20 ${className}`}
       aria-labelledby={sectionTitle ? 'keypoints-title' : undefined}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         {(sectionTitle || sectionSubtitle) && (
-          <motion.div
-            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: ANIMATION_CONSTANTS.DURATION_MEDIUM }}
-            className="text-center mb-16 max-w-4xl mx-auto"
-          >
-            {sectionTitle && (
-              <h2
-                id="keypoints-title"
-                className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 font-montserrat uppercase tracking-tight text-center mx-auto"
-              >
-                {sectionTitle}
-              </h2>
-            )}
-            {sectionSubtitle && (
-              <p className="text-gray-400 text-lg font-inter max-w-2xl mx-auto text-center">
-                {sectionSubtitle}
-              </p>
-            )}
-          </motion.div>
+          <div className="max-w-3xl mx-auto text-center px-4 sm:px-6 lg:px-8 mb-16">
+            <motion.div
+              initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-100px' }}
+              transition={{ duration: ANIMATION_CONSTANTS.DURATION_MEDIUM }}
+            >
+              {sectionTitle && (
+                <h2
+                  id="keypoints-title"
+                  className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 font-montserrat uppercase tracking-tight text-center mx-auto"
+                >
+                  {sectionTitle}
+                </h2>
+              )}
+              {sectionSubtitle && (
+                <p className="text-lg text-gray-400 mx-auto text-center font-inter">
+                  {sectionSubtitle}
+                </p>
+              )}
+            </motion.div>
+          </div>
         )}
 
         {/* Key Points Grid */}
@@ -152,7 +152,7 @@ const GHDKeyPoints = memo<Partial<GHDKeyPointsProps>>((props) => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
-          className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
+          className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto"
         >
           {keyPoints.map((point, index) => {
             const IconComponent = iconMap[point.icon]
@@ -169,24 +169,26 @@ const GHDKeyPoints = memo<Partial<GHDKeyPointsProps>>((props) => {
                   variants={cardHoverVariants}
                   className="h-full bg-[#111111] border border-red-600/20 rounded-lg p-6 lg:p-8 transition-colors duration-300 hover:border-red-600/40"
                 >
-                  {/* Icon Container */}
-                  <motion.div
-                    variants={iconVariants}
-                    className="w-12 h-12 mb-6 bg-red-600/10 rounded-lg flex items-center justify-center"
-                    aria-hidden="true"
-                  >
-                    <IconComponent className="w-6 h-6 text-red-600" />
-                  </motion.div>
+                  <div className="text-left">
+                    {/* Icon Container */}
+                    <motion.div
+                      variants={iconVariants}
+                      className="w-12 h-12 mb-6 bg-red-600/10 rounded-lg flex items-center justify-center"
+                      aria-hidden="true"
+                    >
+                      <IconComponent className="w-6 h-6 text-red-600" />
+                    </motion.div>
 
-                  {/* Headline */}
-                  <h3 className="text-xl font-bold text-white mb-3 font-montserrat">
-                    {point.headline}
-                  </h3>
+                    {/* Headline */}
+                    <h3 className="text-xl font-bold text-white mb-3 font-montserrat">
+                      {point.headline}
+                    </h3>
 
-                  {/* Description */}
-                  <p className="text-gray-400 text-sm leading-relaxed font-inter">
-                    {point.description}
-                  </p>
+                    {/* Description */}
+                    <p className="text-gray-400 text-sm leading-relaxed font-inter">
+                      {point.description}
+                    </p>
+                  </div>
 
                   {/* Decorative Line */}
                   {!shouldReduceMotion && (
@@ -203,7 +205,6 @@ const GHDKeyPoints = memo<Partial<GHDKeyPointsProps>>((props) => {
             )
           })}
         </motion.div>
-      </div>
     </section>
   )
 })
