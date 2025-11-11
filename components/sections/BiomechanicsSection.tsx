@@ -63,7 +63,7 @@ const BiomechanicsSection = memo<Partial<BiomechanicsSectionProps>>((props) => {
             duration: ANIMATION_CONSTANTS.DURATION_MEDIUM,
             ease: ANIMATION_CONSTANTS.EASE_ATHLETIC,
           }}
-          className="max-w-3xl mx-auto text-gray-300 leading-relaxed text-base lg:text-lg font-inter"
+          className="max-w-3xl mx-auto text-gray-300 leading-relaxed text-base lg:text-lg font-inter text-center"
         >
           {description}
         </motion.p>
