@@ -153,7 +153,7 @@ const FreestandingKeyPoints = memo<Partial<FreestandingKeyPointsProps>>((props) 
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4 sm:px-6 lg:px-16 xl:px-24 w-full items-stretch"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-4 sm:px-6 lg:px-24 xl:px-32 w-full items-stretch"
         >
           {keyPoints.map((point, index) => {
             const IconComponent = iconMap[point.icon]

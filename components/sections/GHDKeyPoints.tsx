@@ -174,14 +174,14 @@ const GHDKeyPoints = memo<Partial<GHDKeyPointsProps>>((props) => {
                     {/* Icon Container */}
                     <motion.div
                       variants={iconVariants}
-                      className="w-12 h-12 mb-6 bg-red-600/10 rounded-lg flex items-center justify-center"
+                      className="w-12 h-12 mb-4 bg-red-600/10 rounded-lg flex items-center justify-center"
                       aria-hidden="true"
                     >
                       <IconComponent className="w-6 h-6 text-red-600" />
                     </motion.div>
 
                     {/* Headline */}
-                    <h3 className="text-xl font-bold text-white mb-3 font-montserrat">
+                    <h3 className="text-xl font-bold text-white mb-2 font-montserrat">
                       {point.headline}
                     </h3>
 
