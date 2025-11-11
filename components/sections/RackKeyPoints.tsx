@@ -153,7 +153,7 @@ const RackKeyPoints = memo<Partial<RackKeyPointsProps>>((props) => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
-          className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
+          className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto"
         >
           {keyPoints.map((point, index) => {
             const IconComponent = iconMap[point.icon]
@@ -170,24 +170,26 @@ const RackKeyPoints = memo<Partial<RackKeyPointsProps>>((props) => {
                   variants={cardHoverVariants}
                   className="h-full bg-[#111111] border border-red-600/20 rounded-lg p-6 lg:p-8 transition-colors duration-300 hover:border-red-600/40"
                 >
-                  {/* Icon Container */}
-                  <motion.div
-                    variants={iconVariants}
-                    className="w-12 h-12 mb-6 bg-red-600/10 rounded-lg flex items-center justify-center"
-                    aria-hidden="true"
-                  >
-                    <IconComponent className="w-6 h-6 text-red-600" />
-                  </motion.div>
+                  <div className="text-left">
+                    {/* Icon Container */}
+                    <motion.div
+                      variants={iconVariants}
+                      className="w-12 h-12 mb-6 bg-red-600/10 rounded-lg flex items-center justify-center"
+                      aria-hidden="true"
+                    >
+                      <IconComponent className="w-6 h-6 text-red-600" />
+                    </motion.div>
 
-                  {/* Headline */}
-                  <h3 className="text-xl font-bold text-white mb-3 font-montserrat">
-                    {point.headline}
-                  </h3>
+                    {/* Headline */}
+                    <h3 className="text-xl font-bold text-white mb-3 font-montserrat">
+                      {point.headline}
+                    </h3>
 
-                  {/* Description */}
-                  <p className="text-gray-400 text-sm leading-relaxed font-inter">
-                    {point.description}
-                  </p>
+                    {/* Description */}
+                    <p className="text-gray-400 text-sm leading-relaxed font-inter">
+                      {point.description}
+                    </p>
+                  </div>
 
                   {/* Decorative Line */}
                   {!shouldReduceMotion && (
