@@ -73,7 +73,8 @@ export default function FreestandingContent() {
           aria-labelledby="key-points-title"
         >
           <div className="py-24 lg:py-32">
-            <FreestandingKeyPoints
+            <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+              <FreestandingKeyPoints
               sectionTitle="PORTABLE PRECISION TRAINING"
               sectionSubtitle="Four pillars of freestanding performance"
               keyPoints={[
