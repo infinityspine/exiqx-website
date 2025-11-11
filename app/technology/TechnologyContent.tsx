@@ -81,16 +81,16 @@ export default function TechnologyContent() {
           variants={sectionVariants}
         >
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-start gap-6 mb-8">
+            <div className="flex items-start gap-6" style={{ marginBottom: 'clamp(2rem, 5vw, 4rem)' }}>
               <div className="flex-shrink-0">
                 <div className="w-14 h-14 rounded-2xl bg-red-900/20 border border-red-900/40 flex items-center justify-center">
                   <Activity className="w-7 h-7 text-red-500" />
                 </div>
               </div>
               <div>
-                <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6 font-montserrat">
+                <h2 className="text-3xl sm:text-4xl font-bold text-white font-montserrat" style={{ marginBottom: 'clamp(1.5rem, 3vw, 2.5rem)' }}>
                   Closed-Chain Plantarflexion Alignment
-                  <span className="block text-2xl sm:text-3xl text-red-500 mt-2">
+                  <span className="block text-2xl sm:text-3xl text-red-500" style={{ marginTop: 'clamp(1rem, 2vw, 1.5rem)' }}>
                     User-Adjustable 10°–70°
                   </span>
                 </h2>
@@ -151,14 +151,14 @@ export default function TechnologyContent() {
           variants={sectionVariants}
         >
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-start gap-6 mb-8">
+            <div className="flex items-start gap-6" style={{ marginBottom: 'clamp(2rem, 5vw, 4rem)' }}>
               <div className="flex-shrink-0">
                 <div className="w-14 h-14 rounded-2xl bg-red-900/20 border border-red-900/40 flex items-center justify-center">
                   <Zap className="w-7 h-7 text-red-500" />
                 </div>
               </div>
               <div>
-                <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6 font-montserrat">
+                <h2 className="text-3xl sm:text-4xl font-bold text-white font-montserrat" style={{ marginBottom: 'clamp(1.5rem, 3vw, 2.5rem)' }}>
                   Why We Invented the ExIQx Footplate
                 </h2>
               </div>
@@ -223,14 +223,14 @@ export default function TechnologyContent() {
           variants={sectionVariants}
         >
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-start gap-6 mb-8">
+            <div className="flex items-start gap-6" style={{ marginBottom: 'clamp(2rem, 5vw, 4rem)' }}>
               <div className="flex-shrink-0">
                 <div className="w-14 h-14 rounded-2xl bg-red-900/20 border border-red-900/40 flex items-center justify-center">
                   <Cog className="w-7 h-7 text-red-500" />
                 </div>
               </div>
               <div>
-                <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6 font-montserrat">
+                <h2 className="text-3xl sm:text-4xl font-bold text-white font-montserrat" style={{ marginBottom: 'clamp(1.5rem, 3vw, 2.5rem)' }}>
                   Precision Engineering
                 </h2>
               </div>
@@ -284,14 +284,14 @@ export default function TechnologyContent() {
           variants={sectionVariants}
         >
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-start gap-6 mb-8">
+            <div className="flex items-start gap-6" style={{ marginBottom: 'clamp(2rem, 5vw, 4rem)' }}>
               <div className="flex-shrink-0">
                 <div className="w-14 h-14 rounded-2xl bg-red-900/20 border border-red-900/40 flex items-center justify-center">
                   <TrendingUp className="w-7 h-7 text-red-500" />
                 </div>
               </div>
               <div>
-                <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6 font-montserrat">
+                <h2 className="text-3xl sm:text-4xl font-bold text-white font-montserrat" style={{ marginBottom: 'clamp(1.5rem, 3vw, 2.5rem)' }}>
                   Performance Outcomes
                 </h2>
               </div>
