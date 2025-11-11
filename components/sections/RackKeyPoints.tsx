@@ -164,7 +164,7 @@ const RackKeyPoints = memo<Partial<RackKeyPointsProps>>((props) => {
                 variants={itemVariants}
                 whileHover="hover"
                 initial="initial"
-                className="group w-full sm:w-[45%] lg:w-[22rem] xl:w-[28rem] 2xl:w-[30rem]"
+                className="group w-full sm:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)] lg:min-w-[22rem] xl:min-w-[26rem]"
               >
                 <motion.div
                   variants={cardHoverVariants}
