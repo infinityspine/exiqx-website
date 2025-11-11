@@ -128,7 +128,7 @@ const RackKeyPoints = memo<Partial<RackKeyPointsProps>>((props) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: ANIMATION_CONSTANTS.DURATION_MEDIUM }}
-            className="text-center mb-16"
+            className="text-center mb-16 max-w-4xl mx-auto"
           >
             {sectionTitle && (
               <h2
