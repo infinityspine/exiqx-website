@@ -168,7 +168,7 @@ const FreestandingKeyPoints = memo<Partial<FreestandingKeyPointsProps>>((props) 
               >
                 <motion.div
                   variants={cardHoverVariants}
-                  className="bg-[#111111] border border-red-600/20 rounded-lg px-8 py-8 sm:px-10 sm:py-8 lg:px-12 lg:py-10 transition-colors duration-300 hover:border-red-600/40 flex flex-col justify-between w-full h-full overflow-hidden"
+                  className="bg-[#111111] border border-red-600/20 rounded-lg px-8 py-6 sm:px-10 sm:py-6 lg:px-12 lg:py-6 transition-colors duration-300 hover:border-red-600/40 flex flex-col justify-between w-full h-full overflow-hidden"
                 >
                   <div className="text-left">
                     {/* Icon Container */}
