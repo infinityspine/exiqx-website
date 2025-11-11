@@ -120,7 +120,6 @@ const RackKeyPoints = memo<Partial<RackKeyPointsProps>>((props) => {
       className={`bg-[#0A0A0A] border-t border-red-600/20 ${className}`}
       aria-labelledby={sectionTitle ? 'keypoints-title' : undefined}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         {(sectionTitle || sectionSubtitle) && (
           <div className="max-w-3xl mx-auto text-center px-4 sm:px-6 lg:px-8 mb-16">
@@ -206,7 +205,6 @@ const RackKeyPoints = memo<Partial<RackKeyPointsProps>>((props) => {
             )
           })}
         </motion.div>
-      </div>
     </section>
   )
 })
