@@ -153,7 +153,7 @@ const RackKeyPoints = memo<Partial<RackKeyPointsProps>>((props) => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
-          className="flex flex-wrap justify-center gap-8 px-4 sm:px-8 lg:px-12 max-w-[110rem] mx-auto"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-4 sm:px-8 lg:px-12 xl:px-16 max-w-[120rem] mx-auto"
         >
           {keyPoints.map((point, index) => {
             const IconComponent = iconMap[point.icon]
@@ -164,7 +164,7 @@ const RackKeyPoints = memo<Partial<RackKeyPointsProps>>((props) => {
                 variants={itemVariants}
                 whileHover="hover"
                 initial="initial"
-                className="group w-full sm:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)] lg:min-w-[22rem] xl:min-w-[26rem]"
+                className="group"
               >
                 <motion.div
                   variants={cardHoverVariants}
