@@ -123,27 +123,28 @@ const RackKeyPoints = memo<Partial<RackKeyPointsProps>>((props) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         {(sectionTitle || sectionSubtitle) && (
-          <motion.div
-            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: ANIMATION_CONSTANTS.DURATION_MEDIUM }}
-            className="text-center mb-16 max-w-4xl mx-auto"
-          >
-            {sectionTitle && (
-              <h2
-                id="keypoints-title"
-                className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 font-montserrat uppercase tracking-tight text-center mx-auto"
-              >
-                {sectionTitle}
-              </h2>
-            )}
-            {sectionSubtitle && (
-              <p className="text-gray-400 text-lg font-inter max-w-2xl mx-auto text-center">
-                {sectionSubtitle}
-              </p>
-            )}
-          </motion.div>
+          <div className="max-w-3xl mx-auto text-center px-4 sm:px-6 lg:px-8 mb-16">
+            <motion.div
+              initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-100px' }}
+              transition={{ duration: ANIMATION_CONSTANTS.DURATION_MEDIUM }}
+            >
+              {sectionTitle && (
+                <h2
+                  id="keypoints-title"
+                  className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 font-montserrat uppercase tracking-tight text-center mx-auto"
+                >
+                  {sectionTitle}
+                </h2>
+              )}
+              {sectionSubtitle && (
+                <p className="text-lg text-gray-400 mx-auto text-center font-inter">
+                  {sectionSubtitle}
+                </p>
+              )}
+            </motion.div>
+          </div>
         )}
 
         {/* Key Points Grid */}
