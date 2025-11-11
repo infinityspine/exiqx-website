@@ -153,7 +153,7 @@ const GHDKeyPoints = memo<Partial<GHDKeyPointsProps>>((props) => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
-          className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto"
+          className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto items-stretch"
         >
           {keyPoints.map((point, index) => {
             const IconComponent = iconMap[point.icon]
@@ -164,11 +164,11 @@ const GHDKeyPoints = memo<Partial<GHDKeyPointsProps>>((props) => {
                 variants={itemVariants}
                 whileHover="hover"
                 initial="initial"
-                className="group"
+                className="group flex"
               >
                 <motion.div
                   variants={cardHoverVariants}
-                  className="h-full bg-[#111111] border border-red-600/20 rounded-lg p-6 lg:p-8 transition-colors duration-300 hover:border-red-600/40"
+                  className="h-full w-full flex flex-col justify-between bg-[#111111] border border-red-600/20 rounded-lg p-6 lg:p-8 transition-colors duration-300 hover:border-red-600/40"
                 >
                   <div className="text-left">
                     {/* Icon Container */}
