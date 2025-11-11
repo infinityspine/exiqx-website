@@ -63,7 +63,7 @@ export default function TechnologyContent() {
             <h1 className="text-white font-extrabold text-5xl sm:text-6xl leading-tight mb-6 font-montserrat">
               The Science Behind the<br className="hidden sm:block" /> ExIQx Footplate
             </h1>
-            <p className="text-gray-400 text-lg sm:text-xl max-w-2xl mx-auto font-inter leading-relaxed">
+            <p className="text-gray-400 text-lg sm:text-xl max-w-2xl mx-auto font-inter leading-relaxed text-center">
               Biomechanics, precision, and performance — re-engineered from the ground up.
             </p>
           </motion.div>
