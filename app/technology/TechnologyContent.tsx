@@ -337,10 +337,10 @@ export default function TechnologyContent() {
           variants={sectionVariants}
         >
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-white font-extrabold text-5xl sm:text-6xl leading-snug mb-10 font-montserrat">
+            <h2 className="text-white font-extrabold text-5xl sm:text-6xl leading-snug mb-12 font-montserrat">
               Explore the Full Technical Specifications
             </h2>
-            <p className="text-gray-400 text-lg sm:text-xl leading-relaxed max-w-2xl mx-auto mb-14 font-inter">
+            <p className="text-gray-400 text-lg sm:text-xl leading-relaxed max-w-3xl mx-auto mb-16 font-inter text-center">
               Dive deeper into the engineering, materials, and biomechanical design that make the ExIQx Footplate the most advanced posterior-chain training system available.
             </p>
             <Link
