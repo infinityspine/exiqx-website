@@ -161,21 +161,7 @@ export default function RackMountedContent() {
           aria-labelledby="specs-title"
         >
           <div className="py-24 lg:py-32">
-            <RackSpecs
-              title="Technical Specifications"
-              specs={[
-                { label: 'Footplate Width', value: '20–24" (optional lateral stabilizers)' },
-                { label: 'Adjustment Plate Radius', value: '~4" with 15° hole spacing' },
-                { label: 'Angle Range', value: '10°–70° plantarflexion' },
-                { label: 'Material', value: '11-gauge steel with powder-coated finish' },
-                { label: 'Weight', value: '~30 lbs assembled' },
-                { label: 'Mount Type', value: 'Dual-bracket rack interface (peg + collar)' },
-                { label: 'Adjustability', value: 'Tool-free (hitch pin, detent, twist-lock)' },
-              ]}
-              imageSrc="/rack-mounted-detail.jpg"
-              imageAlt="Rack-Mounted Footplate Detail"
-              imagePosition="right"
-            />
+            <RackSpecs />
           </div>
         </motion.section>
 

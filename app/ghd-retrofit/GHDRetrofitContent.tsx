@@ -161,21 +161,7 @@ export default function GHDRetrofitContent() {
           aria-labelledby="specs-title"
         >
           <div className="py-24 lg:py-32">
-            <GHDSpecs
-              title="Technical Specifications"
-              specs={[
-                { label: 'Footplate Width', value: '20–24" (optional lateral stabilizers)' },
-                { label: 'Adjustment Plate Radius', value: '~4" with 15° hole spacing' },
-                { label: 'Angle Range', value: '10°–70° plantarflexion' },
-                { label: 'Material', value: '11-gauge steel with powder-coated finish' },
-                { label: 'Weight', value: '~28 lbs assembled' },
-                { label: 'Mount Type', value: 'GHD retrofit bracket with quick-connect system' },
-                { label: 'Adjustability', value: 'Tool-free (hitch pin, detent, twist-lock)' },
-              ]}
-              imageSrc="/ghd-mounted-detail.jpg"
-              imageAlt="GHD-Mounted Footplate Detail"
-              imagePosition="right"
-            />
+            <GHDSpecs />
           </div>
         </motion.section>
 
