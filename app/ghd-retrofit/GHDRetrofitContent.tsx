@@ -3,7 +3,7 @@
 
 import { motion, useScroll, useSpring } from 'framer-motion'
 import GHDHero from '@/components/sections/GHDHero'
-import GHDKeyPoints from '@/components/sections/GHDKeyPoints'
+import EngineeredForExcellenceSection from '@/components/sections/EngineeredForExcellence'
 import GHDFeatureDetail from '@/components/sections/GHDFeatureDetail'
 import BiomechanicsSection from '@/components/sections/BiomechanicsSection'
 import GHDSpecs from '@/components/sections/GHDSpecs'
@@ -63,46 +63,32 @@ export default function GHDRetrofitContent() {
         <div className="h-32 bg-gradient-to-b from-black via-zinc-950 to-black" aria-hidden="true" />
 
         {/* Key Benefits Grid */}
-        <motion.section
-          id="key-points"
-          className="scroll-mt-24 relative"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={sectionVariants}
-          aria-labelledby="key-points-title"
-        >
-          <div className="py-24 lg:py-32">
-            <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-              <GHDKeyPoints
-              sectionTitle="MAXIMIZE YOUR GHD INVESTMENT"
-              sectionSubtitle="Four pillars of athlete-focused innovation"
-              keyPoints={[
-                {
-                  icon: 'ruler',
-                  headline: 'GHD-Optimized Mounting',
-                  description: 'Retrofits directly to your existing GHD footplate attachment point. Quick-connect design for seamless integration with Rogue, Sorinex, and other commercial GHDs.',
-                },
-                {
-                  icon: 'zap',
-                  headline: 'Athlete-Ready Flexibility',
-                  description: 'Perfect for facilities with multiple GHD users. Swap between traditional GHD work and ExIQx loading in seconds without tools.',
-                },
-                {
-                  icon: 'award',
-                  headline: 'Biomechanical Alignment',
-                  description: 'Engineered around ~38° plantarflexion alignment, mirroring natural closed-chain vector of sprinting and athletic acceleration.',
-                },
-                {
-                  icon: 'shield',
-                  headline: 'Dual-Purpose Design',
-                  description: '11-gauge steel construction. Maintains full GHD functionality while adding precision posterior-chain loading capability.',
-                },
-              ]}
-            />
-            </div>
-          </div>
-        </motion.section>
+        <EngineeredForExcellenceSection
+          sectionTitle="MAXIMIZE YOUR GHD INVESTMENT"
+          sectionSubtitle="Four pillars of athlete-focused innovation"
+          features={[
+            {
+              icon: 'ruler',
+              title: 'GHD-Optimized Mounting',
+              body: 'Retrofits directly to your existing GHD footplate attachment point. Quick-connect design for seamless integration with Rogue, Sorinex, and other commercial GHDs.',
+            },
+            {
+              icon: 'zap',
+              title: 'Athlete-Ready Flexibility',
+              body: 'Perfect for facilities with multiple GHD users. Swap between traditional GHD work and ExIQx loading in seconds without tools.',
+            },
+            {
+              icon: 'award',
+              title: 'Biomechanical Alignment',
+              body: 'Engineered around ~38° plantarflexion alignment, mirroring natural closed-chain vector of sprinting and athletic acceleration.',
+            },
+            {
+              icon: 'shield',
+              title: 'Dual-Purpose Design',
+              body: '11-gauge steel construction. Maintains full GHD functionality while adding precision posterior-chain loading capability.',
+            },
+          ]}
+        />
 
         {/* Visual spacer with subtle line */}
         <div className="relative h-px max-w-7xl mx-auto" aria-hidden="true">

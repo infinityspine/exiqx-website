@@ -3,7 +3,7 @@
 
 import { motion, useScroll, useSpring } from 'framer-motion'
 import RackHero from '@/components/sections/RackHero'
-import RackKeyPoints from '@/components/sections/RackKeyPoints'
+import EngineeredForExcellenceSection from '@/components/sections/EngineeredForExcellence'
 import RackFeatureDetail from '@/components/sections/RackFeatureDetail'
 import BiomechanicsSection from '@/components/sections/BiomechanicsSection'
 import RackSpecs from '@/components/sections/RackSpecs'
@@ -63,46 +63,32 @@ export default function RackMountedContent() {
         <div className="h-32 bg-gradient-to-b from-black via-zinc-950 to-black" aria-hidden="true" />
 
         {/* Key Benefits Grid */}
-        <motion.section
-          id="key-points"
-          className="scroll-mt-24 relative"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={sectionVariants}
-          aria-labelledby="key-points-title"
-        >
-          <div className="py-24 lg:py-32">
-            <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-              <RackKeyPoints
-              sectionTitle="ENGINEERED FOR EXCELLENCE"
-              sectionSubtitle="Four pillars of biomechanical superiority"
-              keyPoints={[
-                {
-                  icon: 'ruler',
-                  headline: 'Precision-Mounted Stability',
-                  description: 'Anchors securely to 3"×3" uprights using dual hitch-pin brackets. No wobble, no flex — just pure force transfer.',
-                },
-                {
-                  icon: 'zap',
-                  headline: 'Universal Compatibility',
-                  description: 'Fits all standard 43" rack widths (Rogue, Sorinex, Titan). Tool-free locking system with hitch pin or detent.',
-                },
-                {
-                  icon: 'award',
-                  headline: 'Biomechanical Alignment',
-                  description: 'Engineered around ~38° plantarflexion alignment, mirroring natural closed-chain vector of sprinting.',
-                },
-                {
-                  icon: 'shield',
-                  headline: 'Built to Last',
-                  description: '11-gauge steel with powder-coated finish. 30 lbs assembled. Designed for commercial gym durability.',
-                },
-              ]}
-            />
-            </div>
-          </div>
-        </motion.section>
+        <EngineeredForExcellenceSection
+          sectionTitle="ENGINEERED FOR EXCELLENCE"
+          sectionSubtitle="Four pillars of biomechanical superiority"
+          features={[
+            {
+              icon: 'ruler',
+              title: 'Precision-Mounted Stability',
+              body: 'Anchors securely to 3"×3" uprights using dual hitch-pin brackets. No wobble, no flex — just pure force transfer.',
+            },
+            {
+              icon: 'zap',
+              title: 'Universal Compatibility',
+              body: 'Fits all standard 43" rack widths (Rogue, Sorinex, Titan). Tool-free locking system with hitch pin or detent.',
+            },
+            {
+              icon: 'award',
+              title: 'Biomechanical Alignment',
+              body: 'Engineered around ~38° plantarflexion alignment, mirroring the natural closed-chain vector of sprinting.',
+            },
+            {
+              icon: 'shield',
+              title: 'Built to Last',
+              body: '11-gauge steel with powder-coated finish. 30 lbs assembled. Designed for heavy commercial gym abuse.',
+            },
+          ]}
+        />
 
         {/* Visual spacer with subtle line */}
         <div className="relative h-px max-w-7xl mx-auto" aria-hidden="true">
