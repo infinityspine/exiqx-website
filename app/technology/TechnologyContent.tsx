@@ -97,16 +97,22 @@ export default function TechnologyContent() {
               </div>
             </div>
 
-            <div className="space-y-6 text-gray-300 font-inter leading-relaxed text-base sm:text-lg">
-              <p>
-                ExIQx technology is engineered around <strong className="text-white">user-adjustable closed-chain plantarflexion mechanics</strong>, allowing precise alignment from 10° to 70° to match each athlete's preferred loading angle, performance objective, or rehabilitation phase.
-              </p>
-              <p>
-                Each interval positions the user in a true ground-force vector, directing load through the plantar surface of the foot — from the metatarsal heads and ball of the foot, through the ankle complex, calves, hamstrings, glutes, and spinal erectors.
-              </p>
-              <p>
-                This closed-chain configuration mimics the natural kinetic sequence of sprinting, jumping, and human gait, enabling:
-              </p>
+            <div className="text-gray-300 font-inter text-base sm:text-lg" style={{ lineHeight: '1.8' }}>
+              <div style={{ marginBottom: 'clamp(2rem, 4vw, 3rem)' }}>
+                <p>
+                  ExIQx technology is engineered around <strong className="text-white">user-adjustable closed-chain plantarflexion mechanics</strong>, allowing precise alignment from 10° to 70° to match each athlete's preferred loading angle, performance objective, or rehabilitation phase.
+                </p>
+              </div>
+              <div style={{ marginBottom: 'clamp(2rem, 4vw, 3rem)' }}>
+                <p>
+                  Each interval positions the user in a true ground-force vector, directing load through the plantar surface of the foot — from the metatarsal heads and ball of the foot, through the ankle complex, calves, hamstrings, glutes, and spinal erectors.
+                </p>
+              </div>
+              <div style={{ marginBottom: 'clamp(2.5rem, 5vw, 4rem)' }}>
+                <p>
+                  This closed-chain configuration mimics the natural kinetic sequence of sprinting, jumping, and human gait, enabling:
+                </p>
+              </div>
 
               <div className="grid gap-6 sm:grid-cols-3 mt-8">
                 <div className="bg-zinc-950/50 border border-red-900/20 rounded-2xl p-6 hover:border-red-900/40 transition-colors duration-300">
@@ -164,22 +170,32 @@ export default function TechnologyContent() {
               </div>
             </div>
 
-            <div className="space-y-6 text-gray-300 font-inter leading-relaxed text-base sm:text-lg">
-              <p>
-                Conventional Nordic and GHD-style devices stabilize the body by anchoring the posterior ankle and leg, transferring force through the Achilles and calf complex.
-              </p>
-              <p>
-                While this isolates eccentric hamstring strength, it <strong className="text-white">diverts kinetic energy away from the true ground-force pathway</strong> used in sprinting, jumping, and sport-specific motion.
-              </p>
-              <p>
-                In natural athletic movement, energy transfers through the <strong className="text-white">plantar surface of the foot</strong> — especially the ball of the foot and metatarsal heads — creating a closed-chain kinetic line that drives upward through the ankle, knee, and hip into the entire posterior chain.
-              </p>
-              <p className="text-white text-xl font-semibold">
-                That's how athletes create explosive propulsion and elastic recoil.
-              </p>
-              <p>
-                The ExIQx Footplate was designed to restore that authentic energy flow. By re-routing force through the plantar surface instead of the posterior ankle, it:
-              </p>
+            <div className="text-gray-300 font-inter text-base sm:text-lg" style={{ lineHeight: '1.8' }}>
+              <div style={{ marginBottom: 'clamp(2rem, 4vw, 3rem)' }}>
+                <p>
+                  Conventional Nordic and GHD-style devices stabilize the body by anchoring the posterior ankle and leg, transferring force through the Achilles and calf complex.
+                </p>
+              </div>
+              <div style={{ marginBottom: 'clamp(2rem, 4vw, 3rem)' }}>
+                <p>
+                  While this isolates eccentric hamstring strength, it <strong className="text-white">diverts kinetic energy away from the true ground-force pathway</strong> used in sprinting, jumping, and sport-specific motion.
+                </p>
+              </div>
+              <div style={{ marginBottom: 'clamp(2rem, 4vw, 3rem)' }}>
+                <p>
+                  In natural athletic movement, energy transfers through the <strong className="text-white">plantar surface of the foot</strong> — especially the ball of the foot and metatarsal heads — creating a closed-chain kinetic line that drives upward through the ankle, knee, and hip into the entire posterior chain.
+                </p>
+              </div>
+              <div style={{ marginTop: 'clamp(3rem, 6vw, 5rem)', marginBottom: 'clamp(3rem, 6vw, 5rem)' }}>
+                <p className="text-white text-xl font-semibold">
+                  That's how athletes create explosive propulsion and elastic recoil.
+                </p>
+              </div>
+              <div style={{ marginBottom: 'clamp(2.5rem, 5vw, 4rem)' }}>
+                <p>
+                  The ExIQx Footplate was designed to restore that authentic energy flow. By re-routing force through the plantar surface instead of the posterior ankle, it:
+                </p>
+              </div>
 
               <div className="bg-gradient-to-br from-zinc-950 to-black border border-red-900/30 rounded-2xl p-8 space-y-4 mt-8">
                 <div className="flex items-start gap-4">
@@ -202,9 +218,11 @@ export default function TechnologyContent() {
                 </div>
               </div>
 
-              <p className="text-white text-xl font-semibold pt-6 border-t border-zinc-800">
-                This isn't a modified Nordic device; it's a biomechanical re-engineering of how athletes produce and absorb force, restoring the body's authentic ground-up energy system.
-              </p>
+              <div style={{ marginTop: 'clamp(2.5rem, 5vw, 4rem)', paddingTop: 'clamp(1.5rem, 3vw, 2rem)', borderTop: '1px solid rgb(39, 39, 42)' }}>
+                <p className="text-white text-xl font-semibold">
+                  This isn't a modified Nordic device; it's a biomechanical re-engineering of how athletes produce and absorb force, restoring the body's authentic ground-up energy system.
+                </p>
+              </div>
             </div>
           </div>
         </motion.section>
@@ -236,32 +254,32 @@ export default function TechnologyContent() {
               </div>
             </div>
 
-            <div className="space-y-6 text-gray-300 font-inter leading-relaxed text-base sm:text-lg">
+            <div className="text-gray-300 font-inter text-base sm:text-lg">
               <div className="grid sm:grid-cols-2 gap-6">
                 <div className="bg-zinc-950/50 border border-zinc-800 rounded-2xl p-6">
                   <h3 className="text-white font-semibold text-lg mb-3">Hybrid Construction</h3>
-                  <p className="text-sm text-gray-400">
+                  <p className="text-sm text-gray-400" style={{ lineHeight: '1.7' }}>
                     CNC-machined ⅜" aluminum for lightweight precision; welded 11-gauge steel arms for structural strength
                   </p>
                 </div>
 
                 <div className="bg-zinc-950/50 border border-zinc-800 rounded-2xl p-6">
                   <h3 className="text-white font-semibold text-lg mb-3">Aerospace Precision</h3>
-                  <p className="text-sm text-gray-400">
+                  <p className="text-sm text-gray-400" style={{ lineHeight: '1.7' }}>
                     CNC-machined to aerospace-level tolerances for perfect bearing alignment and zero lateral play
                   </p>
                 </div>
 
                 <div className="bg-zinc-950/50 border border-zinc-800 rounded-2xl p-6">
                   <h3 className="text-white font-semibold text-lg mb-3">Durable Finish</h3>
-                  <p className="text-sm text-gray-400">
+                  <p className="text-sm text-gray-400" style={{ lineHeight: '1.7' }}>
                     Powder-coated black finish for corrosion resistance, with custom color options available on request
                   </p>
                 </div>
 
                 <div className="bg-zinc-950/50 border border-zinc-800 rounded-2xl p-6">
                   <h3 className="text-white font-semibold text-lg mb-3">Made in USA</h3>
-                  <p className="text-sm text-gray-400">
+                  <p className="text-sm text-gray-400" style={{ lineHeight: '1.7' }}>
                     Designed, machined, and assembled in the United States
                   </p>
                 </div>
@@ -301,7 +319,7 @@ export default function TechnologyContent() {
               <div className="bg-gradient-to-br from-zinc-950 to-black border border-red-900/30 rounded-2xl p-8 hover:border-red-500/50 transition-colors duration-300">
                 <div className="text-5xl mb-4">⚡</div>
                 <h3 className="text-white font-bold text-xl mb-3 font-montserrat">Sprint Carryover</h3>
-                <p className="text-gray-400 text-sm">
+                <p className="text-gray-400 text-sm" style={{ lineHeight: '1.7' }}>
                   Recreates the closed-chain vector of sprint acceleration for direct athletic transfer
                 </p>
               </div>
@@ -309,7 +327,7 @@ export default function TechnologyContent() {
               <div className="bg-gradient-to-br from-zinc-950 to-black border border-red-900/30 rounded-2xl p-8 hover:border-red-500/50 transition-colors duration-300">
                 <div className="text-5xl mb-4">🦵</div>
                 <h3 className="text-white font-bold text-xl mb-3 font-montserrat">Posterior-Chain Activation</h3>
-                <p className="text-gray-400 text-sm">
+                <p className="text-gray-400 text-sm" style={{ lineHeight: '1.7' }}>
                   Maximizes muscular integration from the plantar surface through the glutes and spinal erectors
                 </p>
               </div>
@@ -317,7 +335,7 @@ export default function TechnologyContent() {
               <div className="bg-gradient-to-br from-zinc-950 to-black border border-red-900/30 rounded-2xl p-8 hover:border-red-500/50 transition-colors duration-300">
                 <div className="text-5xl mb-4">🧩</div>
                 <h3 className="text-white font-bold text-xl mb-3 font-montserrat">Rehabilitation Crossover</h3>
-                <p className="text-gray-400 text-sm">
+                <p className="text-gray-400 text-sm" style={{ lineHeight: '1.7' }}>
                   Enables controlled eccentric loading and posterior-chain retraining across progressive angles
                 </p>
               </div>
