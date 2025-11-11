@@ -97,7 +97,7 @@ const FreestandingHero = memo<Partial<FreestandingHeroProps>>((props) => {
   return (
     <section
       ref={containerRef}
-      className={`relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-black text-center ${className}`}
+      className={`relative w-full bg-black py-24 overflow-hidden ${className}`}
       aria-labelledby="hero-heading"
     >
       {/* Background Image with Parallax */}
@@ -139,16 +139,17 @@ const FreestandingHero = memo<Partial<FreestandingHeroProps>>((props) => {
       </motion.div>
 
       {/* Hero Content with Fade-out */}
-      <motion.div
-        initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: ANIMATION_CONSTANTS.DURATION_MEDIUM, delay: 0.3 }}
-        style={{
-          opacity: shouldReduceMotion ? 1 : contentOpacity,
-          scale: shouldReduceMotion ? 1 : contentScale,
-        }}
-        className="relative z-10 flex flex-col items-center justify-center text-center px-6 sm:px-8 lg:px-12"
-      >
+      <div className="relative flex flex-col items-center justify-center text-center max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: ANIMATION_CONSTANTS.DURATION_MEDIUM, delay: 0.3 }}
+          style={{
+            opacity: shouldReduceMotion ? 1 : contentOpacity,
+            scale: shouldReduceMotion ? 1 : contentScale,
+          }}
+          className="relative z-10 w-full flex flex-col items-center"
+        >
         {/* Optional Eyebrow */}
         {eyebrow && (
           <motion.p
@@ -164,22 +165,21 @@ const FreestandingHero = memo<Partial<FreestandingHeroProps>>((props) => {
         {/* Headline */}
         <h1
           id="hero-heading"
-          className="text-[clamp(2.4rem,5vw,4.8rem)] font-extrabold tracking-[0.05em] text-white uppercase leading-[1.05] mb-16 sm:mb-20 font-display"
+          className="text-white font-bold text-4xl sm:text-5xl md:text-6xl mb-6 uppercase font-display tracking-tight"
         >
           {headline}
         </h1>
 
         {/* Subheadline */}
         <p
-          className="text-[clamp(1.05rem,1.6vw,1.25rem)] font-medium text-white/85 max-w-2xl leading-[1.8] font-inter"
-          style={{ marginBottom: 'clamp(3.5rem, 9vw, 5rem)' }}
+          className="text-lg text-gray-300 mb-10 max-w-2xl text-center mx-auto font-inter"
         >
           {subheadline}
         </p>
 
         {/* CTA Buttons */}
         {(primaryCTA || secondaryCTA) && (
-          <div className="flex flex-col sm:flex-row gap-5 justify-center items-center mb-12 sm:mb-14">
+          <div className="flex flex-wrap justify-center gap-4">
             {/* Primary CTA */}
             {primaryCTA && (
               <motion.button
@@ -230,7 +230,8 @@ const FreestandingHero = memo<Partial<FreestandingHeroProps>>((props) => {
             {microTagline}
           </motion.p>
         )}
-      </motion.div>
+        </motion.div>
+      </div>
 
       {/* Scroll Indicator */}
       {!shouldReduceMotion && (
