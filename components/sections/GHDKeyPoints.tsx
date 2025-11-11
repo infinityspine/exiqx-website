@@ -118,20 +118,20 @@ const GHDKeyPoints = memo<Partial<GHDKeyPointsProps>>((props) => {
   return (
     <section
       className={`bg-[#0A0A0A] border-t border-red-600/20 ${className}`}
-      style={{ 
-        paddingTop: 'clamp(5rem, 10vw, 10rem)',
-        paddingBottom: 'clamp(5rem, 10vw, 10rem)',
+      style={{
+        paddingTop: 'clamp(3rem, 6vw, 6rem)',
+        paddingBottom: 'clamp(3rem, 6vw, 6rem)',
       }}
       aria-labelledby={sectionTitle ? 'keypoints-title' : undefined}
     >
         {/* Section Header */}
         {(sectionTitle || sectionSubtitle) && (
-          <div 
+          <div
             className="w-full flex flex-col items-center text-center"
-            style={{ 
-              marginBottom: 'clamp(4rem, 8vw, 8rem)',
-              paddingLeft: 'clamp(1rem, 4vw, 3rem)',
-              paddingRight: 'clamp(1rem, 4vw, 3rem)',
+            style={{
+              marginBottom: 'clamp(2.5rem, 5vw, 4rem)',
+              paddingLeft: 'clamp(1rem, 3vw, 2rem)',
+              paddingRight: 'clamp(1rem, 3vw, 2rem)',
             }}
           >
             <motion.div
@@ -145,22 +145,22 @@ const GHDKeyPoints = memo<Partial<GHDKeyPointsProps>>((props) => {
                 <h2
                   id="keypoints-title"
                   className="text-white font-bold font-montserrat uppercase tracking-tight"
-                  style={{ 
-                    fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+                  style={{
+                    fontSize: 'clamp(2rem, 4vw, 3rem)',
                     lineHeight: '1.1',
                     letterSpacing: '-0.02em',
-                    marginBottom: 'clamp(1.5rem, 3vw, 2.5rem)',
+                    marginBottom: 'clamp(1rem, 2vw, 1.5rem)',
                   }}
                 >
                   {sectionTitle}
                 </h2>
               )}
               {sectionSubtitle && (
-                <p 
-                  className="text-gray-400 max-w-3xl mx-auto font-inter"
-                  style={{ 
-                    fontSize: 'clamp(1.125rem, 2vw, 1.375rem)',
-                    lineHeight: '1.7',
+                <p
+                  className="text-gray-400 max-w-2xl mx-auto font-inter"
+                  style={{
+                    fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
+                    lineHeight: '1.6',
                   }}
                 >
                   {sectionSubtitle}
