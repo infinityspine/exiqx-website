@@ -118,9 +118,9 @@ const FreestandingKeyPoints = memo<Partial<FreestandingKeyPointsProps>>((props) 
   return (
     <section
       className={`bg-[#0A0A0A] border-t border-red-600/20 ${className}`}
-      style={{ 
-        paddingTop: 'clamp(5rem, 10vw, 10rem)',
-        paddingBottom: 'clamp(5rem, 10vw, 10rem)',
+      style={{
+        paddingTop: 'clamp(3rem, 6vw, 6rem)',
+        paddingBottom: 'clamp(3rem, 6vw, 6rem)',
       }}
       aria-labelledby={sectionTitle ? 'keypoints-title' : undefined}
     >

@@ -217,8 +217,8 @@ const GHDKeyPoints = memo<Partial<GHDKeyPointsProps>>((props) => {
                       <IconComponent
                         className="text-red-600"
                         style={{
-                          width: 'clamp(1.75rem, 3vw, 2.5rem)',
-                          height: 'clamp(1.75rem, 3vw, 2.5rem)',
+                          width: 'clamp(1.5rem, 2.5vw, 1.75rem)',
+                          height: 'clamp(1.5rem, 2.5vw, 1.75rem)',
                         }}
                       />
                     </motion.div>
@@ -227,10 +227,10 @@ const GHDKeyPoints = memo<Partial<GHDKeyPointsProps>>((props) => {
                     <h3
                       className="font-bold text-white font-montserrat"
                       style={{
-                        fontSize: 'clamp(1.25rem, 2.5vw, 1.5rem)',
-                        lineHeight: '1.25',
+                        fontSize: 'clamp(1.125rem, 2vw, 1.25rem)',
+                        lineHeight: '1.3',
                         letterSpacing: '-0.01em',
-                        marginBottom: 'clamp(1rem, 2vw, 1.5rem)',
+                        marginBottom: 'clamp(0.75rem, 1.5vw, 1rem)',
                       }}
                     >
                       {point.headline}
@@ -240,8 +240,8 @@ const GHDKeyPoints = memo<Partial<GHDKeyPointsProps>>((props) => {
                     <p
                       className="text-gray-400 font-inter flex-1"
                       style={{
-                        fontSize: 'clamp(0.9375rem, 1.75vw, 1.0625rem)',
-                        lineHeight: '1.75',
+                        fontSize: 'clamp(0.875rem, 1.5vw, 0.9375rem)',
+                        lineHeight: '1.7',
                         letterSpacing: '0.01em',
                       }}
                     >
@@ -257,8 +257,8 @@ const GHDKeyPoints = memo<Partial<GHDKeyPointsProps>>((props) => {
                       viewport={{ once: true }}
                       transition={{ delay: index * 0.1 + 0.3, duration: 0.6 }}
                       className="bg-gradient-to-r from-red-600 to-transparent origin-left"
-                      style={{ 
-                        marginTop: 'clamp(2rem, 4vw, 3rem)',
+                      style={{
+                        marginTop: 'clamp(1.5rem, 3vw, 2rem)',
                         height: '2px',
                       }}
                     />
