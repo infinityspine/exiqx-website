@@ -97,7 +97,7 @@ const FreestandingHero = memo<Partial<FreestandingHeroProps>>((props) => {
   return (
     <section
       ref={containerRef}
-      className={`relative w-full bg-black py-24 overflow-hidden ${className}`}
+      className={`relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-black text-center ${className}`}
       aria-labelledby="hero-heading"
     >
       {/* Background Image with Parallax */}
