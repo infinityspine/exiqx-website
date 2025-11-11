@@ -330,22 +330,40 @@ export default function TechnologyContent() {
 
         {/* CTA Section */}
         <motion.section
-          className="relative flex flex-col items-center justify-center text-center w-full bg-black py-40 px-6 sm:px-8"
+          className="relative flex flex-col items-center justify-center text-center w-full bg-black px-6 sm:px-8"
+          style={{ paddingTop: 'clamp(8rem, 15vw, 12rem)', paddingBottom: 'clamp(8rem, 15vw, 12rem)' }}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={sectionVariants}
         >
           <div className="flex flex-col items-center justify-center text-center w-full max-w-4xl mx-auto">
-            <h2 className="text-white font-extrabold text-5xl sm:text-6xl leading-snug mb-16 font-montserrat text-center">
+            <h2 
+              className="text-white font-extrabold leading-[1.1] font-montserrat text-center"
+              style={{ 
+                fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+                marginBottom: 'clamp(2.5rem, 5vw, 4rem)'
+              }}
+            >
               Explore the Full Technical Specifications
             </h2>
-            <p className="text-gray-400 text-lg sm:text-xl leading-relaxed max-w-2xl w-full text-center mx-auto mb-20 font-inter">
+            <p 
+              className="text-gray-400 max-w-2xl w-full text-center mx-auto font-inter"
+              style={{ 
+                fontSize: 'clamp(1rem, 2vw, 1.25rem)',
+                lineHeight: '1.6',
+                marginBottom: 'clamp(3rem, 6vw, 5rem)'
+              }}
+            >
               Dive deeper into the engineering, materials, and biomechanical design that make the ExIQx Footplate the most advanced posterior-chain training system available.
             </p>
             <Link
               href="/specifications"
-              className="inline-block bg-red-600 hover:bg-red-700 text-white font-semibold text-lg px-10 py-5 rounded-lg transition-all duration-300"
+              className="inline-block bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition-all duration-300"
+              style={{
+                fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
+                padding: 'clamp(1rem, 2vw, 1.25rem) clamp(2rem, 4vw, 2.5rem)'
+              }}
             >
               View Full Specifications →
             </Link>
