@@ -4,41 +4,59 @@ import { motion } from 'framer-motion'
 
 export default function AboutPage() {
   return (
-    <section className="bg-black min-h-screen flex items-center justify-center">
-      <div className="max-w-4xl mx-auto px-6 text-center py-24 md:py-32">
+    <section className="min-h-screen bg-black flex items-center justify-center">
+      <div className="max-w-5xl mx-auto px-8 py-28 md:py-36 text-left md:pl-4">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
+          transition={{ duration: 0.9, ease: 'easeOut' }}
         >
-          <h1 className="text-6xl md:text-7xl font-extrabold tracking-tight uppercase mb-10 text-white">
+          <h1 className="text-7xl font-extrabold uppercase tracking-tight mb-8 text-white">
             About
           </h1>
-          <div className="w-24 h-1 bg-[#e50914] mx-auto mb-12"></div>
+          <div className="w-20 h-[6px] bg-[#e50914] mb-12"></div>
           
-          <div className="text-lg md:text-xl text-gray-300 font-light leading-loose space-y-6">
-            <p>
-              ExIQx exists at the intersection of biomechanics, precision engineering, and authentic 
-              ground-force movement. We design training equipment that honors the physics of human 
-              performance—not trends, not shortcuts, but biomechanical truth. Every component, every 
-              angle, every force vector is calculated to respect the mechanics that govern human 
-              movement and athletic expression.
-            </p>
-            <p>
-              Our equipment is built for athletes, coaches, and performance professionals who demand 
-              training systems that replicate real-world force vectors, joint mechanics, and tissue 
-              loading patterns. Movement fidelity is non-negotiable. Every product is engineered to 
-              translate seamlessly from the training floor to competition, ensuring that the work 
-              you invest here manifests where it matters most.
-            </p>
-            <p>
-              ExIQx exists for the relentless pursuit of mechanical perfection and human potential. 
-              Our tools are forged for those who refuse to compromise on authenticity, precision, and 
-              performance. This is equipment designed by the standards of biomechanical science, built 
-              for those who understand that excellence is not a destination—it's a continuous refinement 
-              of mechanics, intent, and execution.
-            </p>
-          </div>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, ease: 'easeOut', delay: 0.2 }}
+            className="text-lg md:text-xl text-gray-300 font-light leading-relaxed mb-8"
+          >
+            ExIQx exists at the convergence of biomechanics, precision engineering, and authentic 
+            ground-force movement science. We design training systems anchored in mechanical truth—not 
+            trends or compromise. Every component respects the physics that govern human performance.
+          </motion.p>
+          
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, ease: 'easeOut', delay: 0.4 }}
+            className="text-lg md:text-xl text-gray-300 font-light leading-relaxed mb-8"
+          >
+            Our equipment honors natural human mechanics, joint kinematics, and force vector accuracy. 
+            Built for athletes and professionals who demand training tools that translate directly to 
+            performance. Movement fidelity is non-negotiable.
+          </motion.p>
+          
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, ease: 'easeOut', delay: 0.6 }}
+            className="text-lg md:text-xl text-gray-300 font-light leading-relaxed mb-8"
+          >
+            Every product is engineered with disciplined minimalism and mechanical precision. We eliminate 
+            noise. We refine motion. We serve those who pursue biomechanical authenticity.
+          </motion.p>
+          
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, ease: 'easeOut', delay: 0.8 }}
+            className="text-lg md:text-xl text-gray-300 font-light leading-relaxed mb-0"
+          >
+            ExIQx exists for the relentless pursuit of mechanical perfection. Built for those who refuse 
+            to settle.
+          </motion.p>
         </motion.div>
       </div>
     </section>
