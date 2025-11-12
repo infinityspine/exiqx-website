@@ -1,393 +1,113 @@
 'use client'
 
-import { motion, useScroll, useSpring } from 'framer-motion'
+import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { Zap, Activity, Cog, TrendingUp } from 'lucide-react'
-
-// Animation variants for smooth section reveals
-const sectionVariants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.8,
-      ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
-    },
-  },
-}
 
 export default function TechnologyContent() {
-  const { scrollYProgress } = useScroll()
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
-  })
-
   return (
-    <>
-      {/* Elite scroll progress indicator */}
-      <motion.div
-        className="fixed top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 origin-left z-50"
-        style={{ scaleX }}
-        aria-hidden="true"
-      />
-
-      <main className="relative bg-black overflow-hidden">
-        {/* Hero Section */}
-        <section className="relative flex flex-col items-center justify-center text-center min-h-[80vh] w-full bg-black px-4 sm:px-6 lg:px-8">
-          {/* Background gradient */}
-          <div className="absolute inset-0 bg-gradient-to-b from-zinc-950 via-black to-black" />
-
-          {/* Grid pattern overlay */}
-          <div
-            className="absolute inset-0 opacity-[0.015]"
-            style={{
-              backgroundImage: `linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
-                               linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)`,
-              backgroundSize: '50px 50px',
-            }}
-          />
-
-          {/* Content */}
+    <section className="min-h-screen bg-black flex items-center justify-center">
+      <div className="max-w-5xl mx-auto px-8 py-28 md:py-36 text-left md:pl-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.43, 0.13, 0.23, 0.96] as [number, number, number, number] }}
-            className="relative z-10 flex flex-col items-center justify-center text-center w-full"
-          >
-            <p className="text-sm tracking-[0.3em] text-gray-400 uppercase mb-6 font-inter text-center">
-              The Science
-            </p>
-            <h1 className="text-white font-extrabold text-6xl sm:text-7xl leading-tight mb-8 font-montserrat text-center">
-              The Science Behind the<br className="hidden sm:block" /> ExIQx Footplate
-            </h1>
-            <p className="text-gray-400 text-xl sm:text-2xl leading-relaxed max-w-3xl mx-auto font-inter text-center">
-              Biomechanics, precision, and performance — re-engineered from the ground up.
-            </p>
-          </motion.div>
-        </section>
-
-        {/* Gradient separator */}
-        <div className="h-32 bg-gradient-to-b from-black via-zinc-950 to-black" aria-hidden="true" />
-
-        {/* Section 1: Closed-Chain Plantarflexion Alignment */}
-        <motion.section
-          className="relative py-24 lg:py-32"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={sectionVariants}
+          transition={{ duration: 0.9, ease: 'easeOut' }}
         >
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-start gap-6" style={{ marginBottom: 'clamp(2rem, 5vw, 4rem)' }}>
-              <div className="flex-shrink-0">
-                <div className="w-14 h-14 rounded-2xl bg-red-900/20 border border-red-900/40 flex items-center justify-center">
-                  <Activity className="w-7 h-7 text-red-500" />
-                </div>
-              </div>
-              <div>
-                <h2 className="text-3xl sm:text-4xl font-bold text-white font-montserrat" style={{ marginBottom: 'clamp(1.5rem, 3vw, 2.5rem)' }}>
-                  Closed-Chain Plantarflexion Alignment
-                  <span className="block text-2xl sm:text-3xl text-red-500" style={{ marginTop: 'clamp(1rem, 2vw, 1.5rem)' }}>
-                    User-Adjustable 10°–70°
-                  </span>
-                </h2>
-              </div>
-            </div>
+          <h1 className="text-5xl md:text-7xl font-extrabold uppercase tracking-tight mb-6 text-white">
+            Technology
+          </h1>
+          <div className="w-32 h-[4px] bg-[#e50914] mb-16"></div>
+          
+          <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-32">
+            The ExIQx Footplate re-engineers posterior-chain training through biomechanical precision and authentic ground-force mechanics. Every component is designed to honor the physics of human movement, creating training systems that translate directly to athletic performance.
+          </p>
 
-            <div className="text-gray-300 font-inter text-base sm:text-lg" style={{ lineHeight: '1.8' }}>
-              <div style={{ marginBottom: 'clamp(2rem, 4vw, 3rem)' }}>
-                <p>
-                  ExIQx technology is engineered around <strong className="text-white">user-adjustable closed-chain plantarflexion mechanics</strong>, allowing precise alignment from 10° to 70° to match each athlete's preferred loading angle, performance objective, or rehabilitation phase.
-                </p>
-              </div>
-              <div style={{ marginBottom: 'clamp(2rem, 4vw, 3rem)' }}>
-                <p>
-                  Each interval positions the user in a true ground-force vector, directing load through the plantar surface of the foot — from the metatarsal heads and ball of the foot, through the ankle complex, calves, hamstrings, glutes, and spinal erectors.
-                </p>
-              </div>
-              <div style={{ marginBottom: 'clamp(2.5rem, 5vw, 4rem)' }}>
-                <p>
-                  This closed-chain configuration mimics the natural kinetic sequence of sprinting, jumping, and human gait, enabling:
-                </p>
-              </div>
+          <h2 className="text-5xl font-extrabold uppercase tracking-tight mb-6 text-white">
+            Closed-Chain Plantarflexion
+          </h2>
+          <div className="w-32 h-[4px] bg-[#e50914] mb-16"></div>
+          
+          <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-20">
+            ExIQx technology is engineered around user-adjustable closed-chain plantarflexion mechanics, allowing precise alignment from 10° to 70° to match each athlete's preferred loading angle, performance objective, or rehabilitation phase.
+          </p>
+          
+          <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-20">
+            Each interval positions the user in a true ground-force vector, directing load through the plantar surface of the foot—from the metatarsal heads and ball of the foot, through the ankle complex, calves, hamstrings, glutes, and spinal erectors.
+          </p>
+          
+          <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-20">
+            This closed-chain configuration mimics the natural kinetic sequence of sprinting, jumping, and human gait, enabling authentic posterior-chain activation under real-world ground-force mechanics, complete posterior-chain integration linking plantar fascia to glutes and spinal stabilizers in one continuous vector, and neuromechanical precision for optimal strength, speed, or rehabilitation outcomes.
+          </p>
 
-              <div className="grid gap-6 sm:grid-cols-3 mt-8">
-                <div className="bg-zinc-950/50 border border-red-900/20 rounded-2xl p-6 hover:border-red-900/40 transition-colors duration-300">
-                  <div className="text-4xl mb-4">⚡</div>
-                  <p className="text-white font-semibold mb-2">Authentic Posterior-Chain Activation</p>
-                  <p className="text-sm text-gray-400">
-                    Under real-world ground-force mechanics and kinetic energy transfer
-                  </p>
-                </div>
-
-                <div className="bg-zinc-950/50 border border-red-900/20 rounded-2xl p-6 hover:border-red-900/40 transition-colors duration-300">
-                  <div className="text-4xl mb-4">🦵</div>
-                  <p className="text-white font-semibold mb-2">Complete Posterior-Chain Integration</p>
-                  <p className="text-sm text-gray-400">
-                    Linking plantar fascia to glutes and spinal stabilizers in one continuous vector
-                  </p>
-                </div>
-
-                <div className="bg-zinc-950/50 border border-red-900/20 rounded-2xl p-6 hover:border-red-900/40 transition-colors duration-300">
-                  <div className="text-4xl mb-4">🧩</div>
-                  <p className="text-white font-semibold mb-2">Neuromechanical Precision</p>
-                  <p className="text-sm text-gray-400">
-                    Dial in plantarflexion for optimal strength, speed, or rehabilitation outcomes
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </motion.section>
-
-        {/* Visual spacer */}
-        <div className="relative h-px max-w-7xl mx-auto" aria-hidden="true">
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-zinc-800 to-transparent" />
-        </div>
-
-        {/* Section 2: Why We Invented the ExIQx Footplate */}
-        <motion.section
-          className="relative py-24 lg:py-32"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={sectionVariants}
-        >
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-start gap-6" style={{ marginBottom: 'clamp(2rem, 5vw, 4rem)' }}>
-              <div className="flex-shrink-0">
-                <div className="w-14 h-14 rounded-2xl bg-red-900/20 border border-red-900/40 flex items-center justify-center">
-                  <Zap className="w-7 h-7 text-red-500" />
-                </div>
-              </div>
-              <div>
-                <h2 className="text-3xl sm:text-4xl font-bold text-white font-montserrat" style={{ marginBottom: 'clamp(1.5rem, 3vw, 2.5rem)' }}>
+          <h2 className="text-5xl font-extrabold uppercase tracking-tight mb-6 text-white mt-32">
                   Why We Invented the ExIQx Footplate
                 </h2>
-              </div>
-            </div>
-
-            <div className="text-gray-300 font-inter text-base sm:text-lg" style={{ lineHeight: '1.8' }}>
-              <div style={{ marginBottom: 'clamp(2rem, 4vw, 3rem)' }}>
-                <p>
-                  Conventional Nordic and GHD-style devices stabilize the body by anchoring the posterior ankle and leg, transferring force through the Achilles and calf complex.
-                </p>
-              </div>
-              <div style={{ marginBottom: 'clamp(2rem, 4vw, 3rem)' }}>
-                <p>
-                  While this isolates eccentric hamstring strength, it <strong className="text-white">diverts kinetic energy away from the true ground-force pathway</strong> used in sprinting, jumping, and sport-specific motion.
-                </p>
-              </div>
-              <div style={{ marginBottom: 'clamp(2rem, 4vw, 3rem)' }}>
-                <p>
-                  In natural athletic movement, energy transfers through the <strong className="text-white">plantar surface of the foot</strong> — especially the ball of the foot and metatarsal heads — creating a closed-chain kinetic line that drives upward through the ankle, knee, and hip into the entire posterior chain.
-                </p>
-              </div>
-              <div style={{ marginTop: 'clamp(3rem, 6vw, 5rem)', marginBottom: 'clamp(3rem, 6vw, 5rem)' }}>
-                <p className="text-white text-xl font-semibold">
-                  That's how athletes create explosive propulsion and elastic recoil.
-                </p>
-              </div>
-              <div style={{ marginBottom: 'clamp(2.5rem, 5vw, 4rem)' }}>
-                <p>
-                  The ExIQx Footplate was designed to restore that authentic energy flow. By re-routing force through the plantar surface instead of the posterior ankle, it:
-                </p>
-              </div>
-
-              <div className="bg-gradient-to-br from-zinc-950 to-black border border-red-900/30 rounded-2xl p-8 space-y-4 mt-8">
-                <div className="flex items-start gap-4">
-                  <div className="text-2xl flex-shrink-0">🔺</div>
-                  <p>
-                    <strong className="text-white">Mimics the kinetic energy flow</strong> of sprinting and jumping, retraining the body to apply force the way it does in sport.
-                  </p>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="text-2xl flex-shrink-0">⚙️</div>
-                  <p>
-                    <strong className="text-white">Extends the mechanical lever arm</strong> from the ball of the foot to the knee, increasing torque, muscular activation, and motor-unit recruitment across the hamstrings and glutes.
-                  </p>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="text-2xl flex-shrink-0">🧩</div>
-                  <p>
-                    <strong className="text-white">Activates the full posterior chain</strong>—from metatarsal heads to spinal erectors—under genuine closed-chain conditions.
-                  </p>
-                </div>
-              </div>
-
-              <div style={{ marginTop: 'clamp(2.5rem, 5vw, 4rem)', paddingTop: 'clamp(1.5rem, 3vw, 2rem)', borderTop: '1px solid rgb(39, 39, 42)' }}>
-                <p className="text-white text-xl font-semibold">
+          <div className="w-32 h-[4px] bg-[#e50914] mb-16"></div>
+          
+          <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-20">
+            Conventional Nordic and GHD-style devices stabilize the body by anchoring the posterior ankle and leg, transferring force through the Achilles and calf complex. While this isolates eccentric hamstring strength, it diverts kinetic energy away from the true ground-force pathway used in sprinting, jumping, and sport-specific motion.
+          </p>
+          
+          <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-20">
+            In natural athletic movement, energy transfers through the plantar surface of the foot—especially the ball of the foot and metatarsal heads—creating a closed-chain kinetic line that drives upward through the ankle, knee, and hip into the entire posterior chain. That's how athletes create explosive propulsion and elastic recoil.
+          </p>
+          
+          <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-20">
+            The ExIQx Footplate was designed to restore that authentic energy flow. By re-routing force through the plantar surface instead of the posterior ankle, it mimics the kinetic energy flow of sprinting and jumping, extends the mechanical lever arm from the ball of the foot to the knee for increased torque and muscular activation, and activates the full posterior chain from metatarsal heads to spinal erectors under genuine closed-chain conditions.
+          </p>
+          
+          <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-32">
                   This isn't a modified Nordic device; it's a biomechanical re-engineering of how athletes produce and absorb force, restoring the body's authentic ground-up energy system.
                 </p>
-              </div>
-            </div>
-          </div>
-        </motion.section>
 
-        {/* Visual spacer */}
-        <div className="relative h-px max-w-7xl mx-auto" aria-hidden="true">
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-zinc-800 to-transparent" />
-        </div>
-
-        {/* Section 3: Precision Engineering */}
-        <motion.section
-          className="relative py-24 lg:py-32"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={sectionVariants}
-        >
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-start gap-6" style={{ marginBottom: 'clamp(2rem, 5vw, 4rem)' }}>
-              <div className="flex-shrink-0">
-                <div className="w-14 h-14 rounded-2xl bg-red-900/20 border border-red-900/40 flex items-center justify-center">
-                  <Cog className="w-7 h-7 text-red-500" />
-                </div>
-              </div>
-              <div>
-                <h2 className="text-3xl sm:text-4xl font-bold text-white font-montserrat" style={{ marginBottom: 'clamp(1.5rem, 3vw, 2.5rem)' }}>
+          <h2 className="text-5xl font-extrabold uppercase tracking-tight mb-6 text-white">
                   Precision Engineering
                 </h2>
-              </div>
-            </div>
+          <div className="w-32 h-[4px] bg-[#e50914] mb-16"></div>
+          
+          <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-20">
+            Hybrid construction combines CNC-machined ⅜" aluminum for lightweight precision with welded 11-gauge steel arms for structural strength. Every component is machined to aerospace-level tolerances for perfect bearing alignment and zero lateral play.
+          </p>
+          
+          <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-32">
+            The powder-coated black finish provides corrosion resistance, with custom color options available on request. All ExIQx equipment is designed, machined, and assembled in the United States.
+          </p>
 
-            <div className="text-gray-300 font-inter text-base sm:text-lg">
-              <div className="grid sm:grid-cols-2 gap-6">
-                <div className="bg-zinc-950/50 border border-zinc-800 rounded-2xl p-6">
-                  <h3 className="text-white font-semibold text-lg mb-3">Hybrid Construction</h3>
-                  <p className="text-sm text-gray-400" style={{ lineHeight: '1.7' }}>
-                    CNC-machined ⅜" aluminum for lightweight precision; welded 11-gauge steel arms for structural strength
-                  </p>
-                </div>
-
-                <div className="bg-zinc-950/50 border border-zinc-800 rounded-2xl p-6">
-                  <h3 className="text-white font-semibold text-lg mb-3">Aerospace Precision</h3>
-                  <p className="text-sm text-gray-400" style={{ lineHeight: '1.7' }}>
-                    CNC-machined to aerospace-level tolerances for perfect bearing alignment and zero lateral play
-                  </p>
-                </div>
-
-                <div className="bg-zinc-950/50 border border-zinc-800 rounded-2xl p-6">
-                  <h3 className="text-white font-semibold text-lg mb-3">Durable Finish</h3>
-                  <p className="text-sm text-gray-400" style={{ lineHeight: '1.7' }}>
-                    Powder-coated black finish for corrosion resistance, with custom color options available on request
-                  </p>
-                </div>
-
-                <div className="bg-zinc-950/50 border border-zinc-800 rounded-2xl p-6">
-                  <h3 className="text-white font-semibold text-lg mb-3">Made in USA</h3>
-                  <p className="text-sm text-gray-400" style={{ lineHeight: '1.7' }}>
-                    Designed, machined, and assembled in the United States
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </motion.section>
-
-        {/* Visual spacer */}
-        <div className="relative h-px max-w-7xl mx-auto" aria-hidden="true">
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-zinc-800 to-transparent" />
-        </div>
-
-        {/* Section 4: Performance Outcomes */}
-        <motion.section
-          className="relative py-24 lg:py-32"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={sectionVariants}
-        >
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-start gap-6" style={{ marginBottom: 'clamp(2rem, 5vw, 4rem)' }}>
-              <div className="flex-shrink-0">
-                <div className="w-14 h-14 rounded-2xl bg-red-900/20 border border-red-900/40 flex items-center justify-center">
-                  <TrendingUp className="w-7 h-7 text-red-500" />
-                </div>
-              </div>
-              <div>
-                <h2 className="text-3xl sm:text-4xl font-bold text-white font-montserrat" style={{ marginBottom: 'clamp(1.5rem, 3vw, 2.5rem)' }}>
+          <h2 className="text-5xl font-extrabold uppercase tracking-tight mb-6 text-white">
                   Performance Outcomes
                 </h2>
-              </div>
-            </div>
+          <div className="w-32 h-[4px] bg-[#e50914] mb-16"></div>
+          
+          <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-20">
+            Sprint carryover: recreates the closed-chain vector of sprint acceleration for direct athletic transfer. The footplate positions athletes in the exact force vector used during acceleration, training the neuromuscular system to apply force the way it does in competition.
+          </p>
+          
+          <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-20">
+            Posterior-chain activation: maximizes muscular integration from the plantar surface through the glutes and spinal erectors. This complete kinetic chain engagement ensures that training adaptations transfer directly to performance outcomes.
+          </p>
+          
+          <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-32">
+            Rehabilitation crossover: enables controlled eccentric loading and posterior-chain retraining across progressive angles. The adjustable range allows practitioners to match loading patterns to specific rehabilitation phases while maintaining biomechanical authenticity.
+          </p>
 
-            <div className="grid gap-8 sm:grid-cols-3">
-              <div className="bg-gradient-to-br from-zinc-950 to-black border border-red-900/30 rounded-2xl p-8 hover:border-red-500/50 transition-colors duration-300">
-                <div className="text-5xl mb-4">⚡</div>
-                <h3 className="text-white font-bold text-xl mb-3 font-montserrat">Sprint Carryover</h3>
-                <p className="text-gray-400 text-sm" style={{ lineHeight: '1.7' }}>
-                  Recreates the closed-chain vector of sprint acceleration for direct athletic transfer
-                </p>
-              </div>
-
-              <div className="bg-gradient-to-br from-zinc-950 to-black border border-red-900/30 rounded-2xl p-8 hover:border-red-500/50 transition-colors duration-300">
-                <div className="text-5xl mb-4">🦵</div>
-                <h3 className="text-white font-bold text-xl mb-3 font-montserrat">Posterior-Chain Activation</h3>
-                <p className="text-gray-400 text-sm" style={{ lineHeight: '1.7' }}>
-                  Maximizes muscular integration from the plantar surface through the glutes and spinal erectors
-                </p>
-              </div>
-
-              <div className="bg-gradient-to-br from-zinc-950 to-black border border-red-900/30 rounded-2xl p-8 hover:border-red-500/50 transition-colors duration-300">
-                <div className="text-5xl mb-4">🧩</div>
-                <h3 className="text-white font-bold text-xl mb-3 font-montserrat">Rehabilitation Crossover</h3>
-                <p className="text-gray-400 text-sm" style={{ lineHeight: '1.7' }}>
-                  Enables controlled eccentric loading and posterior-chain retraining across progressive angles
-                </p>
-              </div>
-            </div>
-          </div>
-        </motion.section>
-
-        {/* Gradient transition to CTA */}
-        <div className="h-32 bg-gradient-to-b from-black via-zinc-950 to-black" aria-hidden="true" />
-
-        {/* CTA Section */}
-        <motion.section
-          className="relative flex flex-col items-center justify-center text-center w-full bg-black px-6 sm:px-8"
-          style={{ paddingTop: 'clamp(4rem, 15vw, 12rem)', paddingBottom: 'clamp(4rem, 15vw, 12rem)' }}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={sectionVariants}
-        >
-          <div className="flex flex-col items-center justify-center text-center w-full max-w-4xl mx-auto">
-            <h2 
-              className="text-white font-extrabold leading-[1.1] font-montserrat text-center"
-              style={{ 
-                fontSize: 'clamp(2.5rem, 5vw, 4rem)',
-                marginBottom: 'clamp(1.5rem, 5vw, 4rem)'
-              }}
-            >
-              Explore the Full Technical Specifications
+          <div className="mt-32">
+            <h2 className="text-5xl font-extrabold uppercase tracking-tight mb-6 text-white">
+              Technical Specifications
             </h2>
-            <p 
-              className="text-gray-400 max-w-2xl w-full text-center mx-auto font-inter"
-              style={{ 
-                fontSize: 'clamp(1rem, 2vw, 1.25rem)',
-                lineHeight: '1.6',
-                marginBottom: 'clamp(2rem, 6vw, 5rem)'
-              }}
-            >
-              Dive deeper into the engineering, materials, and biomechanical design that make the ExIQx Footplate the most advanced posterior-chain training system available.
+            <div className="w-32 h-[4px] bg-[#e50914] mb-16"></div>
+            
+            <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-20">
+              Explore the complete engineering, materials, and biomechanical design that make the ExIQx Footplate the most advanced posterior-chain training system available.
             </p>
+            
             <Link
               href="/specifications"
-              className="inline-block bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition-all duration-300"
-              style={{
-                fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
-                padding: 'clamp(1rem, 2vw, 1.25rem) clamp(2rem, 4vw, 2.5rem)'
-              }}
+              className="text-lg md:text-xl text-white underline decoration-[#e50914] decoration-2 underline-offset-4 hover:text-gray-300 transition-colors duration-300"
             >
               View Full Specifications →
             </Link>
           </div>
-        </motion.section>
-      </main>
-    </>
+        </motion.div>
+      </div>
+    </section>
   )
 }
