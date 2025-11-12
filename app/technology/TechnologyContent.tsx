@@ -35,12 +35,8 @@ export default function TechnologyPage() {
           </h2>
           <div className="w-32 h-[4px] bg-[#e50914] mb-16"></div>
           
-          <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-20">
-            Conventional Nordic and GHD-style devices stabilize the body by anchoring the posterior ankle and leg, transferring force through the Achilles and calf complex. This isolates the hamstrings but diverts kinetic energy away from the true ground-force pathway. In natural athletic movement, energy transfers through the plantar surface—especially the ball of the foot—creating a closed-chain kinetic line that drives through the ankle, knee, and hip into the entire posterior chain.
-          </p>
-          
           <p className="text-lg md:text-xl text-gray-300 leading-relaxed" style={{ marginBottom: '100px' }}>
-            The ExIQx Footplate restores that authentic energy flow. By routing force through the plantar surface instead of the posterior ankle, it mirrors sprinting and jumping mechanics, extending the lever arm from the ball of the foot to the knee for increased torque and full posterior-chain activation.
+            Conventional Nordic and GHD-style devices stabilize the body by anchoring the posterior ankle and leg, transferring force through the Achilles and calf complex. This isolates the hamstrings but diverts kinetic energy away from the true ground-force pathway. In natural athletic movement, energy transfers through the plantar surface—especially the ball of the foot—creating a closed-chain kinetic line that drives through the ankle, knee, and hip into the entire posterior chain. The ExIQx Footplate restores that authentic energy flow. By routing force through the plantar surface instead of the posterior ankle, it mirrors sprinting and jumping mechanics, extending the lever arm from the ball of the foot to the knee for increased torque and full posterior-chain activation.
           </p>
 
           <h2 className="text-5xl font-extrabold uppercase tracking-tight mb-6 text-white">
@@ -57,11 +53,11 @@ export default function TechnologyPage() {
           </h2>
           <div className="w-32 h-[4px] bg-[#e50914] mb-16"></div>
           
-          <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-20">
+          <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-32">
             <span className="font-semibold text-white">Sprint carryover:</span> replicates the closed-chain vector of sprint acceleration for direct athletic transfer. The footplate positions athletes in the precise ground-force vector used during acceleration.
           </p>
           
-          <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-20">
+          <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-32">
             <span className="font-semibold text-white">Posterior-chain activation:</span> maximizes muscular integration from the plantar surface through the glutes and spinal stabilizers for true kinetic-chain transfer.
           </p>
           
@@ -74,7 +70,7 @@ export default function TechnologyPage() {
           </h2>
           <div className="w-32 h-[4px] bg-[#e50914] mb-16"></div>
           
-          <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-20">
+          <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-32">
             Explore the engineering, materials, and biomechanical design that make the ExIQx Footplate the most advanced posterior-chain training system available.
           </p>
           
