@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'About | ExIQx Performance',
-  description: 'Discover ExIQx Performance — precision-engineered biomechanical equipment designed for elite athletes and performance-driven training.',
+  title: 'About ExIQx Performance | Biomechanical Training Systems',
+  description: 'ExIQx designs precision-engineered training equipment at the intersection of biomechanics and human performance. Built for athletes who demand authenticity.',
 }
 
 export default function AboutLayout({
