@@ -20,7 +20,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: 'easeOut', delay: 0.2 }}
-            className="text-lg md:text-xl text-gray-300 font-light leading-relaxed mb-12"
+            className="text-lg md:text-xl text-gray-300 font-light leading-relaxed mb-16"
           >
             ExIQx exists at the convergence of biomechanics, precision engineering, and authentic 
             ground-force movement science. We design training systems anchored in mechanical truth—not 
@@ -31,7 +31,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: 'easeOut', delay: 0.4 }}
-            className="text-lg md:text-xl text-gray-300 font-light leading-relaxed mb-12"
+            className="text-lg md:text-xl text-gray-300 font-light leading-relaxed mb-16"
           >
             Our equipment honors natural human mechanics, joint kinematics, and force vector accuracy. 
             Built for athletes and professionals who demand training tools that translate directly to 
@@ -42,7 +42,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: 'easeOut', delay: 0.6 }}
-            className="text-lg md:text-xl text-gray-300 font-light leading-relaxed mb-12"
+            className="text-lg md:text-xl text-gray-300 font-light leading-relaxed mb-16"
           >
             Every product is engineered with disciplined minimalism and mechanical precision. We eliminate 
             noise. We refine motion. We serve those who pursue biomechanical authenticity.
