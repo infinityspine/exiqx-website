@@ -22,21 +22,21 @@ export default function TechnologyPage() {
           </p>
 
           <h2 className="text-5xl font-extrabold uppercase tracking-tight mb-6 text-white">
-            Closed-Chain Plantarflexion
-          </h2>
-          <div className="w-32 h-[4px] bg-[#e50914] mb-16"></div>
-          
-          <p className="text-lg md:text-xl text-gray-300 leading-relaxed" style={{ marginBottom: '100px' }}>
-            ExIQx technology is engineered around user-adjustable closed-chain plantarflexion mechanics, allowing precise alignment from 10° to 70° to match each athlete's preferred loading angle, performance objective, or rehabilitation phase. Each interval positions the user in a true ground-force vector, directing load through the plantar surface of the foot—from the metatarsal heads and ball of the foot, through the ankle complex, calves, hamstrings, glutes, and spinal erectors. This closed-chain configuration mimics sprinting, jumping, and human gait, ensuring authentic kinetic sequence engagement.
-          </p>
-
-          <h2 className="text-5xl font-extrabold uppercase tracking-tight mb-6 text-white">
             Why We Invented the ExIQx Footplate
           </h2>
           <div className="w-32 h-[4px] bg-[#e50914] mb-16"></div>
           
           <p className="text-lg md:text-xl text-gray-300 leading-relaxed" style={{ marginBottom: '100px' }}>
             Conventional Nordic and GHD-style devices stabilize the body by anchoring the posterior ankle and leg, transferring force through the Achilles and calf complex. This isolates the hamstrings but diverts kinetic energy away from the true ground-force pathway. In natural athletic movement, energy transfers through the plantar surface—especially the ball of the foot—creating a closed-chain kinetic line that drives through the ankle, knee, and hip into the entire posterior chain. The ExIQx Footplate restores that authentic energy flow. By routing force through the plantar surface instead of the posterior ankle, it mirrors sprinting and jumping mechanics, extending the lever arm from the ball of the foot to the knee for increased torque and full posterior-chain activation.
+          </p>
+
+          <h2 className="text-5xl font-extrabold uppercase tracking-tight mb-6 text-white">
+            Closed-Chain Plantarflexion
+          </h2>
+          <div className="w-32 h-[4px] bg-[#e50914] mb-16"></div>
+          
+          <p className="text-lg md:text-xl text-gray-300 leading-relaxed" style={{ marginBottom: '100px' }}>
+            ExIQx technology is engineered around user-adjustable closed-chain plantarflexion mechanics, allowing precise alignment from 10° to 70° to match each athlete's preferred loading angle, performance objective, or rehabilitation phase. Each interval positions the user in a true ground-force vector, directing load through the plantar surface of the foot—from the metatarsal heads and ball of the foot, through the ankle complex, calves, hamstrings, glutes, and spinal erectors. This closed-chain configuration mimics sprinting, jumping, and human gait, ensuring authentic kinetic sequence engagement.
           </p>
 
           <h2 className="text-5xl font-extrabold uppercase tracking-tight mb-6 text-white">
