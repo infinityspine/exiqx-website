@@ -26,9 +26,6 @@ const DEFAULT_NAV_ITEMS = [
   { label: 'Technology', href: '/technology', id: 'technology' },
   { label: 'About', href: '/about', id: 'about' },
   { label: 'Contact', href: '/contact', id: 'contact' },
-  { label: 'FAQ', href: '/faq', id: 'faq' },
-  { label: 'Shipping & Returns', href: '/shipping-and-returns', id: 'shipping-and-returns' },
-  { label: 'Warranty', href: '/warranty', id: 'warranty' },
 ]
 
 const SCROLL_THRESHOLD = 100

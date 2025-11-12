@@ -2,6 +2,7 @@
 
 import { memo } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const Footer = memo(function Footer() {
   const currentYear = new Date().getFullYear()
@@ -86,9 +87,9 @@ const Footer = memo(function Footer() {
               Products
             </h3>
             <ul style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(0.875rem, 1.5vw, 1.125rem)' }} role="list">
-              <li><a href="/rack-mounted" className="text-white/60 hover:text-white font-inter transition-colors" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1rem)', lineHeight: '1.6' }}>Rack-Mounted Footplate</a></li>
-              <li><a href="/ghd-retrofit" className="text-white/60 hover:text-white font-inter transition-colors" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1rem)', lineHeight: '1.6' }}>GHD Retrofit Footplate</a></li>
-              <li><a href="/freestanding" className="text-white/60 hover:text-white font-inter transition-colors" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1rem)', lineHeight: '1.6' }}>Freestanding Footplate</a></li>
+              <li><Link href="/rack-mounted" className="text-white/60 hover:text-white font-inter transition-colors" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1rem)', lineHeight: '1.6' }}>Rack-Mounted Footplate</Link></li>
+              <li><Link href="/ghd-retrofit" className="text-white/60 hover:text-white font-inter transition-colors" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1rem)', lineHeight: '1.6' }}>GHD Retrofit Footplate</Link></li>
+              <li><Link href="/freestanding" className="text-white/60 hover:text-white font-inter transition-colors" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1rem)', lineHeight: '1.6' }}>Freestanding Footplate</Link></li>
             </ul>
           </div>
 
@@ -98,21 +99,21 @@ const Footer = memo(function Footer() {
               Company
             </h3>
             <ul style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(0.875rem, 1.5vw, 1.125rem)' }} role="list">
-              <li><a href="/about" className="text-white/60 hover:text-white font-inter transition-colors" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1rem)', lineHeight: '1.6' }}>About Us</a></li>
-              <li><a href="/technology" className="text-white/60 hover:text-white font-inter transition-colors" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1rem)', lineHeight: '1.6' }}>Technology</a></li>
-              <li><a href="/contact" className="text-white/60 hover:text-white font-inter transition-colors" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1rem)', lineHeight: '1.6' }}>Contact</a></li>
+              <li><Link href="/about" className="text-white/60 hover:text-white font-inter transition-colors" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1rem)', lineHeight: '1.6' }}>About Us</Link></li>
+              <li><Link href="/technology" className="text-white/60 hover:text-white font-inter transition-colors" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1rem)', lineHeight: '1.6' }}>Technology</Link></li>
+              <li><Link href="/contact" className="text-white/60 hover:text-white font-inter transition-colors" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1rem)', lineHeight: '1.6' }}>Contact</Link></li>
             </ul>
           </div>
 
           {/* Support Column */}
           <div>
-            <h3 className="font-semibold uppercase tracking-[0.15em] text-white font-inter" style={{ fontSize: 'clamp(0.75rem, 1.5vw, 0.875rem)', marginBottom: 'clamp(1.25rem, 2.5vw, 1.75rem)' }}>
+            <h3 className="text-sm font-semibold uppercase tracking-wider mb-4 text-white font-inter">
               Support
             </h3>
-            <ul style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(0.875rem, 1.5vw, 1.125rem)' }} role="list">
-              <li><a href="/faq" className="text-white/60 hover:text-white font-inter transition-colors" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1rem)', lineHeight: '1.6' }}>FAQ</a></li>
-              <li><a href="/shipping-and-returns" className="text-white/60 hover:text-white font-inter transition-colors" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1rem)', lineHeight: '1.6' }}>Shipping & Returns</a></li>
-              <li><a href="/warranty" className="text-white/60 hover:text-white font-inter transition-colors" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1rem)', lineHeight: '1.6' }}>Warranty</a></li>
+            <ul className="flex flex-col space-y-3" role="list">
+              <li><Link href="/faq" className="text-sm opacity-70 hover:opacity-100 transition-opacity font-inter">FAQ</Link></li>
+              <li><Link href="/shipping-and-returns" className="text-sm opacity-70 hover:opacity-100 transition-opacity font-inter">Shipping & Returns</Link></li>
+              <li><Link href="/warranty" className="text-sm opacity-70 hover:opacity-100 transition-opacity font-inter">Warranty</Link></li>
             </ul>
           </div>
         </div>
@@ -127,12 +128,12 @@ const Footer = memo(function Footer() {
           </p>
 
           <div className="flex" style={{ gap: 'clamp(1.5rem, 3vw, 2rem)' }}>
-            <a href="/privacy" className="text-white/40 hover:text-white font-inter transition-colors" style={{ fontSize: 'clamp(0.8125rem, 1.5vw, 0.875rem)' }}>
+            <Link href="/privacy" className="text-white/40 hover:text-white font-inter transition-colors" style={{ fontSize: 'clamp(0.8125rem, 1.5vw, 0.875rem)' }}>
               Privacy Policy
-            </a>
-            <a href="/terms" className="text-white/40 hover:text-white font-inter transition-colors" style={{ fontSize: 'clamp(0.8125rem, 1.5vw, 0.875rem)' }}>
+            </Link>
+            <Link href="/terms" className="text-white/40 hover:text-white font-inter transition-colors" style={{ fontSize: 'clamp(0.8125rem, 1.5vw, 0.875rem)' }}>
               Terms of Service
-            </a>
+            </Link>
           </div>
         </div>
 
