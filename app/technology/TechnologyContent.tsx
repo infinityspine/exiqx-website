@@ -17,11 +17,11 @@ export default function TechnologyContent() {
           </h1>
           <div className="w-32 h-[4px] bg-[#e50914] mb-24"></div>
           
-          <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-32">
+          <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-64">
             The ExIQx Footplate re-engineers posterior-chain training through biomechanical precision and authentic ground-force mechanics. Every component is designed to honor the physics of human movement, creating training systems that translate directly to athletic performance.
           </p>
 
-          <h2 className="text-5xl font-extrabold uppercase tracking-tight mb-6 text-white mt-40">
+          <h2 className="text-5xl font-extrabold uppercase tracking-tight mb-6 text-white">
             Closed-Chain Plantarflexion
           </h2>
           <div className="w-32 h-[4px] bg-[#e50914] mb-24"></div>
@@ -30,11 +30,11 @@ export default function TechnologyContent() {
             ExIQx technology is engineered around user-adjustable closed-chain plantarflexion mechanics, allowing precise alignment from 10° to 70° to match each athlete's preferred loading angle, performance objective, or rehabilitation phase.
           </p>
           
-          <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-32">
+          <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-64">
             Each interval positions the user in a true ground-force vector, directing load through the plantar surface of the foot—from the metatarsal heads and ball of the foot, through the ankle complex, calves, hamstrings, glutes, and spinal erectors. This closed-chain configuration mimics sprinting, jumping, and human gait, ensuring authentic kinetic sequence engagement.
           </p>
 
-          <h2 className="text-5xl font-extrabold uppercase tracking-tight mb-6 text-white mt-40">
+          <h2 className="text-5xl font-extrabold uppercase tracking-tight mb-6 text-white">
             Why We Invented the ExIQx Footplate
           </h2>
           <div className="w-32 h-[4px] bg-[#e50914] mb-24"></div>
@@ -47,11 +47,11 @@ export default function TechnologyContent() {
             In natural athletic movement, energy transfers through the plantar surface—especially the ball of the foot—creating a closed-chain kinetic line that drives through the ankle, knee, and hip into the posterior chain.
           </p>
           
-          <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-32">
+          <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-64">
             The ExIQx Footplate restores that authentic energy flow. By routing force through the plantar surface instead of the posterior ankle, it mirrors sprinting and jumping mechanics, extending the lever arm from the ball of the foot to the knee for increased torque and full posterior-chain activation.
           </p>
 
-          <h2 className="text-5xl font-extrabold uppercase tracking-tight mb-6 text-white mt-40">
+          <h2 className="text-5xl font-extrabold uppercase tracking-tight mb-6 text-white">
             Precision Engineering
           </h2>
           <div className="w-32 h-[4px] bg-[#e50914] mb-24"></div>
@@ -60,11 +60,11 @@ export default function TechnologyContent() {
             Hybrid construction combines CNC-machined ⅜" aluminum for lightweight precision with welded 11-gauge steel arms for structural strength. Every component is machined to aerospace-level tolerances for perfect bearing alignment and zero lateral play.
           </p>
           
-          <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-32">
+          <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-64">
             The matte black powder coat provides corrosion resistance with custom finishes available on request. All ExIQx systems are engineered, machined, and assembled in the United States.
           </p>
 
-          <h2 className="text-5xl font-extrabold uppercase tracking-tight mb-6 text-white mt-40">
+          <h2 className="text-5xl font-extrabold uppercase tracking-tight mb-6 text-white">
             Performance Outcomes
           </h2>
           <div className="w-32 h-[4px] bg-[#e50914] mb-24"></div>
@@ -77,11 +77,11 @@ export default function TechnologyContent() {
             <span className="font-semibold text-white">Posterior-chain activation:</span> maximizes muscular integration from the plantar surface through the glutes and spinal stabilizers for true kinetic-chain transfer.
           </p>
           
-          <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-32">
+          <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-64">
             <span className="font-semibold text-white">Rehabilitation crossover:</span> allows controlled eccentric loading across adjustable angles, enabling biomechanically precise retraining through every phase of recovery.
           </p>
 
-          <div className="mt-40">
+          <div>
             <h2 className="text-5xl font-extrabold uppercase tracking-tight mb-6 text-white">
               Technical Specifications
             </h2>
