@@ -1,7 +1,6 @@
 'use client'
 
 import { memo } from 'react'
-import Image from 'next/image'
 import { motion } from 'framer-motion'
 
 const UseCases = memo(function UseCases() {
@@ -29,24 +28,18 @@ const UseCases = memo(function UseCases() {
         <div className="space-y-16">
           {/* Use Case 1 - Nordic Hamstring Curls */}
           <div className="grid items-center gap-8 lg:grid-cols-2">
-            {/* Image with Elite Styling */}
+            {/* Image Placeholder */}
             <motion.div 
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="relative aspect-[4/5] rounded-lg overflow-hidden"
             >
-              <Image
-                src="/images/training/nordic-curl-athlete.jpg"
-                alt="Athlete performing Nordic hamstring curl on ExIQx footplate"
-                fill
-                className="object-cover grayscale brightness-75"
-                quality={90}
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-              {/* Red accent gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              <div className="aspect-[4/5] rounded-lg bg-white/5 backdrop-blur-sm" aria-hidden="true">
+                <div className="flex h-full items-center justify-center">
+                  <div className="h-16 w-16 rounded-full bg-accent/20" />
+                </div>
+              </div>
             </motion.div>
             
             {/* Content */}
@@ -111,47 +104,36 @@ const UseCases = memo(function UseCases() {
               </ul>
             </motion.div>
             
-            {/* Image with Elite Styling */}
+            {/* Image Placeholder */}
             <motion.div 
-              className="relative aspect-[4/5] rounded-lg overflow-hidden lg:order-1"
+              className="lg:order-1"
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             >
-              <Image
-                src="/images/training/glute-ham-raise-athlete.jpg"
-                alt="Athlete performing glute-ham raise on ExIQx footplate"
-                fill
-                className="object-cover grayscale brightness-75"
-                quality={90}
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-              {/* Red accent gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              <div className="aspect-[4/5] rounded-lg bg-white/5 backdrop-blur-sm" aria-hidden="true">
+                <div className="flex h-full items-center justify-center">
+                  <div className="h-16 w-16 rounded-full bg-accent/20" />
+                </div>
+              </div>
             </motion.div>
           </div>
 
           {/* Use Case 3 - Progressive Overload */}
           <div className="grid items-center gap-8 lg:grid-cols-2">
-            {/* Image with Elite Styling - Product Detail Shot */}
+            {/* Image Placeholder */}
             <motion.div 
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="relative aspect-[4/5] rounded-lg overflow-hidden"
             >
-              <Image
-                src="/images/training/adjustment-mechanism-detail.jpg"
-                alt="Close-up of ExIQx footplate angle adjustment mechanism"
-                fill
-                className="object-cover brightness-90"
-                quality={90}
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-              {/* Subtle red accent glow on one element */}
-              <div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-transparent" />
+              <div className="aspect-[4/5] rounded-lg bg-white/5 backdrop-blur-sm" aria-hidden="true">
+                <div className="flex h-full items-center justify-center">
+                  <div className="h-16 w-16 rounded-full bg-accent/20" />
+                </div>
+              </div>
             </motion.div>
             
             {/* Content */}

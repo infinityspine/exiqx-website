@@ -16,7 +16,6 @@
 'use client'
 
 import { memo } from 'react'
-import Image from 'next/image'
 
 const Testimonials = memo(function Testimonials() {
   return (
@@ -64,17 +63,11 @@ const Testimonials = memo(function Testimonials() {
 
             {/* Attribution */}
             <div className="flex items-center gap-4">
-              {/* Avatar */}
-              <div className="relative h-12 w-12 rounded-full overflow-hidden border-2 border-gray-800">
-                <Image
-                  src="/images/testimonials/sarah-mitchell.jpg"
-                  alt="Dr. Sarah Mitchell headshot"
-                  fill
-                  className="object-cover grayscale"
-                  quality={85}
-                  sizes="48px"
-                />
-              </div>
+              {/* Avatar Placeholder */}
+              <div
+                className="h-12 w-12 rounded-full bg-white/10"
+                aria-hidden="true"
+              />
               
               {/* Author Info */}
               <div>
@@ -111,17 +104,11 @@ const Testimonials = memo(function Testimonials() {
 
             {/* Attribution */}
             <div className="flex items-center gap-4">
-              {/* Avatar */}
-              <div className="relative h-12 w-12 rounded-full overflow-hidden border-2 border-gray-800">
-                <Image
-                  src="/images/testimonials/marcus-thompson.jpg"
-                  alt="Marcus Thompson headshot"
-                  fill
-                  className="object-cover grayscale"
-                  quality={85}
-                  sizes="48px"
-                />
-              </div>
+              {/* Avatar Placeholder */}
+              <div
+                className="h-12 w-12 rounded-full bg-white/10"
+                aria-hidden="true"
+              />
               
               {/* Author Info */}
               <div>
@@ -158,17 +145,11 @@ const Testimonials = memo(function Testimonials() {
 
             {/* Attribution */}
             <div className="flex items-center gap-4">
-              {/* Avatar */}
-              <div className="relative h-12 w-12 rounded-full overflow-hidden border-2 border-gray-800">
-                <Image
-                  src="/images/testimonials/jessica-rodriguez.jpg"
-                  alt="Jessica Rodriguez headshot"
-                  fill
-                  className="object-cover grayscale"
-                  quality={85}
-                  sizes="48px"
-                />
-              </div>
+              {/* Avatar Placeholder */}
+              <div
+                className="h-12 w-12 rounded-full bg-white/10"
+                aria-hidden="true"
+              />
               
               {/* Author Info */}
               <div>
