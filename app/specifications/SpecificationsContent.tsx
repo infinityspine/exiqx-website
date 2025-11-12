@@ -72,10 +72,10 @@ export default function SpecificationsContent() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
             >
-              <p className="text-sm font-semibold tracking-[0.25em] text-red-500 mb-6 uppercase">
+              <p className="text-sm font-semibold tracking-[0.25em] text-red-500 uppercase" style={{ marginBottom: 'clamp(2rem, 4vw, 3rem)' }}>
                 Technical Data
               </p>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 font-montserrat leading-tight">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white font-montserrat leading-tight" style={{ marginBottom: 'clamp(1.5rem, 3vw, 2rem)' }}>
                 Full Specifications
               </h1>
               <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto font-inter leading-relaxed">
@@ -97,26 +97,30 @@ export default function SpecificationsContent() {
           variants={sectionVariants}
         >
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-start gap-6 mb-8">
+            <div className="flex items-start gap-6" style={{ marginBottom: 'clamp(2rem, 5vw, 4rem)' }}>
               <div className="flex-shrink-0">
                 <div className="w-14 h-14 rounded-2xl bg-red-900/20 border border-red-900/40 flex items-center justify-center">
                   <FileText className="w-7 h-7 text-red-500" />
                 </div>
               </div>
               <div>
-                <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6 font-montserrat">
+                <h2 className="text-3xl sm:text-4xl font-bold text-white font-montserrat" style={{ marginBottom: 'clamp(1.5rem, 3vw, 2.5rem)' }}>
                   Overview
                 </h2>
               </div>
             </div>
 
-            <div className="space-y-6 text-gray-300 font-inter leading-relaxed text-base sm:text-lg">
-              <p>
-                The ExIQx Footplate is engineered for <strong className="text-white">biomechanical precision and elite durability</strong>. Each unit is built in the USA using hybrid aluminum + 11-gauge steel construction, CNC-machined to aerospace-level precision, and finished in a deep black powder coat.
-              </p>
-              <p>
-                The inaugural production run features the <strong className="text-white">Rack-Mounted Footplate</strong>, with GHD-Retrofit and Freestanding embodiments coming soon.
-              </p>
+            <div className="text-gray-300 font-inter text-base sm:text-lg" style={{ lineHeight: '1.8' }}>
+              <div style={{ marginBottom: 'clamp(2rem, 4vw, 3rem)' }}>
+                <p>
+                  The ExIQx Footplate is engineered for <strong className="text-white">biomechanical precision and elite durability</strong>. Each unit is built in the USA using hybrid aluminum + 11-gauge steel construction, CNC-machined to aerospace-level precision, and finished in a deep black powder coat.
+                </p>
+              </div>
+              <div>
+                <p>
+                  The inaugural production run features the <strong className="text-white">Rack-Mounted Footplate</strong>, with GHD-Retrofit and Freestanding embodiments coming soon.
+                </p>
+              </div>
             </div>
           </div>
         </motion.section>
@@ -135,17 +139,17 @@ export default function SpecificationsContent() {
           variants={sectionVariants}
         >
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-start gap-6 mb-12">
+            <div className="flex items-start gap-6" style={{ marginBottom: 'clamp(4rem, 8vw, 6rem)' }}>
               <div className="flex-shrink-0">
                 <div className="w-14 h-14 rounded-2xl bg-red-900/20 border border-red-900/40 flex items-center justify-center">
                   <Settings className="w-7 h-7 text-red-500" />
                 </div>
               </div>
               <div>
-                <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2 font-montserrat">
+                <h2 className="text-3xl sm:text-4xl font-bold text-white font-montserrat" style={{ marginBottom: 'clamp(0.75rem, 1.5vw, 1rem)' }}>
                   Technical Specifications
                 </h2>
-                <p className="text-gray-400 font-inter">
+                <p className="text-gray-400 font-inter" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1rem)', lineHeight: '1.6' }}>
                   Complete technical breakdown of the ExIQx Footplate system
                 </p>
               </div>
@@ -160,13 +164,15 @@ export default function SpecificationsContent() {
                       <tr>
                         <th
                           scope="col"
-                          className="px-6 py-4 text-left text-sm font-semibold text-white uppercase tracking-wider font-montserrat"
+                          className="text-left text-sm font-semibold text-white uppercase tracking-wider font-montserrat"
+                          style={{ padding: 'clamp(1rem, 2vw, 1.5rem) clamp(1.25rem, 2.5vw, 1.75rem)' }}
                         >
                           Feature
                         </th>
                         <th
                           scope="col"
-                          className="px-6 py-4 text-left text-sm font-semibold text-white uppercase tracking-wider font-montserrat"
+                          className="text-left text-sm font-semibold text-white uppercase tracking-wider font-montserrat"
+                          style={{ padding: 'clamp(1rem, 2vw, 1.5rem) clamp(1.25rem, 2.5vw, 1.75rem)' }}
                         >
                           Specification
                         </th>
@@ -182,10 +188,16 @@ export default function SpecificationsContent() {
                           viewport={{ once: true }}
                           transition={{ delay: index * 0.03, duration: 0.4 }}
                         >
-                          <td className="px-6 py-4 whitespace-nowrap text-sm font-semibold text-white font-montserrat group-hover:text-red-400 transition-colors duration-200">
+                          <td 
+                            className="text-sm font-semibold text-white font-montserrat group-hover:text-red-400 transition-colors duration-200"
+                            style={{ padding: 'clamp(1.25rem, 2.5vw, 1.75rem) clamp(1.25rem, 2.5vw, 1.75rem)', width: '30%' }}
+                          >
                             {spec.feature}
                           </td>
-                          <td className="px-6 py-4 text-sm text-gray-300 font-inter leading-relaxed">
+                          <td 
+                            className="text-sm text-gray-300 font-inter"
+                            style={{ padding: 'clamp(1.25rem, 2.5vw, 1.75rem) clamp(1.25rem, 2.5vw, 1.75rem)', lineHeight: '1.7' }}
+                          >
                             {spec.value}
                           </td>
                         </motion.tr>
@@ -212,51 +224,51 @@ export default function SpecificationsContent() {
           variants={sectionVariants}
         >
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-start gap-6 mb-8">
+            <div className="flex items-start gap-6" style={{ marginBottom: 'clamp(2rem, 5vw, 4rem)' }}>
               <div className="flex-shrink-0">
                 <div className="w-14 h-14 rounded-2xl bg-red-900/20 border border-red-900/40 flex items-center justify-center">
                   <Wrench className="w-7 h-7 text-red-500" />
                 </div>
               </div>
               <div>
-                <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6 font-montserrat">
+                <h2 className="text-3xl sm:text-4xl font-bold text-white font-montserrat" style={{ marginBottom: 'clamp(1.5rem, 3vw, 2.5rem)' }}>
                   Engineering Highlights
                 </h2>
               </div>
             </div>
 
-            <div className="space-y-4 text-gray-300 font-inter leading-relaxed text-base sm:text-lg">
-              <div className="flex items-start gap-4 bg-zinc-950/50 border border-zinc-800 rounded-xl p-6 hover:border-red-900/40 transition-colors duration-300">
+            <div className="text-gray-300 font-inter text-base sm:text-lg" style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(1.25rem, 2.5vw, 1.75rem)' }}>
+              <div className="flex items-start gap-4 bg-zinc-950/50 border border-zinc-800 rounded-xl hover:border-red-900/40 transition-colors duration-300" style={{ padding: 'clamp(1.5rem, 3vw, 2rem)' }}>
                 <div className="text-red-500 text-2xl flex-shrink-0">•</div>
-                <p>
+                <p style={{ lineHeight: '1.7' }}>
                   Hybrid aluminum/steel design provides stiffness and tactile feedback at a manageable 30 lb total weight.
                 </p>
               </div>
 
-              <div className="flex items-start gap-4 bg-zinc-950/50 border border-zinc-800 rounded-xl p-6 hover:border-red-900/40 transition-colors duration-300">
+              <div className="flex items-start gap-4 bg-zinc-950/50 border border-zinc-800 rounded-xl hover:border-red-900/40 transition-colors duration-300" style={{ padding: 'clamp(1.5rem, 3vw, 2rem)' }}>
                 <div className="text-red-500 text-2xl flex-shrink-0">•</div>
-                <p>
+                <p style={{ lineHeight: '1.7' }}>
                   Radial plate geometry locks angles securely and evenly distributes torque.
                 </p>
               </div>
 
-              <div className="flex items-start gap-4 bg-zinc-950/50 border border-zinc-800 rounded-xl p-6 hover:border-red-900/40 transition-colors duration-300">
+              <div className="flex items-start gap-4 bg-zinc-950/50 border border-zinc-800 rounded-xl hover:border-red-900/40 transition-colors duration-300" style={{ padding: 'clamp(1.5rem, 3vw, 2rem)' }}>
                 <div className="text-red-500 text-2xl flex-shrink-0">•</div>
-                <p>
+                <p style={{ lineHeight: '1.7' }}>
                   Laser-cut flanking plates ensure lateral stability under maximal posterior-chain loading.
                 </p>
               </div>
 
-              <div className="flex items-start gap-4 bg-zinc-950/50 border border-zinc-800 rounded-xl p-6 hover:border-red-900/40 transition-colors duration-300">
+              <div className="flex items-start gap-4 bg-zinc-950/50 border border-zinc-800 rounded-xl hover:border-red-900/40 transition-colors duration-300" style={{ padding: 'clamp(1.5rem, 3vw, 2rem)' }}>
                 <div className="text-red-500 text-2xl flex-shrink-0">•</div>
-                <p>
+                <p style={{ lineHeight: '1.7' }}>
                   Powder-coat finish resists abrasion and oxidation for long-term commercial use.
                 </p>
               </div>
 
-              <div className="flex items-start gap-4 bg-zinc-950/50 border border-zinc-800 rounded-xl p-6 hover:border-red-900/40 transition-colors duration-300">
+              <div className="flex items-start gap-4 bg-zinc-950/50 border border-zinc-800 rounded-xl hover:border-red-900/40 transition-colors duration-300" style={{ padding: 'clamp(1.5rem, 3vw, 2rem)' }}>
                 <div className="text-red-500 text-2xl flex-shrink-0">•</div>
-                <p>
+                <p style={{ lineHeight: '1.7' }}>
                   Quick-release architecture allows seamless integration into any 3×3 rack with precision-fit pin interfaces.
                 </p>
               </div>
@@ -278,28 +290,28 @@ export default function SpecificationsContent() {
           variants={sectionVariants}
         >
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-8 font-montserrat text-center">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white font-montserrat text-center" style={{ marginBottom: 'clamp(2.5rem, 5vw, 4rem)' }}>
               Biomechanical Summary
             </h2>
 
-            <div className="bg-gradient-to-br from-zinc-950 to-black border border-red-900/30 rounded-2xl p-8 sm:p-12 space-y-6 text-gray-300 font-inter leading-relaxed text-base sm:text-lg">
+            <div className="bg-gradient-to-br from-zinc-950 to-black border border-red-900/30 rounded-2xl text-gray-300 font-inter text-base sm:text-lg" style={{ padding: 'clamp(2rem, 4vw, 3rem) clamp(2rem, 5vw, 3.5rem)', display: 'flex', flexDirection: 'column', gap: 'clamp(1.75rem, 3.5vw, 2.5rem)' }}>
               <div className="flex items-start gap-4">
                 <div className="text-red-500 text-2xl flex-shrink-0">→</div>
-                <p>
+                <p style={{ lineHeight: '1.7' }}>
                   <strong className="text-white">Closed-chain plantarflexion loading</strong> channels force through the ball of the foot → knee → hip, mirroring sprint, jump, and gait mechanics.
                 </p>
               </div>
 
               <div className="flex items-start gap-4">
                 <div className="text-red-500 text-2xl flex-shrink-0">→</div>
-                <p>
+                <p style={{ lineHeight: '1.7' }}>
                   <strong className="text-white">Lengthened mechanical lever arm</strong> (ball-of-foot → knee) amplifies torque and posterior-chain recruitment.
                 </p>
               </div>
 
               <div className="flex items-start gap-4">
                 <div className="text-red-500 text-2xl flex-shrink-0">→</div>
-                <p>
+                <p style={{ lineHeight: '1.7' }}>
                   <strong className="text-white">Authentic ground-force vectoring</strong> aligns training with the kinetic demands of sport and rehabilitation.
                 </p>
               </div>
@@ -321,18 +333,18 @@ export default function SpecificationsContent() {
           variants={sectionVariants}
         >
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-gradient-to-br from-red-950/20 to-black border border-red-900/40 rounded-2xl p-8 sm:p-12 text-center">
-              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6 font-montserrat">
+            <div className="bg-gradient-to-br from-red-950/20 to-black border border-red-900/40 rounded-2xl text-center" style={{ padding: 'clamp(3rem, 6vw, 5rem) clamp(2.5rem, 5vw, 4rem)' }}>
+              <h2 className="text-3xl sm:text-4xl font-bold text-white font-montserrat" style={{ marginBottom: 'clamp(2.5rem, 5vw, 3.5rem)' }}>
                 Coming Soon
               </h2>
-              <div className="space-y-4 text-gray-300 font-inter text-base sm:text-lg max-w-3xl mx-auto">
+              <div className="text-gray-300 font-inter text-base sm:text-lg max-w-3xl mx-auto" style={{ lineHeight: '1.7', display: 'flex', flexDirection: 'column', gap: 'clamp(1.75rem, 3.5vw, 2.5rem)' }}>
                 <p>
                   <strong className="text-white">GHD-Retrofit Edition</strong> — integrates directly with existing GHD platforms.
                 </p>
                 <p>
                   <strong className="text-white">Freestanding Edition</strong> — portable, self-supporting design for facilities without rack systems.
                 </p>
-                <div className="mt-8 pt-8 border-t border-red-900/30">
+                <div style={{ marginTop: 'clamp(2.5rem, 5vw, 3.5rem)', paddingTop: 'clamp(2.5rem, 5vw, 3.5rem)', borderTop: '1px solid rgb(127, 29, 29, 0.3)' }}>
                   <p className="text-red-400 font-semibold">
                     Stay tuned for early-access waitlist
                   </p>
@@ -356,27 +368,27 @@ export default function SpecificationsContent() {
           variants={sectionVariants}
         >
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-start gap-6 mb-8">
+            <div className="flex items-start gap-6" style={{ marginBottom: 'clamp(3rem, 6vw, 5rem)' }}>
               <div className="flex-shrink-0">
                 <div className="w-14 h-14 rounded-2xl bg-red-900/20 border border-red-900/40 flex items-center justify-center">
                   <Mail className="w-7 h-7 text-red-500" />
                 </div>
               </div>
               <div>
-                <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6 font-montserrat">
+                <h2 className="text-3xl sm:text-4xl font-bold text-white font-montserrat" style={{ marginBottom: 'clamp(1.5rem, 3vw, 2.5rem)' }}>
                   Download & Customization
                 </h2>
               </div>
             </div>
 
-            <div className="space-y-6">
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(2rem, 4vw, 3rem)' }}>
               {/* Download placeholder */}
-              <div className="bg-zinc-950/50 border border-zinc-800 rounded-2xl p-8 text-center">
-                <FileText className="w-12 h-12 text-red-500 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold text-white mb-2 font-montserrat">
+              <div className="bg-zinc-950/50 border border-zinc-800 rounded-2xl text-center" style={{ padding: 'clamp(3rem, 6vw, 4.5rem) clamp(2rem, 4vw, 3rem)' }}>
+                <FileText className="w-12 h-12 text-red-500 mx-auto" style={{ marginBottom: 'clamp(1.5rem, 3vw, 2rem)' }} />
+                <h3 className="text-xl font-semibold text-white font-montserrat" style={{ marginBottom: 'clamp(0.75rem, 1.5vw, 1rem)' }}>
                   Full Technical Data Sheet
                 </h3>
-                <p className="text-gray-400 font-inter mb-6">
+                <p className="text-gray-400 font-inter" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1rem)', lineHeight: '1.6', marginBottom: 'clamp(2rem, 4vw, 2.5rem)' }}>
                   Comprehensive technical documentation coming soon
                 </p>
                 <button
@@ -388,11 +400,11 @@ export default function SpecificationsContent() {
               </div>
 
               {/* Contact CTA */}
-              <div className="bg-gradient-to-br from-red-950/20 to-black border border-red-900/40 rounded-2xl p-8 text-center">
-                <h3 className="text-2xl font-bold text-white mb-4 font-montserrat">
+              <div className="bg-gradient-to-br from-red-950/20 to-black border border-red-900/40 rounded-2xl text-center" style={{ padding: 'clamp(3rem, 6vw, 4.5rem) clamp(2rem, 4vw, 3rem)' }}>
+                <h3 className="text-2xl font-bold text-white font-montserrat" style={{ marginBottom: 'clamp(1.5rem, 3vw, 2rem)' }}>
                   Custom Orders & Inquiries
                 </h3>
-                <p className="text-gray-300 font-inter mb-6 max-w-2xl mx-auto">
+                <p className="text-gray-300 font-inter max-w-2xl mx-auto" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1rem)', lineHeight: '1.7', marginBottom: 'clamp(2rem, 4vw, 2.5rem)' }}>
                   For custom colors, bulk orders, or licensing inquiries —<br />
                   <strong className="text-white">Contact ExIQx Performance</strong>
                 </p>
