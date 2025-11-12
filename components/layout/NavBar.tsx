@@ -24,8 +24,11 @@ const DEFAULT_NAV_ITEMS = [
   { label: 'GHD Retrofit', href: '/ghd-retrofit', id: 'ghd-retrofit' },
   { label: 'Freestanding', href: '/freestanding', id: 'freestanding' },
   { label: 'Technology', href: '/technology', id: 'technology' },
-  { label: 'About', href: '#about', id: 'about' },
-  { label: 'Contact', href: '#contact', id: 'contact' },
+  { label: 'About', href: '/about', id: 'about' },
+  { label: 'Contact', href: '/contact', id: 'contact' },
+  { label: 'FAQ', href: '/faq', id: 'faq' },
+  { label: 'Shipping & Returns', href: '/shipping-and-returns', id: 'shipping-and-returns' },
+  { label: 'Warranty', href: '/warranty', id: 'warranty' },
 ]
 
 const SCROLL_THRESHOLD = 100

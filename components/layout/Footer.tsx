@@ -110,9 +110,9 @@ const Footer = memo(function Footer() {
               Support
             </h3>
             <ul style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(0.875rem, 1.5vw, 1.125rem)' }} role="list">
-              <li><a href="#faq" className="text-white/60 hover:text-white font-inter transition-colors" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1rem)', lineHeight: '1.6' }}>FAQ</a></li>
-              <li><a href="#shipping" className="text-white/60 hover:text-white font-inter transition-colors" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1rem)', lineHeight: '1.6' }}>Shipping & Returns</a></li>
-              <li><a href="#warranty" className="text-white/60 hover:text-white font-inter transition-colors" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1rem)', lineHeight: '1.6' }}>Warranty</a></li>
+              <li><a href="/faq" className="text-white/60 hover:text-white font-inter transition-colors" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1rem)', lineHeight: '1.6' }}>FAQ</a></li>
+              <li><a href="/shipping-and-returns" className="text-white/60 hover:text-white font-inter transition-colors" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1rem)', lineHeight: '1.6' }}>Shipping & Returns</a></li>
+              <li><a href="/warranty" className="text-white/60 hover:text-white font-inter transition-colors" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1rem)', lineHeight: '1.6' }}>Warranty</a></li>
             </ul>
           </div>
         </div>
