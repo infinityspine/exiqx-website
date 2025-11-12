@@ -16,30 +16,26 @@ export default function ShippingAndReturnsPage() {
           </h1>
           <div className="w-32 h-[4px] bg-[#e50914] mb-16"></div>
           
-          <p className="text-lg md:text-xl text-gray-300 font-light leading-relaxed mb-20">
-            ExIQx Performance is committed to delivering your equipment with precision and care. Standard 
-            orders are processed within 5-7 business days and shipped via reliable carriers with full 
-            tracking information provided. We understand that timing matters for facility installations 
-            and training schedules, which is why we offer expedited shipping options for urgent requirements. 
-            International orders are subject to destination-specific timelines and customs processing, 
-            with all applicable duties and taxes calculated transparently during checkout.
+          <p className="text-lg md:text-xl text-gray-300 font-light leading-relaxed" style={{ marginBottom: '100px' }}>
+            ExIQx Performance delivers equipment with precision and care. Standard orders process within 5-7 business days and ship via reliable carriers with full tracking. Expedited options available for urgent facility installations. International orders include transparent customs processing and duty calculation at checkout.
           </p>
+
+          <h2 className="text-5xl font-extrabold uppercase tracking-tight mb-6 text-white">
+            Returns
+          </h2>
+          <div className="w-32 h-[4px] bg-[#e50914] mb-16"></div>
           
-          <p className="text-lg md:text-xl text-gray-300 font-light leading-relaxed mb-20">
-            Our return policy reflects our confidence in the quality and performance of every ExIQx product. 
-            Unused items in original, undamaged packaging may be returned within 30 days of delivery for 
-            a full refund of the product price. Return shipping costs are the responsibility of the customer 
-            unless the return is due to a defect or error on our part. All returns must be pre-authorized 
-            by contacting our support team at support@exiqxperformance.com. Custom configurations, personalized 
-            items, or products modified after delivery are not eligible for return unless defective.
+          <p className="text-lg md:text-xl text-gray-300 font-light leading-relaxed" style={{ marginBottom: '100px' }}>
+            Unused items in original packaging may be returned within 30 days for full product refund. Return shipping costs are customer responsibility unless due to defect or error. All returns require pre-authorization via <a href="mailto:support@exiqxperformance.com" className="text-white underline decoration-[#e50914] decoration-2 underline-offset-4 hover:text-gray-300 transition-colors duration-300">support@exiqxperformance.com</a>. Custom configurations and modified items are non-returnable unless defective.
           </p>
+
+          <h2 className="text-5xl font-extrabold uppercase tracking-tight mb-6 text-white">
+            Support
+          </h2>
+          <div className="w-32 h-[4px] bg-[#e50914] mb-16"></div>
           
           <p className="text-lg md:text-xl text-gray-300 font-light leading-relaxed mb-0">
-            For warranty claims, defective items, or shipping-related issues, our customer service team 
-            provides expedited support to ensure rapid resolution. We stand behind every product we ship 
-            and are committed to ensuring your complete satisfaction. If you have questions about shipping 
-            timelines, return procedures, or need assistance with a claim, please reach out to 
-            support@exiqxperformance.com and our team will respond within 24-48 hours during business days.
+            For warranty claims, defects, or shipping issues, contact <a href="mailto:support@exiqxperformance.com" className="text-white underline decoration-[#e50914] decoration-2 underline-offset-4 hover:text-gray-300 transition-colors duration-300">support@exiqxperformance.com</a>. Response within 24-48 hours during business days.
           </p>
         </motion.div>
       </div>
