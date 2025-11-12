@@ -15,7 +15,7 @@ export default function TechnologyContent() {
           <h1 className="text-5xl md:text-7xl font-extrabold uppercase tracking-tight mb-6 text-white">
             Technology
           </h1>
-          <div className="w-32 h-[4px] bg-[#e50914] mb-16"></div>
+          <div className="w-32 h-[4px] bg-[#e50914] mb-24"></div>
           
           <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-32">
             The ExIQx Footplate re-engineers posterior-chain training through biomechanical precision and authentic ground-force mechanics. Every component is designed to honor the physics of human movement, creating training systems that translate directly to athletic performance.
@@ -24,7 +24,7 @@ export default function TechnologyContent() {
           <h2 className="text-5xl font-extrabold uppercase tracking-tight mb-6 text-white">
             Closed-Chain Plantarflexion
           </h2>
-          <div className="w-32 h-[4px] bg-[#e50914] mb-16"></div>
+          <div className="w-32 h-[4px] bg-[#e50914] mb-24"></div>
           
           <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-20">
             ExIQx technology is engineered around user-adjustable closed-chain plantarflexion mechanics, allowing precise alignment from 10° to 70° to match each athlete's preferred loading angle, performance objective, or rehabilitation phase.
@@ -41,7 +41,7 @@ export default function TechnologyContent() {
           <h2 className="text-5xl font-extrabold uppercase tracking-tight mb-6 text-white mt-32">
                   Why We Invented the ExIQx Footplate
                 </h2>
-          <div className="w-32 h-[4px] bg-[#e50914] mb-16"></div>
+          <div className="w-32 h-[4px] bg-[#e50914] mb-24"></div>
           
           <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-20">
             Conventional Nordic and GHD-style devices stabilize the body by anchoring the posterior ankle and leg, transferring force through the Achilles and calf complex. While this isolates eccentric hamstring strength, it diverts kinetic energy away from the true ground-force pathway used in sprinting, jumping, and sport-specific motion.
@@ -62,7 +62,7 @@ export default function TechnologyContent() {
           <h2 className="text-5xl font-extrabold uppercase tracking-tight mb-6 text-white">
                   Precision Engineering
                 </h2>
-          <div className="w-32 h-[4px] bg-[#e50914] mb-16"></div>
+          <div className="w-32 h-[4px] bg-[#e50914] mb-24"></div>
           
           <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-20">
             Hybrid construction combines CNC-machined ⅜" aluminum for lightweight precision with welded 11-gauge steel arms for structural strength. Every component is machined to aerospace-level tolerances for perfect bearing alignment and zero lateral play.
@@ -75,7 +75,7 @@ export default function TechnologyContent() {
           <h2 className="text-5xl font-extrabold uppercase tracking-tight mb-6 text-white">
                   Performance Outcomes
                 </h2>
-          <div className="w-32 h-[4px] bg-[#e50914] mb-16"></div>
+          <div className="w-32 h-[4px] bg-[#e50914] mb-24"></div>
           
           <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-20">
             Sprint carryover: recreates the closed-chain vector of sprint acceleration for direct athletic transfer. The footplate positions athletes in the exact force vector used during acceleration, training the neuromuscular system to apply force the way it does in competition.
@@ -93,7 +93,7 @@ export default function TechnologyContent() {
             <h2 className="text-5xl font-extrabold uppercase tracking-tight mb-6 text-white">
               Technical Specifications
             </h2>
-            <div className="w-32 h-[4px] bg-[#e50914] mb-16"></div>
+            <div className="w-32 h-[4px] bg-[#e50914] mb-24"></div>
             
             <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-20">
               Explore the complete engineering, materials, and biomechanical design that make the ExIQx Footplate the most advanced posterior-chain training system available.
