@@ -26,12 +26,8 @@ export default function TechnologyPage() {
           </h2>
           <div className="w-32 h-[4px] bg-[#e50914] mb-16"></div>
           
-          <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-20">
-            ExIQx technology is engineered around user-adjustable closed-chain plantarflexion mechanics, allowing precise alignment from 10° to 70° to match each athlete's preferred loading angle, performance objective, or rehabilitation phase.
-          </p>
-          
           <p className="text-lg md:text-xl text-gray-300 leading-relaxed" style={{ marginBottom: '100px' }}>
-            Each interval positions the user in a true ground-force vector, directing load through the plantar surface of the foot—from the metatarsal heads and ball of the foot, through the ankle complex, calves, hamstrings, glutes, and spinal erectors. This closed-chain configuration mimics sprinting, jumping, and human gait, ensuring authentic kinetic sequence engagement.
+            ExIQx technology is engineered around user-adjustable closed-chain plantarflexion mechanics, allowing precise alignment from 10° to 70° to match each athlete's preferred loading angle, performance objective, or rehabilitation phase. Each interval positions the user in a true ground-force vector, directing load through the plantar surface of the foot—from the metatarsal heads and ball of the foot, through the ankle complex, calves, hamstrings, glutes, and spinal erectors. This closed-chain configuration mimics sprinting, jumping, and human gait, ensuring authentic kinetic sequence engagement.
           </p>
 
           <h2 className="text-5xl font-extrabold uppercase tracking-tight mb-6 text-white">
@@ -40,11 +36,7 @@ export default function TechnologyPage() {
           <div className="w-32 h-[4px] bg-[#e50914] mb-16"></div>
           
           <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-20">
-            Conventional Nordic and GHD-style devices stabilize the body by anchoring the posterior ankle and leg, transferring force through the Achilles and calf complex. This isolates the hamstrings but diverts kinetic energy away from the true ground-force pathway.
-          </p>
-          
-          <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-20">
-            In natural athletic movement, energy transfers through the plantar surface—especially the ball of the foot—creating a closed-chain kinetic line that drives through the ankle, knee, and hip into the posterior chain.
+            Conventional Nordic and GHD-style devices stabilize the body by anchoring the posterior ankle and leg, transferring force through the Achilles and calf complex. This isolates the hamstrings but diverts kinetic energy away from the true ground-force pathway. In natural athletic movement, energy transfers through the plantar surface—especially the ball of the foot—creating a closed-chain kinetic line that drives through the ankle, knee, and hip into the entire posterior chain.
           </p>
           
           <p className="text-lg md:text-xl text-gray-300 leading-relaxed" style={{ marginBottom: '100px' }}>
@@ -56,12 +48,8 @@ export default function TechnologyPage() {
           </h2>
           <div className="w-32 h-[4px] bg-[#e50914] mb-16"></div>
           
-          <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-20">
-            Hybrid construction combines CNC-machined ⅜" aluminum for lightweight precision with welded 11-gauge steel arms for structural strength. Every component is machined to aerospace-level tolerances for perfect bearing alignment and zero lateral play.
-          </p>
-          
           <p className="text-lg md:text-xl text-gray-300 leading-relaxed" style={{ marginBottom: '100px' }}>
-            The matte black powder coat provides corrosion resistance with custom finishes available on request. All ExIQx systems are engineered, machined, and assembled in the United States.
+            Hybrid construction combines CNC-machined ⅜" aluminum for lightweight precision with welded 11-gauge steel arms for structural strength. Every component is machined to aerospace-level tolerances for perfect bearing alignment and zero lateral play. The matte black powder coat provides corrosion resistance with custom finishes available on request. All ExIQx systems are engineered, machined, and assembled in the United States.
           </p>
 
           <h2 className="text-5xl font-extrabold uppercase tracking-tight mb-6 text-white">
