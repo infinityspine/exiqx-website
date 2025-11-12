@@ -4,42 +4,37 @@ import { motion } from 'framer-motion'
 
 export default function ContactPage() {
   return (
-    <section className="min-h-screen bg-black flex items-center justify-center">
-      <div className="max-w-5xl mx-auto px-8 py-28 md:py-36 text-left md:pl-4">
+    <section className="min-h-screen bg-black flex items-center justify-center py-20">
+      <div className="max-w-2xl mx-auto px-6 text-left">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: 'easeOut' }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
         >
-          <h1 className="text-7xl font-extrabold uppercase tracking-tight mb-6 text-white">
+          <h1 className="text-5xl font-extrabold uppercase tracking-tight mb-8 text-white">
             Contact
           </h1>
-          <div className="w-32 h-[4px] bg-[#e50914] mb-16"></div>
           
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: 'easeOut', delay: 0.2 }}
-            className="text-lg md:text-xl text-gray-300 font-light leading-relaxed mb-12"
-          >
-            ExIQx provides technical specifications, custom solutions, and facility installation support. 
-            For product inquiries, warranty claims, or custom engineering requirements, contact our team.
-          </motion.p>
+          <p className="text-lg text-gray-400 leading-relaxed tracking-wide mb-6">
+            ExIQx Performance provides precision-engineered support for technical specifications, facility integrations, and custom performance solutions.
+          </p>
           
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: 'easeOut', delay: 0.4 }}
-            className="text-lg md:text-xl text-gray-300 font-light leading-relaxed mb-0"
-          >
+          <p className="text-lg text-gray-400 leading-relaxed tracking-wide mb-6">
+            For product inquiries, warranty claims, or custom-engineering requests, our team offers direct consultation and elite installation guidance.
+          </p>
+          
+          <div className="text-white font-semibold mt-8 tracking-wider text-xl mb-6">
             <a 
               href="mailto:support@exiqxperformance.com" 
-              className="text-white font-normal underline decoration-[#e50914] decoration-2 underline-offset-4 hover:text-gray-300 transition-colors"
+              className="underline decoration-[#e50914] decoration-2 underline-offset-4 hover:text-gray-300 transition-colors duration-300"
             >
               support@exiqxperformance.com
             </a>
-            {' '}Responses within 24-48 hours. Dedicated consultation available for facility installations and bulk orders.
-          </motion.p>
+          </div>
+          
+          <p className="text-lg text-gray-400 leading-relaxed tracking-wide mb-0">
+            Responses within 24–48 hours. Dedicated consultation available for institutional and high-volume facility orders.
+          </p>
         </motion.div>
       </div>
     </section>
