@@ -1,10 +1,6 @@
-import type { Metadata } from 'next'
-import { motion } from 'framer-motion'
+'use client'
 
-export const metadata: Metadata = {
-  title: 'Warranty | ExIQx Performance',
-  description: 'ExIQx Performance warranty coverage, quality assurance standards, and claims process for precision-engineered biomechanical equipment.',
-}
+import { motion } from 'framer-motion'
 
 export default function WarrantyPage() {
   return (

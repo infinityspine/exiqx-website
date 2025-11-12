@@ -1,10 +1,6 @@
-import type { Metadata } from 'next'
-import { motion } from 'framer-motion'
+'use client'
 
-export const metadata: Metadata = {
-  title: 'About | ExIQx Performance',
-  description: 'Discover ExIQx Performance — precision-engineered biomechanical equipment designed for elite athletes and performance-driven training.',
-}
+import { motion } from 'framer-motion'
 
 export default function AboutPage() {
   return (

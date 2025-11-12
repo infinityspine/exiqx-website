@@ -1,10 +1,6 @@
-import type { Metadata } from 'next'
-import { motion } from 'framer-motion'
+'use client'
 
-export const metadata: Metadata = {
-  title: 'FAQ | ExIQx Performance',
-  description: 'Frequently asked questions about ExIQx Performance footplates, installation, usage, shipping, and returns.',
-}
+import { motion } from 'framer-motion'
 
 export default function FAQPage() {
   return (

@@ -1,10 +1,6 @@
-import type { Metadata } from 'next'
-import { motion } from 'framer-motion'
+'use client'
 
-export const metadata: Metadata = {
-  title: 'Shipping & Returns | ExIQx Performance',
-  description: 'ExIQx Performance shipping policies, delivery timelines, and return procedures for elite biomechanical equipment.',
-}
+import { motion } from 'framer-motion'
 
 export default function ShippingAndReturnsPage() {
   return (
