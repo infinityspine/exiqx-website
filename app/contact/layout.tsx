@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Contact | ExIQx Performance',
-  description: 'Get in touch with ExIQx Performance for product inquiries, technical support, and custom solutions for elite training facilities.',
+  title: 'Contact ExIQx Performance | Technical Support & Inquiries',
+  description: 'Contact ExIQx Performance for product specifications, custom solutions, and technical support.',
 }
 
 export default function ContactLayout({

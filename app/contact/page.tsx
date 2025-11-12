@@ -4,44 +4,44 @@ import { motion } from 'framer-motion'
 
 export default function ContactPage() {
   return (
-    <section className="bg-black text-white text-center py-20 min-h-screen flex items-center justify-center">
-      <div className="max-w-3xl mx-auto px-6 leading-relaxed">
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-5xl font-extrabold uppercase mb-8"
-        >
-          Contact
-        </motion.h1>
+    <section className="min-h-screen bg-black flex items-center justify-center">
+      <div className="max-w-5xl mx-auto px-8 py-28 md:py-36 text-left md:pl-4">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-lg opacity-90 space-y-4"
+          transition={{ duration: 0.9, ease: 'easeOut' }}
         >
-          <p>
-            We're here to support your performance goals. Whether you're evaluating ExIQx equipment for 
-            your training facility, seeking technical specifications, or exploring custom solutions for 
-            specialized applications, our team is ready to assist. We understand that selecting the right 
-            biomechanical equipment requires careful consideration, and we're committed to providing the 
-            information and guidance you need to make informed decisions.
-          </p>
-          <p>
-            For product inquiries, technical support, warranty claims, or general questions, please reach 
-            out to us at <a href="mailto:support@exiqxperformance.com" className="text-red-600 hover:text-red-500 transition-colors underline">support@exiqxperformance.com</a>. 
-            Our support team responds to all inquiries within 24-48 hours during business days. For facility 
-            installations, bulk orders, or custom engineering requirements, we offer dedicated consultation 
-            to ensure your specific needs are met with precision-engineered solutions.
-          </p>
-          <p>
-            Thank you for considering ExIQx Performance. We appreciate your commitment to excellence and 
-            look forward to supporting your pursuit of biomechanically authentic, performance-driven training. 
-            Your success is our mission, and we're honored to be part of your performance journey.
-          </p>
+          <h1 className="text-7xl font-extrabold uppercase tracking-tight mb-6 text-white">
+            Contact
+          </h1>
+          <div className="w-32 h-[4px] bg-[#e50914] mb-16"></div>
+          
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, ease: 'easeOut', delay: 0.2 }}
+            className="text-lg md:text-xl text-gray-300 font-light leading-relaxed mb-12"
+          >
+            ExIQx provides technical specifications, custom solutions, and facility installation support. 
+            For product inquiries, warranty claims, or custom engineering requirements, contact our team.
+          </motion.p>
+          
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, ease: 'easeOut', delay: 0.4 }}
+            className="text-lg md:text-xl text-gray-300 font-light leading-relaxed mb-0"
+          >
+            <a 
+              href="mailto:support@exiqxperformance.com" 
+              className="text-white font-normal underline decoration-[#e50914] decoration-2 underline-offset-4 hover:text-gray-300 transition-colors"
+            >
+              support@exiqxperformance.com
+            </a>
+            {' '}Responses within 24-48 hours. Dedicated consultation available for facility installations and bulk orders.
+          </motion.p>
         </motion.div>
       </div>
     </section>
   )
 }
-
