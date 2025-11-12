@@ -11,7 +11,7 @@ export default function AboutPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: 'easeOut' }}
         >
-          <h1 className="text-7xl font-extrabold uppercase tracking-tight mb-6 text-white">
+          <h1 className="text-5xl md:text-7xl font-extrabold uppercase tracking-tight mb-6 text-white">
             About
           </h1>
           <div className="w-32 h-[4px] bg-[#e50914] mb-16"></div>

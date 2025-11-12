@@ -11,12 +11,12 @@ export default function ContactPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
         >
-          <h1 className="text-5xl font-extrabold uppercase tracking-tight mb-6 text-white">
+          <h1 className="text-5xl md:text-7xl font-extrabold uppercase tracking-tight mb-6 text-white">
             Contact
           </h1>
           <div className="w-32 h-[4px] bg-[#e50914] mb-16"></div>
           
-          <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-32 pb-8">
+          <p className="text-lg md:text-xl text-gray-300 font-light leading-relaxed mb-32 pb-8">
             ExIQx Performance provides precision-engineered support for technical specifications, facility integrations, and custom performance solutions. For product inquiries, warranty claims, or custom-engineering requests, our team offers direct consultation and elite installation guidance.
           </p>
           
@@ -29,7 +29,7 @@ export default function ContactPage() {
             </a>
           </div>
           
-          <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-0">
+          <p className="text-lg md:text-xl text-gray-300 font-light leading-relaxed mb-0">
             Responses within 24–48 hours. Dedicated consultation available for institutional and high-volume facility orders.
           </p>
         </motion.div>
