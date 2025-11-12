@@ -83,7 +83,7 @@ const Footer = memo(function Footer() {
             </h3>
             <ul className="space-y-3" role="list">
               <li><a href="/rack-mounted" className="text-sm text-white/60 hover:text-white">Rack-Mounted Footplate</a></li>
-              <li><a href="/ghd-retrofit" className="text-sm text-white/60 hover:text-white">GHD Retrofit System</a></li>
+              <li><a href="/ghd-retrofit" className="text-sm text-white/60 hover:text-white">GHD Retrofit Footplate</a></li>
               <li><a href="/freestanding" className="text-sm text-white/60 hover:text-white">Freestanding Footplate</a></li>
             </ul>
           </div>
