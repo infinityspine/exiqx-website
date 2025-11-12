@@ -21,7 +21,7 @@ export default function TechnologyContent() {
             The ExIQx Footplate re-engineers posterior-chain training through biomechanical precision and authentic ground-force mechanics. Every component is designed to honor the physics of human movement, creating training systems that translate directly to athletic performance.
           </p>
 
-          <h2 className="text-5xl font-extrabold uppercase tracking-tight mb-6 text-white">
+          <h2 className="text-5xl font-extrabold uppercase tracking-tight mb-6 text-white mt-40">
             Closed-Chain Plantarflexion
           </h2>
           <div className="w-32 h-[4px] bg-[#e50914] mb-24"></div>
@@ -34,7 +34,7 @@ export default function TechnologyContent() {
             This closed-chain configuration mimics the natural kinetic sequence of sprinting, jumping, and human gait, enabling authentic posterior-chain activation under real-world ground-force mechanics. Complete posterior-chain integration links plantar fascia to glutes and spinal stabilizers in one continuous vector. Neuromechanical precision allows athletes to dial in plantarflexion for optimal strength, speed, or rehabilitation outcomes.
           </p>
 
-          <h2 className="text-5xl font-extrabold uppercase tracking-tight mb-6 text-white">
+          <h2 className="text-5xl font-extrabold uppercase tracking-tight mb-6 text-white mt-40">
             Why We Invented the ExIQx Footplate
           </h2>
           <div className="w-32 h-[4px] bg-[#e50914] mb-24"></div>
@@ -51,7 +51,7 @@ export default function TechnologyContent() {
             The ExIQx Footplate was designed to restore that authentic energy flow. By re-routing force through the plantar surface instead of the posterior ankle, it mimics the kinetic energy flow of sprinting and jumping, extends the mechanical lever arm from the ball of the foot to the knee for increased torque and muscular activation, and activates the full posterior chain from metatarsal heads to spinal erectors under genuine closed-chain conditions. This isn't a modified Nordic device; it's a biomechanical re-engineering of how athletes produce and absorb force, restoring the body's authentic ground-up energy system.
           </p>
 
-          <h2 className="text-5xl font-extrabold uppercase tracking-tight mb-6 text-white">
+          <h2 className="text-5xl font-extrabold uppercase tracking-tight mb-6 text-white mt-40">
             Precision Engineering
           </h2>
           <div className="w-32 h-[4px] bg-[#e50914] mb-24"></div>
@@ -64,7 +64,7 @@ export default function TechnologyContent() {
             The powder-coated black finish provides corrosion resistance, with custom color options available on request. All ExIQx equipment is designed, machined, and assembled in the United States.
           </p>
 
-          <h2 className="text-5xl font-extrabold uppercase tracking-tight mb-6 text-white">
+          <h2 className="text-5xl font-extrabold uppercase tracking-tight mb-6 text-white mt-40">
             Performance Outcomes
           </h2>
           <div className="w-32 h-[4px] bg-[#e50914] mb-24"></div>
@@ -81,7 +81,7 @@ export default function TechnologyContent() {
             Rehabilitation crossover: enables controlled eccentric loading and posterior-chain retraining across progressive angles. The adjustable range allows practitioners to match loading patterns to specific rehabilitation phases while maintaining biomechanical authenticity.
           </p>
 
-          <div className="mt-32">
+          <div className="mt-40">
             <h2 className="text-5xl font-extrabold uppercase tracking-tight mb-6 text-white">
               Technical Specifications
             </h2>
