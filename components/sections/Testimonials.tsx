@@ -16,6 +16,7 @@
 'use client'
 
 import { memo } from 'react'
+import Image from 'next/image'
 
 const Testimonials = memo(function Testimonials() {
   return (
@@ -55,7 +56,7 @@ const Testimonials = memo(function Testimonials() {
 
             {/* Quote */}
             <blockquote>
-              <p className="mb-6 text-white/80">
+              <p className="mb-6 text-white/80 font-light">
                 Game-changer for our hamstring injury prevention protocol. 
                 Our athletes have seen a dramatic reduction in soft tissue injuries.
               </p>
@@ -63,11 +64,17 @@ const Testimonials = memo(function Testimonials() {
 
             {/* Attribution */}
             <div className="flex items-center gap-4">
-              {/* Avatar Placeholder */}
-              <div
-                className="h-12 w-12 rounded-full bg-white/10"
-                aria-hidden="true"
-              />
+              {/* Avatar */}
+              <div className="relative h-12 w-12 rounded-full overflow-hidden border-2 border-gray-800">
+                <Image
+                  src="/images/testimonials/sarah-mitchell.jpg"
+                  alt="Dr. Sarah Mitchell headshot"
+                  fill
+                  className="object-cover grayscale"
+                  quality={85}
+                  sizes="48px"
+                />
+              </div>
               
               {/* Author Info */}
               <div>
@@ -96,7 +103,7 @@ const Testimonials = memo(function Testimonials() {
 
             {/* Quote */}
             <blockquote>
-              <p className="mb-6 text-white/80">
+              <p className="mb-6 text-white/80 font-light">
                 The build quality is exceptional. This is professional-grade 
                 equipment that belongs in every serious training facility.
               </p>
@@ -104,11 +111,17 @@ const Testimonials = memo(function Testimonials() {
 
             {/* Attribution */}
             <div className="flex items-center gap-4">
-              {/* Avatar Placeholder */}
-              <div
-                className="h-12 w-12 rounded-full bg-white/10"
-                aria-hidden="true"
-              />
+              {/* Avatar */}
+              <div className="relative h-12 w-12 rounded-full overflow-hidden border-2 border-gray-800">
+                <Image
+                  src="/images/testimonials/marcus-thompson.jpg"
+                  alt="Marcus Thompson headshot"
+                  fill
+                  className="object-cover grayscale"
+                  quality={85}
+                  sizes="48px"
+                />
+              </div>
               
               {/* Author Info */}
               <div>
@@ -137,7 +150,7 @@ const Testimonials = memo(function Testimonials() {
 
             {/* Quote */}
             <blockquote>
-              <p className="mb-6 text-white/80">
+              <p className="mb-6 text-white/80 font-light">
                 Best investment I've made for my training. The biomechanical 
                 design makes Nordic curls accessible and effective.
               </p>
@@ -145,11 +158,17 @@ const Testimonials = memo(function Testimonials() {
 
             {/* Attribution */}
             <div className="flex items-center gap-4">
-              {/* Avatar Placeholder */}
-              <div
-                className="h-12 w-12 rounded-full bg-white/10"
-                aria-hidden="true"
-              />
+              {/* Avatar */}
+              <div className="relative h-12 w-12 rounded-full overflow-hidden border-2 border-gray-800">
+                <Image
+                  src="/images/testimonials/jessica-rodriguez.jpg"
+                  alt="Jessica Rodriguez headshot"
+                  fill
+                  className="object-cover grayscale"
+                  quality={85}
+                  sizes="48px"
+                />
+              </div>
               
               {/* Author Info */}
               <div>

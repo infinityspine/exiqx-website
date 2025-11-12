@@ -1,21 +1,8 @@
-/**
- * UseCases Component
- * 
- * Purpose: Showcase real-world training applications and
- * biomechanical benefits of the footplate system.
- * 
- * Features:
- * - Visual use case demonstrations
- * - Accessible semantic structure
- * - ExIQx dark design system
- * - Production-ready placeholder layout
- * 
- * TODO: Add actual use case content with imagery and detailed descriptions
- */
-
 'use client'
 
 import { memo } from 'react'
+import Image from 'next/image'
+import { motion } from 'framer-motion'
 
 const UseCases = memo(function UseCases() {
   return (
@@ -33,31 +20,49 @@ const UseCases = memo(function UseCases() {
           >
             Training Applications
           </h2>
-          <p className="mt-4 text-lg text-white/70">
+          <p className="mt-4 text-lg text-white/70 font-light">
             Versatile equipment for comprehensive posterior chain development
           </p>
         </div>
 
         {/* Use Cases Grid */}
         <div className="space-y-16">
-          {/* Use Case 1 */}
+          {/* Use Case 1 - Nordic Hamstring Curls */}
           <div className="grid items-center gap-8 lg:grid-cols-2">
-            {/* Image Placeholder */}
-            <div className="aspect-video rounded-xl bg-white/5 backdrop-blur-sm" aria-hidden="true">
-              <div className="flex h-full items-center justify-center">
-                <div className="h-16 w-16 rounded-full bg-accent/20" />
-              </div>
-            </div>
+            {/* Image with Elite Styling */}
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="relative aspect-[4/5] rounded-lg overflow-hidden"
+            >
+              <Image
+                src="/images/training/nordic-curl-athlete.jpg"
+                alt="Athlete performing Nordic hamstring curl on ExIQx footplate"
+                fill
+                className="object-cover grayscale brightness-75"
+                quality={90}
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+              {/* Red accent gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+            </motion.div>
             
             {/* Content */}
-            <div>
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            >
               <h3 className="mb-4 font-display text-3xl font-bold uppercase tracking-[0.03em] text-white">
                 Nordic Hamstring Curls
               </h3>
-              <p className="mb-4 text-white/70">
+              <p className="mb-4 text-white/70 font-light">
                 Eccentric hamstring training for injury prevention and explosive power development.
               </p>
-              <ul className="space-y-2 text-white/60" role="list">
+              <ul className="space-y-2 text-white/60 font-light" role="list">
                 <li className="flex items-start">
                   <span className="mr-2 text-accent">•</span>
                   Reduces hamstring injury risk by up to 51%
@@ -71,20 +76,26 @@ const UseCases = memo(function UseCases() {
                   Enhances knee flexion strength
                 </li>
               </ul>
-            </div>
+            </motion.div>
           </div>
 
-          {/* Use Case 2 */}
+          {/* Use Case 2 - Glute-Ham Raises */}
           <div className="grid items-center gap-8 lg:grid-cols-2">
             {/* Content (reversed order on desktop) */}
-            <div className="lg:order-2">
+            <motion.div 
+              className="lg:order-2"
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            >
               <h3 className="mb-4 font-display text-3xl font-bold uppercase tracking-[0.03em] text-white">
                 Glute-Ham Raises
               </h3>
-              <p className="mb-4 text-white/70">
+              <p className="mb-4 text-white/70 font-light">
                 Complete posterior chain activation for comprehensive lower body development.
               </p>
-              <ul className="space-y-2 text-white/60" role="list">
+              <ul className="space-y-2 text-white/60 font-light" role="list">
                 <li className="flex items-start">
                   <span className="mr-2 text-accent">•</span>
                   Strengthens glutes, hamstrings, and lower back
@@ -98,34 +109,65 @@ const UseCases = memo(function UseCases() {
                   Enhances athletic performance
                 </li>
               </ul>
-            </div>
+            </motion.div>
             
-            {/* Image Placeholder */}
-            <div className="aspect-video rounded-xl bg-white/5 backdrop-blur-sm lg:order-1" aria-hidden="true">
-              <div className="flex h-full items-center justify-center">
-                <div className="h-16 w-16 rounded-full bg-accent/20" />
-              </div>
-            </div>
+            {/* Image with Elite Styling */}
+            <motion.div 
+              className="relative aspect-[4/5] rounded-lg overflow-hidden lg:order-1"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <Image
+                src="/images/training/glute-ham-raise-athlete.jpg"
+                alt="Athlete performing glute-ham raise on ExIQx footplate"
+                fill
+                className="object-cover grayscale brightness-75"
+                quality={90}
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+              {/* Red accent gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+            </motion.div>
           </div>
 
-          {/* Use Case 3 */}
+          {/* Use Case 3 - Progressive Overload */}
           <div className="grid items-center gap-8 lg:grid-cols-2">
-            {/* Image Placeholder */}
-            <div className="aspect-video rounded-xl bg-white/5 backdrop-blur-sm" aria-hidden="true">
-              <div className="flex h-full items-center justify-center">
-                <div className="h-16 w-16 rounded-full bg-accent/20" />
-              </div>
-            </div>
+            {/* Image with Elite Styling - Product Detail Shot */}
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="relative aspect-[4/5] rounded-lg overflow-hidden"
+            >
+              <Image
+                src="/images/training/adjustment-mechanism-detail.jpg"
+                alt="Close-up of ExIQx footplate angle adjustment mechanism"
+                fill
+                className="object-cover brightness-90"
+                quality={90}
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+              {/* Subtle red accent glow on one element */}
+              <div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-transparent" />
+            </motion.div>
             
             {/* Content */}
-            <div>
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            >
               <h3 className="mb-4 font-display text-3xl font-bold uppercase tracking-[0.03em] text-white">
                 Progressive Overload
               </h3>
-              <p className="mb-4 text-white/70">
+              <p className="mb-4 text-white/70 font-light">
                 Adjustable resistance system for continuous strength progression.
               </p>
-              <ul className="space-y-2 text-white/60" role="list">
+              <ul className="space-y-2 text-white/60 font-light" role="list">
                 <li className="flex items-start">
                   <span className="mr-2 text-accent">•</span>
                   Supports beginner to elite athletes
@@ -139,7 +181,7 @@ const UseCases = memo(function UseCases() {
                   Weighted progression capability
                 </li>
               </ul>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

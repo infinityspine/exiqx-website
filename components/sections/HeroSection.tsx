@@ -227,6 +227,12 @@ const HeroSection = memo(function HeroSection({
         aria-hidden="true"
       />
 
+      {/* Radial Vignette Overlay */}
+      <div 
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,black_100%)] opacity-40"
+        aria-hidden="true"
+      />
+
       {/* Content with Fade-out */}
       <motion.div
         style={{
