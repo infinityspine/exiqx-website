@@ -53,11 +53,11 @@ export default function TechnologyPage() {
           </h2>
           <div className="w-32 h-[4px] bg-[#e50914] mb-16"></div>
           
-          <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-32">
+          <p className="text-lg md:text-xl text-gray-300 leading-relaxed" style={{ marginBottom: '80px' }}>
             <span className="font-semibold text-white">Sprint carryover:</span> replicates the closed-chain vector of sprint acceleration for direct athletic transfer. The footplate positions athletes in the precise ground-force vector used during acceleration.
           </p>
           
-          <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-32">
+          <p className="text-lg md:text-xl text-gray-300 leading-relaxed" style={{ marginBottom: '80px' }}>
             <span className="font-semibold text-white">Posterior-chain activation:</span> maximizes muscular integration from the plantar surface through the glutes and spinal stabilizers for true kinetic-chain transfer.
           </p>
           
@@ -70,7 +70,7 @@ export default function TechnologyPage() {
           </h2>
           <div className="w-32 h-[4px] bg-[#e50914] mb-16"></div>
           
-          <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-32">
+          <p className="text-lg md:text-xl text-gray-300 leading-relaxed" style={{ marginBottom: '80px' }}>
             Explore the engineering, materials, and biomechanical design that make the ExIQx Footplate the most advanced posterior-chain training system available.
           </p>
           
