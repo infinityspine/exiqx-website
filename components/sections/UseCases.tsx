@@ -27,6 +27,25 @@ const UseCases = memo(function UseCases({
     ? useTransform(scrollYProgress, [0.5, 0.7], [1, 1.12])
     : undefined
 
+  // Section heading parallax transforms
+  const headingScale = scrollYProgress && !shouldReduceMotion
+    ? useTransform(scrollYProgress, [0.35, 0.45], [0.9, 1])
+    : undefined
+  const headingY = scrollYProgress && !shouldReduceMotion
+    ? useTransform(scrollYProgress, [0.35, 0.45], [30, 0])
+    : undefined
+  const headingBlur = scrollYProgress && !shouldReduceMotion
+    ? useTransform(scrollYProgress, [0.35, 0.42], [5, 0])
+    : undefined
+
+  // Section scale + opacity for entrance
+  const sectionScale = scrollYProgress && !shouldReduceMotion
+    ? useTransform(scrollYProgress, [0.4, 0.5], [0.95, 1])
+    : undefined
+  const sectionOpacity = scrollYProgress && !shouldReduceMotion
+    ? useTransform(scrollYProgress, [0.4, 0.48], [0.7, 1])
+    : undefined
+
   // Parallax separation between images and text
   const image1Y = scrollYProgress && !shouldReduceMotion
     ? useTransform(scrollYProgress, [0.4, 0.6], [30, -30])
@@ -47,20 +66,29 @@ const UseCases = memo(function UseCases({
     ? useTransform(scrollYProgress, [0.5, 0.7], [-30, 30])
     : undefined
   return (
-    <section
+    <motion.section
       id="use-cases"
       className="relative min-h-screen bg-black px-6 py-20 lg:py-32"
       aria-labelledby="use-cases-heading"
+      style={{
+        scale: sectionScale,
+        opacity: sectionOpacity
+      }}
     >
       <div className="mx-auto max-w-7xl">
         {/* Section Header */}
         <div className="mb-16 text-center">
-          <h2
+          <motion.h2
             id="use-cases-heading"
             className="font-display text-4xl font-extrabold uppercase tracking-[0.05em] text-white lg:text-5xl"
+            style={{
+              scale: headingScale,
+              y: headingY,
+              filter: headingBlur ? `blur(${headingBlur}px)` : undefined
+            }}
           >
             Training Applications
-          </h2>
+          </motion.h2>
           <p className="mt-4 text-lg text-white/70 font-light leading-relaxed">
             Versatile equipment for comprehensive posterior chain development
           </p>
@@ -72,11 +100,11 @@ const UseCases = memo(function UseCases({
           <div className="grid items-center gap-8 lg:grid-cols-2">
             {/* Image with Elite Styling */}
             <motion.div 
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, x: -30, scale: 0.95 }}
+              whileInView={{ opacity: 1, x: 0, scale: 1 }}
               whileHover={shouldReduceMotion ? {} : { scale: 1.02, y: -4 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.8, delay: 0, ease: [0.16, 1, 0.3, 1] }}
               className="relative aspect-[4/5] rounded-lg overflow-hidden border border-zinc-800/60 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-[0_10px_30px_rgba(220,38,38,0.2)]"
               style={{ y: image1Y, scale: image1Scale }}
             >
@@ -94,10 +122,10 @@ const UseCases = memo(function UseCases({
             
             {/* Content */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              initial={{ opacity: 0, x: 30, scale: 0.95 }}
+              whileInView={{ opacity: 1, x: 0, scale: 1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
               className="group"
               style={{ y: text1Y }}
             >
@@ -134,11 +162,11 @@ const UseCases = memo(function UseCases({
             {/* Image with Elite Styling - FIRST in DOM for mobile */}
             <motion.div 
               className="relative aspect-[4/5] rounded-lg overflow-hidden lg:order-2 border border-zinc-800/60 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-[0_10px_30px_rgba(220,38,38,0.2)]"
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, x: -30, scale: 0.95 }}
+              whileInView={{ opacity: 1, x: 0, scale: 1 }}
               whileHover={shouldReduceMotion ? {} : { scale: 1.02, y: -4 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
               style={{ y: image2Y, scale: image2Scale }}
             >
               <Image
@@ -155,10 +183,10 @@ const UseCases = memo(function UseCases({
             {/* Content - SECOND in DOM for mobile, FIRST on desktop (lg:order-1) */}
             <motion.div 
               className="lg:order-1 group"
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              initial={{ opacity: 0, x: 30, scale: 0.95 }}
+              whileInView={{ opacity: 1, x: 0, scale: 1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.8, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
               style={{ y: text2Y }}
             >
               <h3 className="mb-4 font-display text-3xl font-bold uppercase tracking-[0.03em] text-white transition-colors duration-300 group-hover:text-red-400">
@@ -193,11 +221,11 @@ const UseCases = memo(function UseCases({
           <div className="grid items-center gap-8 lg:grid-cols-2">
             {/* Image with Elite Styling - Product Detail Shot */}
             <motion.div 
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, x: -30, scale: 0.95 }}
+              whileInView={{ opacity: 1, x: 0, scale: 1 }}
               whileHover={shouldReduceMotion ? {} : { scale: 1.02, y: -4 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.8, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
               className="relative aspect-[4/5] rounded-lg overflow-hidden border border-zinc-800/60 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-[0_10px_30px_rgba(220,38,38,0.2)]"
               style={{ y: image3Y, scale: image3Scale }}
             >
@@ -215,10 +243,10 @@ const UseCases = memo(function UseCases({
             
             {/* Content */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              initial={{ opacity: 0, x: 30, scale: 0.95 }}
+              whileInView={{ opacity: 1, x: 0, scale: 1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.8, delay: 0.75, ease: [0.16, 1, 0.3, 1] }}
               className="group"
               style={{ y: text3Y }}
             >
@@ -251,7 +279,7 @@ const UseCases = memo(function UseCases({
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   )
 })
 

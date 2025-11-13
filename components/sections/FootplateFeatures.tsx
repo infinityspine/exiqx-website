@@ -32,6 +32,17 @@ const FootplateFeatures = memo(function FootplateFeatures({
   const hookShouldReduceMotion = useReducedMotion()
   const shouldReduceMotion = propShouldReduceMotion ?? hookShouldReduceMotion
 
+  // Section heading parallax transforms
+  const headingScale = scrollYProgress && !shouldReduceMotion
+    ? useTransform(scrollYProgress, [0.15, 0.25], [0.9, 1])
+    : undefined
+  const headingY = scrollYProgress && !shouldReduceMotion
+    ? useTransform(scrollYProgress, [0.15, 0.25], [30, 0])
+    : undefined
+  const headingBlur = scrollYProgress && !shouldReduceMotion
+    ? useTransform(scrollYProgress, [0.15, 0.22], [5, 0])
+    : undefined
+
   // Individual card parallax transforms
   const card1Y = scrollYProgress && !shouldReduceMotion
     ? useTransform(scrollYProgress, [0.2, 0.4], [80, -20])
@@ -55,12 +66,17 @@ const FootplateFeatures = memo(function FootplateFeatures({
           className="mb-16 text-center"
           style={textBlur ? { filter: `blur(${textBlur}px)` } : undefined}
         >
-          <h2
+          <motion.h2
             id="features-heading"
             className="font-display text-4xl font-extrabold uppercase tracking-[0.05em] text-white lg:text-5xl"
+            style={{
+              scale: headingScale,
+              y: headingY,
+              filter: headingBlur ? `blur(${headingBlur}px)` : undefined
+            }}
           >
             Technical Specifications
-          </h2>
+          </motion.h2>
           <p className="mt-4 text-lg text-white/70 leading-relaxed">
             Patent-pending design engineered for elite performance
           </p>
