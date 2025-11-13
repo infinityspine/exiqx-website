@@ -99,6 +99,7 @@ const UseCases = memo(function UseCases({
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
               className="group"
+              style={{ y: text1Y }}
             >
               <h3 className="mb-4 font-display text-3xl font-bold uppercase tracking-[0.03em] text-white transition-colors duration-300 group-hover:text-red-400">
                 Nordic Hamstring Curls
@@ -107,18 +108,23 @@ const UseCases = memo(function UseCases({
                 Eccentric hamstring training for injury prevention and explosive power development.
               </p>
               <ul className="space-y-2 text-white/60 font-light" role="list">
-                <li className="flex items-start">
-                  <span className="mr-2 text-accent">•</span>
-                  Reduces hamstring injury risk by up to 51%
-                </li>
-                <li className="flex items-start">
-                  <span className="mr-2 text-accent">•</span>
-                  Improves sprint speed and acceleration
-                </li>
-                <li className="flex items-start">
-                  <span className="mr-2 text-accent">•</span>
-                  Enhances knee flexion strength
-                </li>
+                {[
+                  'Reduces hamstring injury risk by up to 51%',
+                  'Improves sprint speed and acceleration',
+                  'Enhances knee flexion strength'
+                ].map((item, index) => (
+                  <motion.li
+                    key={index}
+                    className="flex items-start"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1, duration: 0.5 }}
+                  >
+                    <span className="mr-2 text-accent">•</span>
+                    {item}
+                  </motion.li>
+                ))}
               </ul>
             </motion.div>
           </div>
@@ -162,18 +168,23 @@ const UseCases = memo(function UseCases({
                 Complete posterior chain activation for comprehensive lower body development.
               </p>
               <ul className="space-y-2 text-white/60 font-light" role="list">
-                <li className="flex items-start">
-                  <span className="mr-2 text-accent">•</span>
-                  Strengthens glutes, hamstrings, and lower back
-                </li>
-                <li className="flex items-start">
-                  <span className="mr-2 text-accent">•</span>
-                  Improves hip extension power
-                </li>
-                <li className="flex items-start">
-                  <span className="mr-2 text-accent">•</span>
-                  Enhances athletic performance
-                </li>
+                {[
+                  'Strengthens glutes, hamstrings, and lower back',
+                  'Improves hip extension power',
+                  'Enhances athletic performance'
+                ].map((item, index) => (
+                  <motion.li
+                    key={index}
+                    className="flex items-start"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1, duration: 0.5 }}
+                  >
+                    <span className="mr-2 text-accent">•</span>
+                    {item}
+                  </motion.li>
+                ))}
               </ul>
             </motion.div>
           </div>

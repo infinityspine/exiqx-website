@@ -16,10 +16,30 @@
 'use client'
 
 import { memo } from 'react'
-import { motion, useReducedMotion } from 'framer-motion'
+import { motion, useReducedMotion, useTransform } from 'framer-motion'
 
-const Testimonials = memo(function Testimonials() {
-  const shouldReduceMotion = useReducedMotion()
+interface TestimonialsProps {
+  scrollYProgress?: any
+  shouldReduceMotion?: boolean
+}
+
+const Testimonials = memo(function Testimonials({
+  scrollYProgress,
+  shouldReduceMotion: propShouldReduceMotion
+}: TestimonialsProps) {
+  const hookShouldReduceMotion = useReducedMotion()
+  const shouldReduceMotion = propShouldReduceMotion ?? hookShouldReduceMotion
+
+  // Staggered parallax for testimonial cards
+  const card1Y = scrollYProgress && !shouldReduceMotion
+    ? useTransform(scrollYProgress, [0.6, 0.8], [60, -20])
+    : undefined
+  const card2Y = scrollYProgress && !shouldReduceMotion
+    ? useTransform(scrollYProgress, [0.6, 0.8], [80, -30])
+    : undefined
+  const card3Y = scrollYProgress && !shouldReduceMotion
+    ? useTransform(scrollYProgress, [0.6, 0.8], [100, -40])
+    : undefined
 
   return (
     <section
@@ -45,12 +65,32 @@ const Testimonials = memo(function Testimonials() {
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {/* Testimonial Card 1 */}
           <motion.article
-            whileHover={shouldReduceMotion ? {} : { y: -4, scale: 1.02 }}
+            style={{ y: card1Y, transformStyle: "preserve-3d" }}
+            whileHover={shouldReduceMotion ? {} : { 
+              y: -4, 
+              scale: 1.02,
+              rotateX: 3,
+              rotateY: 3,
+              transition: { duration: 0.3 }
+            }}
             transition={{ duration: 0.3 }}
-            className="group rounded-xl border border-zinc-800/60 bg-zinc-950/40 p-8 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-[0_10px_30px_rgba(220,38,38,0.2)]"
+            className="group relative rounded-2xl border border-zinc-800/60 bg-zinc-950/40 p-8 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-lg hover:shadow-red-900/10 overflow-hidden"
           >
+            {/* Internal gradient glow on hover */}
+            <div className="absolute inset-0 bg-gradient-to-br from-red-500/0 via-red-500/0 to-red-500/0 group-hover:from-red-500/5 group-hover:via-red-500/0 group-hover:to-transparent rounded-2xl transition-all duration-500 pointer-events-none" />
             {/* Quote Icon */}
-            <div className="relative mb-4 w-14 h-14 flex items-center justify-center rounded-2xl bg-red-900/20 border border-red-900/40 backdrop-blur-sm">
+            <motion.div 
+              className="relative mb-4 w-14 h-14 flex items-center justify-center rounded-2xl bg-red-900/20 border border-red-900/40 backdrop-blur-sm"
+              animate={shouldReduceMotion ? {} : { 
+                y: [0, -8, 0],
+                rotate: [0, 3, -3, 0]
+              }}
+              transition={{ 
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            >
               <svg
                 className="h-7 w-7 text-red-500"
                 fill="currentColor"
@@ -60,10 +100,10 @@ const Testimonials = memo(function Testimonials() {
                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
               </svg>
               <div className="absolute inset-0 rounded-2xl bg-red-500/10 blur-xl" aria-hidden="true" />
-            </div>
+            </motion.div>
 
             {/* Quote */}
-            <blockquote>
+            <blockquote className="relative">
               <p className="mb-6 text-white/80 font-light leading-relaxed">
                 Game-changer for our hamstring injury prevention protocol. 
                 Our athletes have seen a dramatic reduction in soft tissue injuries.
@@ -71,7 +111,7 @@ const Testimonials = memo(function Testimonials() {
             </blockquote>
 
             {/* Attribution */}
-            <div className="flex items-center gap-4">
+            <div className="relative flex items-center gap-4">
               {/* Avatar Placeholder */}
               <div
                 className="h-12 w-12 rounded-full bg-white/10 border border-zinc-800/60"
@@ -92,12 +132,33 @@ const Testimonials = memo(function Testimonials() {
 
           {/* Testimonial Card 2 */}
           <motion.article
-            whileHover={shouldReduceMotion ? {} : { y: -4, scale: 1.02 }}
+            style={{ y: card2Y, transformStyle: "preserve-3d" }}
+            whileHover={shouldReduceMotion ? {} : { 
+              y: -4, 
+              scale: 1.02,
+              rotateX: -3,
+              rotateY: 3,
+              transition: { duration: 0.3 }
+            }}
             transition={{ duration: 0.3 }}
-            className="group rounded-xl border border-zinc-800/60 bg-zinc-950/40 p-8 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-[0_10px_30px_rgba(220,38,38,0.2)]"
+            className="group relative rounded-2xl border border-zinc-800/60 bg-zinc-950/40 p-8 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-lg hover:shadow-red-900/10 overflow-hidden"
           >
+            {/* Internal gradient glow on hover */}
+            <div className="absolute inset-0 bg-gradient-to-br from-red-500/0 via-red-500/0 to-red-500/0 group-hover:from-red-500/5 group-hover:via-red-500/0 group-hover:to-transparent rounded-2xl transition-all duration-500 pointer-events-none" />
             {/* Quote Icon */}
-            <div className="relative mb-4 w-14 h-14 flex items-center justify-center rounded-2xl bg-red-900/20 border border-red-900/40 backdrop-blur-sm">
+            <motion.div 
+              className="relative mb-4 w-14 h-14 flex items-center justify-center rounded-2xl bg-red-900/20 border border-red-900/40 backdrop-blur-sm"
+              animate={shouldReduceMotion ? {} : { 
+                y: [0, -8, 0],
+                rotate: [0, -3, 3, 0]
+              }}
+              transition={{ 
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 0.5
+              }}
+            >
               <svg
                 className="h-7 w-7 text-red-500"
                 fill="currentColor"
@@ -107,10 +168,10 @@ const Testimonials = memo(function Testimonials() {
                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
               </svg>
               <div className="absolute inset-0 rounded-2xl bg-red-500/10 blur-xl" aria-hidden="true" />
-            </div>
+            </motion.div>
 
             {/* Quote */}
-            <blockquote>
+            <blockquote className="relative">
               <p className="mb-6 text-white/80 font-light leading-relaxed">
                 The build quality is exceptional. This is professional-grade 
                 equipment that belongs in every serious training facility.
@@ -118,7 +179,7 @@ const Testimonials = memo(function Testimonials() {
             </blockquote>
 
             {/* Attribution */}
-            <div className="flex items-center gap-4">
+            <div className="relative flex items-center gap-4">
               {/* Avatar Placeholder */}
               <div
                 className="h-12 w-12 rounded-full bg-white/10 border border-zinc-800/60"
@@ -139,12 +200,33 @@ const Testimonials = memo(function Testimonials() {
 
           {/* Testimonial Card 3 */}
           <motion.article
-            whileHover={shouldReduceMotion ? {} : { y: -4, scale: 1.02 }}
+            style={{ y: card3Y, transformStyle: "preserve-3d" }}
+            whileHover={shouldReduceMotion ? {} : { 
+              y: -4, 
+              scale: 1.02,
+              rotateX: 3,
+              rotateY: -3,
+              transition: { duration: 0.3 }
+            }}
             transition={{ duration: 0.3 }}
-            className="group rounded-xl border border-zinc-800/60 bg-zinc-950/40 p-8 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-[0_10px_30px_rgba(220,38,38,0.2)]"
+            className="group relative rounded-2xl border border-zinc-800/60 bg-zinc-950/40 p-8 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-lg hover:shadow-red-900/10 overflow-hidden"
           >
+            {/* Internal gradient glow on hover */}
+            <div className="absolute inset-0 bg-gradient-to-br from-red-500/0 via-red-500/0 to-red-500/0 group-hover:from-red-500/5 group-hover:via-red-500/0 group-hover:to-transparent rounded-2xl transition-all duration-500 pointer-events-none" />
             {/* Quote Icon */}
-            <div className="relative mb-4 w-14 h-14 flex items-center justify-center rounded-2xl bg-red-900/20 border border-red-900/40 backdrop-blur-sm">
+            <motion.div 
+              className="relative mb-4 w-14 h-14 flex items-center justify-center rounded-2xl bg-red-900/20 border border-red-900/40 backdrop-blur-sm"
+              animate={shouldReduceMotion ? {} : { 
+                y: [0, -8, 0],
+                rotate: [0, 2, -2, 0]
+              }}
+              transition={{ 
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 1
+              }}
+            >
               <svg
                 className="h-7 w-7 text-red-500"
                 fill="currentColor"
@@ -154,10 +236,10 @@ const Testimonials = memo(function Testimonials() {
                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
               </svg>
               <div className="absolute inset-0 rounded-2xl bg-red-500/10 blur-xl" aria-hidden="true" />
-            </div>
+            </motion.div>
 
             {/* Quote */}
-            <blockquote>
+            <blockquote className="relative">
               <p className="mb-6 text-white/80 font-light leading-relaxed">
                 Best investment I've made for my training. The biomechanical 
                 design makes Nordic curls accessible and effective.
@@ -165,7 +247,7 @@ const Testimonials = memo(function Testimonials() {
             </blockquote>
 
             {/* Attribution */}
-            <div className="flex items-center gap-4">
+            <div className="relative flex items-center gap-4">
               {/* Avatar Placeholder */}
               <div
                 className="h-12 w-12 rounded-full bg-white/10 border border-zinc-800/60"

@@ -15,11 +15,33 @@
 
 'use client'
 
-import { memo } from 'react'
-import { motion, useReducedMotion } from 'framer-motion'
+import { memo, useState } from 'react'
+import { motion, useReducedMotion, useTransform } from 'framer-motion'
 
-const CTASection = memo(function CTASection() {
-  const shouldReduceMotion = useReducedMotion()
+interface HomePageCTAProps {
+  scrollYProgress?: any
+  shouldReduceMotion?: boolean
+}
+
+const CTASection = memo(function CTASection({
+  scrollYProgress,
+  shouldReduceMotion: propShouldReduceMotion
+}: HomePageCTAProps) {
+  const hookShouldReduceMotion = useReducedMotion()
+  const shouldReduceMotion = propShouldReduceMotion ?? hookShouldReduceMotion
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [secondaryMousePosition, setSecondaryMousePosition] = useState({ x: 0, y: 0 })
+
+  // Parallax for benefit cards
+  const benefit1Y = scrollYProgress && !shouldReduceMotion
+    ? useTransform(scrollYProgress, [0.8, 1], [40, -20])
+    : undefined
+  const benefit2Y = scrollYProgress && !shouldReduceMotion
+    ? useTransform(scrollYProgress, [0.8, 1], [50, -25])
+    : undefined
+  const benefit3Y = scrollYProgress && !shouldReduceMotion
+    ? useTransform(scrollYProgress, [0.8, 1], [60, -30])
+    : undefined
 
   return (
     <section
@@ -54,10 +76,19 @@ const CTASection = memo(function CTASection() {
         <div className="mb-12 grid gap-6 sm:grid-cols-3">
           {/* Benefit 1 */}
           <motion.div
-            whileHover={shouldReduceMotion ? {} : { y: -4, scale: 1.02 }}
+            style={{ y: benefit1Y, transformStyle: "preserve-3d" }}
+            whileHover={shouldReduceMotion ? {} : { 
+              y: -4, 
+              scale: 1.02,
+              rotateX: 3,
+              rotateY: 3,
+              transition: { duration: 0.3 }
+            }}
             transition={{ duration: 0.3 }}
-            className="group rounded-lg border border-zinc-800/60 bg-zinc-950/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-[0_10px_30px_rgba(220,38,38,0.2)]"
+            className="group relative rounded-2xl border border-zinc-800/60 bg-zinc-950/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-lg hover:shadow-red-900/10 overflow-hidden"
           >
+            {/* Internal gradient glow on hover */}
+            <div className="absolute inset-0 bg-gradient-to-br from-red-500/0 via-red-500/0 to-red-500/0 group-hover:from-red-500/5 group-hover:via-red-500/0 group-hover:to-transparent rounded-2xl transition-all duration-500 pointer-events-none" />
             <div className="mb-2 text-2xl font-bold text-accent transition-colors duration-300 group-hover:text-red-400">50%</div>
             <p className="text-sm text-white/70 leading-relaxed">
               Reduction in hamstring injuries
