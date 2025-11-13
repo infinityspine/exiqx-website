@@ -16,30 +16,17 @@
 'use client'
 
 import { memo } from 'react'
-import { motion, useReducedMotion, useTransform } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 
 interface TestimonialsProps {
-  scrollYProgress?: any
   shouldReduceMotion?: boolean
 }
 
 const Testimonials = memo(function Testimonials({
-  scrollYProgress,
   shouldReduceMotion: propShouldReduceMotion
 }: TestimonialsProps) {
   const hookShouldReduceMotion = useReducedMotion()
   const shouldReduceMotion = propShouldReduceMotion ?? hookShouldReduceMotion
-
-  // Staggered parallax for testimonial cards
-  const card1Y = scrollYProgress && !shouldReduceMotion
-    ? useTransform(scrollYProgress, [0.6, 0.8], [60, -20])
-    : undefined
-  const card2Y = scrollYProgress && !shouldReduceMotion
-    ? useTransform(scrollYProgress, [0.6, 0.8], [80, -30])
-    : undefined
-  const card3Y = scrollYProgress && !shouldReduceMotion
-    ? useTransform(scrollYProgress, [0.6, 0.8], [100, -40])
-    : undefined
 
   return (
     <section
@@ -229,7 +216,7 @@ const Testimonials = memo(function Testimonials({
         {/* Optional: Trust Indicators */}
         <div className="mt-16 text-center">
           <p className="text-sm uppercase tracking-[0.2em] text-white/40 leading-relaxed">
-            Used by 500+ Athletes Nationwide
+            PATENT-PENDING • ENGINEERED IN ARIZONA • MADE IN THE USA
           </p>
         </div>
       </div>
