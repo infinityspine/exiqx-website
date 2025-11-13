@@ -1,6 +1,6 @@
 'use client'
 
-import { motion, useReducedMotion } from 'framer-motion'
+import { motion, useReducedMotion, useScroll, useSpring } from 'framer-motion'
 import HeroSection from '@/components/sections/HeroSection'
 import FootplateFeatures from '@/components/sections/FootplateFeatures'
 import UseCases from '@/components/sections/UseCases'
@@ -62,11 +62,28 @@ const AnimatedGradientOrb = ({
 
 export default function Home() {
   const shouldReduceMotion = useReducedMotion()
+  const { scrollYProgress } = useScroll()
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  })
 
   return (
-    <main className="min-h-screen bg-black text-white overflow-x-hidden">
-      {/* Hero Section - NO WRAPPER, preserve existing animations */}
-      <HeroSection />
+    <>
+      {/* Elite scroll progress indicator with glow */}
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-[2px] origin-left z-50"
+        style={{ scaleX }}
+        aria-hidden="true"
+      >
+        <div className="h-full bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500" />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 blur-sm opacity-50" />
+      </motion.div>
+
+      <main className="min-h-screen bg-black text-white overflow-x-hidden">
+        {/* Hero Section - NO WRAPPER, preserve existing animations */}
+        <HeroSection />
 
       {/* Premium Separator */}
       <PremiumSeparator />
@@ -167,6 +184,7 @@ export default function Home() {
         />
         <HomePageCTA />
       </motion.section>
-    </main>
+      </main>
+    </>
   )
 }
