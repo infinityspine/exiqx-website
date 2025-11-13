@@ -86,7 +86,7 @@ const UseCases = memo(function UseCases({
               whileHover={shouldReduceMotion ? {} : { scale: 1.02, y: -4 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.8, delay: 0, ease: [0.16, 1, 0.3, 1] }}
-              className="relative aspect-[4/5] rounded-lg overflow-hidden border border-zinc-800/60 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-[0_10px_30px_rgba(220,38,38,0.2)]"
+              className="relative aspect-[4/5] rounded-lg overflow-hidden border border-zinc-800/60 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-[0_10px_30px_rgba(220,38,38,0.2)] will-change-transform"
               style={{ y: image1Y, scale: image1Scale }}
             >
               <Image
