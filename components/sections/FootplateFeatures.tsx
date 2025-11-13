@@ -69,7 +69,7 @@ const FootplateFeatures = memo(function FootplateFeatures({
         {/* Feature Grid Placeholder */}
         <div 
           className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
-          style={{ marginBottom: 'clamp(4rem, 8vw, 6rem)' }}
+          style={{ marginBottom: 'clamp(5rem, 10vw, 8rem)' }}
         >
           {/* Feature Card 1 */}
           <motion.div
