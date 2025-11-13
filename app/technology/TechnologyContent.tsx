@@ -1,6 +1,7 @@
 'use client'
 
-import { motion, useScroll, useSpring, useReducedMotion } from 'framer-motion'
+import { useState } from 'react'
+import { motion, useScroll, useSpring, useReducedMotion, useTransform } from 'framer-motion'
 import { Zap, Settings, Cog, Target, Award } from 'lucide-react'
 
 // Animation variants for smooth section reveals
@@ -21,23 +22,26 @@ const PremiumSeparator = () => (
   </div>
 )
 
-// Animated gradient orb component
+// Animated gradient orb component with scroll-responsive parallax
 const AnimatedGradientOrb = ({ 
   className = '', 
   delay = 0,
-  shouldReduceMotion = false 
+  shouldReduceMotion = false,
+  style
 }: { 
   className?: string
   delay?: number
-  shouldReduceMotion?: boolean 
+  shouldReduceMotion?: boolean
+  style?: any
 }) => {
   if (shouldReduceMotion) {
-    return <div className={`absolute ${className} bg-red-500/10 rounded-full blur-3xl`} aria-hidden="true" />
+    return <div className={`absolute ${className} bg-red-500/10 rounded-full blur-3xl`} style={style} aria-hidden="true" />
   }
   
   return (
     <motion.div
       className={`absolute ${className} bg-red-500/10 rounded-full blur-3xl`}
+      style={style}
       animate={{ 
         scale: [1, 1.2, 1], 
         opacity: [0.3, 0.5, 0.3] 
@@ -62,6 +66,31 @@ export default function TechnologyPage() {
     damping: 30,
     restDelta: 0.001,
   })
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+
+  // Parallax transforms for content containers
+  const heroY = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0, 0.2], [0, -50])
+  const section1Y = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0.1, 0.3], [50, -30])
+  const section2Y = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0.25, 0.45], [50, -30])
+  const section3Y = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0.4, 0.6], [50, -30])
+  const section4Y = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0.55, 0.75], [50, -30])
+  const section5Y = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0.7, 0.9], [50, -30])
+
+  // Heading blur-to-sharp reveals
+  const heroHeadingBlur = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0, 0.1], [8, 0])
+  const section1HeadingBlur = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0.1, 0.2], [8, 0])
+  const section2HeadingBlur = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0.25, 0.35], [8, 0])
+  const section3HeadingBlur = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0.4, 0.5], [8, 0])
+  const section4HeadingBlur = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0.55, 0.65], [8, 0])
+  const section5HeadingBlur = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0.7, 0.8], [8, 0])
+
+  // Scroll-responsive gradient orb transforms
+  const orb1Y = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0, 1], [0, -150])
+  const orb2Y = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0, 1], [0, 100])
+  const orb3Y = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0, 1], [0, -120])
+  const orb4Y = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0, 1], [0, 80])
+  const orb5Y = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0, 1], [0, -100])
+  const orb6Y = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0, 1], [0, 90])
 
   // Performance outcomes data
   const performanceOutcomes = [
@@ -104,29 +133,37 @@ export default function TechnologyPage() {
             paddingBottom: 'clamp(5rem, 10vw, 8rem)'
           }}
         >
-          {/* Animated gradient orb */}
+          {/* Animated gradient orbs with scroll parallax */}
           <AnimatedGradientOrb 
             className="top-0 right-1/4 w-96 h-96" 
             delay={0}
             shouldReduceMotion={shouldReduceMotion}
+            style={{ y: orb1Y }}
           />
           <AnimatedGradientOrb 
             className="bottom-0 left-1/4 w-80 h-80 bg-blue-500/10" 
             delay={2}
             shouldReduceMotion={shouldReduceMotion}
+            style={{ y: orb2Y }}
           />
 
           <div className="mx-auto max-w-4xl px-6">
             <motion.h1
               className="font-display text-5xl sm:text-6xl lg:text-7xl font-extrabold uppercase tracking-[0.05em] text-white"
-              style={{ marginBottom: 'clamp(2rem, 4vw, 3rem)' }}
+              style={{ 
+                marginBottom: 'clamp(2rem, 4vw, 3rem)',
+                filter: heroHeadingBlur ? `blur(${heroHeadingBlur}px)` : undefined
+              }}
             >
               Technology
             </motion.h1>
             
           <motion.div
               className="relative bg-zinc-950/40 backdrop-blur-sm border border-zinc-800/60 rounded-2xl shadow-2xl overflow-hidden"
-              style={{ padding: 'clamp(2.5rem, 5vw, 4rem)' }}
+              style={{ 
+                padding: 'clamp(2.5rem, 5vw, 4rem)',
+                y: heroY
+              }}
               whileHover={shouldReduceMotion ? {} : {
                 borderColor: 'rgba(127, 29, 29, 0.6)',
                 transition: { duration: 0.3 }
@@ -156,11 +193,12 @@ export default function TechnologyPage() {
             paddingBottom: 'clamp(5rem, 10vw, 8rem)'
           }}
         >
-          {/* Animated gradient orb */}
+          {/* Animated gradient orb with scroll parallax */}
           <AnimatedGradientOrb 
             className="top-1/4 left-0 w-72 h-72" 
             delay={1}
             shouldReduceMotion={shouldReduceMotion}
+            style={{ y: orb3Y }}
           />
 
           <div className="mx-auto max-w-4xl px-6">
@@ -169,20 +207,37 @@ export default function TechnologyPage() {
                 className="flex-shrink-0"
                 whileHover={shouldReduceMotion ? {} : { scale: 1.05 }}
                 transition={{ duration: 0.3 }}
+                animate={shouldReduceMotion ? {} : { 
+                  y: [0, -8, 0],
+                  rotate: [0, 3, -3, 0]
+                }}
+                transition={{ 
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
               >
                 <div className="relative w-14 h-14 rounded-2xl bg-red-900/20 border border-red-900/40 flex items-center justify-center backdrop-blur-sm">
                   <Zap className="w-7 h-7 text-red-500" />
                   <div className="absolute inset-0 rounded-2xl bg-red-500/10 blur-xl" />
                 </div>
               </motion.div>
-              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-[0.05em] text-white">
+              <motion.h2 
+                className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-[0.05em] text-white"
+                style={{ 
+                  filter: section1HeadingBlur ? `blur(${section1HeadingBlur}px)` : undefined
+                }}
+              >
                 Why We Invented the ExIQx Footplate
-                </h2>
+              </motion.h2>
             </div>
 
             <motion.div
               className="relative bg-zinc-950/40 backdrop-blur-sm border border-zinc-800/60 rounded-2xl shadow-2xl overflow-hidden"
-              style={{ padding: 'clamp(2.5rem, 5vw, 4rem)' }}
+              style={{ 
+                padding: 'clamp(2.5rem, 5vw, 4rem)',
+                y: section1Y
+              }}
               whileHover={shouldReduceMotion ? {} : {
                 borderColor: 'rgba(127, 29, 29, 0.6)',
                 transition: { duration: 0.3 }
@@ -218,11 +273,12 @@ export default function TechnologyPage() {
             paddingBottom: 'clamp(5rem, 10vw, 8rem)'
           }}
         >
-          {/* Animated gradient orb */}
+          {/* Animated gradient orb with scroll parallax */}
           <AnimatedGradientOrb 
             className="top-0 right-1/3 w-80 h-80" 
             delay={0.5}
             shouldReduceMotion={shouldReduceMotion}
+            style={{ y: orb4Y }}
           />
 
           <div className="mx-auto max-w-4xl px-6">
@@ -231,20 +287,38 @@ export default function TechnologyPage() {
                 className="flex-shrink-0"
                 whileHover={shouldReduceMotion ? {} : { scale: 1.05 }}
                 transition={{ duration: 0.3 }}
+                animate={shouldReduceMotion ? {} : { 
+                  y: [0, -8, 0],
+                  rotate: [0, -3, 3, 0]
+                }}
+                transition={{ 
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.5
+                }}
               >
                 <div className="relative w-14 h-14 rounded-2xl bg-red-900/20 border border-red-900/40 flex items-center justify-center backdrop-blur-sm">
                   <Settings className="w-7 h-7 text-red-500" />
                   <div className="absolute inset-0 rounded-2xl bg-red-500/10 blur-xl" />
                 </div>
               </motion.div>
-              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-[0.05em] text-white">
+              <motion.h2 
+                className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-[0.05em] text-white"
+                style={{ 
+                  filter: section2HeadingBlur ? `blur(${section2HeadingBlur}px)` : undefined
+                }}
+              >
                 Closed-Chain Plantarflexion
-                </h2>
+              </motion.h2>
             </div>
 
             <motion.div
               className="relative bg-zinc-950/40 backdrop-blur-sm border border-zinc-800/60 rounded-2xl shadow-2xl overflow-hidden"
-              style={{ padding: 'clamp(2.5rem, 5vw, 4rem)' }}
+              style={{ 
+                padding: 'clamp(2.5rem, 5vw, 4rem)',
+                y: section2Y
+              }}
               whileHover={shouldReduceMotion ? {} : {
                 borderColor: 'rgba(127, 29, 29, 0.6)',
                 transition: { duration: 0.3 }
@@ -280,11 +354,12 @@ export default function TechnologyPage() {
             paddingBottom: 'clamp(5rem, 10vw, 8rem)'
           }}
         >
-          {/* Animated gradient orb */}
+          {/* Animated gradient orb with scroll parallax */}
           <AnimatedGradientOrb 
             className="bottom-0 left-1/4 w-96 h-96 bg-blue-500/10" 
             delay={1.5}
             shouldReduceMotion={shouldReduceMotion}
+            style={{ y: orb5Y }}
           />
 
           <div className="mx-auto max-w-4xl px-6">
@@ -293,20 +368,38 @@ export default function TechnologyPage() {
                 className="flex-shrink-0"
                 whileHover={shouldReduceMotion ? {} : { scale: 1.05 }}
                 transition={{ duration: 0.3 }}
+                animate={shouldReduceMotion ? {} : { 
+                  y: [0, -8, 0],
+                  rotate: [0, 2, -2, 0]
+                }}
+                transition={{ 
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1
+                }}
               >
                 <div className="relative w-14 h-14 rounded-2xl bg-red-900/20 border border-red-900/40 flex items-center justify-center backdrop-blur-sm">
                   <Cog className="w-7 h-7 text-red-500" />
                   <div className="absolute inset-0 rounded-2xl bg-red-500/10 blur-xl" />
                 </div>
               </motion.div>
-              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-[0.05em] text-white">
-                  Precision Engineering
-                </h2>
+              <motion.h2 
+                className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-[0.05em] text-white"
+                style={{ 
+                  filter: section3HeadingBlur ? `blur(${section3HeadingBlur}px)` : undefined
+                }}
+              >
+                Precision Engineering
+              </motion.h2>
             </div>
 
             <motion.div
               className="relative bg-zinc-950/40 backdrop-blur-sm border border-zinc-800/60 rounded-2xl shadow-2xl overflow-hidden"
-              style={{ padding: 'clamp(2.5rem, 5vw, 4rem)' }}
+              style={{ 
+                padding: 'clamp(2.5rem, 5vw, 4rem)',
+                y: section3Y
+              }}
               whileHover={shouldReduceMotion ? {} : {
                 borderColor: 'rgba(127, 29, 29, 0.6)',
                 transition: { duration: 0.3 }
@@ -339,29 +432,48 @@ export default function TechnologyPage() {
             paddingBottom: 'clamp(5rem, 10vw, 8rem)'
           }}
         >
-          {/* Animated gradient orb */}
+          {/* Animated gradient orb with scroll parallax */}
           <AnimatedGradientOrb 
             className="top-1/2 left-1/4 w-96 h-96" 
             delay={2}
             shouldReduceMotion={shouldReduceMotion}
+            style={{ y: orb6Y }}
           />
 
           <div className="mx-auto max-w-5xl px-6">
-            <div className="flex items-start gap-6" style={{ marginBottom: 'clamp(2.5rem, 5vw, 4rem)' }}>
+            <motion.div 
+              className="flex items-start gap-6" 
+              style={{ marginBottom: 'clamp(2.5rem, 5vw, 4rem)', y: section4Y }}
+            >
               <motion.div 
                 className="flex-shrink-0"
                 whileHover={shouldReduceMotion ? {} : { scale: 1.05 }}
                 transition={{ duration: 0.3 }}
+                animate={shouldReduceMotion ? {} : { 
+                  y: [0, -8, 0],
+                  rotate: [0, 3, -3, 0]
+                }}
+                transition={{ 
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1.5
+                }}
               >
                 <div className="relative w-14 h-14 rounded-2xl bg-red-900/20 border border-red-900/40 flex items-center justify-center backdrop-blur-sm">
                   <Target className="w-7 h-7 text-red-500" />
                   <div className="absolute inset-0 rounded-2xl bg-red-500/10 blur-xl" />
                 </div>
               </motion.div>
-              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-[0.05em] text-white">
-                  Performance Outcomes
-                </h2>
-            </div>
+              <motion.h2 
+                className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-[0.05em] text-white"
+                style={{ 
+                  filter: section4HeadingBlur ? `blur(${section4HeadingBlur}px)` : undefined
+                }}
+              >
+                Performance Outcomes
+              </motion.h2>
+            </motion.div>
 
             <div className="grid gap-8 md:grid-cols-3">
               {performanceOutcomes.map((outcome, index) => (
@@ -411,25 +523,50 @@ export default function TechnologyPage() {
           />
 
           <div className="mx-auto max-w-4xl px-6 text-center">
-            <div className="flex items-center justify-center gap-6" style={{ marginBottom: 'clamp(2rem, 4vw, 3rem)' }}>
+            <motion.div 
+              className="flex items-center justify-center gap-6" 
+              style={{ 
+                marginBottom: 'clamp(2rem, 4vw, 3rem)',
+                y: section5Y
+              }}
+            >
               <motion.div 
                 className="flex-shrink-0"
                 whileHover={shouldReduceMotion ? {} : { scale: 1.05 }}
                 transition={{ duration: 0.3 }}
+                animate={shouldReduceMotion ? {} : { 
+                  y: [0, -8, 0],
+                  rotate: [0, -2, 2, 0]
+                }}
+                transition={{ 
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 2
+                }}
               >
                 <div className="relative w-14 h-14 rounded-2xl bg-red-900/20 border border-red-900/40 flex items-center justify-center backdrop-blur-sm">
                   <Award className="w-7 h-7 text-red-500" />
                   <div className="absolute inset-0 rounded-2xl bg-red-500/10 blur-xl" />
                 </div>
               </motion.div>
-              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-[0.05em] text-white">
+              <motion.h2 
+                className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-[0.05em] text-white"
+                style={{ 
+                  filter: section5HeadingBlur ? `blur(${section5HeadingBlur}px)` : undefined
+                }}
+              >
                 Technical Specifications
-            </h2>
-            </div>
+              </motion.h2>
+            </motion.div>
 
             <motion.div
               className="relative bg-zinc-950/40 backdrop-blur-sm border border-zinc-800/60 rounded-2xl shadow-2xl overflow-hidden"
-              style={{ padding: 'clamp(2.5rem, 5vw, 4rem)', marginBottom: 'clamp(2rem, 4vw, 3rem)' }}
+              style={{ 
+                padding: 'clamp(2.5rem, 5vw, 4rem)', 
+                marginBottom: 'clamp(2rem, 4vw, 3rem)',
+                y: section5Y
+              }}
               whileHover={shouldReduceMotion ? {} : {
                 borderColor: 'rgba(127, 29, 29, 0.6)',
                 transition: { duration: 0.3 }
@@ -442,8 +579,23 @@ export default function TechnologyPage() {
 
             <motion.a
               href="/specifications"
+              onMouseMove={(e) => {
+                if (shouldReduceMotion) return
+                const rect = e.currentTarget.getBoundingClientRect()
+                setMousePosition({
+                  x: (e.clientX - rect.left - rect.width / 2) * 0.1,
+                  y: (e.clientY - rect.top - rect.height / 2) * 0.1,
+                })
+              }}
+              onMouseLeave={() => setMousePosition({ x: 0, y: 0 })}
+              animate={{ 
+                x: mousePosition.x, 
+                y: mousePosition.y,
+                scale: shouldReduceMotion ? 1 : undefined
+              }}
               whileHover={shouldReduceMotion ? {} : { scale: 1.05 }}
               whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
+              transition={{ type: "spring", stiffness: 150, damping: 15 }}
               className="inline-block rounded-xl bg-accent px-10 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition-all duration-300 hover:bg-red-700 hover:shadow-[0_10px_30px_rgba(220,38,38,0.55)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-black"
             >
               View Full Specifications →
