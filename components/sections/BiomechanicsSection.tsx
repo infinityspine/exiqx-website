@@ -14,20 +14,22 @@ const BiomechanicsSection = memo(function BiomechanicsSection() {
         paddingBottom: 'clamp(5rem, 10vw, 8rem)'
       }}
     >
-      <div className="mx-auto max-w-4xl px-6 text-center">
+      <div className="mx-auto max-w-4xl px-6">
         <motion.div
           initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
+          {/* Centered Headline */}
           <h2 
-            className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-[0.05em] text-white"
+            className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-[0.05em] text-white text-center"
             style={{ marginBottom: 'clamp(2.5rem, 5vw, 4rem)' }}
           >
             Authentic Ground-Force Mechanics
           </h2>
-          <div className="space-y-8 text-base sm:text-lg text-white/70 font-light leading-relaxed">
+          {/* Left-Aligned Body Text */}
+          <div className="space-y-8 text-base sm:text-lg text-white/70 font-light leading-relaxed text-left">
             <p>
               Conventional devices anchor the posterior ankle, isolating the hamstrings but diverting energy away from natural movement patterns. The ExIQx Footplate routes force through the plantar surface—the ball of the foot—mirroring the closed-chain vector of sprinting and jumping.
             </p>
