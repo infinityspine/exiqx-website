@@ -186,12 +186,9 @@ const CTASection = memo(function CTASection({
         </div>
 
         {/* Trust Signals */}
-        <div className="mt-12 space-y-2">
+        <div className="mt-12">
           <p className="text-xs uppercase tracking-[0.2em] text-white/40 leading-relaxed">
-            Engineered in Arizona • Made in the USA
-          </p>
-          <p className="text-xs text-white/40 leading-relaxed">
-            Limited initial production run
+            EARLY ACCESS WAITLIST • LIMITED PRODUCTION RUN
           </p>
         </div>
 
