@@ -89,32 +89,50 @@ const CTASection = memo(function CTASection({
           >
             {/* Internal gradient glow on hover */}
             <div className="absolute inset-0 bg-gradient-to-br from-red-500/0 via-red-500/0 to-red-500/0 group-hover:from-red-500/5 group-hover:via-red-500/0 group-hover:to-transparent rounded-2xl transition-all duration-500 pointer-events-none" />
-            <div className="mb-2 text-2xl font-bold text-accent transition-colors duration-300 group-hover:text-red-400">50%</div>
-            <p className="text-sm text-white/70 leading-relaxed">
+            <div className="relative mb-2 text-2xl font-bold text-accent transition-colors duration-300 group-hover:text-red-400">50%</div>
+            <p className="relative text-sm text-white/70 leading-relaxed">
               Reduction in hamstring injuries
             </p>
           </motion.div>
 
           {/* Benefit 2 */}
           <motion.div
-            whileHover={shouldReduceMotion ? {} : { y: -4, scale: 1.02 }}
+            style={{ y: benefit2Y, transformStyle: "preserve-3d" }}
+            whileHover={shouldReduceMotion ? {} : { 
+              y: -4, 
+              scale: 1.02,
+              rotateX: -3,
+              rotateY: 3,
+              transition: { duration: 0.3 }
+            }}
             transition={{ duration: 0.3 }}
-            className="group rounded-lg border border-zinc-800/60 bg-zinc-950/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-[0_10px_30px_rgba(220,38,38,0.2)]"
+            className="group relative rounded-2xl border border-zinc-800/60 bg-zinc-950/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-lg hover:shadow-red-900/10 overflow-hidden"
           >
-            <div className="mb-2 text-2xl font-bold text-accent transition-colors duration-300 group-hover:text-red-400">Patent-Pending</div>
-            <p className="text-sm text-white/70 leading-relaxed">
+            {/* Internal gradient glow on hover */}
+            <div className="absolute inset-0 bg-gradient-to-br from-red-500/0 via-red-500/0 to-red-500/0 group-hover:from-red-500/5 group-hover:via-red-500/0 group-hover:to-transparent rounded-2xl transition-all duration-500 pointer-events-none" />
+            <div className="relative mb-2 text-2xl font-bold text-accent transition-colors duration-300 group-hover:text-red-400">Patent-Pending</div>
+            <p className="relative text-sm text-white/70 leading-relaxed">
               Proprietary design technology
             </p>
           </motion.div>
 
           {/* Benefit 3 */}
           <motion.div
-            whileHover={shouldReduceMotion ? {} : { y: -4, scale: 1.02 }}
+            style={{ y: benefit3Y, transformStyle: "preserve-3d" }}
+            whileHover={shouldReduceMotion ? {} : { 
+              y: -4, 
+              scale: 1.02,
+              rotateX: 3,
+              rotateY: -3,
+              transition: { duration: 0.3 }
+            }}
             transition={{ duration: 0.3 }}
-            className="group rounded-lg border border-zinc-800/60 bg-zinc-950/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-[0_10px_30px_rgba(220,38,38,0.2)]"
+            className="group relative rounded-2xl border border-zinc-800/60 bg-zinc-950/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-lg hover:shadow-red-900/10 overflow-hidden"
           >
-            <div className="mb-2 text-2xl font-bold text-accent transition-colors duration-300 group-hover:text-red-400">Lifetime</div>
-            <p className="text-sm text-white/70 leading-relaxed">
+            {/* Internal gradient glow on hover */}
+            <div className="absolute inset-0 bg-gradient-to-br from-red-500/0 via-red-500/0 to-red-500/0 group-hover:from-red-500/5 group-hover:via-red-500/0 group-hover:to-transparent rounded-2xl transition-all duration-500 pointer-events-none" />
+            <div className="relative mb-2 text-2xl font-bold text-accent transition-colors duration-300 group-hover:text-red-400">Lifetime</div>
+            <p className="relative text-sm text-white/70 leading-relaxed">
               Warranty on all components
             </p>
           </motion.div>
@@ -122,21 +140,51 @@ const CTASection = memo(function CTASection({
 
         {/* CTA Buttons */}
         <div className="flex flex-wrap items-center justify-center gap-4">
-          {/* Primary CTA */}
+          {/* Primary CTA with magnetic hover */}
           <motion.a
             href="#waitlist"
-            whileHover={shouldReduceMotion ? {} : { scale: 1.05, y: -2 }}
+            onMouseMove={(e) => {
+              if (shouldReduceMotion) return
+              const rect = e.currentTarget.getBoundingClientRect()
+              setMousePosition({
+                x: (e.clientX - rect.left - rect.width / 2) * 0.1,
+                y: (e.clientY - rect.top - rect.height / 2) * 0.1,
+              })
+            }}
+            onMouseLeave={() => setMousePosition({ x: 0, y: 0 })}
+            animate={{ 
+              x: mousePosition.x, 
+              y: mousePosition.y,
+              scale: shouldReduceMotion ? 1 : undefined
+            }}
+            whileHover={shouldReduceMotion ? {} : { scale: 1.05 }}
             whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
+            transition={{ type: "spring", stiffness: 150, damping: 15 }}
             className="inline-block rounded-xl bg-accent px-10 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition-all duration-300 hover:bg-red-700 hover:shadow-[0_10px_30px_rgba(220,38,38,0.55)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-black"
           >
             Join Waitlist
           </motion.a>
 
-          {/* Secondary CTA */}
+          {/* Secondary CTA with magnetic hover */}
           <motion.a
             href="#contact"
-            whileHover={shouldReduceMotion ? {} : { scale: 1.05, y: -2 }}
+            onMouseMove={(e) => {
+              if (shouldReduceMotion) return
+              const rect = e.currentTarget.getBoundingClientRect()
+              setSecondaryMousePosition({
+                x: (e.clientX - rect.left - rect.width / 2) * 0.1,
+                y: (e.clientY - rect.top - rect.height / 2) * 0.1,
+              })
+            }}
+            onMouseLeave={() => setSecondaryMousePosition({ x: 0, y: 0 })}
+            animate={{ 
+              x: secondaryMousePosition.x, 
+              y: secondaryMousePosition.y,
+              scale: shouldReduceMotion ? 1 : undefined
+            }}
+            whileHover={shouldReduceMotion ? {} : { scale: 1.05 }}
             whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
+            transition={{ type: "spring", stiffness: 150, damping: 15 }}
             className="inline-block rounded-xl border border-zinc-800/60 bg-zinc-950/40 px-10 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-white backdrop-blur-md transition-all duration-300 hover:border-white/90 hover:bg-white/10 hover:shadow-[0_10px_30px_rgba(255,255,255,0.1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black"
           >
             Request Demo
