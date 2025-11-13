@@ -121,7 +121,7 @@ const CTASection = memo<Partial<CTASectionProps>>((props) => {
 
           {/* Description */}
           {description && (
-            <p className="text-lg text-gray-300 mb-10 text-center mx-auto w-full max-w-3xl font-inter">
+            <p className="text-lg text-gray-300 mb-16 sm:mb-20 lg:mb-24 text-center mx-auto w-full max-w-3xl font-inter">
               {description}
             </p>
           )}
