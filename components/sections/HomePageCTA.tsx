@@ -16,8 +16,11 @@
 'use client'
 
 import { memo } from 'react'
+import { motion, useReducedMotion } from 'framer-motion'
 
 const CTASection = memo(function CTASection() {
+  const shouldReduceMotion = useReducedMotion()
+
   return (
     <section
       id="cta"
@@ -39,7 +42,7 @@ const CTASection = memo(function CTASection() {
           >
             Elevate Your Training
           </h2>
-          <p className="mt-6 text-xl text-white/80 lg:text-2xl">
+          <p className="mt-6 text-xl text-white/80 lg:text-2xl leading-relaxed">
             Join the waitlist for exclusive early access to the{' '}
             <span className="font-semibold text-accent">
               Rack-Mounted Footplate
@@ -50,55 +53,71 @@ const CTASection = memo(function CTASection() {
         {/* Value Propositions */}
         <div className="mb-12 grid gap-6 sm:grid-cols-3">
           {/* Benefit 1 */}
-          <div className="rounded-lg border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
-            <div className="mb-2 text-2xl font-bold text-accent">50%</div>
-            <p className="text-sm text-white/70">
+          <motion.div
+            whileHover={shouldReduceMotion ? {} : { y: -4, scale: 1.02 }}
+            transition={{ duration: 0.3 }}
+            className="group rounded-lg border border-zinc-800/60 bg-zinc-950/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-[0_10px_30px_rgba(220,38,38,0.2)]"
+          >
+            <div className="mb-2 text-2xl font-bold text-accent transition-colors duration-300 group-hover:text-red-400">50%</div>
+            <p className="text-sm text-white/70 leading-relaxed">
               Reduction in hamstring injuries
             </p>
-          </div>
+          </motion.div>
 
           {/* Benefit 2 */}
-          <div className="rounded-lg border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
-            <div className="mb-2 text-2xl font-bold text-accent">Patent-Pending</div>
-            <p className="text-sm text-white/70">
+          <motion.div
+            whileHover={shouldReduceMotion ? {} : { y: -4, scale: 1.02 }}
+            transition={{ duration: 0.3 }}
+            className="group rounded-lg border border-zinc-800/60 bg-zinc-950/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-[0_10px_30px_rgba(220,38,38,0.2)]"
+          >
+            <div className="mb-2 text-2xl font-bold text-accent transition-colors duration-300 group-hover:text-red-400">Patent-Pending</div>
+            <p className="text-sm text-white/70 leading-relaxed">
               Proprietary design technology
             </p>
-          </div>
+          </motion.div>
 
           {/* Benefit 3 */}
-          <div className="rounded-lg border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
-            <div className="mb-2 text-2xl font-bold text-accent">Lifetime</div>
-            <p className="text-sm text-white/70">
+          <motion.div
+            whileHover={shouldReduceMotion ? {} : { y: -4, scale: 1.02 }}
+            transition={{ duration: 0.3 }}
+            className="group rounded-lg border border-zinc-800/60 bg-zinc-950/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-[0_10px_30px_rgba(220,38,38,0.2)]"
+          >
+            <div className="mb-2 text-2xl font-bold text-accent transition-colors duration-300 group-hover:text-red-400">Lifetime</div>
+            <p className="text-sm text-white/70 leading-relaxed">
               Warranty on all components
             </p>
-          </div>
+          </motion.div>
         </div>
 
         {/* CTA Buttons */}
         <div className="flex flex-wrap items-center justify-center gap-4">
           {/* Primary CTA */}
-          <a
+          <motion.a
             href="#waitlist"
+            whileHover={shouldReduceMotion ? {} : { scale: 1.05, y: -2 }}
+            whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
             className="inline-block rounded-xl bg-accent px-10 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition-all duration-300 hover:bg-red-700 hover:shadow-[0_10px_30px_rgba(220,38,38,0.55)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-black"
           >
             Join Waitlist
-          </a>
+          </motion.a>
 
           {/* Secondary CTA */}
-          <a
+          <motion.a
             href="#contact"
-            className="inline-block rounded-xl border border-white/25 bg-white/5 px-10 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-white backdrop-blur-md transition-all duration-300 hover:border-white/90 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+            whileHover={shouldReduceMotion ? {} : { scale: 1.05, y: -2 }}
+            whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
+            className="inline-block rounded-xl border border-zinc-800/60 bg-zinc-950/40 px-10 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-white backdrop-blur-md transition-all duration-300 hover:border-white/90 hover:bg-white/10 hover:shadow-[0_10px_30px_rgba(255,255,255,0.1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black"
           >
             Request Demo
-          </a>
+          </motion.a>
         </div>
 
         {/* Trust Signals */}
         <div className="mt-12 space-y-2">
-          <p className="text-xs uppercase tracking-[0.2em] text-white/40">
+          <p className="text-xs uppercase tracking-[0.2em] text-white/40 leading-relaxed">
             Engineered in Arizona • Made in the USA
           </p>
-          <p className="text-xs text-white/40">
+          <p className="text-xs text-white/40 leading-relaxed">
             Limited initial production run
           </p>
         </div>
@@ -110,17 +129,19 @@ const CTASection = memo(function CTASection() {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/40 backdrop-blur-sm transition-colors focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-black"
+                className="flex-1 rounded-lg border border-zinc-800/60 bg-zinc-950/40 px-4 py-3 text-white placeholder-white/40 backdrop-blur-sm transition-all duration-300 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-black hover:border-red-900/50"
                 aria-label="Email address"
               />
-              <button
+              <motion.button
                 type="submit"
-                className="rounded-lg bg-accent px-6 py-3 text-sm font-semibold uppercase tracking-wider text-white transition-colors hover:bg-red-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+                whileHover={shouldReduceMotion ? {} : { scale: 1.05 }}
+                whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
+                className="rounded-lg bg-accent px-6 py-3 text-sm font-semibold uppercase tracking-wider text-white transition-all duration-300 hover:bg-red-700 hover:shadow-[0_10px_30px_rgba(220,38,38,0.55)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-black"
               >
                 Notify Me
-              </button>
+              </motion.button>
             </div>
-            <p className="mt-2 text-xs text-white/40">
+            <p className="mt-2 text-xs text-white/40 leading-relaxed">
               Be the first to know when we launch
             </p>
           </form>

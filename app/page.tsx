@@ -136,7 +136,7 @@ export default function Home() {
           shouldReduceMotion={shouldReduceMotion}
         />
         <AnimatedGradientOrb 
-          className="bottom-0 right-1/3 w-88 h-88 bg-blue-500/10" 
+          className="bottom-0 right-1/3 w-80 h-80 bg-blue-500/10" 
           delay={2.5}
           shouldReduceMotion={shouldReduceMotion}
         />
