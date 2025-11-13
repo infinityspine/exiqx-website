@@ -72,12 +72,13 @@ const FootplateFeatures = memo(function FootplateFeatures({
             style={{
               scale: headingScale,
               y: headingY,
-              filter: headingBlur ? `blur(${headingBlur}px)` : undefined
+              filter: headingBlur ? `blur(${headingBlur}px)` : undefined,
+              marginBottom: 'clamp(1.5rem, 3vw, 2.5rem)'
             }}
           >
             Technical Specifications
           </motion.h2>
-          <p className="mt-4 text-lg text-white/70 leading-relaxed">
+          <p className="text-lg text-white/70 leading-relaxed">
             Patent-pending design engineered for elite performance
           </p>
         </motion.div>
