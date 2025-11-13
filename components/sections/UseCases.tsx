@@ -80,14 +80,33 @@ const UseCases = memo(function UseCases() {
           </div>
 
           {/* Use Case 2 - Glute-Ham Raises */}
-          <div className="grid items-center gap-8 lg:grid-cols-2">
-            {/* Content (reversed order on desktop) */}
+          <div className="grid items-center gap-12 sm:gap-16 lg:grid-cols-2 lg:gap-12">
+            {/* Image with Elite Styling - FIRST in DOM for mobile */}
             <motion.div 
-              className="lg:order-2"
-              initial={{ opacity: 0, x: 30 }}
+              className="relative aspect-[4/5] rounded-lg overflow-hidden lg:order-2"
+              initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <Image
+                src="/images/training/glute-ham-raise-athlete-v2.jpg"
+                alt="Athlete performing glute-ham raise on ExIQx footplate"
+                fill
+                className="object-cover grayscale brightness-75"
+                quality={90}
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+            </motion.div>
+            
+            {/* Content - SECOND in DOM for mobile, FIRST on desktop (lg:order-1) */}
+            <motion.div 
+              className="lg:order-1"
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             >
               <h3 className="mb-4 font-display text-3xl font-bold uppercase tracking-[0.03em] text-white">
                 Glute-Ham Raises
@@ -109,26 +128,6 @@ const UseCases = memo(function UseCases() {
                   Enhances athletic performance
                 </li>
               </ul>
-            </motion.div>
-            
-            {/* Image with Elite Styling */}
-            <motion.div 
-              className="relative aspect-[4/5] rounded-lg overflow-hidden lg:order-1"
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <Image
-                src="/images/training/glute-ham-raise-athlete-v2.jpg"
-                alt="Athlete performing glute-ham raise on ExIQx footplate"
-                fill
-                className="object-cover grayscale brightness-75"
-                quality={90}
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-              {/* Red accent gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
             </motion.div>
           </div>
 
