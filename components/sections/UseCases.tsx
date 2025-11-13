@@ -27,23 +27,9 @@ const UseCases = memo(function UseCases({
     ? useTransform(scrollYProgress, [0.5, 0.7], [1, 1.12])
     : undefined
 
-  // Section heading parallax transforms
+  // Optimized heading transform - scale only (removed blur for performance)
   const headingScale = scrollYProgress && !shouldReduceMotion
-    ? useTransform(scrollYProgress, [0.35, 0.45], [0.9, 1])
-    : undefined
-  const headingY = scrollYProgress && !shouldReduceMotion
-    ? useTransform(scrollYProgress, [0.35, 0.45], [30, 0])
-    : undefined
-  const headingBlur = scrollYProgress && !shouldReduceMotion
-    ? useTransform(scrollYProgress, [0.35, 0.42], [5, 0])
-    : undefined
-
-  // Section scale + opacity for entrance
-  const sectionScale = scrollYProgress && !shouldReduceMotion
-    ? useTransform(scrollYProgress, [0.4, 0.5], [0.95, 1])
-    : undefined
-  const sectionOpacity = scrollYProgress && !shouldReduceMotion
-    ? useTransform(scrollYProgress, [0.4, 0.48], [0.7, 1])
+    ? useTransform(scrollYProgress, [0.35, 0.45], [0.95, 1])
     : undefined
 
   // Parallax separation between images and text
@@ -66,25 +52,20 @@ const UseCases = memo(function UseCases({
     ? useTransform(scrollYProgress, [0.5, 0.7], [-30, 30])
     : undefined
   return (
-    <motion.section
+    <section
       id="use-cases"
       className="relative min-h-screen bg-black px-6 py-20 lg:py-32"
       aria-labelledby="use-cases-heading"
-      style={{
-        scale: sectionScale,
-        opacity: sectionOpacity
-      }}
     >
       <div className="mx-auto max-w-7xl">
         {/* Section Header */}
         <div className="mb-16 text-center">
           <motion.h2
             id="use-cases-heading"
-            className="font-display text-4xl font-extrabold uppercase tracking-[0.05em] text-white lg:text-5xl"
+            className="font-display text-4xl font-extrabold uppercase tracking-[0.05em] text-white lg:text-5xl will-change-transform"
             style={{
               scale: headingScale,
-              y: headingY,
-              filter: headingBlur ? `blur(${headingBlur}px)` : undefined
+              transform: 'translateZ(0)'
             }}
           >
             Training Applications
@@ -279,7 +260,7 @@ const UseCases = memo(function UseCases({
           </div>
         </div>
       </div>
-    </motion.section>
+    </section>
   )
 })
 

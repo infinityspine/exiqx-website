@@ -21,37 +21,29 @@ import { motion, useReducedMotion, useTransform } from 'framer-motion'
 interface FootplateFeaturesProps {
   scrollYProgress?: any
   shouldReduceMotion?: boolean
-  textBlur?: any
 }
 
 const FootplateFeatures = memo(function FootplateFeatures({
   scrollYProgress,
-  shouldReduceMotion: propShouldReduceMotion,
-  textBlur
+  shouldReduceMotion: propShouldReduceMotion
 }: FootplateFeaturesProps) {
   const hookShouldReduceMotion = useReducedMotion()
   const shouldReduceMotion = propShouldReduceMotion ?? hookShouldReduceMotion
 
-  // Section heading parallax transforms
+  // Optimized heading transform - scale only (removed blur for performance)
   const headingScale = scrollYProgress && !shouldReduceMotion
-    ? useTransform(scrollYProgress, [0.15, 0.25], [0.9, 1])
-    : undefined
-  const headingY = scrollYProgress && !shouldReduceMotion
-    ? useTransform(scrollYProgress, [0.15, 0.25], [30, 0])
-    : undefined
-  const headingBlur = scrollYProgress && !shouldReduceMotion
-    ? useTransform(scrollYProgress, [0.15, 0.22], [5, 0])
+    ? useTransform(scrollYProgress, [0.15, 0.25], [0.95, 1])
     : undefined
 
-  // Individual card parallax transforms
+  // Optimized card parallax - reduced movement range
   const card1Y = scrollYProgress && !shouldReduceMotion
-    ? useTransform(scrollYProgress, [0.2, 0.4], [80, -20])
+    ? useTransform(scrollYProgress, [0.2, 0.4], [40, -10])
     : undefined
   const card2Y = scrollYProgress && !shouldReduceMotion
-    ? useTransform(scrollYProgress, [0.2, 0.4], [100, -30])
+    ? useTransform(scrollYProgress, [0.2, 0.4], [50, -15])
     : undefined
   const card3Y = scrollYProgress && !shouldReduceMotion
-    ? useTransform(scrollYProgress, [0.2, 0.4], [120, -40])
+    ? useTransform(scrollYProgress, [0.2, 0.4], [60, -20])
     : undefined
 
   return (
@@ -62,18 +54,14 @@ const FootplateFeatures = memo(function FootplateFeatures({
     >
       <div className="mx-auto max-w-7xl">
         {/* Section Header */}
-        <motion.div 
-          className="mb-16 text-center"
-          style={textBlur ? { filter: `blur(${textBlur}px)` } : undefined}
-        >
+        <div className="mb-16 text-center">
           <motion.h2
             id="features-heading"
-            className="font-display text-4xl font-extrabold uppercase tracking-[0.05em] text-white lg:text-5xl"
+            className="font-display text-4xl font-extrabold uppercase tracking-[0.05em] text-white lg:text-5xl will-change-transform"
             style={{
               scale: headingScale,
-              y: headingY,
-              filter: headingBlur ? `blur(${headingBlur}px)` : undefined,
-              marginBottom: 'clamp(1.5rem, 3vw, 2.5rem)'
+              marginBottom: 'clamp(1.5rem, 3vw, 2.5rem)',
+              transform: 'translateZ(0)'
             }}
           >
             Technical Specifications
@@ -90,31 +78,18 @@ const FootplateFeatures = memo(function FootplateFeatures({
         >
           {/* Feature Card 1 */}
           <motion.div
-            style={{ y: card1Y, transformStyle: "preserve-3d" }}
+            style={{ y: card1Y, transform: 'translateZ(0)' }}
             whileHover={shouldReduceMotion ? {} : { 
               y: -4, 
               scale: 1.02,
-              rotateX: 5,
-              rotateY: 5,
               transition: { duration: 0.3 }
             }}
             transition={{ duration: 0.3 }}
-            className="group relative rounded-2xl border border-zinc-800/60 bg-zinc-950/40 p-8 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-lg hover:shadow-red-900/10 overflow-hidden"
+            className="group relative rounded-2xl border border-zinc-800/60 bg-zinc-950/40 p-8 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-lg hover:shadow-red-900/10 overflow-hidden will-change-transform"
           >
             {/* Internal gradient glow on hover */}
             <div className="absolute inset-0 bg-gradient-to-br from-red-500/0 via-red-500/0 to-red-500/0 group-hover:from-red-500/5 group-hover:via-red-500/0 group-hover:to-transparent rounded-2xl transition-all duration-500 pointer-events-none" />
-            <motion.div 
-              className="relative mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-red-900/20 border border-red-900/40 backdrop-blur-sm"
-              animate={shouldReduceMotion ? {} : { 
-                y: [0, -10, 0],
-                rotate: [0, 5, -5, 0]
-              }}
-              transition={{ 
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            >
+            <div className="relative mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-red-900/20 border border-red-900/40 backdrop-blur-sm">
               <div className="h-7 w-7 rounded bg-red-500" aria-hidden="true" />
               <div className="absolute inset-0 rounded-2xl bg-red-500/10 blur-xl" aria-hidden="true" />
             </motion.div>
@@ -128,32 +103,18 @@ const FootplateFeatures = memo(function FootplateFeatures({
 
           {/* Feature Card 2 */}
           <motion.div
-            style={{ y: card2Y, transformStyle: "preserve-3d" }}
+            style={{ y: card2Y, transform: 'translateZ(0)' }}
             whileHover={shouldReduceMotion ? {} : { 
               y: -4, 
               scale: 1.02,
-              rotateX: 5,
-              rotateY: -5,
               transition: { duration: 0.3 }
             }}
             transition={{ duration: 0.3 }}
-            className="group relative rounded-2xl border border-zinc-800/60 bg-zinc-950/40 p-8 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-lg hover:shadow-red-900/10 overflow-hidden"
+            className="group relative rounded-2xl border border-zinc-800/60 bg-zinc-950/40 p-8 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-lg hover:shadow-red-900/10 overflow-hidden will-change-transform"
           >
             {/* Internal gradient glow on hover */}
             <div className="absolute inset-0 bg-gradient-to-br from-red-500/0 via-red-500/0 to-red-500/0 group-hover:from-red-500/5 group-hover:via-red-500/0 group-hover:to-transparent rounded-2xl transition-all duration-500 pointer-events-none" />
-            <motion.div 
-              className="relative mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-red-900/20 border border-red-900/40 backdrop-blur-sm"
-              animate={shouldReduceMotion ? {} : { 
-                y: [0, -10, 0],
-                rotate: [0, -5, 5, 0]
-              }}
-              transition={{ 
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: 0.5
-              }}
-            >
+            <div className="relative mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-red-900/20 border border-red-900/40 backdrop-blur-sm">
               <div className="h-7 w-7 rounded bg-red-500" aria-hidden="true" />
               <div className="absolute inset-0 rounded-2xl bg-red-500/10 blur-xl" aria-hidden="true" />
             </motion.div>
@@ -167,32 +128,18 @@ const FootplateFeatures = memo(function FootplateFeatures({
 
           {/* Feature Card 3 */}
           <motion.div
-            style={{ y: card3Y, transformStyle: "preserve-3d" }}
+            style={{ y: card3Y, transform: 'translateZ(0)' }}
             whileHover={shouldReduceMotion ? {} : { 
               y: -4, 
               scale: 1.02,
-              rotateX: -5,
-              rotateY: 5,
               transition: { duration: 0.3 }
             }}
             transition={{ duration: 0.3 }}
-            className="group relative rounded-2xl border border-zinc-800/60 bg-zinc-950/40 p-8 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-lg hover:shadow-red-900/10 overflow-hidden"
+            className="group relative rounded-2xl border border-zinc-800/60 bg-zinc-950/40 p-8 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-lg hover:shadow-red-900/10 overflow-hidden will-change-transform"
           >
             {/* Internal gradient glow on hover */}
             <div className="absolute inset-0 bg-gradient-to-br from-red-500/0 via-red-500/0 to-red-500/0 group-hover:from-red-500/5 group-hover:via-red-500/0 group-hover:to-transparent rounded-2xl transition-all duration-500 pointer-events-none" />
-            <motion.div 
-              className="relative mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-red-900/20 border border-red-900/40 backdrop-blur-sm"
-              animate={shouldReduceMotion ? {} : { 
-                y: [0, -10, 0],
-                rotate: [0, 3, -3, 0]
-              }}
-              transition={{ 
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: 1
-              }}
-            >
+            <div className="relative mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-red-900/20 border border-red-900/40 backdrop-blur-sm">
               <div className="h-7 w-7 rounded bg-red-500" aria-hidden="true" />
               <div className="absolute inset-0 rounded-2xl bg-red-500/10 blur-xl" aria-hidden="true" />
             </motion.div>

@@ -65,32 +65,19 @@ const Testimonials = memo(function Testimonials({
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {/* Testimonial Card 1 */}
           <motion.article
-            style={{ y: card1Y, transformStyle: "preserve-3d" }}
+            style={{ y: card1Y, transform: 'translateZ(0)' }}
             whileHover={shouldReduceMotion ? {} : { 
               y: -4, 
               scale: 1.02,
-              rotateX: 3,
-              rotateY: 3,
               transition: { duration: 0.3 }
             }}
             transition={{ duration: 0.3 }}
-            className="group relative rounded-2xl border border-zinc-800/60 bg-zinc-950/40 p-8 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-lg hover:shadow-red-900/10 overflow-hidden"
+            className="group relative rounded-2xl border border-zinc-800/60 bg-zinc-950/40 p-8 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-lg hover:shadow-red-900/10 overflow-hidden will-change-transform"
           >
             {/* Internal gradient glow on hover */}
             <div className="absolute inset-0 bg-gradient-to-br from-red-500/0 via-red-500/0 to-red-500/0 group-hover:from-red-500/5 group-hover:via-red-500/0 group-hover:to-transparent rounded-2xl transition-all duration-500 pointer-events-none" />
             {/* Quote Icon */}
-            <motion.div 
-              className="relative mb-4 w-14 h-14 flex items-center justify-center rounded-2xl bg-red-900/20 border border-red-900/40 backdrop-blur-sm"
-              animate={shouldReduceMotion ? {} : { 
-                y: [0, -8, 0],
-                rotate: [0, 3, -3, 0]
-              }}
-              transition={{ 
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            >
+            <div className="relative mb-4 w-14 h-14 flex items-center justify-center rounded-2xl bg-red-900/20 border border-red-900/40 backdrop-blur-sm">
               <svg
                 className="h-7 w-7 text-red-500"
                 fill="currentColor"
@@ -132,33 +119,19 @@ const Testimonials = memo(function Testimonials({
 
           {/* Testimonial Card 2 */}
           <motion.article
-            style={{ y: card2Y, transformStyle: "preserve-3d" }}
+            style={{ y: card2Y, transform: 'translateZ(0)' }}
             whileHover={shouldReduceMotion ? {} : { 
               y: -4, 
               scale: 1.02,
-              rotateX: -3,
-              rotateY: 3,
               transition: { duration: 0.3 }
             }}
             transition={{ duration: 0.3 }}
-            className="group relative rounded-2xl border border-zinc-800/60 bg-zinc-950/40 p-8 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-lg hover:shadow-red-900/10 overflow-hidden"
+            className="group relative rounded-2xl border border-zinc-800/60 bg-zinc-950/40 p-8 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-lg hover:shadow-red-900/10 overflow-hidden will-change-transform"
           >
             {/* Internal gradient glow on hover */}
             <div className="absolute inset-0 bg-gradient-to-br from-red-500/0 via-red-500/0 to-red-500/0 group-hover:from-red-500/5 group-hover:via-red-500/0 group-hover:to-transparent rounded-2xl transition-all duration-500 pointer-events-none" />
             {/* Quote Icon */}
-            <motion.div 
-              className="relative mb-4 w-14 h-14 flex items-center justify-center rounded-2xl bg-red-900/20 border border-red-900/40 backdrop-blur-sm"
-              animate={shouldReduceMotion ? {} : { 
-                y: [0, -8, 0],
-                rotate: [0, -3, 3, 0]
-              }}
-              transition={{ 
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: 0.5
-              }}
-            >
+            <div className="relative mb-4 w-14 h-14 flex items-center justify-center rounded-2xl bg-red-900/20 border border-red-900/40 backdrop-blur-sm">
               <svg
                 className="h-7 w-7 text-red-500"
                 fill="currentColor"
@@ -200,33 +173,19 @@ const Testimonials = memo(function Testimonials({
 
           {/* Testimonial Card 3 */}
           <motion.article
-            style={{ y: card3Y, transformStyle: "preserve-3d" }}
+            style={{ y: card3Y, transform: 'translateZ(0)' }}
             whileHover={shouldReduceMotion ? {} : { 
               y: -4, 
               scale: 1.02,
-              rotateX: 3,
-              rotateY: -3,
               transition: { duration: 0.3 }
             }}
             transition={{ duration: 0.3 }}
-            className="group relative rounded-2xl border border-zinc-800/60 bg-zinc-950/40 p-8 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-lg hover:shadow-red-900/10 overflow-hidden"
+            className="group relative rounded-2xl border border-zinc-800/60 bg-zinc-950/40 p-8 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-lg hover:shadow-red-900/10 overflow-hidden will-change-transform"
           >
             {/* Internal gradient glow on hover */}
             <div className="absolute inset-0 bg-gradient-to-br from-red-500/0 via-red-500/0 to-red-500/0 group-hover:from-red-500/5 group-hover:via-red-500/0 group-hover:to-transparent rounded-2xl transition-all duration-500 pointer-events-none" />
             {/* Quote Icon */}
-            <motion.div 
-              className="relative mb-4 w-14 h-14 flex items-center justify-center rounded-2xl bg-red-900/20 border border-red-900/40 backdrop-blur-sm"
-              animate={shouldReduceMotion ? {} : { 
-                y: [0, -8, 0],
-                rotate: [0, 2, -2, 0]
-              }}
-              transition={{ 
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: 1
-              }}
-            >
+            <div className="relative mb-4 w-14 h-14 flex items-center justify-center rounded-2xl bg-red-900/20 border border-red-900/40 backdrop-blur-sm">
               <svg
                 className="h-7 w-7 text-red-500"
                 fill="currentColor"

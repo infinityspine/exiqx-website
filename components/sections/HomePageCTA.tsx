@@ -76,16 +76,14 @@ const CTASection = memo(function CTASection({
         <div className="mb-12 grid gap-6 sm:grid-cols-3">
           {/* Benefit 1 */}
           <motion.div
-            style={{ y: benefit1Y, transformStyle: "preserve-3d" }}
+            style={{ y: benefit1Y, transform: 'translateZ(0)' }}
             whileHover={shouldReduceMotion ? {} : { 
               y: -4, 
               scale: 1.02,
-              rotateX: 3,
-              rotateY: 3,
               transition: { duration: 0.3 }
             }}
             transition={{ duration: 0.3 }}
-            className="group relative rounded-2xl border border-zinc-800/60 bg-zinc-950/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-lg hover:shadow-red-900/10 overflow-hidden"
+            className="group relative rounded-2xl border border-zinc-800/60 bg-zinc-950/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-lg hover:shadow-red-900/10 overflow-hidden will-change-transform"
           >
             {/* Internal gradient glow on hover */}
             <div className="absolute inset-0 bg-gradient-to-br from-red-500/0 via-red-500/0 to-red-500/0 group-hover:from-red-500/5 group-hover:via-red-500/0 group-hover:to-transparent rounded-2xl transition-all duration-500 pointer-events-none" />
@@ -97,16 +95,14 @@ const CTASection = memo(function CTASection({
 
           {/* Benefit 2 */}
           <motion.div
-            style={{ y: benefit2Y, transformStyle: "preserve-3d" }}
+            style={{ y: benefit2Y, transform: 'translateZ(0)' }}
             whileHover={shouldReduceMotion ? {} : { 
               y: -4, 
               scale: 1.02,
-              rotateX: -3,
-              rotateY: 3,
               transition: { duration: 0.3 }
             }}
             transition={{ duration: 0.3 }}
-            className="group relative rounded-2xl border border-zinc-800/60 bg-zinc-950/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-lg hover:shadow-red-900/10 overflow-hidden"
+            className="group relative rounded-2xl border border-zinc-800/60 bg-zinc-950/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-lg hover:shadow-red-900/10 overflow-hidden will-change-transform"
           >
             {/* Internal gradient glow on hover */}
             <div className="absolute inset-0 bg-gradient-to-br from-red-500/0 via-red-500/0 to-red-500/0 group-hover:from-red-500/5 group-hover:via-red-500/0 group-hover:to-transparent rounded-2xl transition-all duration-500 pointer-events-none" />
@@ -118,16 +114,14 @@ const CTASection = memo(function CTASection({
 
           {/* Benefit 3 */}
           <motion.div
-            style={{ y: benefit3Y, transformStyle: "preserve-3d" }}
+            style={{ y: benefit3Y, transform: 'translateZ(0)' }}
             whileHover={shouldReduceMotion ? {} : { 
               y: -4, 
               scale: 1.02,
-              rotateX: 3,
-              rotateY: -3,
               transition: { duration: 0.3 }
             }}
             transition={{ duration: 0.3 }}
-            className="group relative rounded-2xl border border-zinc-800/60 bg-zinc-950/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-lg hover:shadow-red-900/10 overflow-hidden"
+            className="group relative rounded-2xl border border-zinc-800/60 bg-zinc-950/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-lg hover:shadow-red-900/10 overflow-hidden will-change-transform"
           >
             {/* Internal gradient glow on hover */}
             <div className="absolute inset-0 bg-gradient-to-br from-red-500/0 via-red-500/0 to-red-500/0 group-hover:from-red-500/5 group-hover:via-red-500/0 group-hover:to-transparent rounded-2xl transition-all duration-500 pointer-events-none" />
