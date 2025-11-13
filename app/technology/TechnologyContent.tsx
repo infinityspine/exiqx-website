@@ -132,7 +132,7 @@ export default function TechnologyPage() {
                 transition: { duration: 0.3 }
               }}
             >
-              <div className="space-y-6 text-base sm:text-lg text-white/70 font-light leading-relaxed">
+              <div className="text-base sm:text-lg text-white/70 font-light leading-relaxed">
                 <p>
                   The ExIQx Footplate re-engineers posterior-chain training through biomechanical precision and authentic ground-force mechanics. Every component is designed to honor the physics of human movement, creating training systems that translate directly to athletic performance.
                 </p>
@@ -188,11 +188,11 @@ export default function TechnologyPage() {
                 transition: { duration: 0.3 }
               }}
             >
-              <div className="space-y-6 text-base sm:text-lg text-white/70 font-light leading-relaxed">
-                <p>
+              <div className="text-base sm:text-lg text-white/70 font-light leading-relaxed">
+                <p style={{ marginBottom: 'clamp(2rem, 4vw, 3rem)' }}>
                   Conventional Nordic and GHD-style devices stabilize the body by anchoring the posterior ankle and leg, transferring force through the Achilles and calf complex. This isolates the hamstrings but diverts kinetic energy away from the true ground-force pathway.
                 </p>
-                <p>
+                <p style={{ marginBottom: 'clamp(2rem, 4vw, 3rem)' }}>
                   In natural athletic movement, energy transfers through the plantar surface—especially the ball of the foot—creating a closed-chain kinetic line that drives through the ankle, knee, and hip into the entire posterior chain. The ExIQx Footplate restores that authentic energy flow.
                 </p>
                 <p>
@@ -250,11 +250,11 @@ export default function TechnologyPage() {
                 transition: { duration: 0.3 }
               }}
             >
-              <div className="space-y-6 text-base sm:text-lg text-white/70 font-light leading-relaxed">
-                <p>
+              <div className="text-base sm:text-lg text-white/70 font-light leading-relaxed">
+                <p style={{ marginBottom: 'clamp(2rem, 4vw, 3rem)' }}>
                   ExIQx technology is engineered around user-adjustable closed-chain plantarflexion mechanics, allowing precise alignment from 10° to 70° to match each athlete's preferred loading angle, performance objective, or rehabilitation phase.
                 </p>
-                <p>
+                <p style={{ marginBottom: 'clamp(2rem, 4vw, 3rem)' }}>
                   Each interval positions the user in a true ground-force vector, directing load through the plantar surface of the foot—from the metatarsal heads and ball of the foot, through the ankle complex, calves, hamstrings, glutes, and spinal erectors.
                 </p>
                 <p>
@@ -312,8 +312,8 @@ export default function TechnologyPage() {
                 transition: { duration: 0.3 }
               }}
             >
-              <div className="space-y-6 text-base sm:text-lg text-white/70 font-light leading-relaxed">
-                <p>
+              <div className="text-base sm:text-lg text-white/70 font-light leading-relaxed">
+                <p style={{ marginBottom: 'clamp(2rem, 4vw, 3rem)' }}>
                   Hybrid construction combines CNC-machined ⅜" aluminum for lightweight precision with welded 11-gauge steel arms for structural strength. Every component is machined to aerospace-level tolerances for perfect bearing alignment and zero lateral play.
                 </p>
                 <p>
