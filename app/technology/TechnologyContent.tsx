@@ -205,8 +205,7 @@ export default function TechnologyPage() {
             <div className="flex items-start gap-6" style={{ marginBottom: 'clamp(2.5rem, 5vw, 4rem)' }}>
               <motion.div 
                 className="flex-shrink-0"
-                whileHover={shouldReduceMotion ? {} : { scale: 1.05 }}
-                transition={{ duration: 0.3 }}
+                whileHover={shouldReduceMotion ? {} : { scale: 1.05, transition: { duration: 0.3 } }}
                 animate={shouldReduceMotion ? {} : { 
                   y: [0, -8, 0],
                   rotate: [0, 3, -3, 0]
@@ -285,8 +284,7 @@ export default function TechnologyPage() {
             <div className="flex items-start gap-6" style={{ marginBottom: 'clamp(2.5rem, 5vw, 4rem)' }}>
               <motion.div 
                 className="flex-shrink-0"
-                whileHover={shouldReduceMotion ? {} : { scale: 1.05 }}
-                transition={{ duration: 0.3 }}
+                whileHover={shouldReduceMotion ? {} : { scale: 1.05, transition: { duration: 0.3 } }}
                 animate={shouldReduceMotion ? {} : { 
                   y: [0, -8, 0],
                   rotate: [0, -3, 3, 0]
@@ -366,8 +364,7 @@ export default function TechnologyPage() {
             <div className="flex items-start gap-6" style={{ marginBottom: 'clamp(2.5rem, 5vw, 4rem)' }}>
               <motion.div 
                 className="flex-shrink-0"
-                whileHover={shouldReduceMotion ? {} : { scale: 1.05 }}
-                transition={{ duration: 0.3 }}
+                whileHover={shouldReduceMotion ? {} : { scale: 1.05, transition: { duration: 0.3 } }}
                 animate={shouldReduceMotion ? {} : { 
                   y: [0, -8, 0],
                   rotate: [0, 2, -2, 0]
@@ -447,8 +444,7 @@ export default function TechnologyPage() {
             >
               <motion.div 
                 className="flex-shrink-0"
-                whileHover={shouldReduceMotion ? {} : { scale: 1.05 }}
-                transition={{ duration: 0.3 }}
+                whileHover={shouldReduceMotion ? {} : { scale: 1.05, transition: { duration: 0.3 } }}
                 animate={shouldReduceMotion ? {} : { 
                   y: [0, -8, 0],
                   rotate: [0, 3, -3, 0]
@@ -532,8 +528,7 @@ export default function TechnologyPage() {
             >
               <motion.div 
                 className="flex-shrink-0"
-                whileHover={shouldReduceMotion ? {} : { scale: 1.05 }}
-                transition={{ duration: 0.3 }}
+                whileHover={shouldReduceMotion ? {} : { scale: 1.05, transition: { duration: 0.3 } }}
                 animate={shouldReduceMotion ? {} : { 
                   y: [0, -8, 0],
                   rotate: [0, -2, 2, 0]
