@@ -28,14 +28,17 @@ const BiomechanicsSection = memo(function BiomechanicsSection() {
           >
             Authentic Ground-Force Mechanics
           </h2>
+
           {/* Left-Aligned Body Text */}
-          <div className="space-y-8 text-base sm:text-lg text-white/70 font-light leading-relaxed text-left">
-            <p>
+          <div className="text-base sm:text-lg text-white/70 font-light leading-relaxed text-left">
+            <p style={{ marginBottom: 'clamp(2rem, 4vw, 3rem)' }}>
               Conventional devices anchor the posterior ankle, isolating the hamstrings but diverting energy away from natural movement patterns. The ExIQx Footplate routes force through the plantar surface—the ball of the foot—mirroring the closed-chain vector of sprinting and jumping.
             </p>
-            <p>
+
+            <p style={{ marginBottom: 'clamp(2rem, 4vw, 3rem)' }}>
               User-adjustable from 10° to 70°, each position creates an authentic ground-force pathway through the entire posterior chain: from metatarsal heads through calves, hamstrings, glutes, and spinal erectors.
             </p>
+
             <p>
               CNC-machined aluminum and welded steel construction. Engineered to aerospace tolerances. Made in the United States.
             </p>
