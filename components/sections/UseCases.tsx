@@ -120,7 +120,7 @@ const UseCases = memo(function UseCases() {
               transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             >
               <Image
-                src="/images/training/glute-ham-raise-athlete.jpg"
+                src="/images/training/glute-ham-raise-athlete-v2.jpg"
                 alt="Athlete performing glute-ham raise on ExIQx footplate"
                 fill
                 className="object-cover grayscale brightness-75"
