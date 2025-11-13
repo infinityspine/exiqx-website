@@ -1,7 +1,7 @@
 // app/freestanding/FreestandingContent.tsx
 'use client'
 
-import { motion, useScroll, useSpring } from 'framer-motion'
+import { motion, useScroll, useSpring, useReducedMotion } from 'framer-motion'
 import FreestandingHero from '@/components/sections/FreestandingHero'
 import EngineeredForExcellenceSection from '@/components/sections/EngineeredForExcellence'
 import FreestandingFeatureDetail from '@/components/sections/FreestandingFeatureDetail'
@@ -23,7 +23,48 @@ const sectionVariants = {
   },
 }
 
+// Premium separator component
+const PremiumSeparator = () => (
+  <div className="relative h-px max-w-7xl mx-auto" aria-hidden="true">
+    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-red-500/20 to-transparent" />
+    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-red-500/20 to-transparent blur-sm" />
+  </div>
+)
+
+// Animated gradient orb component
+const AnimatedGradientOrb = ({ 
+  className = '', 
+  delay = 0,
+  shouldReduceMotion = false 
+}: { 
+  className?: string
+  delay?: number
+  shouldReduceMotion?: boolean 
+}) => {
+  if (shouldReduceMotion) {
+    return <div className={`absolute ${className} bg-red-500/10 rounded-full blur-3xl`} aria-hidden="true" />
+  }
+  
+  return (
+    <motion.div
+      className={`absolute ${className} bg-red-500/10 rounded-full blur-3xl`}
+      animate={{ 
+        scale: [1, 1.2, 1], 
+        opacity: [0.3, 0.5, 0.3] 
+      }}
+      transition={{ 
+        duration: 8, 
+        repeat: Infinity, 
+        ease: "easeInOut",
+        delay 
+      }}
+      aria-hidden="true"
+    />
+  )
+}
+
 export default function FreestandingContent() {
+  const shouldReduceMotion = useReducedMotion()
   const { scrollYProgress } = useScroll()
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -33,12 +74,15 @@ export default function FreestandingContent() {
 
   return (
     <>
-      {/* Elite scroll progress indicator */}
+      {/* Elite scroll progress indicator with glow */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 origin-left z-50"
+        className="fixed top-0 left-0 right-0 h-[2px] origin-left z-50"
         style={{ scaleX }}
         aria-hidden="true"
-      />
+      >
+        <div className="h-full bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500" />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 blur-sm opacity-50" />
+      </motion.div>
 
       <main className="relative bg-black overflow-hidden">
         {/* Hero Section - No animation wrapper to preserve FreestandingHero's internal animations */}
@@ -59,11 +103,29 @@ export default function FreestandingContent() {
           showShimmer={true}
         />
 
-        {/* Subtle gradient separator for visual depth */}
-        <div className="h-32 bg-gradient-to-b from-black via-zinc-950 to-black" aria-hidden="true" />
+        {/* Premium separator with glow */}
+        <PremiumSeparator />
 
         {/* Key Benefits Grid */}
-        <EngineeredForExcellenceSection
+        <motion.section
+          className="relative"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={sectionVariants}
+        >
+          {/* Animated gradient orbs */}
+          <AnimatedGradientOrb 
+            className="top-0 right-1/4 w-96 h-96" 
+            delay={0}
+            shouldReduceMotion={shouldReduceMotion}
+          />
+          <AnimatedGradientOrb 
+            className="bottom-0 left-1/4 w-80 h-80 bg-blue-500/10" 
+            delay={2}
+            shouldReduceMotion={shouldReduceMotion}
+          />
+          <EngineeredForExcellenceSection
           sectionTitle="PORTABLE PRECISION TRAINING"
           sectionSubtitle="Four pillars of freestanding performance"
           features={[
@@ -88,12 +150,11 @@ export default function FreestandingContent() {
               body: '11-gauge steel with powder-coated finish. Stabilized with standard weight plates. Built for serious training without the infrastructure.',
             },
           ]}
-        />
+          />
+        </motion.section>
 
-        {/* Visual spacer with subtle line */}
-        <div className="relative h-px max-w-7xl mx-auto" aria-hidden="true">
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-zinc-800 to-transparent" />
-        </div>
+        {/* Premium separator with glow */}
+        <PremiumSeparator />
 
         {/* Feature Detail */}
         <motion.section
@@ -105,6 +166,17 @@ export default function FreestandingContent() {
           variants={sectionVariants}
           aria-labelledby="features-title"
         >
+          {/* Animated gradient orbs */}
+          <AnimatedGradientOrb 
+            className="top-1/4 left-0 w-72 h-72" 
+            delay={1}
+            shouldReduceMotion={shouldReduceMotion}
+          />
+          <AnimatedGradientOrb 
+            className="bottom-1/4 right-0 w-96 h-96 bg-blue-500/10" 
+            delay={3}
+            shouldReduceMotion={shouldReduceMotion}
+          />
           <div className="py-24 lg:py-32">
             <FreestandingFeatureDetail
               title="Rack-Free Performance"
@@ -122,8 +194,8 @@ export default function FreestandingContent() {
           </div>
         </motion.section>
 
-        {/* Gradient transition for depth */}
-        <div className="h-24 bg-gradient-to-b from-black via-zinc-950/50 to-black" aria-hidden="true" />
+        {/* Premium separator with glow */}
+        <PremiumSeparator />
 
         {/* Biomechanics */}
         <motion.section
@@ -135,6 +207,17 @@ export default function FreestandingContent() {
           variants={sectionVariants}
           aria-labelledby="biomechanics-title"
         >
+          {/* Animated gradient orbs */}
+          <AnimatedGradientOrb 
+            className="top-0 left-1/3 w-80 h-80" 
+            delay={0.5}
+            shouldReduceMotion={shouldReduceMotion}
+          />
+          <AnimatedGradientOrb 
+            className="bottom-0 right-1/3 w-80 h-80 bg-blue-500/10" 
+            delay={2.5}
+            shouldReduceMotion={shouldReduceMotion}
+          />
           <div className="py-24 lg:py-32">
             <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
               <BiomechanicsSection
@@ -145,10 +228,8 @@ export default function FreestandingContent() {
           </div>
         </motion.section>
 
-        {/* Visual spacer with subtle line */}
-        <div className="relative h-px max-w-7xl mx-auto" aria-hidden="true">
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-zinc-800 to-transparent" />
-        </div>
+        {/* Premium separator with glow */}
+        <PremiumSeparator />
 
         {/* Technical Specs */}
         <motion.section
@@ -160,10 +241,24 @@ export default function FreestandingContent() {
           variants={sectionVariants}
           aria-labelledby="specs-title"
         >
+          {/* Animated gradient orbs */}
+          <AnimatedGradientOrb 
+            className="top-1/2 left-1/4 w-96 h-96" 
+            delay={1.5}
+            shouldReduceMotion={shouldReduceMotion}
+          />
+          <AnimatedGradientOrb 
+            className="top-0 right-1/2 w-72 h-72 bg-blue-500/10" 
+            delay={3.5}
+            shouldReduceMotion={shouldReduceMotion}
+          />
           <div className="py-24 lg:py-32">
             <FreestandingSpecs />
           </div>
         </motion.section>
+
+        {/* Premium separator with glow */}
+        <PremiumSeparator />
 
         {/* Testimonials Section */}
         <motion.section
@@ -174,13 +269,24 @@ export default function FreestandingContent() {
           variants={sectionVariants}
           aria-labelledby="testimonials-title"
         >
+          {/* Animated gradient orbs */}
+          <AnimatedGradientOrb 
+            className="top-0 left-1/4 w-80 h-80" 
+            delay={1}
+            shouldReduceMotion={shouldReduceMotion}
+          />
+          <AnimatedGradientOrb 
+            className="bottom-0 right-1/4 w-96 h-96 bg-blue-500/10" 
+            delay={2.5}
+            shouldReduceMotion={shouldReduceMotion}
+          />
           <div className="py-24 lg:py-32">
             <Testimonials />
           </div>
         </motion.section>
 
-        {/* Gradient transition to CTA */}
-        <div className="h-32 bg-gradient-to-b from-black via-zinc-950 to-black" aria-hidden="true" />
+        {/* Premium separator with glow */}
+        <PremiumSeparator />
 
         {/* Call to Action */}
         <motion.section
@@ -190,6 +296,17 @@ export default function FreestandingContent() {
           viewport={{ once: true, margin: "-100px" }}
           variants={sectionVariants}
         >
+          {/* Animated gradient orbs */}
+          <AnimatedGradientOrb 
+            className="top-1/2 left-1/4 w-96 h-96" 
+            delay={1.5}
+            shouldReduceMotion={shouldReduceMotion}
+          />
+          <AnimatedGradientOrb 
+            className="top-0 right-1/2 w-72 h-72 bg-blue-500/10" 
+            delay={3.5}
+            shouldReduceMotion={shouldReduceMotion}
+          />
           <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
             <CTASection
             headline="Elite Training Without the Infrastructure"
