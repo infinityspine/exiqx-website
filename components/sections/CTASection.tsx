@@ -1,182 +1,67 @@
 'use client'
 
-import React, { memo, useCallback } from 'react'
-import { useRouter } from 'next/navigation'
+import { memo } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
-import { z } from 'zod'
-import { ChevronRight } from 'lucide-react'
 
-// ============================================================================
-// Schema Validation
-// ============================================================================
+interface CTASectionProps {
+  headline?: string
+  description?: string
+  ctaText?: string
+  ctaHref?: string
+}
 
-const CTASectionPropsSchema = z.object({
-  headline: z.string().default('Ready to Transform Your Training?'),
-  description: z.string().optional(),
-  ctaText: z.string().default('Join Waitlist'),
-  ctaHref: z.string().default('/#waitlist'),
-  secondaryCtaText: z.string().optional(),
-  secondaryCtaHref: z.string().optional(),
-  showGradient: z.boolean().default(true),
-  className: z.string().optional(),
-})
-
-type CTASectionProps = z.infer<typeof CTASectionPropsSchema>
-
-// ============================================================================
-// Animation Constants
-// ============================================================================
-
-const ANIMATION_CONSTANTS = {
-  EASE_ATHLETIC: [0.43, 0.13, 0.23, 0.96],
-  EASE_POWER: [0.77, 0, 0.175, 1],
-  DURATION_FAST: 0.3,
-  DURATION_MEDIUM: 0.6,
-} as const
-
-// ============================================================================
-// Component
-// ============================================================================
-
-const CTASection = memo<Partial<CTASectionProps>>((props) => {
-  const validatedProps = CTASectionPropsSchema.parse(props)
-  const {
-    headline,
-    description,
-    ctaText,
-    ctaHref,
-    secondaryCtaText,
-    secondaryCtaHref,
-    showGradient,
-    className = '',
-  } = validatedProps
-  
-  const router = useRouter()
+const CTASection = memo(function CTASection({
+  headline = 'The Foundation of the ExIQx System',
+  description = 'Join the waitlist to be first in line when we launch.',
+  ctaText = 'Join Waitlist',
+  ctaHref = '/#waitlist'
+}: CTASectionProps) {
   const shouldReduceMotion = useReducedMotion()
-
-  const handleLinkClick = useCallback(
-    (href: string) => {
-      if (href.startsWith('#')) {
-        const element = document.querySelector(href)
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-        }
-      } else if (href.includes('#')) {
-        const [path, hash] = href.split('#')
-        if (path === '/' && window.location.pathname === '/') {
-          const element = document.querySelector(`#${hash}`)
-          if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-          }
-        } else {
-          router.push(href)
-        }
-      } else {
-        router.push(href)
-      }
-    },
-    [router]
-  )
-
-  const buttonHoverVariants = {
-    initial: { scale: 1, y: 0 },
-    hover: {
-      scale: shouldReduceMotion ? 1 : 1.02,
-      y: shouldReduceMotion ? 0 : -2,
-      transition: {
-        duration: ANIMATION_CONSTANTS.DURATION_FAST,
-        ease: ANIMATION_CONSTANTS.EASE_POWER,
-      },
-    },
-    tap: { scale: 0.98 },
-  }
 
   return (
     <section
-      className={`text-center py-24 sm:py-32 lg:py-40 ${
-        showGradient
-          ? 'bg-gradient-to-b from-[#0A0A0A] via-[#0A0A0A] to-red-950/20'
-          : 'bg-[#0A0A0A]'
-      } border-t border-red-600/20 ${className}`}
-      aria-labelledby="cta-heading"
+      className="relative bg-black border-t border-white/10"
+      style={{ 
+        paddingTop: 'clamp(6rem, 12vw, 10rem)',
+        paddingBottom: 'clamp(6rem, 12vw, 10rem)'
+      }}
     >
-      <div className="w-full flex flex-col items-center text-center px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-4xl px-6 text-center">
         <motion.div
-          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 30 }}
+          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{
-            duration: ANIMATION_CONSTANTS.DURATION_MEDIUM,
-            ease: ANIMATION_CONSTANTS.EASE_ATHLETIC,
-          }}
-          className="w-full flex flex-col items-center"
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
         >
           {/* Headline */}
-          <h2
-            id="cta-heading"
-            className="text-3xl sm:text-4xl font-bold text-white mb-4 font-montserrat"
+          <h2 
+            className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold uppercase tracking-[0.05em] text-white"
+            style={{ marginBottom: 'clamp(2rem, 4vw, 3rem)' }}
           >
             {headline}
           </h2>
 
           {/* Description */}
-          {description && (
-            <p className="text-lg text-gray-300 mb-16 sm:mb-20 lg:mb-24 text-center mx-auto w-full max-w-3xl font-inter">
-              {description}
-            </p>
-          )}
+          <p 
+            className="text-lg sm:text-xl text-white/70 font-light"
+            style={{ marginBottom: 'clamp(3rem, 6vw, 5rem)' }}
+          >
+            {description}
+          </p>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-wrap justify-center gap-4">
-            {/* Primary CTA */}
-            <motion.button
-              onClick={() => handleLinkClick(ctaHref)}
-              variants={buttonHoverVariants}
-              initial="initial"
-              whileHover="hover"
-              whileTap="tap"
-              className="group relative px-10 py-4 bg-red-600 text-white font-semibold rounded-xl overflow-hidden transition-colors duration-300 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2 focus:ring-offset-[#0A0A0A] font-inter uppercase tracking-[0.2em] text-[11px]"
-              aria-label={ctaText}
-            >
-              <span className="relative z-10 flex items-center">
-                {ctaText}
-                <ChevronRight
-                  className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"
-                  aria-hidden="true"
-                />
-              </span>
-              {/* Hover glow effect */}
-              {!shouldReduceMotion && (
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-red-500 to-red-700 opacity-0 group-hover:opacity-20"
-                  initial={false}
-                  transition={{ duration: 0.3 }}
-                />
-              )}
-            </motion.button>
-
-            {/* Secondary CTA (Optional) */}
-            {secondaryCtaText && secondaryCtaHref && (
-              <motion.button
-                onClick={() => handleLinkClick(secondaryCtaHref)}
-                variants={buttonHoverVariants}
-                initial="initial"
-                whileHover="hover"
-                whileTap="tap"
-                className="px-10 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-xl border border-white/20 hover:bg-white/20 hover:border-white/30 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#0A0A0A] font-inter uppercase tracking-[0.2em] text-[11px]"
-                aria-label={secondaryCtaText}
-              >
-                {secondaryCtaText}
-              </motion.button>
-            )}
-          </div>
+          {/* CTA Button */}
+          <motion.a
+            href={ctaHref}
+            whileHover={shouldReduceMotion ? {} : { scale: 1.05 }}
+            whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
+            className="inline-block rounded-xl bg-accent px-10 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition-all duration-300 hover:bg-red-700 hover:shadow-[0_10px_30px_rgba(220,38,38,0.55)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+          >
+            {ctaText}
+          </motion.a>
         </motion.div>
       </div>
     </section>
   )
 })
 
-CTASection.displayName = 'CTASection'
-
 export default CTASection
-export type { CTASectionProps }
