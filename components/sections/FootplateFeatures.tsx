@@ -54,10 +54,10 @@ const FootplateFeatures = memo(function FootplateFeatures() {
               <div className="absolute inset-0 rounded-2xl bg-red-500/10 blur-xl" aria-hidden="true" />
             </div>
             <h3 className="mb-2 font-display text-xl font-bold uppercase tracking-[0.03em] text-white transition-colors duration-300 group-hover:text-red-400">
-              Precision Engineering
+              Authentic Ground-Force Mechanics
             </h3>
             <p className="text-white/60 leading-relaxed">
-              CNC-machined aluminum construction for unmatched durability
+              Routes force through the plantar surface—mirroring the closed-chain vector of sprinting and jumping
             </p>
           </motion.div>
 
@@ -72,10 +72,10 @@ const FootplateFeatures = memo(function FootplateFeatures() {
               <div className="absolute inset-0 rounded-2xl bg-red-500/10 blur-xl" aria-hidden="true" />
             </div>
             <h3 className="mb-2 font-display text-xl font-bold uppercase tracking-[0.03em] text-white transition-colors duration-300 group-hover:text-red-400">
-              Universal Compatibility
+              Precision-Engineered
             </h3>
             <p className="text-white/60 leading-relaxed">
-              Fits standard power racks with 2x2" or 3x3" uprights
+              Hybrid aluminum and steel construction. CNC-machined to aerospace tolerances. Made in the USA.
             </p>
           </motion.div>
 
@@ -90,10 +90,10 @@ const FootplateFeatures = memo(function FootplateFeatures() {
               <div className="absolute inset-0 rounded-2xl bg-red-500/10 blur-xl" aria-hidden="true" />
             </div>
             <h3 className="mb-2 font-display text-xl font-bold uppercase tracking-[0.03em] text-white transition-colors duration-300 group-hover:text-red-400">
-              Biomechanical Optimized
+              Adjustable 10° to 70°
             </h3>
             <p className="text-white/60 leading-relaxed">
-              Designed for optimal posterior chain activation
+              User-tuned plantarflexion angles for every athlete, training objective, and rehabilitation phase
             </p>
           </motion.div>
         </div>
