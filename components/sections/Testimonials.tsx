@@ -52,14 +52,15 @@ const Testimonials = memo(function Testimonials({
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {/* Testimonial Card 1 */}
           <motion.article
-            style={{ y: card1Y, transform: 'translateZ(0)' }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5 }}
             whileHover={shouldReduceMotion ? {} : { 
-              y: -4, 
               scale: 1.02,
               transition: { duration: 0.3 }
             }}
-            transition={{ duration: 0.3 }}
-            className="group relative rounded-2xl border border-zinc-800/60 bg-zinc-950/40 p-8 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-lg hover:shadow-red-900/10 overflow-hidden will-change-transform"
+            className="group relative rounded-2xl border border-zinc-800/60 bg-zinc-950/40 p-8 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-lg hover:shadow-red-900/10 overflow-hidden"
           >
             {/* Internal gradient glow on hover */}
             <div className="absolute inset-0 bg-gradient-to-br from-red-500/0 via-red-500/0 to-red-500/0 group-hover:from-red-500/5 group-hover:via-red-500/0 group-hover:to-transparent rounded-2xl transition-all duration-500 pointer-events-none" />
@@ -106,14 +107,15 @@ const Testimonials = memo(function Testimonials({
 
           {/* Testimonial Card 2 */}
           <motion.article
-            style={{ y: card2Y, transform: 'translateZ(0)' }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: 0.1 }}
             whileHover={shouldReduceMotion ? {} : { 
-              y: -4, 
               scale: 1.02,
               transition: { duration: 0.3 }
             }}
-            transition={{ duration: 0.3 }}
-            className="group relative rounded-2xl border border-zinc-800/60 bg-zinc-950/40 p-8 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-lg hover:shadow-red-900/10 overflow-hidden will-change-transform"
+            className="group relative rounded-2xl border border-zinc-800/60 bg-zinc-950/40 p-8 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-lg hover:shadow-red-900/10 overflow-hidden"
           >
             {/* Internal gradient glow on hover */}
             <div className="absolute inset-0 bg-gradient-to-br from-red-500/0 via-red-500/0 to-red-500/0 group-hover:from-red-500/5 group-hover:via-red-500/0 group-hover:to-transparent rounded-2xl transition-all duration-500 pointer-events-none" />
@@ -160,14 +162,15 @@ const Testimonials = memo(function Testimonials({
 
           {/* Testimonial Card 3 */}
           <motion.article
-            style={{ y: card3Y, transform: 'translateZ(0)' }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: 0.2 }}
             whileHover={shouldReduceMotion ? {} : { 
-              y: -4, 
               scale: 1.02,
               transition: { duration: 0.3 }
             }}
-            transition={{ duration: 0.3 }}
-            className="group relative rounded-2xl border border-zinc-800/60 bg-zinc-950/40 p-8 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-lg hover:shadow-red-900/10 overflow-hidden will-change-transform"
+            className="group relative rounded-2xl border border-zinc-800/60 bg-zinc-950/40 p-8 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-lg hover:shadow-red-900/10 overflow-hidden"
           >
             {/* Internal gradient glow on hover */}
             <div className="absolute inset-0 bg-gradient-to-br from-red-500/0 via-red-500/0 to-red-500/0 group-hover:from-red-500/5 group-hover:via-red-500/0 group-hover:to-transparent rounded-2xl transition-all duration-500 pointer-events-none" />

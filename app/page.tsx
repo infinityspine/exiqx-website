@@ -168,7 +168,6 @@ export default function Home() {
           shouldReduceMotion={shouldReduceMotion}
         />
         <Testimonials 
-          scrollYProgress={scrollYProgress}
           shouldReduceMotion={shouldReduceMotion}
         />
       </motion.section>
