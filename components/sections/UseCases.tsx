@@ -1,10 +1,11 @@
 'use client'
 
 import { memo } from 'react'
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import Image from 'next/image'
 
 const UseCases = memo(function UseCases() {
+  const shouldReduceMotion = useReducedMotion()
   return (
     <section
       id="use-cases"
@@ -20,7 +21,7 @@ const UseCases = memo(function UseCases() {
           >
             Training Applications
           </h2>
-          <p className="mt-4 text-lg text-white/70 font-light">
+          <p className="mt-4 text-lg text-white/70 font-light leading-relaxed">
             Versatile equipment for comprehensive posterior chain development
           </p>
         </div>
@@ -33,9 +34,10 @@ const UseCases = memo(function UseCases() {
             <motion.div 
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
+              whileHover={shouldReduceMotion ? {} : { scale: 1.02, y: -4 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="relative aspect-[4/5] rounded-lg overflow-hidden"
+              className="relative aspect-[4/5] rounded-lg overflow-hidden border border-zinc-800/60 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-[0_10px_30px_rgba(220,38,38,0.2)]"
             >
               <Image
                 src="/images/training/nordic-curl-athlete.jpg"
@@ -55,11 +57,12 @@ const UseCases = memo(function UseCases() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="group"
             >
-              <h3 className="mb-4 font-display text-3xl font-bold uppercase tracking-[0.03em] text-white">
+              <h3 className="mb-4 font-display text-3xl font-bold uppercase tracking-[0.03em] text-white transition-colors duration-300 group-hover:text-red-400">
                 Nordic Hamstring Curls
               </h3>
-              <p className="mb-4 text-white/70 font-light">
+              <p className="mb-4 text-white/70 font-light leading-relaxed">
                 Eccentric hamstring training for injury prevention and explosive power development.
               </p>
               <ul className="space-y-2 text-white/60 font-light" role="list">
@@ -83,9 +86,10 @@ const UseCases = memo(function UseCases() {
           <div className="grid items-center gap-12 sm:gap-16 lg:grid-cols-2 lg:gap-12">
             {/* Image with Elite Styling - FIRST in DOM for mobile */}
             <motion.div 
-              className="relative aspect-[4/5] rounded-lg overflow-hidden lg:order-2"
+              className="relative aspect-[4/5] rounded-lg overflow-hidden lg:order-2 border border-zinc-800/60 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-[0_10px_30px_rgba(220,38,38,0.2)]"
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
+              whileHover={shouldReduceMotion ? {} : { scale: 1.02, y: -4 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
@@ -102,16 +106,16 @@ const UseCases = memo(function UseCases() {
             
             {/* Content - SECOND in DOM for mobile, FIRST on desktop (lg:order-1) */}
             <motion.div 
-              className="lg:order-1"
+              className="lg:order-1 group"
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             >
-              <h3 className="mb-4 font-display text-3xl font-bold uppercase tracking-[0.03em] text-white">
+              <h3 className="mb-4 font-display text-3xl font-bold uppercase tracking-[0.03em] text-white transition-colors duration-300 group-hover:text-red-400">
                 Glute-Ham Raises
               </h3>
-              <p className="mb-4 text-white/70 font-light">
+              <p className="mb-4 text-white/70 font-light leading-relaxed">
                 Complete posterior chain activation for comprehensive lower body development.
               </p>
               <ul className="space-y-2 text-white/60 font-light" role="list">
@@ -137,9 +141,10 @@ const UseCases = memo(function UseCases() {
             <motion.div 
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
+              whileHover={shouldReduceMotion ? {} : { scale: 1.02, y: -4 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="relative aspect-[4/5] rounded-lg overflow-hidden"
+              className="relative aspect-[4/5] rounded-lg overflow-hidden border border-zinc-800/60 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-[0_10px_30px_rgba(220,38,38,0.2)]"
             >
               <Image
                 src="/images/training/adjustment-mechanism-detail.jpg"
@@ -159,11 +164,12 @@ const UseCases = memo(function UseCases() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="group"
             >
-              <h3 className="mb-4 font-display text-3xl font-bold uppercase tracking-[0.03em] text-white">
+              <h3 className="mb-4 font-display text-3xl font-bold uppercase tracking-[0.03em] text-white transition-colors duration-300 group-hover:text-red-400">
                 Progressive Overload
               </h3>
-              <p className="mb-4 text-white/70 font-light">
+              <p className="mb-4 text-white/70 font-light leading-relaxed">
                 Adjustable resistance system for continuous strength progression.
               </p>
               <ul className="space-y-2 text-white/60 font-light" role="list">

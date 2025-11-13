@@ -16,8 +16,11 @@
 'use client'
 
 import { memo } from 'react'
+import { motion, useReducedMotion } from 'framer-motion'
 
 const FootplateFeatures = memo(function FootplateFeatures() {
+  const shouldReduceMotion = useReducedMotion()
+
   return (
     <section
       id="features"
@@ -33,7 +36,7 @@ const FootplateFeatures = memo(function FootplateFeatures() {
           >
             Technical Specifications
           </h2>
-          <p className="mt-4 text-lg text-white/70">
+          <p className="mt-4 text-lg text-white/70 leading-relaxed">
             Patent-pending design engineered for elite performance
           </p>
         </div>
@@ -41,53 +44,70 @@ const FootplateFeatures = memo(function FootplateFeatures() {
         {/* Feature Grid Placeholder */}
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {/* Feature Card 1 */}
-          <div className="rounded-xl border border-white/10 bg-black/40 p-8 backdrop-blur-sm">
-            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10">
-              <div className="h-6 w-6 rounded bg-accent" aria-hidden="true" />
+          <motion.div
+            whileHover={shouldReduceMotion ? {} : { y: -4, scale: 1.02 }}
+            transition={{ duration: 0.3 }}
+            className="group rounded-xl border border-zinc-800/60 bg-zinc-950/40 p-8 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-[0_10px_30px_rgba(220,38,38,0.2)]"
+          >
+            <div className="relative mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-red-900/20 border border-red-900/40 backdrop-blur-sm">
+              <div className="h-7 w-7 rounded bg-red-500" aria-hidden="true" />
+              <div className="absolute inset-0 rounded-2xl bg-red-500/10 blur-xl" aria-hidden="true" />
             </div>
-            <h3 className="mb-2 font-display text-xl font-bold uppercase tracking-[0.03em] text-white">
+            <h3 className="mb-2 font-display text-xl font-bold uppercase tracking-[0.03em] text-white transition-colors duration-300 group-hover:text-red-400">
               Precision Engineering
             </h3>
-            <p className="text-white/60">
+            <p className="text-white/60 leading-relaxed">
               CNC-machined aluminum construction for unmatched durability
             </p>
-          </div>
+          </motion.div>
 
           {/* Feature Card 2 */}
-          <div className="rounded-xl border border-white/10 bg-black/40 p-8 backdrop-blur-sm">
-            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10">
-              <div className="h-6 w-6 rounded bg-accent" aria-hidden="true" />
+          <motion.div
+            whileHover={shouldReduceMotion ? {} : { y: -4, scale: 1.02 }}
+            transition={{ duration: 0.3 }}
+            className="group rounded-xl border border-zinc-800/60 bg-zinc-950/40 p-8 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-[0_10px_30px_rgba(220,38,38,0.2)]"
+          >
+            <div className="relative mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-red-900/20 border border-red-900/40 backdrop-blur-sm">
+              <div className="h-7 w-7 rounded bg-red-500" aria-hidden="true" />
+              <div className="absolute inset-0 rounded-2xl bg-red-500/10 blur-xl" aria-hidden="true" />
             </div>
-            <h3 className="mb-2 font-display text-xl font-bold uppercase tracking-[0.03em] text-white">
+            <h3 className="mb-2 font-display text-xl font-bold uppercase tracking-[0.03em] text-white transition-colors duration-300 group-hover:text-red-400">
               Universal Compatibility
             </h3>
-            <p className="text-white/60">
+            <p className="text-white/60 leading-relaxed">
               Fits standard power racks with 2x2" or 3x3" uprights
             </p>
-          </div>
+          </motion.div>
 
           {/* Feature Card 3 */}
-          <div className="rounded-xl border border-white/10 bg-black/40 p-8 backdrop-blur-sm">
-            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10">
-              <div className="h-6 w-6 rounded bg-accent" aria-hidden="true" />
+          <motion.div
+            whileHover={shouldReduceMotion ? {} : { y: -4, scale: 1.02 }}
+            transition={{ duration: 0.3 }}
+            className="group rounded-xl border border-zinc-800/60 bg-zinc-950/40 p-8 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-[0_10px_30px_rgba(220,38,38,0.2)]"
+          >
+            <div className="relative mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-red-900/20 border border-red-900/40 backdrop-blur-sm">
+              <div className="h-7 w-7 rounded bg-red-500" aria-hidden="true" />
+              <div className="absolute inset-0 rounded-2xl bg-red-500/10 blur-xl" aria-hidden="true" />
             </div>
-            <h3 className="mb-2 font-display text-xl font-bold uppercase tracking-[0.03em] text-white">
+            <h3 className="mb-2 font-display text-xl font-bold uppercase tracking-[0.03em] text-white transition-colors duration-300 group-hover:text-red-400">
               Biomechanical Optimized
             </h3>
-            <p className="text-white/60">
+            <p className="text-white/60 leading-relaxed">
               Designed for optimal posterior chain activation
             </p>
-          </div>
+          </motion.div>
         </div>
 
         {/* Technical Specs Link (Optional) */}
         <div className="mt-16 text-center">
-          <a
+          <motion.a
             href="/specifications"
-            className="inline-block text-sm font-semibold uppercase tracking-[0.2em] text-accent transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+            whileHover={shouldReduceMotion ? {} : { scale: 1.05 }}
+            whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
+            className="inline-block text-sm font-semibold uppercase tracking-[0.2em] text-accent transition-colors duration-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-black"
           >
             View Full Specifications →
-          </a>
+          </motion.a>
         </div>
       </div>
     </section>
