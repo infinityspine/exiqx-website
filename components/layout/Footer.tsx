@@ -9,17 +9,17 @@ function FooterGlowBar() {
   return (
     <div
       className="
-        pointer-events-none
-        absolute left-0 top-0 w-full
-        h-[3px]
-        bg-gradient-to-r from-red-600/60 via-red-500/80 to-red-600/60
-        animate-footerGlowStrong
-        shadow-[0_0_25px_6px_rgba(229,9,20,0.45)]
+        absolute left-0 top-0
+        h-[2px]
+        w-full
         rounded-full
+        bg-gradient-to-r
+        from-red-600/40 via-red-500/55 to-red-600/40
+        shadow-[0_0_18px_4px_rgba(229,9,20,0.28)]
+        blur-[2px]
+        animate-footerGlowStrong
+        pointer-events-none
       "
-      style={{
-        filter: "blur(3px)",
-      }}
     />
   );
 }
