@@ -5,22 +5,31 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 // Tesla-style glowing border bar above footer
-const FooterGlowBar = () => (
-  <div
-    className="
-      relative w-full h-[2px]
-      bg-gradient-to-r from-transparent via-red-500/40 to-transparent
-      animate-footerGlow
-    "
-  />
-)
+function FooterGlowBar() {
+  return (
+    <div
+      className="
+        pointer-events-none
+        absolute left-0 top-0 w-full
+        h-[3px]
+        bg-gradient-to-r from-red-600/60 via-red-500/80 to-red-600/60
+        animate-footerGlowStrong
+        shadow-[0_0_25px_6px_rgba(229,9,20,0.45)]
+        rounded-full
+      "
+      style={{
+        filter: "blur(3px)",
+      }}
+    />
+  );
+}
 
 const Footer = memo(function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
     <footer
-      className="bg-black text-white pt-24 pb-20 px-6 md:px-12 border-t border-white/5"
+      className="relative bg-black text-white pt-24 pb-20 px-6 md:px-12 border-t border-white/5"
       aria-labelledby="footer-heading"
     >
       <h2 id="footer-heading" className="sr-only">

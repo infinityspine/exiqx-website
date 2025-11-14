@@ -255,3 +255,22 @@ a:hover {
 .animate-footerGlow {
   animation: footerGlow 4s ease-in-out infinite;
 }
+
+@keyframes footerGlowStrong {
+  0% {
+    opacity: 0.55;
+    filter: blur(3px);
+  }
+  50% {
+    opacity: 0.9;
+    filter: blur(5px);
+  }
+  100% {
+    opacity: 0.55;
+    filter: blur(3px);
+  }
+}
+
+.animate-footerGlowStrong {
+  animation: footerGlowStrong 3.5s ease-in-out infinite;
+}
