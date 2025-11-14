@@ -257,20 +257,22 @@ a:hover {
 }
 
 @keyframes footerGlowStrong {
+  /* Lightened, softer, more premium cinematic glow */
   0% {
-    opacity: 0.55;
-    filter: blur(3px);
+    opacity: 0.35;
+    filter: blur(2px);
   }
   50% {
-    opacity: 0.9;
-    filter: blur(5px);
-  }
-  100% {
     opacity: 0.55;
     filter: blur(3px);
+  }
+  100% {
+    opacity: 0.35;
+    filter: blur(2px);
   }
 }
 
 .animate-footerGlowStrong {
-  animation: footerGlowStrong 3.5s ease-in-out infinite;
+  /* Slightly longer + softer for premium feel */
+  animation: footerGlowStrong 4.2s ease-in-out infinite;
 }
