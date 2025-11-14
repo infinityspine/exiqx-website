@@ -9,8 +9,7 @@ const Footer = memo(function Footer() {
 
   return (
     <footer
-      className="relative bg-black px-6 sm:px-8"
-      style={{ paddingTop: 'clamp(5rem, 10vw, 8rem)', paddingBottom: 'clamp(4rem, 8vw, 6rem)' }}
+      className="bg-black text-white pt-24 pb-20 px-6 md:px-12 border-t border-white/5"
       aria-labelledby="footer-heading"
     >
       <h2 id="footer-heading" className="sr-only">
@@ -84,8 +83,8 @@ const Footer = memo(function Footer() {
 
           {/* Products Column */}
           <div>
-            <h3 className="font-semibold uppercase tracking-[0.15em] text-white font-inter" style={{ fontSize: 'clamp(0.75rem, 1.5vw, 0.875rem)', marginBottom: 'clamp(1.25rem, 2.5vw, 1.75rem)' }}>
-              Products
+            <h3 className="text-xs font-semibold uppercase text-white/50 tracking-wider mb-8">
+              PRODUCTS
             </h3>
             <ul style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(0.875rem, 1.5vw, 1.125rem)' }} role="list">
               <li><Link href="/rack-mounted" className="text-white/60 hover:text-white font-inter transition-colors" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1rem)', lineHeight: '1.6' }}>Rack-Mounted Footplate</Link></li>
@@ -96,8 +95,8 @@ const Footer = memo(function Footer() {
 
           {/* Company Column */}
           <div>
-            <h3 className="font-semibold uppercase tracking-[0.15em] text-white font-inter" style={{ fontSize: 'clamp(0.75rem, 1.5vw, 0.875rem)', marginBottom: 'clamp(1.25rem, 2.5vw, 1.75rem)' }}>
-              Company
+            <h3 className="text-xs font-semibold uppercase text-white/50 tracking-wider mb-8">
+              COMPANY
             </h3>
             <ul style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(0.875rem, 1.5vw, 1.125rem)' }} role="list">
               <li><Link href="/about" className="text-white/60 hover:text-white font-inter transition-colors" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1rem)', lineHeight: '1.6' }}>About Us</Link></li>
@@ -108,8 +107,8 @@ const Footer = memo(function Footer() {
 
           {/* Support Column */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider mb-4 text-white font-inter">
-              Support
+            <h3 className="text-xs font-semibold uppercase text-white/50 tracking-wider mb-8">
+              SUPPORT
             </h3>
             <ul className="flex flex-col space-y-3" role="list">
               <li><Link href="/faq" className="text-sm opacity-70 hover:opacity-100 transition-opacity font-inter">FAQ</Link></li>
@@ -119,35 +118,34 @@ const Footer = memo(function Footer() {
           </div>
         </div>
 
-        {/* Divider */}
-        <div className="h-px bg-white/10" style={{ marginTop: 'clamp(3rem, 6vw, 5rem)', marginBottom: 'clamp(3rem, 6vw, 5rem)' }} role="separator" />
-
         {/* Bottom Footer */}
-        <div className="flex flex-col items-center justify-between sm:flex-row" style={{ gap: 'clamp(1.5rem, 3vw, 2rem)' }}>
-          <p className="text-white/40 font-inter" style={{ fontSize: 'clamp(0.8125rem, 1.5vw, 0.875rem)' }}>
+        <div className="border-t border-white/5 mt-16 pt-10 text-white/50 text-xs md:text-sm flex flex-col md:flex-row md:items-center md:justify-between">
+          <p>
             © {currentYear} ExIQx Performance. All rights reserved.
           </p>
 
           <div className="flex flex-col items-center text-center space-y-4">
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-white/40">
-              Legal
-            </h4>
+            <h3 className="text-xs font-semibold uppercase text-white/50 tracking-wider mb-6">
+              LEGAL
+            </h3>
 
             <div className="flex flex-col space-y-3">
               <Link
                 href="/privacy-policy"
-                className="text-white/70 hover:text-white transition-all duration-300 hover:-translate-y-[2px] hover:scale-[1.02] will-change-transform"
+                className="relative text-white/70 hover:text-white transition-all duration-300 hover:-translate-y-[2px] hover:scale-[1.02] will-change-transform pb-[2px]"
                 style={{ fontSize: 'clamp(0.8125rem, 1.5vw, 0.875rem)' }}
               >
                 Privacy Policy
+                <span className="absolute left-0 -bottom-[2px] h-[1px] w-0 bg-white/60 transition-all duration-300 hover:w-full"></span>
               </Link>
 
               <Link
                 href="/terms-of-service"
-                className="text-white/70 hover:text-white transition-all duration-300 hover:-translate-y-[2px] hover:scale-[1.02] will-change-transform"
+                className="relative text-white/70 hover:text-white transition-all duration-300 hover:-translate-y-[2px] hover:scale-[1.02] will-change-transform pb-[2px]"
                 style={{ fontSize: 'clamp(0.8125rem, 1.5vw, 0.875rem)' }}
               >
                 Terms of Service
+                <span className="absolute left-0 -bottom-[2px] h-[1px] w-0 bg-white/60 transition-all duration-300 hover:w-full"></span>
               </Link>
             </div>
           </div>
