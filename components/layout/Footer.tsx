@@ -128,13 +128,48 @@ const Footer = memo(function Footer() {
             © {currentYear} ExIQx Performance. All rights reserved.
           </p>
 
-          <div className="flex" style={{ gap: 'clamp(1.5rem, 3vw, 2rem)' }}>
-            <Link href="/privacy-policy" className="text-white/40 hover:text-white font-inter transition-colors" style={{ fontSize: 'clamp(0.8125rem, 1.5vw, 0.875rem)' }}>
-              Privacy Policy
-            </Link>
-            <Link href="/terms-of-service" className="text-white/40 hover:text-white font-inter transition-colors" style={{ fontSize: 'clamp(0.8125rem, 1.5vw, 0.875rem)' }}>
-              Terms of Service
-            </Link>
+          <div className="mt-12 md:mt-0">
+            <h3 className="text-xs uppercase tracking-wider text-white/40 mb-4">
+              Legal
+            </h3>
+
+            <div className="space-y-3">
+              <a
+                href="/privacy-policy"
+                className="
+                  text-white/70 
+                  hover:text-white
+                  transition-all 
+                  duration-300 
+                  inline-block 
+                  will-change-transform 
+                  transform 
+                  hover:-translate-y-[2px] 
+                  hover:scale-[1.02]
+                "
+                style={{ fontSize: 'clamp(0.8125rem, 1.5vw, 0.875rem)' }}
+              >
+                Privacy Policy
+              </a>
+
+              <a
+                href="/terms-of-service"
+                className="
+                  text-white/70 
+                  hover:text-white
+                  transition-all 
+                  duration-300 
+                  inline-block 
+                  will-change-transform 
+                  transform 
+                  hover:-translate-y-[2px] 
+                  hover:scale-[1.02]
+                "
+                style={{ fontSize: 'clamp(0.8125rem, 1.5vw, 0.875rem)' }}
+              >
+                Terms of Service
+              </a>
+            </div>
           </div>
         </div>
 
