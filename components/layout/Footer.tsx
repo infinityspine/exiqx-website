@@ -129,10 +129,10 @@ const Footer = memo(function Footer() {
           </p>
 
           <div className="flex" style={{ gap: 'clamp(1.5rem, 3vw, 2rem)' }}>
-            <Link href="/privacy" className="text-white/40 hover:text-white font-inter transition-colors" style={{ fontSize: 'clamp(0.8125rem, 1.5vw, 0.875rem)' }}>
+            <Link href="/privacy-policy" className="text-white/40 hover:text-white font-inter transition-colors" style={{ fontSize: 'clamp(0.8125rem, 1.5vw, 0.875rem)' }}>
               Privacy Policy
             </Link>
-            <Link href="/terms" className="text-white/40 hover:text-white font-inter transition-colors" style={{ fontSize: 'clamp(0.8125rem, 1.5vw, 0.875rem)' }}>
+            <Link href="/terms-of-service" className="text-white/40 hover:text-white font-inter transition-colors" style={{ fontSize: 'clamp(0.8125rem, 1.5vw, 0.875rem)' }}>
               Terms of Service
             </Link>
           </div>
