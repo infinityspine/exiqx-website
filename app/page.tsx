@@ -1,25 +1,12 @@
 'use client'
 
-import { useState } from 'react'
-import { motion, useReducedMotion, useScroll, useSpring, useTransform } from 'framer-motion'
+import { motion, useReducedMotion, useScroll, useSpring } from 'framer-motion'
+import { fadeUp, staggerChildren } from '@/lib/motionPresets'
 import HeroSection from '@/components/sections/HeroSection'
 import FootplateFeatures from '@/components/sections/FootplateFeatures'
 import UseCases from '@/components/sections/UseCases'
 import Testimonials from '@/components/sections/Testimonials'
 import HomePageCTA from '@/components/sections/HomePageCTA'
-
-// Animation variants for smooth section reveals with Apple-style easing - optimized
-const sectionVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
-    },
-  },
-}
 
 // Premium separator component
 const PremiumSeparator = () => (
