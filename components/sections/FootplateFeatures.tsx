@@ -193,14 +193,9 @@ const FootplateFeatures = memo(function FootplateFeatures({
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeUp}
         >
-          <motion.a
-            href="/specifications"
-            whileHover={shouldReduceMotion ? {} : { scale: 1.05 }}
-            whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
-            className="inline-block text-sm font-semibold uppercase tracking-[0.2em] text-accent transition-colors duration-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-black"
-          >
+          <GroundForceLink href="/specifications">
             View Full Specifications →
-          </motion.a>
+          </GroundForceLink>
         </motion.div>
       </div>
     </section>

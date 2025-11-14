@@ -3,6 +3,8 @@
 import { motion, useScroll, useSpring, useReducedMotion } from 'framer-motion'
 import { fadeUp, staggerChildren } from '@/lib/motionPresets'
 import { useParallax } from '@/hooks/useParallax'
+import SectionDivider from '@/components/ui/SectionDivider'
+import GroundForceLink from '@/components/ui/GroundForceLink'
 import { Zap, Settings, Cog, Target, Award } from 'lucide-react'
 
 // Premium separator component
@@ -146,8 +148,7 @@ export default function TechnologyPage() {
           </div>
         </motion.section>
 
-        {/* Premium Separator */}
-        <PremiumSeparator />
+        <SectionDivider />
 
         {/* Why We Invented Section */}
         <motion.section
@@ -223,8 +224,7 @@ export default function TechnologyPage() {
           </div>
         </motion.section>
 
-        {/* Premium Separator */}
-        <PremiumSeparator />
+        <SectionDivider />
 
         {/* Closed-Chain Plantarflexion Section */}
         <motion.section
@@ -266,10 +266,15 @@ export default function TechnologyPage() {
                 </div>
               </motion.div>
               <motion.h2 
-                className="font-display font-extrabold uppercase tracking-[0.05em] text-white leading-tight break-words"
+                className="font-display font-extrabold uppercase tracking-[0.05em] text-white leading-tight break-words will-change-transform"
                 style={{ 
                   fontSize: 'clamp(1.75rem, 6vw, 3rem)',
-                  lineHeight: '1.2'
+                  lineHeight: '1.2',
+                  transform: 'translateZ(0)'
+                }}
+                whileHover={shouldReduceMotion ? {} : {
+                  scale: 1.01,
+                  transition: { type: "spring", stiffness: 120, damping: 18 }
                 }}
               >
                 Closed-Chain Plantarflexion
@@ -291,10 +296,10 @@ export default function TechnologyPage() {
             >
               <div className="text-base sm:text-lg text-white/70 font-light leading-relaxed">
                 <p style={{ marginBottom: 'clamp(2rem, 4vw, 3rem)' }}>
-                  ExIQx technology is engineered around user-adjustable closed-chain plantarflexion mechanics, allowing precise alignment from 10° to 70° to match each athlete's preferred loading angle, performance objective, or rehabilitation phase.
+                  ExIQx technology is engineered around user-adjustable <span className="text-red-500/90">closed-chain plantarflexion</span> mechanics, allowing precise alignment from 10° to 70° to match each athlete's preferred loading angle, performance objective, or rehabilitation phase.
                 </p>
                 <p style={{ marginBottom: 'clamp(2rem, 4vw, 3rem)' }}>
-                  Each interval positions the user in a true ground-force vector, directing load through the plantar surface of the foot—from the metatarsal heads and ball of the foot, through the ankle complex, calves, hamstrings, glutes, and spinal erectors.
+                  Each interval positions the user in a true <span className="text-red-500/90">ground-force vector</span>, directing load through the plantar surface of the foot—from the <span className="text-red-500/90">metatarsal heads</span> and ball of the foot, through the ankle complex, calves, hamstrings, glutes, and spinal erectors.
                 </p>
                 <p>
                   This closed-chain configuration mimics sprinting, jumping, and human gait, ensuring authentic kinetic sequence engagement.
@@ -304,8 +309,7 @@ export default function TechnologyPage() {
           </div>
         </motion.section>
 
-        {/* Premium Separator */}
-        <PremiumSeparator />
+        <SectionDivider />
 
         {/* Precision Engineering Section */}
         <motion.section
@@ -380,8 +384,7 @@ export default function TechnologyPage() {
           </div>
         </motion.section>
 
-        {/* Premium Separator */}
-        <PremiumSeparator />
+        <SectionDivider />
 
         {/* Performance Outcomes Section */}
         <motion.section
@@ -467,8 +470,7 @@ export default function TechnologyPage() {
           </div>
         </motion.section>
 
-        {/* Premium Separator */}
-        <PremiumSeparator />
+        <SectionDivider />
 
         {/* Technical Specifications CTA Section */}
         <motion.section
@@ -543,20 +545,11 @@ export default function TechnologyPage() {
               </p>
             </motion.div>
 
-            <motion.a
-              href="/specifications"
-              variants={fadeUp}
-              whileHover={shouldReduceMotion ? {} : { 
-                scale: 1.05, 
-                y: -3,
-                transition: { type: "spring", stiffness: 200, damping: 20 }
-              }}
-              transition={{ type: "spring", stiffness: 200, damping: 20 }}
-              className="inline-block rounded-xl bg-accent px-10 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition-all duration-300 hover:bg-red-700 hover:shadow-[0_10px_30px_rgba(220,38,38,0.55)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-black will-change-transform"
-              style={{ transform: 'translateZ(0)' }}
-            >
-              View Full Specifications →
-            </motion.a>
+            <motion.div variants={fadeUp}>
+              <GroundForceLink href="/specifications">
+                View Full Specifications →
+              </GroundForceLink>
+            </motion.div>
           </div>
         </motion.section>
       </main>

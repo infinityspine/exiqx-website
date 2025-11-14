@@ -2,19 +2,12 @@
 
 import { motion, useReducedMotion, useScroll, useSpring } from 'framer-motion'
 import { fadeUp, staggerChildren } from '@/lib/motionPresets'
+import SectionDivider from '@/components/ui/SectionDivider'
 import HeroSection from '@/components/sections/HeroSection'
 import FootplateFeatures from '@/components/sections/FootplateFeatures'
 import UseCases from '@/components/sections/UseCases'
 import Testimonials from '@/components/sections/Testimonials'
 import HomePageCTA from '@/components/sections/HomePageCTA'
-
-// Premium separator component
-const PremiumSeparator = () => (
-  <div className="relative h-px max-w-7xl mx-auto" aria-hidden="true">
-    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-red-500/20 to-transparent" />
-    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-red-500/20 to-transparent blur-sm" />
-  </div>
-)
 
 // Optimized gradient orb component - simplified for performance
 const AnimatedGradientOrb = ({ 
@@ -73,8 +66,7 @@ export default function Home() {
         {/* Hero Section - NO WRAPPER, preserve existing animations */}
         <HeroSection />
 
-      {/* Premium Separator */}
-      <PremiumSeparator />
+      <SectionDivider />
 
       {/* FootplateFeatures Section */}
       <motion.section
@@ -97,8 +89,7 @@ export default function Home() {
         />
       </motion.section>
 
-      {/* Premium Separator */}
-      <PremiumSeparator />
+      <SectionDivider />
 
       {/* UseCases Section */}
       <motion.section
@@ -121,8 +112,7 @@ export default function Home() {
         />
       </motion.section>
 
-      {/* Premium Separator */}
-      <PremiumSeparator />
+      <SectionDivider />
 
       {/* Testimonials Section */}
       <motion.section
@@ -144,8 +134,7 @@ export default function Home() {
         />
       </motion.section>
 
-      {/* Premium Separator */}
-      <PremiumSeparator />
+      <SectionDivider />
 
       {/* HomePageCTA Section */}
       <motion.section
