@@ -111,11 +111,11 @@ export default function Home() {
         <AnimatedGradientOrb 
           className="top-0 right-1/4 w-96 h-96" 
           delay={0}
-          shouldReduceMotion={shouldReduceMotion}
+          shouldReduceMotion={!!shouldReduceMotion}
         />
         <FootplateFeatures 
           scrollYProgress={scrollYProgress}
-          shouldReduceMotion={shouldReduceMotion}
+          shouldReduceMotion={!!shouldReduceMotion}
         />
       </motion.section>
 
@@ -138,11 +138,11 @@ export default function Home() {
         <AnimatedGradientOrb 
           className="top-1/4 left-0 w-72 h-72" 
           delay={1}
-          shouldReduceMotion={shouldReduceMotion}
+          shouldReduceMotion={!!shouldReduceMotion}
         />
         <UseCases 
           scrollYProgress={scrollYProgress}
-          shouldReduceMotion={shouldReduceMotion}
+          shouldReduceMotion={!!shouldReduceMotion}
         />
       </motion.section>
 
@@ -165,10 +165,10 @@ export default function Home() {
         <AnimatedGradientOrb 
           className="top-0 left-1/3 w-80 h-80" 
           delay={0.5}
-          shouldReduceMotion={shouldReduceMotion}
+          shouldReduceMotion={!!shouldReduceMotion}
         />
         <Testimonials 
-          shouldReduceMotion={shouldReduceMotion}
+          shouldReduceMotion={!!shouldReduceMotion}
         />
       </motion.section>
 
@@ -191,11 +191,11 @@ export default function Home() {
         <AnimatedGradientOrb 
           className="top-1/2 left-1/4 w-96 h-96" 
           delay={1.5}
-          shouldReduceMotion={shouldReduceMotion}
+          shouldReduceMotion={!!shouldReduceMotion}
         />
         <HomePageCTA 
           scrollYProgress={scrollYProgress}
-          shouldReduceMotion={shouldReduceMotion}
+          shouldReduceMotion={!!shouldReduceMotion}
         />
       </motion.section>
       </main>

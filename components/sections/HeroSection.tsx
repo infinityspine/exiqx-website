@@ -271,7 +271,7 @@ const HeroSection = memo(function HeroSection({
             <CTAButton
               key={button.href}
               button={button}
-              shouldReduceMotion={shouldReduceMotion}
+              shouldReduceMotion={!!shouldReduceMotion}
             />
           ))}
         </motion.div>

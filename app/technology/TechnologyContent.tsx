@@ -137,13 +137,13 @@ export default function TechnologyPage() {
           <AnimatedGradientOrb 
             className="top-0 right-1/4 w-96 h-96" 
             delay={0}
-            shouldReduceMotion={shouldReduceMotion}
+            shouldReduceMotion={!!shouldReduceMotion}
             style={{ y: orb1Y }}
           />
           <AnimatedGradientOrb 
             className="bottom-0 left-1/4 w-80 h-80 bg-blue-500/10" 
             delay={2}
-            shouldReduceMotion={shouldReduceMotion}
+            shouldReduceMotion={!!shouldReduceMotion}
             style={{ y: orb2Y }}
           />
 
@@ -197,7 +197,7 @@ export default function TechnologyPage() {
           <AnimatedGradientOrb 
             className="top-1/4 left-0 w-72 h-72" 
             delay={1}
-            shouldReduceMotion={shouldReduceMotion}
+            shouldReduceMotion={!!shouldReduceMotion}
             style={{ y: orb3Y }}
           />
 
@@ -276,7 +276,7 @@ export default function TechnologyPage() {
           <AnimatedGradientOrb 
             className="top-0 right-1/3 w-80 h-80" 
             delay={0.5}
-            shouldReduceMotion={shouldReduceMotion}
+            shouldReduceMotion={!!shouldReduceMotion}
             style={{ y: orb4Y }}
           />
 
@@ -356,7 +356,7 @@ export default function TechnologyPage() {
           <AnimatedGradientOrb 
             className="bottom-0 left-1/4 w-96 h-96 bg-blue-500/10" 
             delay={1.5}
-            shouldReduceMotion={shouldReduceMotion}
+            shouldReduceMotion={!!shouldReduceMotion}
             style={{ y: orb5Y }}
           />
 
@@ -433,7 +433,7 @@ export default function TechnologyPage() {
           <AnimatedGradientOrb 
             className="top-1/2 left-1/4 w-96 h-96" 
             delay={2}
-            shouldReduceMotion={shouldReduceMotion}
+            shouldReduceMotion={!!shouldReduceMotion}
             style={{ y: orb6Y }}
           />
 
@@ -515,7 +515,7 @@ export default function TechnologyPage() {
           <AnimatedGradientOrb 
             className="top-0 right-1/2 w-72 h-72 bg-blue-500/10" 
             delay={2.5}
-            shouldReduceMotion={shouldReduceMotion}
+            shouldReduceMotion={!!shouldReduceMotion}
           />
 
           <div className="mx-auto max-w-4xl px-6 text-center">

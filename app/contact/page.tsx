@@ -110,13 +110,13 @@ export default function ContactPage() {
           <AnimatedGradientOrb 
             className="top-0 right-1/4 w-96 h-96" 
             delay={0}
-            shouldReduceMotion={shouldReduceMotion}
+            shouldReduceMotion={!!shouldReduceMotion}
             style={{ y: orb1Y }}
           />
           <AnimatedGradientOrb 
             className="bottom-0 left-1/4 w-80 h-80 bg-blue-500/10" 
             delay={2}
-            shouldReduceMotion={shouldReduceMotion}
+            shouldReduceMotion={!!shouldReduceMotion}
             style={{ y: orb2Y }}
           />
 
@@ -170,7 +170,7 @@ export default function ContactPage() {
           <AnimatedGradientOrb 
             className="top-1/4 left-0 w-72 h-72" 
             delay={1}
-            shouldReduceMotion={shouldReduceMotion}
+            shouldReduceMotion={!!shouldReduceMotion}
             style={{ y: orb3Y }}
           />
 
