@@ -57,7 +57,7 @@ const AnimatedGradientOrb = ({
 
 export default function AboutPage() {
   const reducedMotion = useReducedMotion()
-  const shouldReduceMotion = reducedMotion ?? false
+  const shouldReduceMotion = !!reducedMotion
   const { scrollYProgress } = useScroll()
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -65,27 +65,10 @@ export default function AboutPage() {
     restDelta: 0.001,
   })
 
-  // Parallax transforms for content containers
+
+  // Optimized parallax transforms - reduced to essential only
   const heroY = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0, 0.15], [0, -50])
-  const section1Y = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0.1, 0.3], [50, -30])
-  const section2Y = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0.25, 0.45], [50, -30])
-  const section3Y = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0.4, 0.6], [50, -30])
-  const section4Y = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0.55, 0.75], [50, -30])
-
-  // Heading blur-to-sharp reveals
-  const heroHeadingBlur = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0, 0.1], [8, 0])
-  const section1HeadingBlur = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0.1, 0.2], [8, 0])
-  const section2HeadingBlur = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0.25, 0.35], [8, 0])
-  const section3HeadingBlur = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0.4, 0.5], [8, 0])
-  const section4HeadingBlur = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0.55, 0.65], [8, 0])
-
-  // Scroll-responsive gradient orb transforms
-  const orb1Y = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0, 1], [0, -150])
-  const orb2Y = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0, 1], [0, 100])
-  const orb3Y = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0, 1], [0, -120])
-  const orb4Y = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0, 1], [0, 80])
-  const orb5Y = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0, 1], [0, -100])
-  const orb6Y = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0, 1], [0, 90])
+  const contentParallax = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0.2, 0.8], [30, -30])
 
   return (
     <>
@@ -117,13 +100,11 @@ export default function AboutPage() {
             className="top-0 right-1/4 w-96 h-96" 
             delay={0}
             shouldReduceMotion={!!shouldReduceMotion}
-            style={{ y: orb1Y }}
           />
           <AnimatedGradientOrb 
             className="bottom-0 left-1/4 w-80 h-80 bg-blue-500/10" 
             delay={2}
             shouldReduceMotion={!!shouldReduceMotion}
-            style={{ y: orb2Y }}
           />
 
           <div className="mx-auto max-w-4xl px-6">
@@ -131,7 +112,6 @@ export default function AboutPage() {
               className="font-display text-5xl sm:text-6xl lg:text-7xl font-extrabold uppercase tracking-[0.05em] text-white"
               style={{ 
                 marginBottom: 'clamp(2rem, 4vw, 3rem)',
-                filter: heroHeadingBlur ? `blur(${heroHeadingBlur}px)` : undefined
               }}
             >
               About
@@ -159,7 +139,6 @@ export default function AboutPage() {
             className="top-1/4 left-0 w-72 h-72" 
             delay={1}
             shouldReduceMotion={!!shouldReduceMotion}
-            style={{ y: orb3Y }}
           />
 
           <div className="mx-auto max-w-4xl px-6">
@@ -185,7 +164,6 @@ export default function AboutPage() {
               <motion.h2 
                 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-[0.05em] text-white"
                 style={{ 
-                  filter: section1HeadingBlur ? `blur(${section1HeadingBlur}px)` : undefined
                 }}
               >
                 Our Philosophy
@@ -196,7 +174,8 @@ export default function AboutPage() {
               className="relative bg-zinc-950/40 backdrop-blur-sm border border-zinc-800/60 rounded-2xl shadow-2xl overflow-hidden"
               style={{ 
                 padding: 'clamp(2.5rem, 5vw, 4rem)',
-                y: section1Y
+                y: contentParallax,
+                transform: 'translateZ(0)'
               }}
               whileHover={shouldReduceMotion ? {} : {
                 borderColor: 'rgba(127, 29, 29, 0.6)',
@@ -235,7 +214,6 @@ export default function AboutPage() {
             className="top-0 right-1/3 w-80 h-80" 
             delay={0.5}
             shouldReduceMotion={!!shouldReduceMotion}
-            style={{ y: orb4Y }}
           />
 
           <div className="mx-auto max-w-4xl px-6">
@@ -262,7 +240,6 @@ export default function AboutPage() {
               <motion.h2 
                 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-[0.05em] text-white"
                 style={{ 
-                  filter: section2HeadingBlur ? `blur(${section2HeadingBlur}px)` : undefined
                 }}
               >
                 Our Approach
@@ -273,7 +250,8 @@ export default function AboutPage() {
               className="relative bg-zinc-950/40 backdrop-blur-sm border border-zinc-800/60 rounded-2xl shadow-2xl overflow-hidden"
               style={{ 
                 padding: 'clamp(2.5rem, 5vw, 4rem)',
-                y: section2Y
+                y: contentParallax,
+                transform: 'translateZ(0)'
               }}
               whileHover={shouldReduceMotion ? {} : {
                 borderColor: 'rgba(127, 29, 29, 0.6)',
@@ -312,7 +290,6 @@ export default function AboutPage() {
             className="bottom-0 left-1/4 w-96 h-96 bg-blue-500/10" 
             delay={1.5}
             shouldReduceMotion={!!shouldReduceMotion}
-            style={{ y: orb5Y }}
           />
 
           <div className="mx-auto max-w-4xl px-6">
@@ -339,7 +316,6 @@ export default function AboutPage() {
               <motion.h2 
                 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-[0.05em] text-white"
                 style={{ 
-                  filter: section3HeadingBlur ? `blur(${section3HeadingBlur}px)` : undefined
                 }}
               >
                 Our Standards
@@ -350,7 +326,8 @@ export default function AboutPage() {
               className="relative bg-zinc-950/40 backdrop-blur-sm border border-zinc-800/60 rounded-2xl shadow-2xl overflow-hidden"
               style={{ 
                 padding: 'clamp(2.5rem, 5vw, 4rem)',
-                y: section3Y
+                y: contentParallax,
+                transform: 'translateZ(0)'
               }}
               whileHover={shouldReduceMotion ? {} : {
                 borderColor: 'rgba(127, 29, 29, 0.6)',
@@ -389,7 +366,6 @@ export default function AboutPage() {
             className="top-1/2 left-1/4 w-96 h-96" 
             delay={2}
             shouldReduceMotion={!!shouldReduceMotion}
-            style={{ y: orb6Y }}
           />
 
           <div className="mx-auto max-w-4xl px-6">
@@ -416,7 +392,6 @@ export default function AboutPage() {
               <motion.h2 
                 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-[0.05em] text-white"
                 style={{ 
-                  filter: section4HeadingBlur ? `blur(${section4HeadingBlur}px)` : undefined
                 }}
               >
                 Our Mission
@@ -427,7 +402,8 @@ export default function AboutPage() {
               className="relative bg-zinc-950/40 backdrop-blur-sm border border-zinc-800/60 rounded-2xl shadow-2xl overflow-hidden"
               style={{ 
                 padding: 'clamp(2.5rem, 5vw, 4rem)',
-                y: section4Y
+                y: contentParallax,
+                transform: 'translateZ(0)'
               }}
               whileHover={shouldReduceMotion ? {} : {
                 borderColor: 'rgba(127, 29, 29, 0.6)',

@@ -57,7 +57,7 @@ const AnimatedGradientOrb = ({
 
 export default function ContactPage() {
   const reducedMotion = useReducedMotion()
-  const shouldReduceMotion = reducedMotion ?? false
+  const shouldReduceMotion = !!reducedMotion
   const { scrollYProgress } = useScroll()
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -65,20 +65,9 @@ export default function ContactPage() {
     restDelta: 0.001,
   })
 
-  // Parallax transforms for content containers
+  // Optimized parallax transforms - reduced to essential only
   const heroY = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0, 0.2], [0, -50])
-  const section1Y = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0.15, 0.4], [50, -30])
-  const section2Y = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0.35, 0.6], [50, -30])
-
-  // Heading blur-to-sharp reveals
-  const heroHeadingBlur = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0, 0.1], [8, 0])
-  const section1HeadingBlur = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0.15, 0.25], [8, 0])
-  const section2HeadingBlur = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0.35, 0.45], [8, 0])
-
-  // Scroll-responsive gradient orb transforms
-  const orb1Y = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0, 1], [0, -150])
-  const orb2Y = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0, 1], [0, 100])
-  const orb3Y = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0, 1], [0, -120])
+  const contentParallax = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0.2, 0.8], [30, -30])
 
   return (
     <>
@@ -110,13 +99,11 @@ export default function ContactPage() {
             className="top-0 right-1/4 w-96 h-96" 
             delay={0}
             shouldReduceMotion={!!shouldReduceMotion}
-            style={{ y: orb1Y }}
           />
           <AnimatedGradientOrb 
             className="bottom-0 left-1/4 w-80 h-80 bg-blue-500/10" 
             delay={2}
             shouldReduceMotion={!!shouldReduceMotion}
-            style={{ y: orb2Y }}
           />
 
           <div className="mx-auto max-w-4xl px-6">
@@ -124,7 +111,6 @@ export default function ContactPage() {
               className="font-display text-5xl sm:text-6xl lg:text-7xl font-extrabold uppercase tracking-[0.05em] text-white"
               style={{ 
                 marginBottom: 'clamp(2rem, 4vw, 3rem)',
-                filter: heroHeadingBlur ? `blur(${heroHeadingBlur}px)` : undefined
               }}
             >
               Contact
@@ -170,7 +156,6 @@ export default function ContactPage() {
             className="top-1/4 left-0 w-72 h-72" 
             delay={1}
             shouldReduceMotion={!!shouldReduceMotion}
-            style={{ y: orb3Y }}
           />
 
           <div className="mx-auto max-w-4xl px-6">
@@ -196,7 +181,6 @@ export default function ContactPage() {
               <motion.h2 
                 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-[0.05em] text-white"
                 style={{ 
-                  filter: section1HeadingBlur ? `blur(${section1HeadingBlur}px)` : undefined
                 }}
               >
                 Get In Touch
@@ -205,7 +189,8 @@ export default function ContactPage() {
 
             <motion.div
               style={{ 
-                y: section1Y
+                y: contentParallax,
+                transform: 'translateZ(0)'
               }}
             >
               <motion.a
@@ -270,7 +255,6 @@ export default function ContactPage() {
               <motion.h2 
                 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-[0.05em] text-white"
                 style={{ 
-                  filter: section2HeadingBlur ? `blur(${section2HeadingBlur}px)` : undefined
                 }}
               >
                 Response Time
@@ -281,7 +265,8 @@ export default function ContactPage() {
               className="relative bg-zinc-950/40 backdrop-blur-sm border border-zinc-800/60 rounded-2xl shadow-2xl overflow-hidden"
               style={{ 
                 padding: 'clamp(2.5rem, 5vw, 4rem)',
-                y: section2Y
+                y: contentParallax,
+                transform: 'translateZ(0)'
               }}
               whileHover={shouldReduceMotion ? {} : {
                 borderColor: 'rgba(127, 29, 29, 0.6)',
