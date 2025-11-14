@@ -18,6 +18,7 @@
 import { memo } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import { fadeUp, staggerChildren } from '@/lib/motionPresets'
+import GroundForceLink from '@/components/ui/GroundForceLink'
 
 interface FootplateFeaturesProps {
   scrollYProgress?: any

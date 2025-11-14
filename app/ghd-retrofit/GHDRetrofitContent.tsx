@@ -3,6 +3,7 @@
 
 import { motion, useScroll, useSpring, useReducedMotion } from 'framer-motion'
 import { fadeUp, staggerChildren } from '@/lib/motionPresets'
+import SectionDivider from '@/components/ui/SectionDivider'
 import GHDHero from '@/components/sections/GHDHero'
 import EngineeredForExcellenceSection from '@/components/sections/EngineeredForExcellence'
 import GHDFeatureDetail from '@/components/sections/GHDFeatureDetail'
@@ -11,13 +12,6 @@ import GHDSpecs from '@/components/sections/GHDSpecs'
 import CTASection from '@/components/sections/CTASection'
 import Testimonials from '@/components/sections/Testimonials'
 
-// Premium separator component
-const PremiumSeparator = () => (
-  <div className="relative h-px max-w-7xl mx-auto" aria-hidden="true">
-    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-red-500/20 to-transparent" />
-    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-red-500/20 to-transparent blur-sm" />
-  </div>
-)
 
 // Animated gradient orb component - optimized for performance
 const AnimatedGradientOrb = ({ 
@@ -91,8 +85,7 @@ export default function GHDRetrofitContent() {
           showShimmer={true}
         />
 
-        {/* Premium separator with glow */}
-        <PremiumSeparator />
+        <SectionDivider />
 
         {/* Key Benefits Grid */}
         <motion.section
@@ -142,8 +135,7 @@ export default function GHDRetrofitContent() {
           />
         </motion.section>
 
-        {/* Premium separator with glow */}
-        <PremiumSeparator />
+        <SectionDivider />
 
         {/* Feature Detail */}
         <motion.section
@@ -184,8 +176,7 @@ export default function GHDRetrofitContent() {
           </div>
         </motion.section>
 
-        {/* Premium separator with glow */}
-        <PremiumSeparator />
+        <SectionDivider />
 
         {/* Biomechanics */}
         <motion.section
@@ -219,8 +210,7 @@ export default function GHDRetrofitContent() {
           </div>
         </motion.section>
 
-        {/* Premium separator with glow */}
-        <PremiumSeparator />
+        <SectionDivider />
 
         {/* Technical Specs */}
         <motion.section
@@ -249,8 +239,7 @@ export default function GHDRetrofitContent() {
           </div>
         </motion.section>
 
-        {/* Premium separator with glow */}
-        <PremiumSeparator />
+        <SectionDivider />
 
         {/* Testimonials Section */}
         <motion.section
@@ -278,8 +267,7 @@ export default function GHDRetrofitContent() {
           </div>
         </motion.section>
 
-        {/* Premium separator with glow */}
-        <PremiumSeparator />
+        <SectionDivider />
 
         {/* Call to Action */}
         <motion.section

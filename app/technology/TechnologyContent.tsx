@@ -190,7 +190,12 @@ export default function TechnologyPage() {
                 </div>
               </motion.div>
               <motion.h2 
-                className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-[0.05em] text-white"
+                className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-[0.05em] text-white will-change-transform"
+                style={{ transform: 'translateZ(0)' }}
+                whileHover={shouldReduceMotion ? {} : {
+                  scale: 1.01,
+                  transition: { type: "spring", stiffness: 120, damping: 18 }
+                }}
               >
                 Why We Invented the ExIQx Footplate
               </motion.h2>
@@ -351,8 +356,11 @@ export default function TechnologyPage() {
                 </div>
               </motion.div>
               <motion.h2 
-                className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-[0.05em] text-white"
-                style={{ 
+                className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-[0.05em] text-white will-change-transform"
+                style={{ transform: 'translateZ(0)' }}
+                whileHover={shouldReduceMotion ? {} : {
+                  scale: 1.01,
+                  transition: { type: "spring", stiffness: 120, damping: 18 }
                 }}
               >
                 Precision Engineering
@@ -429,8 +437,11 @@ export default function TechnologyPage() {
                 </div>
               </motion.div>
               <motion.h2 
-                className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-[0.05em] text-white"
-                style={{ 
+                className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-[0.05em] text-white will-change-transform"
+                style={{ transform: 'translateZ(0)' }}
+                whileHover={shouldReduceMotion ? {} : {
+                  scale: 1.01,
+                  transition: { type: "spring", stiffness: 120, damping: 18 }
                 }}
               >
                 Performance Outcomes
@@ -518,8 +529,11 @@ export default function TechnologyPage() {
                 </div>
               </motion.div>
               <motion.h2 
-                className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-[0.05em] text-white"
-                style={{ 
+                className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-[0.05em] text-white will-change-transform"
+                style={{ transform: 'translateZ(0)' }}
+                whileHover={shouldReduceMotion ? {} : {
+                  scale: 1.01,
+                  transition: { type: "spring", stiffness: 120, damping: 18 }
                 }}
               >
                 Technical Specifications

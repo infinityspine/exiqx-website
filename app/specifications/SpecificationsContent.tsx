@@ -2,6 +2,8 @@
 
 import { motion, useScroll, useSpring, useReducedMotion } from 'framer-motion'
 import { fadeUp, staggerChildren } from '@/lib/motionPresets'
+import SectionDivider from '@/components/ui/SectionDivider'
+import GroundForceLink from '@/components/ui/GroundForceLink'
 import { FileText, Settings, Wrench, Mail, Activity } from 'lucide-react'
 
 const specifications = [
@@ -136,11 +138,7 @@ export default function SpecificationsContent() {
           <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent" />
         </section>
 
-        {/* Premium separator with glow */}
-        <div className="relative h-px max-w-7xl mx-auto" aria-hidden="true">
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-red-500/20 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-red-500/20 to-transparent blur-sm" />
-        </div>
+        <SectionDivider />
 
         {/* Section 1: Overview with enhanced styling */}
         <motion.section
@@ -197,10 +195,7 @@ export default function SpecificationsContent() {
           </div>
         </motion.section>
 
-        {/* Premium separator */}
-        <div className="relative h-px max-w-7xl mx-auto" aria-hidden="true">
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-zinc-700/40 to-transparent" />
-        </div>
+        <SectionDivider align="center" label="Technical Specifications" />
 
         {/* Section 2: Technical Specifications Table - Elite Edition */}
         <motion.section
@@ -301,10 +296,7 @@ export default function SpecificationsContent() {
           </div>
         </motion.section>
 
-        {/* Premium separator */}
-        <div className="relative h-px max-w-7xl mx-auto" aria-hidden="true">
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-zinc-700/40 to-transparent" />
-        </div>
+        <SectionDivider />
 
         {/* Section 3: Engineering Highlights - Elite Cards */}
         <motion.section
@@ -366,10 +358,7 @@ export default function SpecificationsContent() {
           </div>
         </motion.section>
 
-        {/* Premium separator */}
-        <div className="relative h-px max-w-7xl mx-auto" aria-hidden="true">
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-zinc-700/40 to-transparent" />
-        </div>
+        <SectionDivider />
 
         {/* Section 4: Biomechanical Summary - Elite Treatment */}
         <motion.section
@@ -456,10 +445,7 @@ export default function SpecificationsContent() {
           </div>
         </motion.section>
 
-        {/* Premium separator */}
-        <div className="relative h-px max-w-7xl mx-auto" aria-hidden="true">
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-zinc-700/40 to-transparent" />
-        </div>
+        <SectionDivider />
 
         {/* Section 5: Coming Soon - Elite Styling */}
         <motion.section
@@ -530,10 +516,7 @@ export default function SpecificationsContent() {
           </div>
         </motion.section>
 
-        {/* Premium separator */}
-        <div className="relative h-px max-w-7xl mx-auto" aria-hidden="true">
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-zinc-700/40 to-transparent" />
-        </div>
+        <SectionDivider />
 
         {/* Section 6: Download / Customization - Elite CTAs */}
         <motion.section
@@ -676,24 +659,17 @@ export default function SpecificationsContent() {
                     </p>
                   </motion.div>
 
-                  <motion.a
-                    href="mailto:info@exiqx.com"
-                    className="inline-flex items-center justify-center gap-3 px-10 py-4 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-red-900/50 hover:shadow-2xl will-change-transform"
-                    style={{ transform: 'translateZ(0)' }}
+                  <motion.div
                     variants={fadeUp}
-                    whileHover={shouldReduceMotion ? {} : { 
-                      scale: 1.05, 
-                      y: -3,
-                      transition: { type: "spring", stiffness: 200, damping: 20 }
-                    }}
-                    whileTap={shouldReduceMotion ? {} : { scale: 0.97 }}
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: "-50px" }}
                   >
-                    <Mail className="w-5 h-5" />
-                    <span>Contact Us</span>
-                  </motion.a>
+                    <GroundForceLink href="mailto:info@exiqx.com" className="inline-flex items-center justify-center gap-3">
+                      <Mail className="w-5 h-5" />
+                      <span>Contact Us</span>
+                    </GroundForceLink>
+                  </motion.div>
                 </div>
               </motion.div>
             </div>

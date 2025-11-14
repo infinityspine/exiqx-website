@@ -2,15 +2,8 @@
 
 import { motion, useScroll, useSpring, useReducedMotion } from 'framer-motion'
 import { fadeUp, staggerChildren } from '@/lib/motionPresets'
+import SectionDivider from '@/components/ui/SectionDivider'
 import { Zap, Target, Award, TrendingUp } from 'lucide-react'
-
-// Premium separator component
-const PremiumSeparator = () => (
-  <div className="relative h-px max-w-7xl mx-auto" style={{ marginBottom: 'clamp(3rem, 6vw, 5rem)' }} aria-hidden="true">
-    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-red-500/20 to-transparent" />
-    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-red-500/20 to-transparent blur-sm" />
-  </div>
-)
 
 // Animated gradient orb component - optimized for performance
 const AnimatedGradientOrb = ({ 
@@ -108,8 +101,7 @@ export default function AboutPage() {
           </div>
         </motion.section>
 
-        {/* Premium Separator */}
-        <PremiumSeparator />
+        <SectionDivider />
 
         {/* Our Philosophy Section */}
         <motion.section
@@ -185,8 +177,7 @@ export default function AboutPage() {
           </div>
         </motion.section>
 
-        {/* Premium Separator */}
-        <PremiumSeparator />
+        <SectionDivider />
 
         {/* Our Approach Section */}
         <motion.section
@@ -263,8 +254,7 @@ export default function AboutPage() {
           </div>
         </motion.section>
 
-        {/* Premium Separator */}
-        <PremiumSeparator />
+        <SectionDivider />
 
         {/* Our Standards Section */}
         <motion.section
@@ -341,8 +331,7 @@ export default function AboutPage() {
           </div>
         </motion.section>
 
-        {/* Premium Separator */}
-        <PremiumSeparator />
+        <SectionDivider />
 
         {/* Our Mission Section */}
         <motion.section
