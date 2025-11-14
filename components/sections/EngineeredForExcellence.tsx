@@ -1,10 +1,8 @@
 'use client'
 
-import { useRef } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import { Ruler, Zap, Award, Shield } from 'lucide-react'
 import { fadeUp, staggerChildren } from '@/lib/motionPresets'
-import { springMedium } from '@/lib/motion'
 
 // ============================================================================
 // Types & Data
@@ -93,7 +91,11 @@ export function EngineeredForExcellenceSection({
                     : {
                         y: -6,
                         scale: 1.02,
-                        transition: springMedium,
+                        transition: {
+                          type: "spring" as const,
+                          stiffness: 200,
+                          damping: 25,
+                        },
                       }
                 }
                 whileTap={
