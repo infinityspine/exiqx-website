@@ -88,26 +88,7 @@ export default function RackMountedContent() {
         <SectionDivider />
 
         {/* Key Benefits Grid */}
-        <motion.section
-          className="relative"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={fadeUp}
-          style={{ transform: 'translateZ(0)' }}
-        >
-          {/* Animated gradient orbs */}
-          <AnimatedGradientOrb 
-            className="top-0 right-1/4 w-96 h-96" 
-            delay={0}
-            shouldReduceMotion={!!shouldReduceMotion}
-          />
-          <AnimatedGradientOrb 
-            className="bottom-0 left-1/4 w-80 h-80 bg-blue-500/10" 
-            delay={2}
-            shouldReduceMotion={!!shouldReduceMotion}
-          />
-          <EngineeredForExcellenceSection
+        <EngineeredForExcellenceSection
           sectionTitle="ENGINEERED FOR EXCELLENCE"
           sectionSubtitle="Four pillars of biomechanical superiority"
           features={[
@@ -132,8 +113,7 @@ export default function RackMountedContent() {
               body: '11-gauge steel with powder-coated finish. 30 lbs assembled. Designed for heavy commercial gym abuse.',
             },
           ]}
-          />
-        </motion.section>
+        />
 
         <SectionDivider />
 
