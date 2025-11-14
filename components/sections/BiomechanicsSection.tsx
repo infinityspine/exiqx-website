@@ -3,7 +3,12 @@
 import { memo } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 
-const BiomechanicsSection = memo(function BiomechanicsSection() {
+interface BiomechanicsSectionProps {
+  title: string
+  description: string
+}
+
+const BiomechanicsSection = memo(function BiomechanicsSection({ title, description }: BiomechanicsSectionProps) {
   const shouldReduceMotion = useReducedMotion()
 
   return (
@@ -26,13 +31,13 @@ const BiomechanicsSection = memo(function BiomechanicsSection() {
             className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-[0.05em] text-white text-center"
             style={{ marginBottom: 'clamp(2.5rem, 5vw, 4rem)' }}
           >
-            Authentic Ground-Force Mechanics
+            {title}
           </h2>
 
           {/* Left-Aligned Body Text */}
           <div className="text-base sm:text-lg text-white/70 font-light leading-relaxed text-left">
             <p style={{ marginBottom: 'clamp(2rem, 4vw, 3rem)' }}>
-              Conventional devices anchor the posterior ankle, isolating the hamstrings but diverting energy away from natural movement patterns. The ExIQx Footplate routes force through the plantar surface—the ball of the foot—mirroring the closed-chain vector of sprinting and jumping.
+              {description}
             </p>
 
             <p style={{ marginBottom: 'clamp(2rem, 4vw, 3rem)' }}>
