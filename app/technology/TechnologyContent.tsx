@@ -252,8 +252,8 @@ export default function TechnologyPage() {
             shouldReduceMotion={!!shouldReduceMotion}
           />
 
-          <div className="mx-auto max-w-4xl px-6">
-            <div className="flex items-start gap-6" style={{ marginBottom: 'clamp(2.5rem, 5vw, 4rem)' }}>
+          <div className="mx-auto max-w-4xl px-4 sm:px-6">
+            <div className="flex items-start gap-3 sm:gap-6" style={{ marginBottom: 'clamp(2.5rem, 5vw, 4rem)' }}>
               <motion.div 
                 className="flex-shrink-0"
                 whileHover={shouldReduceMotion ? {} : { scale: 1.05, transition: { duration: 0.3 } }}
@@ -267,14 +267,16 @@ export default function TechnologyPage() {
                   delay: 0.5
                 }}
               >
-                <div className="relative w-14 h-14 rounded-2xl bg-red-900/20 border border-red-900/40 flex items-center justify-center backdrop-blur-sm">
-                  <Settings className="w-7 h-7 text-red-500" />
+                <div className="relative w-10 h-10 sm:w-14 sm:h-14 rounded-2xl bg-red-900/20 border border-red-900/40 flex items-center justify-center backdrop-blur-sm">
+                  <Settings className="w-5 h-5 sm:w-7 sm:h-7 text-red-500" />
                   <div className="absolute inset-0 rounded-2xl bg-red-500/10 blur-xl" />
                 </div>
               </motion.div>
               <motion.h2 
-                className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-[0.05em] text-white"
+                className="font-display font-extrabold uppercase tracking-[0.05em] text-white leading-tight break-words"
                 style={{ 
+                  fontSize: 'clamp(1.5rem, 5vw, 3rem)',
+                  lineHeight: '1.2'
                 }}
               >
                 Closed-Chain Plantarflexion
