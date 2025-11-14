@@ -27,7 +27,7 @@ export default function GroundForceLink({ href, children, className = '' }: Grou
         whileHover={shouldReduceMotion ? {} : { scaleX: 1 }}
         transition={{
           duration: 0.4,
-          ease: easeOutExpo,
+          ease: easeOutExpo as [number, number, number, number],
         }}
       />
     </Link>
