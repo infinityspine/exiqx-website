@@ -1,18 +1,10 @@
 'use client'
 
 import { useState } from 'react'
-import { motion, useScroll, useSpring, useReducedMotion, useTransform } from 'framer-motion'
+import { motion, useScroll, useSpring, useReducedMotion } from 'framer-motion'
+import { fadeUp, staggerChildren } from '@/lib/motionPresets'
+import { useParallax } from '@/hooks/useParallax'
 import { Zap, Settings, Cog, Target, Award } from 'lucide-react'
-
-// Animation variants for smooth section reveals - optimized
-const sectionVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
-  },
-}
 
 // Premium separator component
 const PremiumSeparator = () => (

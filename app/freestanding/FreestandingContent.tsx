@@ -2,6 +2,7 @@
 'use client'
 
 import { motion, useScroll, useSpring, useReducedMotion } from 'framer-motion'
+import { fadeUp, staggerChildren } from '@/lib/motionPresets'
 import FreestandingHero from '@/components/sections/FreestandingHero'
 import EngineeredForExcellenceSection from '@/components/sections/EngineeredForExcellence'
 import FreestandingFeatureDetail from '@/components/sections/FreestandingFeatureDetail'
@@ -9,19 +10,6 @@ import BiomechanicsSection from '@/components/sections/BiomechanicsSection'
 import FreestandingSpecs from '@/components/sections/FreestandingSpecs'
 import CTASection from '@/components/sections/CTASection'
 import Testimonials from '@/components/sections/Testimonials'
-
-// Animation variants for smooth section reveals with Apple-style easing - optimized
-const sectionVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      ease: [0.22, 1, 0.36, 1] as [number, number, number, number], // Apple's signature cubic-bezier easing
-    },
-  },
-}
 
 // Premium separator component
 const PremiumSeparator = () => (
@@ -112,7 +100,8 @@ export default function FreestandingContent() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          variants={sectionVariants}
+          variants={fadeUp}
+          style={{ transform: 'translateZ(0)' }}
         >
           {/* Animated gradient orbs */}
           <AnimatedGradientOrb 
@@ -163,7 +152,8 @@ export default function FreestandingContent() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          variants={sectionVariants}
+          variants={fadeUp}
+          style={{ transform: 'translateZ(0)' }}
           aria-labelledby="features-title"
         >
           {/* Animated gradient orbs */}
@@ -204,7 +194,8 @@ export default function FreestandingContent() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          variants={sectionVariants}
+          variants={fadeUp}
+          style={{ transform: 'translateZ(0)' }}
           aria-labelledby="biomechanics-title"
         >
           {/* Animated gradient orbs */}
@@ -238,7 +229,8 @@ export default function FreestandingContent() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          variants={sectionVariants}
+          variants={fadeUp}
+          style={{ transform: 'translateZ(0)' }}
           aria-labelledby="specs-title"
         >
           {/* Animated gradient orbs */}
@@ -266,7 +258,8 @@ export default function FreestandingContent() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          variants={sectionVariants}
+          variants={fadeUp}
+          style={{ transform: 'translateZ(0)' }}
           aria-labelledby="testimonials-title"
         >
           {/* Animated gradient orbs */}
@@ -294,7 +287,8 @@ export default function FreestandingContent() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          variants={sectionVariants}
+          variants={fadeUp}
+          style={{ transform: 'translateZ(0)' }}
         >
           {/* Animated gradient orbs */}
           <AnimatedGradientOrb 
