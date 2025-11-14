@@ -1,9 +1,11 @@
 'use client'
 
 import { memo, useRef } from 'react'
-import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion'
+import { motion, useReducedMotion, useScroll } from 'framer-motion'
 import Image from 'next/image'
 import { z } from 'zod'
+import { heroFade, fadeUp, staggerChildren } from '@/lib/motionPresets'
+import { useParallax } from '@/hooks/useParallax'
 
 // ============================================================================
 // SCHEMAS & TYPES
@@ -169,7 +171,7 @@ const HeroSection = memo(function HeroSection({
   ctaButtons = DEFAULT_CONTENT.ctaButtons,
   priority = true
 }: HeroSectionProps) {
-  const shouldReduceMotion = useReducedMotion() || false
+  const shouldReduceMotion = !!useReducedMotion()
   const containerRef = useRef<HTMLElement>(null)
 
   // Scroll-based parallax
@@ -178,9 +180,8 @@ const HeroSection = memo(function HeroSection({
     offset: ['start start', 'end start'],
   })
 
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '50%'])
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
-  const contentScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95])
+  const heroImageY = shouldReduceMotion ? undefined : useParallax(scrollYProgress, -60)
+  const heroContentY = shouldReduceMotion ? undefined : useParallax(scrollYProgress, -20)
 
   const validatedData = HeroSectionSchema.parse({
     id,
@@ -196,17 +197,21 @@ const HeroSection = memo(function HeroSection({
   const variants = createAnimationVariants(shouldReduceMotion)
 
   return (
-    <section
+    <motion.section
       ref={containerRef}
       id={validatedData.id}
       className="relative flex h-screen items-center justify-center overflow-hidden px-6"
       aria-label="Hero section"
+      initial="hidden"
+      animate="visible"
+      variants={heroFade}
+      style={{ transform: 'translateZ(0)' }}
     >
       {/* Background Image with Parallax */}
       <motion.div
-        {...variants.backgroundImage}
         style={{
-          y: shouldReduceMotion ? 0 : backgroundY,
+          y: heroImageY,
+          transform: 'translateZ(0)'
         }}
         className="pointer-events-none absolute inset-0 will-change-transform"
       >
@@ -233,23 +238,26 @@ const HeroSection = memo(function HeroSection({
         aria-hidden="true"
       />
 
-      {/* Content with Fade-out */}
+      {/* Content with Parallax */}
       <motion.div
         style={{
-          opacity: shouldReduceMotion ? 1 : contentOpacity,
-          scale: shouldReduceMotion ? 1 : contentScale,
+          y: heroContentY,
+          transform: 'translateZ(0)'
         }}
-        className="relative z-10 flex max-w-5xl flex-col items-center text-center px-4"
+        className="relative z-10 flex max-w-5xl flex-col items-center text-center px-4 will-change-transform"
+        variants={staggerChildren}
+        initial="hidden"
+        animate="visible"
       >
         <motion.h1
-          {...variants.headline}
+          variants={fadeUp}
           className="text-[clamp(2.4rem,5vw,4.8rem)] font-extrabold tracking-[0.05em] uppercase leading-[1.05] font-display mb-16 sm:mb-20"
         >
           {validatedData.headline}
         </motion.h1>
 
         <motion.p
-          {...variants.subheadline}
+          variants={fadeUp}
           className="text-[clamp(1.05rem,1.6vw,1.25rem)] font-medium text-white/85 leading-[1.8] max-w-2xl"
           style={{ marginBottom: 'clamp(3.5rem, 9vw, 5rem)' }}
         >
@@ -262,7 +270,7 @@ const HeroSection = memo(function HeroSection({
         </motion.p>
 
         <motion.div
-          {...variants.cta}
+          variants={fadeUp}
           className="flex flex-wrap items-center justify-center gap-5 mb-12 sm:mb-14"
           role="group"
           aria-label="Call to action buttons"
@@ -277,13 +285,13 @@ const HeroSection = memo(function HeroSection({
         </motion.div>
 
         <motion.p
-          {...variants.tagline}
+          variants={fadeUp}
           className="text-[10px] uppercase tracking-[0.25em] text-white/60"
         >
           {validatedData.tagline}
         </motion.p>
       </motion.div>
-    </section>
+    </motion.section>
   )
 })
 

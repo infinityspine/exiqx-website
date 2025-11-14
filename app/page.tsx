@@ -57,12 +57,6 @@ export default function Home() {
     restDelta: 0.001,
   })
 
-  // Optimized parallax transforms - reduced to essential only
-  const featuresY = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0.1, 0.3], [30, -30])
-  const useCasesY = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0.3, 0.5], [30, -30])
-  const testimonialsY = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0.5, 0.7], [30, -30])
-  const ctaY = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0.7, 0.9], [30, -30])
-
   return (
     <>
       {/* Elite scroll progress indicator with glow */}
@@ -82,17 +76,14 @@ export default function Home() {
       {/* Premium Separator */}
       <PremiumSeparator />
 
-      {/* FootplateFeatures Section with optimized parallax */}
+      {/* FootplateFeatures Section */}
       <motion.section
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
-        variants={sectionVariants}
-        className="relative will-change-transform"
-        style={{ 
-          y: featuresY,
-          transform: 'translateZ(0)'
-        }}
+        variants={staggerChildren}
+        className="relative"
+        style={{ transform: 'translateZ(0)' }}
       >
         {/* Single optimized gradient orb */}
         <AnimatedGradientOrb 
@@ -109,17 +100,14 @@ export default function Home() {
       {/* Premium Separator */}
       <PremiumSeparator />
 
-      {/* UseCases Section with optimized parallax */}
+      {/* UseCases Section */}
       <motion.section
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
-        variants={sectionVariants}
-        className="relative will-change-transform"
-        style={{ 
-          y: useCasesY,
-          transform: 'translateZ(0)'
-        }}
+        variants={staggerChildren}
+        className="relative"
+        style={{ transform: 'translateZ(0)' }}
       >
         {/* Single optimized gradient orb */}
         <AnimatedGradientOrb 
@@ -136,17 +124,14 @@ export default function Home() {
       {/* Premium Separator */}
       <PremiumSeparator />
 
-      {/* Testimonials Section with optimized parallax */}
+      {/* Testimonials Section */}
       <motion.section
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
-        variants={sectionVariants}
-        className="relative will-change-transform"
-        style={{ 
-          y: testimonialsY,
-          transform: 'translateZ(0)'
-        }}
+        variants={staggerChildren}
+        className="relative"
+        style={{ transform: 'translateZ(0)' }}
       >
         {/* Single optimized gradient orb */}
         <AnimatedGradientOrb 
@@ -162,17 +147,14 @@ export default function Home() {
       {/* Premium Separator */}
       <PremiumSeparator />
 
-      {/* HomePageCTA Section with optimized parallax */}
+      {/* HomePageCTA Section */}
       <motion.section
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
-        variants={sectionVariants}
-        className="relative will-change-transform"
-        style={{ 
-          y: ctaY,
-          transform: 'translateZ(0)'
-        }}
+        variants={staggerChildren}
+        className="relative"
+        style={{ transform: 'translateZ(0)' }}
       >
         {/* Single optimized gradient orb */}
         <AnimatedGradientOrb 

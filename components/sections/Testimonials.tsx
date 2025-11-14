@@ -17,6 +17,7 @@
 
 import { memo } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
+import { fadeUp, staggerChildren } from '@/lib/motionPresets'
 
 interface TestimonialsProps {
   shouldReduceMotion?: boolean
@@ -36,17 +37,28 @@ const Testimonials = memo(function Testimonials({
     >
       <div className="mx-auto max-w-7xl">
         {/* Section Header */}
-        <div className="mb-16 text-center">
-          <h2
+        <motion.div 
+          className="mb-16 text-center"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={staggerChildren}
+        >
+          <motion.h2
             id="testimonials-heading"
+            variants={fadeUp}
             className="font-display text-4xl font-extrabold uppercase tracking-[0.05em] text-white lg:text-5xl"
+            style={{ transform: 'translateZ(0)' }}
           >
             Trusted by Elite Athletes
-          </h2>
-          <p className="mt-4 text-lg text-white/70 leading-relaxed">
+          </motion.h2>
+          <motion.p 
+            variants={fadeUp}
+            className="mt-4 text-lg text-white/70 leading-relaxed"
+          >
             Hear from strength coaches and athletes who trust ExIQx equipment
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         {/* Testimonials Grid */}
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">

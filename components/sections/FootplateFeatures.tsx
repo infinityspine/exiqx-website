@@ -16,7 +16,8 @@
 'use client'
 
 import { memo } from 'react'
-import { motion, useReducedMotion, useTransform } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
+import { fadeUp, staggerChildren } from '@/lib/motionPresets'
 
 interface FootplateFeaturesProps {
   scrollYProgress?: any
@@ -30,22 +31,6 @@ const FootplateFeatures = memo(function FootplateFeatures({
   const hookShouldReduceMotion = useReducedMotion()
   const shouldReduceMotion = propShouldReduceMotion ?? hookShouldReduceMotion
 
-  // Optimized heading transform - scale only (removed blur for performance)
-  const headingScale = scrollYProgress && !shouldReduceMotion
-    ? useTransform(scrollYProgress, [0.15, 0.25], [0.95, 1])
-    : undefined
-
-  // Optimized card parallax - reduced movement range
-  const card1Y = scrollYProgress && !shouldReduceMotion
-    ? useTransform(scrollYProgress, [0.2, 0.4], [40, -10])
-    : undefined
-  const card2Y = scrollYProgress && !shouldReduceMotion
-    ? useTransform(scrollYProgress, [0.2, 0.4], [50, -15])
-    : undefined
-  const card3Y = scrollYProgress && !shouldReduceMotion
-    ? useTransform(scrollYProgress, [0.2, 0.4], [60, -20])
-    : undefined
-
   return (
     <section
       id="features"
@@ -54,31 +39,42 @@ const FootplateFeatures = memo(function FootplateFeatures({
     >
       <div className="mx-auto max-w-7xl">
         {/* Section Header */}
-        <div className="mb-16 text-center">
+        <motion.div 
+          className="mb-16 text-center"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={staggerChildren}
+        >
           <motion.h2
             id="features-heading"
-            className="font-display text-4xl font-extrabold uppercase tracking-[0.05em] text-white lg:text-5xl will-change-transform"
-            style={{
-              scale: headingScale,
-              marginBottom: 'clamp(1.5rem, 3vw, 2.5rem)',
-              transform: 'translateZ(0)'
-            }}
+            variants={fadeUp}
+            className="font-display text-4xl font-extrabold uppercase tracking-[0.05em] text-white lg:text-5xl"
+            style={{ marginBottom: 'clamp(1.5rem, 3vw, 2.5rem)', transform: 'translateZ(0)' }}
           >
             Technical Specifications
           </motion.h2>
-          <p className="text-lg text-white/70 leading-relaxed">
+          <motion.p 
+            variants={fadeUp}
+            className="text-lg text-white/70 leading-relaxed"
+          >
             Patent-pending design engineered for elite performance
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
-        {/* Feature Grid Placeholder */}
-        <div 
+        {/* Feature Grid */}
+        <motion.div 
           className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
           style={{ marginBottom: 'clamp(5rem, 10vw, 8rem)' }}
+          variants={staggerChildren}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
         >
           {/* Feature Card 1 */}
           <motion.div
-            style={{ y: card1Y, transform: 'translateZ(0)' }}
+            variants={fadeUp}
+            style={{ transform: 'translateZ(0)' }}
             whileHover={shouldReduceMotion ? {} : { 
               y: -4, 
               scale: 1.02,
@@ -114,7 +110,8 @@ const FootplateFeatures = memo(function FootplateFeatures({
 
           {/* Feature Card 2 */}
           <motion.div
-            style={{ y: card2Y, transform: 'translateZ(0)' }}
+            variants={fadeUp}
+            style={{ transform: 'translateZ(0)' }}
             whileHover={shouldReduceMotion ? {} : { 
               y: -4, 
               scale: 1.02,
@@ -151,7 +148,8 @@ const FootplateFeatures = memo(function FootplateFeatures({
 
           {/* Feature Card 3 */}
           <motion.div
-            style={{ y: card3Y, transform: 'translateZ(0)' }}
+            variants={fadeUp}
+            style={{ transform: 'translateZ(0)' }}
             whileHover={shouldReduceMotion ? {} : { 
               y: -4, 
               scale: 1.02,
@@ -185,10 +183,16 @@ const FootplateFeatures = memo(function FootplateFeatures({
               User-tuned plantarflexion angles for every athlete, training objective, and rehabilitation phase
             </p>
           </motion.div>
-        </div>
+        </motion.div>
 
         {/* Technical Specs Link (Optional) */}
-        <div className="mt-16 text-center">
+        <motion.div 
+          className="mt-16 text-center"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={fadeUp}
+        >
           <motion.a
             href="/specifications"
             whileHover={shouldReduceMotion ? {} : { scale: 1.05 }}
@@ -197,7 +201,7 @@ const FootplateFeatures = memo(function FootplateFeatures({
           >
             View Full Specifications →
           </motion.a>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

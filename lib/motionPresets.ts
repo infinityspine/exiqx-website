@@ -6,7 +6,7 @@ export const fadeUp = {
     scale: 1,
     transition: {
       duration: 0.5,
-      ease: [0.25, 1, 0.5, 1],
+      ease: [0.25, 1, 0.5, 1] as [number, number, number, number],
     },
   },
 }
@@ -18,7 +18,7 @@ export const fadeScale = {
     scale: 1,
     transition: {
       duration: 0.5,
-      ease: [0.25, 1, 0.5, 1],
+      ease: [0.25, 1, 0.5, 1] as [number, number, number, number],
     },
   },
 }
@@ -30,7 +30,7 @@ export const heroFade = {
     y: 0,
     transition: {
       duration: 0.9,
-      ease: [0.25, 1, 0.5, 1],
+      ease: [0.25, 1, 0.5, 1] as [number, number, number, number],
     },
   },
 }

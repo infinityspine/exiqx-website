@@ -16,7 +16,9 @@
 'use client'
 
 import { memo, useState } from 'react'
-import { motion, useReducedMotion, useTransform } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
+import { fadeUp, staggerChildren } from '@/lib/motionPresets'
+import { useMagnetic } from '@/hooks/useMagnetic'
 
 interface HomePageCTAProps {
   scrollYProgress?: any
@@ -29,19 +31,7 @@ const CTASection = memo(function CTASection({
 }: HomePageCTAProps) {
   const hookShouldReduceMotion = useReducedMotion()
   const shouldReduceMotion = propShouldReduceMotion ?? hookShouldReduceMotion
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-  const [secondaryMousePosition, setSecondaryMousePosition] = useState({ x: 0, y: 0 })
-
-  // Parallax for benefit cards
-  const benefit1Y = scrollYProgress && !shouldReduceMotion
-    ? useTransform(scrollYProgress, [0.8, 1], [40, -20])
-    : undefined
-  const benefit2Y = scrollYProgress && !shouldReduceMotion
-    ? useTransform(scrollYProgress, [0.8, 1], [50, -25])
-    : undefined
-  const benefit3Y = scrollYProgress && !shouldReduceMotion
-    ? useTransform(scrollYProgress, [0.8, 1], [60, -30])
-    : undefined
+  const magneticRef = useMagnetic(shouldReduceMotion ? 0 : 0.1)
 
   return (
     <section
@@ -57,26 +47,44 @@ const CTASection = memo(function CTASection({
 
       <div className="relative mx-auto max-w-4xl text-center">
         {/* Section Header */}
-        <div className="mb-12">
-          <h2
+        <motion.div 
+          className="mb-12"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={staggerChildren}
+        >
+          <motion.h2
             id="cta-heading"
+            variants={fadeUp}
             className="font-display text-4xl font-extrabold uppercase tracking-[0.05em] text-white lg:text-6xl"
+            style={{ transform: 'translateZ(0)' }}
           >
             Elevate Your Training
-          </h2>
-          <p className="mt-6 text-xl text-white/80 lg:text-2xl leading-relaxed">
+          </motion.h2>
+          <motion.p 
+            variants={fadeUp}
+            className="mt-6 text-xl text-white/80 lg:text-2xl leading-relaxed"
+          >
             Join the waitlist for exclusive early access to the{' '}
             <span className="font-semibold text-accent">
               Rack-Mounted Footplate
             </span>
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         {/* Value Propositions */}
-        <div className="mb-12 grid gap-6 sm:grid-cols-3">
+        <motion.div 
+          className="mb-12 grid gap-6 sm:grid-cols-3"
+          variants={staggerChildren}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+        >
           {/* Benefit 1 */}
           <motion.div
-            style={{ y: benefit1Y, transform: 'translateZ(0)' }}
+            variants={fadeUp}
+            style={{ transform: 'translateZ(0)' }}
             whileHover={shouldReduceMotion ? {} : { 
               y: -4, 
               scale: 1.02,
@@ -95,7 +103,8 @@ const CTASection = memo(function CTASection({
 
           {/* Benefit 2 */}
           <motion.div
-            style={{ y: benefit2Y, transform: 'translateZ(0)' }}
+            variants={fadeUp}
+            style={{ transform: 'translateZ(0)' }}
             whileHover={shouldReduceMotion ? {} : { 
               y: -4, 
               scale: 1.02,
@@ -114,7 +123,8 @@ const CTASection = memo(function CTASection({
 
           {/* Benefit 3 */}
           <motion.div
-            style={{ y: benefit3Y, transform: 'translateZ(0)' }}
+            variants={fadeUp}
+            style={{ transform: 'translateZ(0)' }}
             whileHover={shouldReduceMotion ? {} : { 
               y: -4, 
               scale: 1.02,
