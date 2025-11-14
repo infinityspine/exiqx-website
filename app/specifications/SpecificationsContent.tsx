@@ -21,16 +21,13 @@ const specifications = [
 ]
 
 export default function SpecificationsContent() {
+  const shouldReduceMotion = !!useReducedMotion()
   const { scrollYProgress } = useScroll()
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
     restDelta: 0.001,
   })
-
-  // Parallax effect for hero
-  const heroY = useTransform(scrollYProgress, [0, 0.3], [0, 100])
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0])
 
   return (
     <>
@@ -93,10 +90,13 @@ export default function SpecificationsContent() {
             }}
           />
 
-          {/* Content with parallax */}
+          {/* Content */}
           <motion.div 
-            className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center"
-            style={{ y: heroY, opacity: heroOpacity }}
+            className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center will-change-transform"
+            style={{ transform: 'translateZ(0)' }}
+            initial="hidden"
+            animate="visible"
+            variants={fadeUp}
           >
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -148,7 +148,9 @@ export default function SpecificationsContent() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          variants={sectionVariants}
+          variants={fadeUp}
+          style={{ transform: 'translateZ(0)' }}
+          className="will-change-transform"
         >
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-start gap-6" style={{ marginBottom: 'clamp(2rem, 5vw, 4rem)' }}>
@@ -175,9 +177,11 @@ export default function SpecificationsContent() {
                 lineHeight: '1.8',
                 padding: 'clamp(2.5rem, 5vw, 4rem) clamp(2rem, 4vw, 3.5rem)',
               }}
-              whileHover={{ 
+                  whileHover={shouldReduceMotion ? {} : {
+                y: -3,
+                scale: 1.02,
                 borderColor: 'rgba(127, 29, 29, 0.6)',
-                transition: { duration: 0.3 }
+                transition: { type: "spring", stiffness: 200, damping: 20 }
               }}
             >
               <div style={{ marginBottom: 'clamp(2rem, 4vw, 3rem)' }}>
@@ -205,7 +209,9 @@ export default function SpecificationsContent() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          variants={sectionVariants}
+          variants={fadeUp}
+          style={{ transform: 'translateZ(0)' }}
+          className="will-change-transform"
         >
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-start gap-6" style={{ marginBottom: 'clamp(4rem, 8vw, 6rem)' }}>
@@ -262,11 +268,16 @@ export default function SpecificationsContent() {
                       {specifications.map((spec, index) => (
                         <motion.tr
                           key={spec.feature}
-                          className="hover:bg-zinc-900/50 transition-all duration-300 group relative"
-                          initial={{ opacity: 0, x: -20 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: index * 0.03, duration: 0.4 }}
+                          className="hover:bg-zinc-900/50 transition-all duration-300 group relative will-change-transform"
+                          style={{ transform: 'translateZ(0)' }}
+                          initial={{ opacity: 0, y: 15 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true, margin: "-50px" }}
+                          transition={{ delay: Math.min(index * 0.05, 0.3), duration: 0.4 }}
+                          whileHover={shouldReduceMotion ? {} : {
+                            scale: 1.01,
+                            transition: { type: "spring", stiffness: 170, damping: 22 }
+                          }}
                         >
                           {/* Hover glow effect */}
                           <td 
@@ -303,7 +314,9 @@ export default function SpecificationsContent() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          variants={sectionVariants}
+          variants={fadeUp}
+          style={{ transform: 'translateZ(0)' }}
+          className="will-change-transform"
         >
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-start gap-6" style={{ marginBottom: 'clamp(2rem, 5vw, 4rem)' }}>
@@ -336,10 +349,11 @@ export default function SpecificationsContent() {
                   key={index}
                   className="group relative flex items-start gap-4 bg-zinc-950/40 backdrop-blur-sm border border-zinc-800/60 rounded-xl hover:border-red-900/50 hover:shadow-lg hover:shadow-red-900/10 transition-all duration-300"
                   style={{ padding: 'clamp(1.5rem, 3vw, 2rem)' }}
-                  variants={cardVariants}
-                  whileHover={{ 
-                    y: -4,
-                    transition: { duration: 0.3 }
+                  variants={fadeUp}
+                  whileHover={shouldReduceMotion ? {} : {
+                    scale: 1.03,
+                    y: -6,
+                    transition: { type: "spring", stiffness: 170, damping: 22 }
                   }}
                 >
                   {/* Glow effect on hover */}
@@ -366,7 +380,9 @@ export default function SpecificationsContent() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          variants={sectionVariants}
+          variants={fadeUp}
+          style={{ transform: 'translateZ(0)' }}
+          className="will-change-transform"
         >
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-center gap-6" style={{ marginBottom: 'clamp(2.5rem, 5vw, 4rem)' }}>
@@ -455,7 +471,9 @@ export default function SpecificationsContent() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          variants={sectionVariants}
+          variants={fadeUp}
+          style={{ transform: 'translateZ(0)' }}
+          className="will-change-transform"
         >
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div 
@@ -528,7 +546,9 @@ export default function SpecificationsContent() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          variants={sectionVariants}
+          variants={fadeUp}
+          style={{ transform: 'translateZ(0)' }}
+          className="will-change-transform"
         >
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-start gap-6" style={{ marginBottom: 'clamp(3rem, 6vw, 5rem)' }}>
@@ -580,11 +600,12 @@ export default function SpecificationsContent() {
               <motion.div 
                 className="relative bg-gradient-to-br from-red-950/30 via-black to-red-950/20 border border-red-900/50 rounded-2xl overflow-hidden shadow-2xl backdrop-blur-sm" 
                 style={{ padding: 'clamp(4rem, 8vw, 6rem) clamp(2.5rem, 5vw, 4rem)' }}
-                whileHover={{
-                  borderColor: 'rgba(239, 68, 68, 0.7)',
-                  y: -6,
-                  transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] }
-                }}
+              whileHover={shouldReduceMotion ? {} : {
+                borderColor: 'rgba(239, 68, 68, 0.7)',
+                y: -6,
+                scale: 1.02,
+                transition: { type: "spring", stiffness: 170, damping: 22 }
+              }}
               >
                 {/* Multiple layered glow effects for depth */}
                 <motion.div
@@ -663,13 +684,18 @@ export default function SpecificationsContent() {
 
                   <motion.a
                     href="mailto:info@exiqx.com"
-                    className="inline-flex items-center justify-center gap-3 px-10 py-4 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-red-900/50 hover:shadow-2xl"
-                    whileHover={{ scale: 1.06, y: -2 }}
-                    whileTap={{ scale: 0.97 }}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.3 }}
+                    className="inline-flex items-center justify-center gap-3 px-10 py-4 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-red-900/50 hover:shadow-2xl will-change-transform"
+                    style={{ transform: 'translateZ(0)' }}
+                    variants={fadeUp}
+                    whileHover={shouldReduceMotion ? {} : { 
+                      scale: 1.05, 
+                      y: -3,
+                      transition: { type: "spring", stiffness: 200, damping: 20 }
+                    }}
+                    whileTap={shouldReduceMotion ? {} : { scale: 0.97 }}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-50px" }}
                   >
                     <Mail className="w-5 h-5" />
                     <span>Contact Us</span>
