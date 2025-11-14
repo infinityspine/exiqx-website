@@ -275,7 +275,7 @@ export default function TechnologyPage() {
               <motion.h2 
                 className="font-display font-extrabold uppercase tracking-[0.05em] text-white leading-tight break-words"
                 style={{ 
-                  fontSize: 'clamp(1.5rem, 5vw, 3rem)',
+                  fontSize: 'clamp(1.75rem, 6vw, 3rem)',
                   lineHeight: '1.2'
                 }}
               >
