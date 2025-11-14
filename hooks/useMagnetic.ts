@@ -1,7 +1,7 @@
 import { useRef, useEffect } from "react"
 
-export function useMagnetic(strength: number = 0.15) {
-  const ref = useRef<HTMLElement | null>(null)
+export function useMagnetic<T extends HTMLElement = HTMLElement>(strength: number = 0.15) {
+  const ref = useRef<T | null>(null)
   const rafRef = useRef<number | null>(null)
 
   useEffect(() => {

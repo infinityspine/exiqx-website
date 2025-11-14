@@ -31,8 +31,8 @@ const CTASection = memo(function CTASection({
 }: HomePageCTAProps) {
   const hookShouldReduceMotion = useReducedMotion()
   const shouldReduceMotion = propShouldReduceMotion ?? hookShouldReduceMotion
-  const primaryMagneticRef = useMagnetic(shouldReduceMotion ? 0 : 0.1)
-  const secondaryMagneticRef = useMagnetic(shouldReduceMotion ? 0 : 0.1)
+  const primaryMagneticRef = useMagnetic<HTMLAnchorElement>(shouldReduceMotion ? 0 : 0.1)
+  const secondaryMagneticRef = useMagnetic<HTMLAnchorElement>(shouldReduceMotion ? 0 : 0.1)
 
   return (
     <section
