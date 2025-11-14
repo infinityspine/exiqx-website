@@ -149,27 +149,41 @@ const CTASection = memo(function CTASection({
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          variants={fadeUp}
+          variants={staggerChildren}
         >
           {/* Primary CTA with magnetic hover */}
-          <a
+          <motion.a
             ref={primaryMagneticRef}
             href="#waitlist"
+            variants={fadeUp}
+            whileHover={shouldReduceMotion ? {} : { 
+              scale: 1.05, 
+              y: -3,
+              transition: { type: "spring", stiffness: 200, damping: 20 }
+            }}
+            transition={{ type: "spring", stiffness: 200, damping: 20 }}
             className="inline-block rounded-xl bg-accent px-10 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition-all duration-300 hover:bg-red-700 hover:shadow-[0_10px_30px_rgba(220,38,38,0.55)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-black will-change-transform"
             style={{ transform: 'translateZ(0)' }}
           >
             Join Waitlist
-          </a>
+          </motion.a>
 
           {/* Secondary CTA with magnetic hover */}
-          <a
+          <motion.a
             ref={secondaryMagneticRef}
             href="#contact"
+            variants={fadeUp}
+            whileHover={shouldReduceMotion ? {} : { 
+              scale: 1.05, 
+              y: -3,
+              transition: { type: "spring", stiffness: 200, damping: 20 }
+            }}
+            transition={{ type: "spring", stiffness: 200, damping: 20 }}
             className="inline-block rounded-xl border border-zinc-800/60 bg-zinc-950/40 px-10 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-white backdrop-blur-md transition-all duration-300 hover:border-white/90 hover:bg-white/10 hover:shadow-[0_10px_30px_rgba(255,255,255,0.1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black will-change-transform"
             style={{ transform: 'translateZ(0)' }}
           >
             Request Demo
-          </a>
+          </motion.a>
         </motion.div>
 
         {/* Trust Signals */}
