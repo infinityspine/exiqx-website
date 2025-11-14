@@ -128,47 +128,27 @@ const Footer = memo(function Footer() {
             © {currentYear} ExIQx Performance. All rights reserved.
           </p>
 
-          <div className="mt-12 md:mt-0">
-            <h3 className="text-xs uppercase tracking-wider text-white/40 mb-4">
+          <div className="flex flex-col items-center text-center space-y-4">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-white/40">
               Legal
-            </h3>
+            </h4>
 
-            <div className="space-y-3">
-              <a
+            <div className="flex flex-col space-y-3">
+              <Link
                 href="/privacy-policy"
-                className="
-                  text-white/70 
-                  hover:text-white
-                  transition-all 
-                  duration-300 
-                  inline-block 
-                  will-change-transform 
-                  transform 
-                  hover:-translate-y-[2px] 
-                  hover:scale-[1.02]
-                "
+                className="text-white/70 hover:text-white transition-all duration-300 hover:-translate-y-[2px] hover:scale-[1.02] will-change-transform"
                 style={{ fontSize: 'clamp(0.8125rem, 1.5vw, 0.875rem)' }}
               >
                 Privacy Policy
-              </a>
+              </Link>
 
-              <a
+              <Link
                 href="/terms-of-service"
-                className="
-                  text-white/70 
-                  hover:text-white
-                  transition-all 
-                  duration-300 
-                  inline-block 
-                  will-change-transform 
-                  transform 
-                  hover:-translate-y-[2px] 
-                  hover:scale-[1.02]
-                "
+                className="text-white/70 hover:text-white transition-all duration-300 hover:-translate-y-[2px] hover:scale-[1.02] will-change-transform"
                 style={{ fontSize: 'clamp(0.8125rem, 1.5vw, 0.875rem)' }}
               >
                 Terms of Service
-              </a>
+              </Link>
             </div>
           </div>
         </div>
