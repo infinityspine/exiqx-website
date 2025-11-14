@@ -441,11 +441,12 @@ export default function TechnologyPage() {
               {performanceOutcomes.map((outcome, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 15 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1, duration: 0.5 }}
-                  className="group relative bg-zinc-950/40 backdrop-blur-sm border border-zinc-800/60 rounded-xl p-6 hover:border-red-900/50 transition-all duration-300 overflow-hidden"
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ delay: Math.min(index * 0.05, 0.3), duration: 0.4 }}
+                  className="group relative bg-zinc-950/40 backdrop-blur-sm border border-zinc-800/60 rounded-xl p-6 hover:border-red-900/50 transition-all duration-300 overflow-hidden will-change-transform"
+                  style={{ transform: 'translateZ(0)' }}
                   whileHover={shouldReduceMotion ? {} : { y: -4 }}
                 >
                   {/* Internal gradient glow on hover */}
