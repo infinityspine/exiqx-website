@@ -4,6 +4,17 @@ import { memo } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
+// Tesla-style glowing border bar above footer
+const FooterGlowBar = () => (
+  <div
+    className="
+      relative w-full h-[2px]
+      bg-gradient-to-r from-transparent via-red-500/40 to-transparent
+      animate-footerGlow
+    "
+  />
+)
+
 const Footer = memo(function Footer() {
   const currentYear = new Date().getFullYear()
 
@@ -15,6 +26,9 @@ const Footer = memo(function Footer() {
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
+
+      {/* Tesla-style glow bar */}
+      <FooterGlowBar />
 
       <div className="mx-auto max-w-7xl">
         {/* Main Footer Content */}

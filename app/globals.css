@@ -231,3 +231,27 @@ a:hover {
   white-space: nowrap;
   border-width: 0;
 }
+
+/* ────────────────────────────────────────────────
+   Tesla-style footer glow bar animation
+   Lightweight, GPU-accelerated, zero layout cost
+   ──────────────────────────────────────────────── */
+
+@keyframes footerGlow {
+  0% {
+    opacity: 0.3;
+    filter: blur(2px);
+  }
+  50% {
+    opacity: 0.7;
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 0.3;
+    filter: blur(2px);
+  }
+}
+
+.animate-footerGlow {
+  animation: footerGlow 4s ease-in-out infinite;
+}
