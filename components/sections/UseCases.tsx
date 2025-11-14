@@ -68,8 +68,9 @@ const UseCases = memo(function UseCases({
                 alt="Athlete performing Nordic hamstring curl on ExIQx footplate"
                 fill
                 className="object-cover grayscale brightness-75"
-                quality={90}
-                sizes="(max-width: 1024px) 100vw, 50vw"
+                quality={85}
+                loading="lazy"
+                sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 600px"
               />
               {/* Red accent gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
@@ -128,8 +129,9 @@ const UseCases = memo(function UseCases({
                 alt="Athlete performing glute-ham raise on ExIQx footplate"
                 fill
                 className="object-cover grayscale brightness-75"
-                quality={90}
-                sizes="(max-width: 1024px) 100vw, 50vw"
+                quality={85}
+                loading="lazy"
+                sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 600px"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
             </motion.div>
@@ -187,8 +189,9 @@ const UseCases = memo(function UseCases({
                 alt="Close-up of ExIQx footplate angle adjustment mechanism"
                 fill
                 className="object-cover brightness-90"
-                quality={90}
-                sizes="(max-width: 1024px) 100vw, 50vw"
+                quality={85}
+                loading="lazy"
+                sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 600px"
               />
               {/* Subtle red accent glow on one element */}
               <div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-transparent" />

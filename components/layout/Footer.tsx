@@ -29,6 +29,7 @@ const Footer = memo(function Footer() {
                 alt="ExIQx Performance"
                 width={320}
                 height={100}
+                quality={85}
                 className="w-auto transition-transform duration-300 hover:scale-[1.02]"
                 style={{ height: 'clamp(5rem, 8vw, 6.5rem)', maxWidth: '320px' }}
                 priority

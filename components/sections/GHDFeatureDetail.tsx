@@ -107,8 +107,10 @@ const GHDFeatureDetail = memo<Partial<GHDFeatureDetailProps>>((props) => {
                 src={imageSrc}
                 alt={imageAlt}
                 fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover rounded-lg"
+                quality={85}
+                loading="lazy"
+                sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 600px"
               />
             </div>
           </motion.div>

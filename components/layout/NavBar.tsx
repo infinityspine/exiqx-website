@@ -145,6 +145,7 @@ const NavBar = memo(function NavBar({
               width={260}
               height={80}
               priority
+              quality={85}
               className="h-14 sm:h-16 w-auto transition-all duration-500"
             />
           </motion.a>
