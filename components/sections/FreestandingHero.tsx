@@ -112,12 +112,12 @@ const FreestandingHero = memo<Partial<FreestandingHeroProps>>((props) => {
       >
         <Image
           src={backgroundImage}
-          alt=""
+          alt="Freestanding ExIQx footplate system for home gyms"
           fill
           priority
           className="object-cover object-center scale-110"
           sizes="100vw"
-          quality={90}
+          quality={85}
         />
 
         {/* Gradient Overlay */}

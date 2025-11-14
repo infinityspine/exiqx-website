@@ -221,7 +221,7 @@ const HeroSection = memo(function HeroSection({
           alt={validatedData.backgroundImageAlt}
           fill
           priority={priority}
-          quality={90}
+          quality={85}
           sizes="100vw"
           className="object-cover object-center scale-110"
         />

@@ -112,12 +112,12 @@ const GHDHero = memo<Partial<GHDHeroProps>>((props) => {
       >
         <Image
           src={backgroundImage}
-          alt=""
+          alt="GHD-mounted ExIQx footplate system"
           fill
           priority
           className="object-cover object-center scale-110"
           sizes="100vw"
-          quality={90}
+          quality={85}
         />
 
         {/* Gradient Overlay */}

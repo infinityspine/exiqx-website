@@ -112,12 +112,12 @@ const RackHero = memo<Partial<RackHeroProps>>((props) => {
       >
         <Image
           src={backgroundImage}
-          alt=""
+          alt="Rack-mounted ExIQx footplate in professional gym setting"
           fill
           priority
           className="object-cover object-center scale-110"
           sizes="100vw"
-          quality={90}
+          quality={85}
         />
         
         {/* Gradient Overlay */}
