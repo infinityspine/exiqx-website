@@ -232,9 +232,7 @@ export default function TechnologyPage() {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeUp}
-          style={{ transform: 'translateZ(0)' }}
-          className="will-change-transform"
-          className="relative"
+          className="relative will-change-transform"
           style={{
             paddingTop: 'clamp(5rem, 10vw, 8rem)',
             paddingBottom: 'clamp(5rem, 10vw, 8rem)'
@@ -315,9 +313,7 @@ export default function TechnologyPage() {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeUp}
-          style={{ transform: 'translateZ(0)' }}
-          className="will-change-transform"
-          className="relative"
+          className="relative will-change-transform"
           style={{
             paddingTop: 'clamp(5rem, 10vw, 8rem)',
             paddingBottom: 'clamp(5rem, 10vw, 8rem)'
@@ -393,9 +389,7 @@ export default function TechnologyPage() {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeUp}
-          style={{ transform: 'translateZ(0)' }}
-          className="will-change-transform"
-          className="relative"
+          className="relative will-change-transform"
           style={{
             paddingTop: 'clamp(5rem, 10vw, 8rem)',
             paddingBottom: 'clamp(5rem, 10vw, 8rem)'
@@ -482,9 +476,7 @@ export default function TechnologyPage() {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeUp}
-          style={{ transform: 'translateZ(0)' }}
-          className="will-change-transform"
-          className="relative"
+          className="relative will-change-transform"
           style={{
             paddingTop: 'clamp(5rem, 10vw, 8rem)',
             paddingBottom: 'clamp(5rem, 10vw, 8rem)'

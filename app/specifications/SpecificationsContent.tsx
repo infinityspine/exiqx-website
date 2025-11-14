@@ -144,13 +144,12 @@ export default function SpecificationsContent() {
 
         {/* Section 1: Overview with enhanced styling */}
         <motion.section
-          className="relative py-24 lg:py-32"
+          className="relative py-24 lg:py-32 will-change-transform"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeUp}
           style={{ transform: 'translateZ(0)' }}
-          className="will-change-transform"
         >
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-start gap-6" style={{ marginBottom: 'clamp(2rem, 5vw, 4rem)' }}>
@@ -205,13 +204,12 @@ export default function SpecificationsContent() {
 
         {/* Section 2: Technical Specifications Table - Elite Edition */}
         <motion.section
-          className="relative py-24 lg:py-32"
+          className="relative py-24 lg:py-32 will-change-transform"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeUp}
           style={{ transform: 'translateZ(0)' }}
-          className="will-change-transform"
         >
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-start gap-6" style={{ marginBottom: 'clamp(4rem, 8vw, 6rem)' }}>
@@ -310,13 +308,12 @@ export default function SpecificationsContent() {
 
         {/* Section 3: Engineering Highlights - Elite Cards */}
         <motion.section
-          className="relative py-24 lg:py-32"
+          className="relative py-24 lg:py-32 will-change-transform"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeUp}
           style={{ transform: 'translateZ(0)' }}
-          className="will-change-transform"
         >
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-start gap-6" style={{ marginBottom: 'clamp(2rem, 5vw, 4rem)' }}>
@@ -376,13 +373,12 @@ export default function SpecificationsContent() {
 
         {/* Section 4: Biomechanical Summary - Elite Treatment */}
         <motion.section
-          className="relative py-24 lg:py-32"
+          className="relative py-24 lg:py-32 will-change-transform"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeUp}
           style={{ transform: 'translateZ(0)' }}
-          className="will-change-transform"
         >
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-center gap-6" style={{ marginBottom: 'clamp(2.5rem, 5vw, 4rem)' }}>
@@ -467,13 +463,12 @@ export default function SpecificationsContent() {
 
         {/* Section 5: Coming Soon - Elite Styling */}
         <motion.section
-          className="relative py-24 lg:py-32"
+          className="relative py-24 lg:py-32 will-change-transform"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeUp}
           style={{ transform: 'translateZ(0)' }}
-          className="will-change-transform"
         >
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div 
@@ -542,13 +537,12 @@ export default function SpecificationsContent() {
 
         {/* Section 6: Download / Customization - Elite CTAs */}
         <motion.section
-          className="relative py-24 lg:py-32"
+          className="relative py-24 lg:py-32 will-change-transform"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeUp}
           style={{ transform: 'translateZ(0)' }}
-          className="will-change-transform"
         >
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-start gap-6" style={{ marginBottom: 'clamp(3rem, 6vw, 5rem)' }}>

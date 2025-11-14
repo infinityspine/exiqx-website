@@ -77,12 +77,11 @@ export default function AboutPage() {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeUp}
-          style={{ transform: 'translateZ(0)' }}
-          className="will-change-transform"
-          className="relative"
+          className="relative will-change-transform"
           style={{
             paddingTop: 'clamp(6rem, 12vw, 10rem)',
-            paddingBottom: 'clamp(5rem, 10vw, 8rem)'
+            paddingBottom: 'clamp(5rem, 10vw, 8rem)',
+            transform: 'translateZ(0)'
           }}
         >
           {/* Animated gradient orbs with scroll parallax */}
@@ -118,12 +117,11 @@ export default function AboutPage() {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeUp}
-          style={{ transform: 'translateZ(0)' }}
-          className="will-change-transform"
-          className="relative"
+          className="relative will-change-transform"
           style={{
             paddingTop: 'clamp(5rem, 10vw, 8rem)',
-            paddingBottom: 'clamp(5rem, 10vw, 8rem)'
+            paddingBottom: 'clamp(5rem, 10vw, 8rem)',
+            transform: 'translateZ(0)'
           }}
         >
           {/* Animated gradient orb with scroll parallax */}
@@ -196,12 +194,11 @@ export default function AboutPage() {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeUp}
-          style={{ transform: 'translateZ(0)' }}
-          className="will-change-transform"
-          className="relative"
+          className="relative will-change-transform"
           style={{
             paddingTop: 'clamp(5rem, 10vw, 8rem)',
-            paddingBottom: 'clamp(5rem, 10vw, 8rem)'
+            paddingBottom: 'clamp(5rem, 10vw, 8rem)',
+            transform: 'translateZ(0)'
           }}
         >
           {/* Animated gradient orb with scroll parallax */}
@@ -275,12 +272,11 @@ export default function AboutPage() {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeUp}
-          style={{ transform: 'translateZ(0)' }}
-          className="will-change-transform"
-          className="relative"
+          className="relative will-change-transform"
           style={{
             paddingTop: 'clamp(5rem, 10vw, 8rem)',
-            paddingBottom: 'clamp(5rem, 10vw, 8rem)'
+            paddingBottom: 'clamp(5rem, 10vw, 8rem)',
+            transform: 'translateZ(0)'
           }}
         >
           {/* Animated gradient orb with scroll parallax */}
@@ -354,12 +350,11 @@ export default function AboutPage() {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeUp}
-          style={{ transform: 'translateZ(0)' }}
-          className="will-change-transform"
-          className="relative"
+          className="relative will-change-transform"
           style={{
             paddingTop: 'clamp(5rem, 10vw, 8rem)',
-            paddingBottom: 'clamp(5rem, 10vw, 8rem)'
+            paddingBottom: 'clamp(5rem, 10vw, 8rem)',
+            transform: 'translateZ(0)'
           }}
         >
           {/* Animated gradient orb with scroll parallax */}
