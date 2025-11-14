@@ -88,26 +88,7 @@ export default function FreestandingContent() {
         <SectionDivider />
 
         {/* Key Benefits Grid */}
-        <motion.section
-          className="relative"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={fadeUp}
-          style={{ transform: 'translateZ(0)' }}
-        >
-          {/* Animated gradient orbs */}
-          <AnimatedGradientOrb 
-            className="top-0 right-1/4 w-96 h-96" 
-            delay={0}
-            shouldReduceMotion={!!shouldReduceMotion}
-          />
-          <AnimatedGradientOrb 
-            className="bottom-0 left-1/4 w-80 h-80 bg-blue-500/10" 
-            delay={2}
-            shouldReduceMotion={!!shouldReduceMotion}
-          />
-          <EngineeredForExcellenceSection
+        <EngineeredForExcellenceSection
           sectionTitle="PORTABLE PRECISION TRAINING"
           sectionSubtitle="Four pillars of freestanding performance"
           features={[
@@ -132,8 +113,7 @@ export default function FreestandingContent() {
               body: '11-gauge steel with powder-coated finish. Stabilized with standard weight plates. Built for serious training without the infrastructure.',
             },
           ]}
-          />
-        </motion.section>
+        />
 
         <SectionDivider />
 
@@ -159,7 +139,7 @@ export default function FreestandingContent() {
             delay={3}
             shouldReduceMotion={!!shouldReduceMotion}
           />
-          <div className="py-24 lg:py-32">
+          <div className="py-24 md:py-32">
             <FreestandingFeatureDetail
               title="Rack-Free Performance"
               description="The freestanding configuration delivers the same precision biomechanics as the rack-mounted system, with a stabilized base design that requires only standard weight plates — perfect for home gyms and portable training setups."
@@ -200,12 +180,19 @@ export default function FreestandingContent() {
             delay={2.5}
             shouldReduceMotion={!!shouldReduceMotion}
           />
-          <div className="py-24 lg:py-32">
-            <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-              <BiomechanicsSection
-              title="Aligned with Human Biomechanics"
-              description="The freestanding system is engineered around a ~38° plantarflexion alignment, mirroring the natural closed-chain vector of sprinting and athletic performance. This geometry targets the soleus, gastrocnemius, and hamstrings through their full length-tension curve — enabling concentric, eccentric, and isometric loading without posterior ankle restraint."
-            />
+          <div className="py-24 md:py-32">
+            <div className="max-w-5xl mx-auto px-6 md:px-8">
+              <motion.div
+                variants={staggerChildren}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-100px" }}
+              >
+                <BiomechanicsSection
+                  title="Aligned with Human Biomechanics"
+                  description="The freestanding system is engineered around a ~38° plantarflexion alignment, mirroring the natural closed-chain vector of sprinting and athletic performance. This geometry targets the soleus, gastrocnemius, and hamstrings through their full length-tension curve — enabling concentric, eccentric, and isometric loading without posterior ankle restraint."
+                />
+              </motion.div>
             </div>
           </div>
         </motion.section>
@@ -234,7 +221,7 @@ export default function FreestandingContent() {
             delay={3.5}
             shouldReduceMotion={!!shouldReduceMotion}
           />
-          <div className="py-24 lg:py-32">
+          <div className="py-24 md:py-32">
             <FreestandingSpecs />
           </div>
         </motion.section>
@@ -262,7 +249,7 @@ export default function FreestandingContent() {
             delay={2.5}
             shouldReduceMotion={!!shouldReduceMotion}
           />
-          <div className="py-24 lg:py-32">
+          <div className="py-24 md:py-32">
             <Testimonials />
           </div>
         </motion.section>
@@ -289,7 +276,7 @@ export default function FreestandingContent() {
             delay={3.5}
             shouldReduceMotion={!!shouldReduceMotion}
           />
-          <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+          <div className="max-w-5xl mx-auto px-6 md:px-8 py-24 md:py-32">
             <CTASection
             headline="Elite Training Without the Infrastructure"
             description="Join the waitlist to be first in line when we launch."

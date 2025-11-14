@@ -139,7 +139,7 @@ export default function RackMountedContent() {
             delay={3}
             shouldReduceMotion={!!shouldReduceMotion}
           />
-          <div className="py-24 lg:py-32">
+          <div className="py-24 md:py-32">
             <RackFeatureDetail
               title="Precision-Mounted Stability"
               description="The rack-mounted footplate anchors securely to 3×3 uprights using dual hitch-pin brackets, ensuring a rigid, stable interface for high-force posterior chain loading."
@@ -180,12 +180,19 @@ export default function RackMountedContent() {
             delay={2.5}
             shouldReduceMotion={!!shouldReduceMotion}
           />
-          <div className="py-24 lg:py-32">
-            <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-              <BiomechanicsSection
-              title="Aligned with Human Biomechanics"
-              description="The rack-mounted system is engineered around a ~38° plantarflexion alignment, mirroring the natural closed-chain vector of sprinting and acceleration. This geometry targets the soleus, gastrocnemius, and hamstrings through their full length-tension curve — enabling concentric, eccentric, and isometric loading without posterior ankle restraint."
-            />
+          <div className="py-24 md:py-32">
+            <div className="max-w-5xl mx-auto px-6 md:px-8">
+              <motion.div
+                variants={staggerChildren}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-100px" }}
+              >
+                <BiomechanicsSection
+                  title="Aligned with Human Biomechanics"
+                  description="The rack-mounted system is engineered around a ~38° plantarflexion alignment, mirroring the natural closed-chain vector of sprinting and acceleration. This geometry targets the soleus, gastrocnemius, and hamstrings through their full length-tension curve — enabling concentric, eccentric, and isometric loading without posterior ankle restraint."
+                />
+              </motion.div>
             </div>
           </div>
         </motion.section>
@@ -214,7 +221,7 @@ export default function RackMountedContent() {
             delay={3.5}
             shouldReduceMotion={!!shouldReduceMotion}
           />
-          <div className="py-24 lg:py-32">
+          <div className="py-24 md:py-32">
             <RackSpecs />
           </div>
         </motion.section>
@@ -242,7 +249,7 @@ export default function RackMountedContent() {
             delay={2.5}
             shouldReduceMotion={!!shouldReduceMotion}
           />
-          <div className="py-24 lg:py-32">
+          <div className="py-24 md:py-32">
             <Testimonials />
           </div>
         </motion.section>
@@ -269,7 +276,7 @@ export default function RackMountedContent() {
             delay={3.5}
             shouldReduceMotion={!!shouldReduceMotion}
           />
-          <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+          <div className="max-w-5xl mx-auto px-6 md:px-8 py-24 md:py-32">
             <CTASection
             headline="The Foundation of the ExIQx System"
             description="Join the waitlist to be first in line when we launch."
