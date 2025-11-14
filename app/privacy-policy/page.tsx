@@ -2,11 +2,9 @@
 
 import { motion } from 'framer-motion'
 import { fadeUp, staggerChildren } from '@/lib/motionPresets'
-import { useReducedMotion } from 'framer-motion'
 import SectionDivider from '@/components/ui/SectionDivider'
 
 export default function PrivacyPolicyPage() {
-  const shouldReduceMotion = !!useReducedMotion()
 
   return (
     <main className="relative bg-black text-white min-h-screen">
