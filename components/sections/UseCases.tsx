@@ -1,8 +1,9 @@
 'use client'
 
 import { memo } from 'react'
-import { motion, useReducedMotion, useTransform } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import Image from 'next/image'
+import { fadeUp, staggerChildren } from '@/lib/motionPresets'
 
 interface UseCasesProps {
   scrollYProgress?: any
@@ -15,42 +16,6 @@ const UseCases = memo(function UseCases({
 }: UseCasesProps) {
   const hookShouldReduceMotion = useReducedMotion()
   const shouldReduceMotion = propShouldReduceMotion ?? hookShouldReduceMotion
-
-  // Image zoom on scroll
-  const image1Scale = scrollYProgress && !shouldReduceMotion
-    ? useTransform(scrollYProgress, [0.5, 0.7], [1, 1.1])
-    : undefined
-  const image2Scale = scrollYProgress && !shouldReduceMotion
-    ? useTransform(scrollYProgress, [0.5, 0.7], [1, 1.15])
-    : undefined
-  const image3Scale = scrollYProgress && !shouldReduceMotion
-    ? useTransform(scrollYProgress, [0.5, 0.7], [1, 1.12])
-    : undefined
-
-  // Optimized heading transform - scale only (removed blur for performance)
-  const headingScale = scrollYProgress && !shouldReduceMotion
-    ? useTransform(scrollYProgress, [0.35, 0.45], [0.95, 1])
-    : undefined
-
-  // Parallax separation between images and text
-  const image1Y = scrollYProgress && !shouldReduceMotion
-    ? useTransform(scrollYProgress, [0.4, 0.6], [30, -30])
-    : undefined
-  const text1Y = scrollYProgress && !shouldReduceMotion
-    ? useTransform(scrollYProgress, [0.4, 0.6], [-30, 30])
-    : undefined
-  const image2Y = scrollYProgress && !shouldReduceMotion
-    ? useTransform(scrollYProgress, [0.45, 0.65], [30, -30])
-    : undefined
-  const text2Y = scrollYProgress && !shouldReduceMotion
-    ? useTransform(scrollYProgress, [0.45, 0.65], [-30, 30])
-    : undefined
-  const image3Y = scrollYProgress && !shouldReduceMotion
-    ? useTransform(scrollYProgress, [0.5, 0.7], [30, -30])
-    : undefined
-  const text3Y = scrollYProgress && !shouldReduceMotion
-    ? useTransform(scrollYProgress, [0.5, 0.7], [-30, 30])
-    : undefined
   return (
     <section
       id="use-cases"
@@ -59,21 +24,28 @@ const UseCases = memo(function UseCases({
     >
       <div className="mx-auto max-w-7xl">
         {/* Section Header */}
-        <div className="mb-16 text-center">
+        <motion.div 
+          className="mb-16 text-center"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={staggerChildren}
+        >
           <motion.h2
             id="use-cases-heading"
-            className="font-display text-4xl font-extrabold uppercase tracking-[0.05em] text-white lg:text-5xl will-change-transform"
-            style={{
-              scale: headingScale,
-              transform: 'translateZ(0)'
-            }}
+            variants={fadeUp}
+            className="font-display text-4xl font-extrabold uppercase tracking-[0.05em] text-white lg:text-5xl"
+            style={{ transform: 'translateZ(0)' }}
           >
             Training Applications
           </motion.h2>
-          <p className="mt-4 text-lg text-white/70 font-light leading-relaxed">
+          <motion.p 
+            variants={fadeUp}
+            className="mt-4 text-lg text-white/70 font-light leading-relaxed"
+          >
             Versatile equipment for comprehensive posterior chain development
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         {/* Use Cases Grid */}
         <div className="space-y-16">
@@ -81,13 +53,10 @@ const UseCases = memo(function UseCases({
           <div className="grid items-center gap-8 lg:grid-cols-2">
             {/* Image with Elite Styling */}
             <motion.div 
-              initial={{ opacity: 0, x: -30, scale: 0.95 }}
-              whileInView={{ opacity: 1, x: 0, scale: 1 }}
+              variants={fadeUp}
               whileHover={shouldReduceMotion ? {} : { scale: 1.02, y: -4 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.8, delay: 0, ease: [0.16, 1, 0.3, 1] }}
               className="relative aspect-[4/5] rounded-lg overflow-hidden border border-zinc-800/60 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-[0_10px_30px_rgba(220,38,38,0.2)] will-change-transform"
-              style={{ y: image1Y, scale: image1Scale }}
+              style={{ transform: 'translateZ(0)' }}
             >
               <Image
                 src="/images/training/nordic-curl-athlete.jpg"
@@ -103,12 +72,9 @@ const UseCases = memo(function UseCases({
             
             {/* Content */}
             <motion.div
-              initial={{ opacity: 0, x: 30, scale: 0.95 }}
-              whileInView={{ opacity: 1, x: 0, scale: 1 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-              className="group"
-              style={{ y: text1Y }}
+              variants={fadeUp}
+              className="group will-change-transform"
+              style={{ transform: 'translateZ(0)' }}
             >
               <h3 className="mb-4 font-display text-3xl font-bold uppercase tracking-[0.03em] text-white transition-colors duration-300 group-hover:text-red-400">
                 Nordic Hamstring Curls
@@ -125,10 +91,10 @@ const UseCases = memo(function UseCases({
                   <motion.li
                     key={index}
                     className="flex items-start"
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 15 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1, duration: 0.5 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ delay: Math.min(index * 0.05, 0.3), duration: 0.4 }}
                   >
                     <span className="mr-2 text-accent">•</span>
                     {item}
@@ -142,13 +108,10 @@ const UseCases = memo(function UseCases({
           <div className="grid items-center gap-12 sm:gap-16 lg:grid-cols-2 lg:gap-12">
             {/* Image with Elite Styling - FIRST in DOM for mobile */}
             <motion.div 
-              className="relative aspect-[4/5] rounded-lg overflow-hidden lg:order-2 border border-zinc-800/60 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-[0_10px_30px_rgba(220,38,38,0.2)]"
-              initial={{ opacity: 0, x: -30, scale: 0.95 }}
-              whileInView={{ opacity: 1, x: 0, scale: 1 }}
+              variants={fadeUp}
+              className="relative aspect-[4/5] rounded-lg overflow-hidden lg:order-2 border border-zinc-800/60 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-[0_10px_30px_rgba(220,38,38,0.2)] will-change-transform"
               whileHover={shouldReduceMotion ? {} : { scale: 1.02, y: -4 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              style={{ y: image2Y, scale: image2Scale }}
+              style={{ transform: 'translateZ(0)' }}
             >
               <Image
                 src="/images/training/glute-ham-raise-athlete-v2.jpg"
@@ -163,12 +126,9 @@ const UseCases = memo(function UseCases({
             
             {/* Content - SECOND in DOM for mobile, FIRST on desktop (lg:order-1) */}
             <motion.div 
-              className="lg:order-1 group"
-              initial={{ opacity: 0, x: 30, scale: 0.95 }}
-              whileInView={{ opacity: 1, x: 0, scale: 1 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.8, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
-              style={{ y: text2Y }}
+              variants={fadeUp}
+              className="lg:order-1 group will-change-transform"
+              style={{ transform: 'translateZ(0)' }}
             >
               <h3 className="mb-4 font-display text-3xl font-bold uppercase tracking-[0.03em] text-white transition-colors duration-300 group-hover:text-red-400">
                 Glute-Ham Raises
@@ -185,10 +145,10 @@ const UseCases = memo(function UseCases({
                   <motion.li
                     key={index}
                     className="flex items-start"
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 15 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1, duration: 0.5 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ delay: Math.min(index * 0.05, 0.3), duration: 0.4 }}
                   >
                     <span className="mr-2 text-accent">•</span>
                     {item}
@@ -202,13 +162,10 @@ const UseCases = memo(function UseCases({
           <div className="grid items-center gap-8 lg:grid-cols-2">
             {/* Image with Elite Styling - Product Detail Shot */}
             <motion.div 
-              initial={{ opacity: 0, x: -30, scale: 0.95 }}
-              whileInView={{ opacity: 1, x: 0, scale: 1 }}
+              variants={fadeUp}
               whileHover={shouldReduceMotion ? {} : { scale: 1.02, y: -4 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.8, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="relative aspect-[4/5] rounded-lg overflow-hidden border border-zinc-800/60 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-[0_10px_30px_rgba(220,38,38,0.2)]"
-              style={{ y: image3Y, scale: image3Scale }}
+              className="relative aspect-[4/5] rounded-lg overflow-hidden border border-zinc-800/60 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-[0_10px_30px_rgba(220,38,38,0.2)] will-change-transform"
+              style={{ transform: 'translateZ(0)' }}
             >
               <Image
                 src="/images/training/adjustment-mechanism-detail.jpg"
@@ -224,12 +181,9 @@ const UseCases = memo(function UseCases({
             
             {/* Content */}
             <motion.div
-              initial={{ opacity: 0, x: 30, scale: 0.95 }}
-              whileInView={{ opacity: 1, x: 0, scale: 1 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.8, delay: 0.75, ease: [0.16, 1, 0.3, 1] }}
-              className="group"
-              style={{ y: text3Y }}
+              variants={fadeUp}
+              className="group will-change-transform"
+              style={{ transform: 'translateZ(0)' }}
             >
               <h3 className="mb-4 font-display text-3xl font-bold uppercase tracking-[0.03em] text-white transition-colors duration-300 group-hover:text-red-400">
                 Progressive Overload
@@ -246,10 +200,10 @@ const UseCases = memo(function UseCases({
                   <motion.li
                     key={index}
                     className="flex items-start"
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 15 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1, duration: 0.5 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ delay: Math.min(index * 0.05, 0.3), duration: 0.4 }}
                   >
                     <span className="mr-2 text-accent">•</span>
                     {item}

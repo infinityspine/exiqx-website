@@ -61,18 +61,22 @@ const Testimonials = memo(function Testimonials({
         </motion.div>
 
         {/* Testimonials Grid */}
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <motion.div 
+          className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
+          variants={staggerChildren}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+        >
           {/* Testimonial Card 1 */}
           <motion.article
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5 }}
+            variants={fadeUp}
+            style={{ transform: 'translateZ(0)' }}
             whileHover={shouldReduceMotion ? {} : { 
               scale: 1.02,
               transition: { duration: 0.3 }
             }}
-            className="group relative rounded-2xl border border-zinc-800/60 bg-zinc-950/40 p-8 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-lg hover:shadow-red-900/10 overflow-hidden"
+            className="group relative rounded-2xl border border-zinc-800/60 bg-zinc-950/40 p-8 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-lg hover:shadow-red-900/10 overflow-hidden will-change-transform"
           >
             {/* Internal gradient glow on hover */}
             <div className="absolute inset-0 bg-gradient-to-br from-red-500/0 via-red-500/0 to-red-500/0 group-hover:from-red-500/5 group-hover:via-red-500/0 group-hover:to-transparent rounded-2xl transition-all duration-500 pointer-events-none" />
@@ -119,15 +123,13 @@ const Testimonials = memo(function Testimonials({
 
           {/* Testimonial Card 2 */}
           <motion.article
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+            variants={fadeUp}
+            style={{ transform: 'translateZ(0)' }}
             whileHover={shouldReduceMotion ? {} : { 
               scale: 1.02,
               transition: { duration: 0.3 }
             }}
-            className="group relative rounded-2xl border border-zinc-800/60 bg-zinc-950/40 p-8 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-lg hover:shadow-red-900/10 overflow-hidden"
+            className="group relative rounded-2xl border border-zinc-800/60 bg-zinc-950/40 p-8 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-lg hover:shadow-red-900/10 overflow-hidden will-change-transform"
           >
             {/* Internal gradient glow on hover */}
             <div className="absolute inset-0 bg-gradient-to-br from-red-500/0 via-red-500/0 to-red-500/0 group-hover:from-red-500/5 group-hover:via-red-500/0 group-hover:to-transparent rounded-2xl transition-all duration-500 pointer-events-none" />
@@ -174,15 +176,13 @@ const Testimonials = memo(function Testimonials({
 
           {/* Testimonial Card 3 */}
           <motion.article
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            variants={fadeUp}
+            style={{ transform: 'translateZ(0)' }}
             whileHover={shouldReduceMotion ? {} : { 
               scale: 1.02,
               transition: { duration: 0.3 }
             }}
-            className="group relative rounded-2xl border border-zinc-800/60 bg-zinc-950/40 p-8 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-lg hover:shadow-red-900/10 overflow-hidden"
+            className="group relative rounded-2xl border border-zinc-800/60 bg-zinc-950/40 p-8 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-lg hover:shadow-red-900/10 overflow-hidden will-change-transform"
           >
             {/* Internal gradient glow on hover */}
             <div className="absolute inset-0 bg-gradient-to-br from-red-500/0 via-red-500/0 to-red-500/0 group-hover:from-red-500/5 group-hover:via-red-500/0 group-hover:to-transparent rounded-2xl transition-all duration-500 pointer-events-none" />
@@ -226,7 +226,7 @@ const Testimonials = memo(function Testimonials({
               </div>
             </div>
           </motion.article>
-        </div>
+        </motion.div>
 
         {/* Optional: Trust Indicators */}
         <div className="mt-16 text-center">

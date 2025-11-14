@@ -15,7 +15,7 @@
 
 'use client'
 
-import { memo, useState } from 'react'
+import { memo } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import { fadeUp, staggerChildren } from '@/lib/motionPresets'
 import { useMagnetic } from '@/hooks/useMagnetic'
@@ -31,7 +31,8 @@ const CTASection = memo(function CTASection({
 }: HomePageCTAProps) {
   const hookShouldReduceMotion = useReducedMotion()
   const shouldReduceMotion = propShouldReduceMotion ?? hookShouldReduceMotion
-  const magneticRef = useMagnetic(shouldReduceMotion ? 0 : 0.1)
+  const primaryMagneticRef = useMagnetic(shouldReduceMotion ? 0 : 0.1)
+  const secondaryMagneticRef = useMagnetic(shouldReduceMotion ? 0 : 0.1)
 
   return (
     <section
@@ -140,60 +141,36 @@ const CTASection = memo(function CTASection({
               Warranty on all components
             </p>
           </motion.div>
-        </div>
+        </motion.div>
 
         {/* CTA Buttons */}
-        <div className="flex flex-wrap items-center justify-center gap-4">
+        <motion.div 
+          className="flex flex-wrap items-center justify-center gap-4"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={fadeUp}
+        >
           {/* Primary CTA with magnetic hover */}
-          <motion.a
+          <a
+            ref={primaryMagneticRef}
             href="#waitlist"
-            onMouseMove={(e) => {
-              if (shouldReduceMotion) return
-              const rect = e.currentTarget.getBoundingClientRect()
-              setMousePosition({
-                x: (e.clientX - rect.left - rect.width / 2) * 0.1,
-                y: (e.clientY - rect.top - rect.height / 2) * 0.1,
-              })
-            }}
-            onMouseLeave={() => setMousePosition({ x: 0, y: 0 })}
-            animate={{ 
-              x: mousePosition.x, 
-              y: mousePosition.y,
-              scale: shouldReduceMotion ? 1 : undefined
-            }}
-            whileHover={shouldReduceMotion ? {} : { scale: 1.05 }}
-            whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
-            transition={{ type: "spring", stiffness: 150, damping: 15 }}
-            className="inline-block rounded-xl bg-accent px-10 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition-all duration-300 hover:bg-red-700 hover:shadow-[0_10px_30px_rgba(220,38,38,0.55)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+            className="inline-block rounded-xl bg-accent px-10 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition-all duration-300 hover:bg-red-700 hover:shadow-[0_10px_30px_rgba(220,38,38,0.55)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-black will-change-transform"
+            style={{ transform: 'translateZ(0)' }}
           >
             Join Waitlist
-          </motion.a>
+          </a>
 
           {/* Secondary CTA with magnetic hover */}
-          <motion.a
+          <a
+            ref={secondaryMagneticRef}
             href="#contact"
-            onMouseMove={(e) => {
-              if (shouldReduceMotion) return
-              const rect = e.currentTarget.getBoundingClientRect()
-              setSecondaryMousePosition({
-                x: (e.clientX - rect.left - rect.width / 2) * 0.1,
-                y: (e.clientY - rect.top - rect.height / 2) * 0.1,
-              })
-            }}
-            onMouseLeave={() => setSecondaryMousePosition({ x: 0, y: 0 })}
-            animate={{ 
-              x: secondaryMousePosition.x, 
-              y: secondaryMousePosition.y,
-              scale: shouldReduceMotion ? 1 : undefined
-            }}
-            whileHover={shouldReduceMotion ? {} : { scale: 1.05 }}
-            whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
-            transition={{ type: "spring", stiffness: 150, damping: 15 }}
-            className="inline-block rounded-xl border border-zinc-800/60 bg-zinc-950/40 px-10 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-white backdrop-blur-md transition-all duration-300 hover:border-white/90 hover:bg-white/10 hover:shadow-[0_10px_30px_rgba(255,255,255,0.1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+            className="inline-block rounded-xl border border-zinc-800/60 bg-zinc-950/40 px-10 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-white backdrop-blur-md transition-all duration-300 hover:border-white/90 hover:bg-white/10 hover:shadow-[0_10px_30px_rgba(255,255,255,0.1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black will-change-transform"
+            style={{ transform: 'translateZ(0)' }}
           >
             Request Demo
-          </motion.a>
-        </div>
+          </a>
+        </motion.div>
 
         {/* Trust Signals */}
         <div className="mt-12">
