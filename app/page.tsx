@@ -8,14 +8,14 @@ import UseCases from '@/components/sections/UseCases'
 import Testimonials from '@/components/sections/Testimonials'
 import HomePageCTA from '@/components/sections/HomePageCTA'
 
-// Animation variants for smooth section reveals with Apple-style easing
+// Animation variants for smooth section reveals with Apple-style easing - optimized
 const sectionVariants = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.8,
+      duration: 0.5,
       ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
     },
   },

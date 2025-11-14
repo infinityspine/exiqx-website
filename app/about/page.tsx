@@ -3,13 +3,13 @@
 import { motion, useScroll, useSpring, useReducedMotion, useTransform } from 'framer-motion'
 import { Zap, Target, Award, TrendingUp } from 'lucide-react'
 
-// Animation variants for smooth section reveals
+// Animation variants for smooth section reveals - optimized
 const sectionVariants = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
+    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
   },
 }
 
@@ -21,7 +21,7 @@ const PremiumSeparator = () => (
   </div>
 )
 
-// Animated gradient orb component with scroll-responsive parallax
+// Animated gradient orb component - optimized for performance
 const AnimatedGradientOrb = ({ 
   className = '', 
   delay = 0,
@@ -34,22 +34,21 @@ const AnimatedGradientOrb = ({
   style?: any
 }) => {
   if (shouldReduceMotion) {
-    return <div className={`absolute ${className} bg-red-500/10 rounded-full blur-3xl`} style={style} aria-hidden="true" />
+    return <div className={`absolute ${className} bg-red-500/10 rounded-full blur-3xl opacity-30`} style={{ ...style, transform: 'translateZ(0)' }} aria-hidden="true" />
   }
   
   return (
     <motion.div
-      className={`absolute ${className} bg-red-500/10 rounded-full blur-3xl`}
-      style={style}
+      className={`absolute ${className} bg-red-500/10 rounded-full blur-3xl will-change-[opacity]`}
+      style={{ ...style, transform: 'translateZ(0)' }}
       animate={{ 
-        scale: [1, 1.2, 1], 
         opacity: [0.3, 0.5, 0.3] 
       }}
       transition={{ 
         duration: 8, 
         repeat: Infinity, 
         ease: "easeInOut",
-        delay 
+        delay: delay || 0
       }}
       aria-hidden="true"
     />

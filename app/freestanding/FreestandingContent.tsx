@@ -10,14 +10,14 @@ import FreestandingSpecs from '@/components/sections/FreestandingSpecs'
 import CTASection from '@/components/sections/CTASection'
 import Testimonials from '@/components/sections/Testimonials'
 
-// Animation variants for smooth section reveals with Apple-style easing
+// Animation variants for smooth section reveals with Apple-style easing - optimized
 const sectionVariants = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.8,
+      duration: 0.5,
       ease: [0.22, 1, 0.36, 1] as [number, number, number, number], // Apple's signature cubic-bezier easing
     },
   },
@@ -31,7 +31,7 @@ const PremiumSeparator = () => (
   </div>
 )
 
-// Animated gradient orb component
+// Animated gradient orb component - optimized for performance
 const AnimatedGradientOrb = ({ 
   className = '', 
   delay = 0,
@@ -42,21 +42,21 @@ const AnimatedGradientOrb = ({
   shouldReduceMotion?: boolean 
 }) => {
   if (shouldReduceMotion) {
-    return <div className={`absolute ${className} bg-red-500/10 rounded-full blur-3xl`} aria-hidden="true" />
+    return <div className={`absolute ${className} bg-red-500/10 rounded-full blur-3xl opacity-30`} style={{ transform: 'translateZ(0)' }} aria-hidden="true" />
   }
   
   return (
     <motion.div
-      className={`absolute ${className} bg-red-500/10 rounded-full blur-3xl`}
+      className={`absolute ${className} bg-red-500/10 rounded-full blur-3xl will-change-[opacity]`}
+      style={{ transform: 'translateZ(0)' }}
       animate={{ 
-        scale: [1, 1.2, 1], 
         opacity: [0.3, 0.5, 0.3] 
       }}
       transition={{ 
         duration: 8, 
         repeat: Infinity, 
         ease: "easeInOut",
-        delay 
+        delay: delay || 0
       }}
       aria-hidden="true"
     />
