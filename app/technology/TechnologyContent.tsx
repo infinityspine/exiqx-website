@@ -1,6 +1,5 @@
 'use client'
 
-import { useState } from 'react'
 import { motion, useScroll, useSpring, useReducedMotion } from 'framer-motion'
 import { fadeUp, staggerChildren } from '@/lib/motionPresets'
 import { useParallax } from '@/hooks/useParallax'
@@ -57,11 +56,8 @@ export default function TechnologyPage() {
     damping: 30,
     restDelta: 0.001,
   })
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-
-  // Optimized parallax transforms - reduced to essential only
-  const heroY = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0, 0.2], [0, -50])
-  const contentParallax = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0.2, 0.8], [30, -30])
+  // Tesla-style parallax - only for hero
+  const heroY = shouldReduceMotion ? undefined : useParallax(scrollYProgress, 25)
 
   // Performance outcomes data
   const performanceOutcomes = [
@@ -97,11 +93,12 @@ export default function TechnologyPage() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          variants={sectionVariants}
-          className="relative"
-            style={{
+          variants={fadeUp}
+          className="relative will-change-transform"
+          style={{
             paddingTop: 'clamp(6rem, 12vw, 10rem)',
-            paddingBottom: 'clamp(5rem, 10vw, 8rem)'
+            paddingBottom: 'clamp(5rem, 10vw, 8rem)',
+            transform: 'translateZ(0)'
           }}
         >
           {/* Animated gradient orbs */}
@@ -134,8 +131,10 @@ export default function TechnologyPage() {
                 transform: 'translateZ(0)'
               }}
               whileHover={shouldReduceMotion ? {} : {
+                y: -3,
+                scale: 1.02,
                 borderColor: 'rgba(127, 29, 29, 0.6)',
-                transition: { duration: 0.3 }
+                transition: { type: "spring", stiffness: 200, damping: 20 }
               }}
             >
               <div className="text-base sm:text-lg text-white/70 font-light leading-relaxed">
@@ -155,11 +154,12 @@ export default function TechnologyPage() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          variants={sectionVariants}
-          className="relative"
+          variants={fadeUp}
+          className="relative will-change-transform"
           style={{
             paddingTop: 'clamp(5rem, 10vw, 8rem)',
-            paddingBottom: 'clamp(5rem, 10vw, 8rem)'
+            paddingBottom: 'clamp(5rem, 10vw, 8rem)',
+            transform: 'translateZ(0)'
           }}
         >
           {/* Animated gradient orb */}
@@ -199,12 +199,13 @@ export default function TechnologyPage() {
               className="relative bg-zinc-950/40 backdrop-blur-sm border border-zinc-800/60 rounded-2xl shadow-2xl overflow-hidden will-change-transform"
               style={{ 
                 padding: 'clamp(2.5rem, 5vw, 4rem)',
-                y: contentParallax,
                 transform: 'translateZ(0)'
               }}
               whileHover={shouldReduceMotion ? {} : {
+                y: -3,
+                scale: 1.02,
                 borderColor: 'rgba(127, 29, 29, 0.6)',
-                transition: { duration: 0.3 }
+                transition: { type: "spring", stiffness: 200, damping: 20 }
               }}
             >
               <div className="text-base sm:text-lg text-white/70 font-light leading-relaxed">
@@ -230,7 +231,9 @@ export default function TechnologyPage() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          variants={sectionVariants}
+          variants={fadeUp}
+          style={{ transform: 'translateZ(0)' }}
+          className="will-change-transform"
           className="relative"
           style={{
             paddingTop: 'clamp(5rem, 10vw, 8rem)',
@@ -279,12 +282,13 @@ export default function TechnologyPage() {
               className="relative bg-zinc-950/40 backdrop-blur-sm border border-zinc-800/60 rounded-2xl shadow-2xl overflow-hidden will-change-transform"
               style={{ 
                 padding: 'clamp(2.5rem, 5vw, 4rem)',
-                y: contentParallax,
                 transform: 'translateZ(0)'
               }}
               whileHover={shouldReduceMotion ? {} : {
+                y: -3,
+                scale: 1.02,
                 borderColor: 'rgba(127, 29, 29, 0.6)',
-                transition: { duration: 0.3 }
+                transition: { type: "spring", stiffness: 200, damping: 20 }
               }}
             >
               <div className="text-base sm:text-lg text-white/70 font-light leading-relaxed">
@@ -310,7 +314,9 @@ export default function TechnologyPage() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          variants={sectionVariants}
+          variants={fadeUp}
+          style={{ transform: 'translateZ(0)' }}
+          className="will-change-transform"
           className="relative"
           style={{
             paddingTop: 'clamp(5rem, 10vw, 8rem)',
@@ -357,12 +363,13 @@ export default function TechnologyPage() {
               className="relative bg-zinc-950/40 backdrop-blur-sm border border-zinc-800/60 rounded-2xl shadow-2xl overflow-hidden will-change-transform"
               style={{ 
                 padding: 'clamp(2.5rem, 5vw, 4rem)',
-                y: contentParallax,
                 transform: 'translateZ(0)'
               }}
               whileHover={shouldReduceMotion ? {} : {
+                y: -3,
+                scale: 1.02,
                 borderColor: 'rgba(127, 29, 29, 0.6)',
-                transition: { duration: 0.3 }
+                transition: { type: "spring", stiffness: 200, damping: 20 }
               }}
             >
               <div className="text-base sm:text-lg text-white/70 font-light leading-relaxed">
@@ -385,7 +392,9 @@ export default function TechnologyPage() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          variants={sectionVariants}
+          variants={fadeUp}
+          style={{ transform: 'translateZ(0)' }}
+          className="will-change-transform"
           className="relative"
           style={{
             paddingTop: 'clamp(5rem, 10vw, 8rem)',
@@ -431,17 +440,24 @@ export default function TechnologyPage() {
               </motion.h2>
             </motion.div>
 
-            <div className="grid gap-8 md:grid-cols-3">
+            <motion.div 
+              className="grid gap-8 md:grid-cols-3"
+              variants={staggerChildren}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
               {performanceOutcomes.map((outcome, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ delay: Math.min(index * 0.05, 0.3), duration: 0.4 }}
+                  variants={fadeUp}
                   className="group relative bg-zinc-950/40 backdrop-blur-sm border border-zinc-800/60 rounded-xl p-6 hover:border-red-900/50 transition-all duration-300 overflow-hidden will-change-transform"
                   style={{ transform: 'translateZ(0)' }}
-                  whileHover={shouldReduceMotion ? {} : { y: -4 }}
+                  whileHover={shouldReduceMotion ? {} : { 
+                    y: -8,
+                    scale: 1.03,
+                    transition: { type: "spring", stiffness: 160, damping: 20 }
+                  }}
                 >
                   {/* Internal gradient glow on hover */}
                   <div className="absolute inset-0 bg-gradient-to-br from-red-500/0 via-red-500/0 to-red-500/0 group-hover:from-red-500/5 group-hover:via-red-500/0 group-hover:to-transparent rounded-xl transition-all duration-500 pointer-events-none" />
@@ -453,7 +469,7 @@ export default function TechnologyPage() {
                   </p>
                 </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </motion.section>
 
@@ -465,7 +481,9 @@ export default function TechnologyPage() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          variants={sectionVariants}
+          variants={fadeUp}
+          style={{ transform: 'translateZ(0)' }}
+          className="will-change-transform"
           className="relative"
           style={{
             paddingTop: 'clamp(5rem, 10vw, 8rem)',
@@ -481,10 +499,9 @@ export default function TechnologyPage() {
 
           <div className="mx-auto max-w-4xl px-6 text-center">
             <motion.div 
-              className="flex items-center justify-center gap-6" 
+              className="flex items-center justify-center gap-6 will-change-transform" 
               style={{ 
                 marginBottom: 'clamp(2rem, 4vw, 3rem)',
-                y: contentParallax,
                 transform: 'translateZ(0)'
               }}
             >
@@ -520,12 +537,13 @@ export default function TechnologyPage() {
               style={{ 
                 padding: 'clamp(2.5rem, 5vw, 4rem)', 
                 marginBottom: 'clamp(2rem, 4vw, 3rem)',
-                y: contentParallax,
                 transform: 'translateZ(0)'
               }}
               whileHover={shouldReduceMotion ? {} : {
+                y: -3,
+                scale: 1.02,
                 borderColor: 'rgba(127, 29, 29, 0.6)',
-                transition: { duration: 0.3 }
+                transition: { type: "spring", stiffness: 200, damping: 20 }
               }}
             >
               <p className="text-base sm:text-lg text-white/70 font-light leading-relaxed">
@@ -535,24 +553,15 @@ export default function TechnologyPage() {
 
             <motion.a
               href="/specifications"
-              onMouseMove={(e) => {
-                if (shouldReduceMotion) return
-                const rect = e.currentTarget.getBoundingClientRect()
-                setMousePosition({
-                  x: (e.clientX - rect.left - rect.width / 2) * 0.1,
-                  y: (e.clientY - rect.top - rect.height / 2) * 0.1,
-                })
+              variants={fadeUp}
+              whileHover={shouldReduceMotion ? {} : { 
+                scale: 1.05, 
+                y: -3,
+                transition: { type: "spring", stiffness: 200, damping: 20 }
               }}
-              onMouseLeave={() => setMousePosition({ x: 0, y: 0 })}
-              animate={{ 
-                x: mousePosition.x, 
-                y: mousePosition.y,
-                scale: shouldReduceMotion ? 1 : undefined
-              }}
-              whileHover={shouldReduceMotion ? {} : { scale: 1.05 }}
-              whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
-              transition={{ type: "spring", stiffness: 150, damping: 15 }}
-              className="inline-block rounded-xl bg-accent px-10 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition-all duration-300 hover:bg-red-700 hover:shadow-[0_10px_30px_rgba(220,38,38,0.55)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+              transition={{ type: "spring", stiffness: 200, damping: 20 }}
+              className="inline-block rounded-xl bg-accent px-10 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition-all duration-300 hover:bg-red-700 hover:shadow-[0_10px_30px_rgba(220,38,38,0.55)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-black will-change-transform"
+              style={{ transform: 'translateZ(0)' }}
             >
               View Full Specifications →
             </motion.a>

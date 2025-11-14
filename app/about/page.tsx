@@ -1,17 +1,8 @@
 'use client'
 
-import { motion, useScroll, useSpring, useReducedMotion, useTransform } from 'framer-motion'
+import { motion, useScroll, useSpring, useReducedMotion } from 'framer-motion'
+import { fadeUp, staggerChildren } from '@/lib/motionPresets'
 import { Zap, Target, Award, TrendingUp } from 'lucide-react'
-
-// Animation variants for smooth section reveals - optimized
-const sectionVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
-  },
-}
 
 // Premium separator component
 const PremiumSeparator = () => (
@@ -66,9 +57,6 @@ export default function AboutPage() {
   })
 
 
-  // Optimized parallax transforms - reduced to essential only
-  const heroY = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0, 0.15], [0, -50])
-  const contentParallax = shouldReduceMotion ? undefined : useTransform(scrollYProgress, [0.2, 0.8], [30, -30])
 
   return (
     <>
@@ -88,7 +76,9 @@ export default function AboutPage() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          variants={sectionVariants}
+          variants={fadeUp}
+          style={{ transform: 'translateZ(0)' }}
+          className="will-change-transform"
           className="relative"
           style={{
             paddingTop: 'clamp(6rem, 12vw, 10rem)',
@@ -127,7 +117,9 @@ export default function AboutPage() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          variants={sectionVariants}
+          variants={fadeUp}
+          style={{ transform: 'translateZ(0)' }}
+          className="will-change-transform"
           className="relative"
           style={{
             paddingTop: 'clamp(5rem, 10vw, 8rem)',
@@ -171,15 +163,16 @@ export default function AboutPage() {
             </div>
 
             <motion.div
-              className="relative bg-zinc-950/40 backdrop-blur-sm border border-zinc-800/60 rounded-2xl shadow-2xl overflow-hidden"
+              className="relative bg-zinc-950/40 backdrop-blur-sm border border-zinc-800/60 rounded-2xl shadow-2xl overflow-hidden will-change-transform"
               style={{ 
                 padding: 'clamp(2.5rem, 5vw, 4rem)',
-                y: contentParallax,
                 transform: 'translateZ(0)'
               }}
               whileHover={shouldReduceMotion ? {} : {
+                y: -3,
+                scale: 1.02,
                 borderColor: 'rgba(127, 29, 29, 0.6)',
-                transition: { duration: 0.3 }
+                transition: { type: "spring", stiffness: 200, damping: 20 }
               }}
             >
               <div className="text-base sm:text-lg text-white/70 font-light leading-relaxed">
@@ -202,7 +195,9 @@ export default function AboutPage() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          variants={sectionVariants}
+          variants={fadeUp}
+          style={{ transform: 'translateZ(0)' }}
+          className="will-change-transform"
           className="relative"
           style={{
             paddingTop: 'clamp(5rem, 10vw, 8rem)',
@@ -247,15 +242,16 @@ export default function AboutPage() {
             </div>
 
             <motion.div
-              className="relative bg-zinc-950/40 backdrop-blur-sm border border-zinc-800/60 rounded-2xl shadow-2xl overflow-hidden"
+              className="relative bg-zinc-950/40 backdrop-blur-sm border border-zinc-800/60 rounded-2xl shadow-2xl overflow-hidden will-change-transform"
               style={{ 
                 padding: 'clamp(2.5rem, 5vw, 4rem)',
-                y: contentParallax,
                 transform: 'translateZ(0)'
               }}
               whileHover={shouldReduceMotion ? {} : {
+                y: -3,
+                scale: 1.02,
                 borderColor: 'rgba(127, 29, 29, 0.6)',
-                transition: { duration: 0.3 }
+                transition: { type: "spring", stiffness: 200, damping: 20 }
               }}
             >
               <div className="text-base sm:text-lg text-white/70 font-light leading-relaxed">
@@ -278,7 +274,9 @@ export default function AboutPage() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          variants={sectionVariants}
+          variants={fadeUp}
+          style={{ transform: 'translateZ(0)' }}
+          className="will-change-transform"
           className="relative"
           style={{
             paddingTop: 'clamp(5rem, 10vw, 8rem)',
@@ -323,15 +321,16 @@ export default function AboutPage() {
             </div>
 
             <motion.div
-              className="relative bg-zinc-950/40 backdrop-blur-sm border border-zinc-800/60 rounded-2xl shadow-2xl overflow-hidden"
+              className="relative bg-zinc-950/40 backdrop-blur-sm border border-zinc-800/60 rounded-2xl shadow-2xl overflow-hidden will-change-transform"
               style={{ 
                 padding: 'clamp(2.5rem, 5vw, 4rem)',
-                y: contentParallax,
                 transform: 'translateZ(0)'
               }}
               whileHover={shouldReduceMotion ? {} : {
+                y: -3,
+                scale: 1.02,
                 borderColor: 'rgba(127, 29, 29, 0.6)',
-                transition: { duration: 0.3 }
+                transition: { type: "spring", stiffness: 200, damping: 20 }
               }}
             >
               <div className="text-base sm:text-lg text-white/70 font-light leading-relaxed">
@@ -354,7 +353,9 @@ export default function AboutPage() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          variants={sectionVariants}
+          variants={fadeUp}
+          style={{ transform: 'translateZ(0)' }}
+          className="will-change-transform"
           className="relative"
           style={{
             paddingTop: 'clamp(5rem, 10vw, 8rem)',
@@ -399,15 +400,16 @@ export default function AboutPage() {
             </div>
 
             <motion.div
-              className="relative bg-zinc-950/40 backdrop-blur-sm border border-zinc-800/60 rounded-2xl shadow-2xl overflow-hidden"
+              className="relative bg-zinc-950/40 backdrop-blur-sm border border-zinc-800/60 rounded-2xl shadow-2xl overflow-hidden will-change-transform"
               style={{ 
                 padding: 'clamp(2.5rem, 5vw, 4rem)',
-                y: contentParallax,
                 transform: 'translateZ(0)'
               }}
               whileHover={shouldReduceMotion ? {} : {
+                y: -3,
+                scale: 1.02,
                 borderColor: 'rgba(127, 29, 29, 0.6)',
-                transition: { duration: 0.3 }
+                transition: { type: "spring", stiffness: 200, damping: 20 }
               }}
             >
               <div className="text-base sm:text-lg text-white/70 font-light leading-relaxed">
