@@ -76,11 +76,11 @@ const FootplateFeatures = memo(function FootplateFeatures({
             variants={fadeUp}
             style={{ transform: 'translateZ(0)' }}
             whileHover={shouldReduceMotion ? {} : { 
-              y: -4, 
-              scale: 1.02,
-              transition: { duration: 0.3 }
+              y: -8, 
+              scale: 1.03,
+              transition: { type: "spring", stiffness: 160, damping: 20 }
             }}
-            transition={{ duration: 0.3 }}
+            transition={{ type: "spring", stiffness: 160, damping: 20 }}
             className="group relative rounded-2xl border border-zinc-800/60 bg-zinc-950/40 p-8 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-lg hover:shadow-red-900/10 overflow-hidden will-change-transform"
           >
             {/* Internal gradient glow on hover */}
@@ -113,11 +113,11 @@ const FootplateFeatures = memo(function FootplateFeatures({
             variants={fadeUp}
             style={{ transform: 'translateZ(0)' }}
             whileHover={shouldReduceMotion ? {} : { 
-              y: -4, 
-              scale: 1.02,
-              transition: { duration: 0.3 }
+              y: -8, 
+              scale: 1.03,
+              transition: { type: "spring", stiffness: 160, damping: 20 }
             }}
-            transition={{ duration: 0.3 }}
+            transition={{ type: "spring", stiffness: 160, damping: 20 }}
             className="group relative rounded-2xl border border-zinc-800/60 bg-zinc-950/40 p-8 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-lg hover:shadow-red-900/10 overflow-hidden will-change-transform"
           >
             {/* Internal gradient glow on hover */}
@@ -151,11 +151,11 @@ const FootplateFeatures = memo(function FootplateFeatures({
             variants={fadeUp}
             style={{ transform: 'translateZ(0)' }}
             whileHover={shouldReduceMotion ? {} : { 
-              y: -4, 
-              scale: 1.02,
-              transition: { duration: 0.3 }
+              y: -8, 
+              scale: 1.03,
+              transition: { type: "spring", stiffness: 160, damping: 20 }
             }}
-            transition={{ duration: 0.3 }}
+            transition={{ type: "spring", stiffness: 160, damping: 20 }}
             className="group relative rounded-2xl border border-zinc-800/60 bg-zinc-950/40 p-8 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-lg hover:shadow-red-900/10 overflow-hidden will-change-transform"
           >
             {/* Internal gradient glow on hover */}

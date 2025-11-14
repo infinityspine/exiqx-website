@@ -73,9 +73,11 @@ const Testimonials = memo(function Testimonials({
             variants={fadeUp}
             style={{ transform: 'translateZ(0)' }}
             whileHover={shouldReduceMotion ? {} : { 
-              scale: 1.02,
-              transition: { duration: 0.3 }
+              scale: 1.03,
+              boxShadow: "0 20px 40px rgba(0,0,0,0.3)",
+              transition: { type: "spring", stiffness: 120, damping: 20 }
             }}
+            transition={{ type: "spring", stiffness: 120, damping: 20 }}
             className="group relative rounded-2xl border border-zinc-800/60 bg-zinc-950/40 p-8 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-lg hover:shadow-red-900/10 overflow-hidden will-change-transform"
           >
             {/* Internal gradient glow on hover */}
@@ -126,9 +128,11 @@ const Testimonials = memo(function Testimonials({
             variants={fadeUp}
             style={{ transform: 'translateZ(0)' }}
             whileHover={shouldReduceMotion ? {} : { 
-              scale: 1.02,
-              transition: { duration: 0.3 }
+              scale: 1.03,
+              boxShadow: "0 20px 40px rgba(0,0,0,0.3)",
+              transition: { type: "spring", stiffness: 120, damping: 20 }
             }}
+            transition={{ type: "spring", stiffness: 120, damping: 20 }}
             className="group relative rounded-2xl border border-zinc-800/60 bg-zinc-950/40 p-8 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-lg hover:shadow-red-900/10 overflow-hidden will-change-transform"
           >
             {/* Internal gradient glow on hover */}
@@ -179,9 +183,11 @@ const Testimonials = memo(function Testimonials({
             variants={fadeUp}
             style={{ transform: 'translateZ(0)' }}
             whileHover={shouldReduceMotion ? {} : { 
-              scale: 1.02,
-              transition: { duration: 0.3 }
+              scale: 1.03,
+              boxShadow: "0 20px 40px rgba(0,0,0,0.3)",
+              transition: { type: "spring", stiffness: 120, damping: 20 }
             }}
+            transition={{ type: "spring", stiffness: 120, damping: 20 }}
             className="group relative rounded-2xl border border-zinc-800/60 bg-zinc-950/40 p-8 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-lg hover:shadow-red-900/10 overflow-hidden will-change-transform"
           >
             {/* Internal gradient glow on hover */}

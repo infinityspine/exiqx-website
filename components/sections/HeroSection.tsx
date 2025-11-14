@@ -180,8 +180,9 @@ const HeroSection = memo(function HeroSection({
     offset: ['start start', 'end start'],
   })
 
-  const heroImageY = shouldReduceMotion ? undefined : useParallax(scrollYProgress, -60)
-  const heroContentY = shouldReduceMotion ? undefined : useParallax(scrollYProgress, -20)
+  // Tesla-style parallax with depth
+  const heroImageY = shouldReduceMotion ? undefined : useParallax(scrollYProgress, 60)
+  const heroContentY = shouldReduceMotion ? undefined : useParallax(scrollYProgress, 30)
 
   const validatedData = HeroSectionSchema.parse({
     id,

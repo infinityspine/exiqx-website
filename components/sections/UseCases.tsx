@@ -110,7 +110,12 @@ const UseCases = memo(function UseCases({
             <motion.div 
               variants={fadeUp}
               className="relative aspect-[4/5] rounded-lg overflow-hidden lg:order-2 border border-zinc-800/60 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-[0_10px_30px_rgba(220,38,38,0.2)] will-change-transform"
-              whileHover={shouldReduceMotion ? {} : { scale: 1.02, y: -4 }}
+              whileHover={shouldReduceMotion ? {} : { 
+                y: -6, 
+                scale: 1.02,
+                transition: { type: "spring", stiffness: 180, damping: 20 }
+              }}
+              transition={{ type: "spring", stiffness: 180, damping: 20 }}
               style={{ transform: 'translateZ(0)' }}
             >
               <Image
@@ -163,7 +168,12 @@ const UseCases = memo(function UseCases({
             {/* Image with Elite Styling - Product Detail Shot */}
             <motion.div 
               variants={fadeUp}
-              whileHover={shouldReduceMotion ? {} : { scale: 1.02, y: -4 }}
+              whileHover={shouldReduceMotion ? {} : { 
+                y: -6, 
+                scale: 1.02,
+                transition: { type: "spring", stiffness: 180, damping: 20 }
+              }}
+              transition={{ type: "spring", stiffness: 180, damping: 20 }}
               className="relative aspect-[4/5] rounded-lg overflow-hidden border border-zinc-800/60 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-[0_10px_30px_rgba(220,38,38,0.2)] will-change-transform"
               style={{ transform: 'translateZ(0)' }}
             >
