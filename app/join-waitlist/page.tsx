@@ -150,15 +150,16 @@ export default function JoinWaitlistPage() {
                 >
                   Limited Production Run
                 </motion.p>
-                <motion.p
-                  variants={fadeUp}
-                  className="text-lg text-gray-400 max-w-3xl mx-auto mt-6 mb-12 leading-relaxed"
-                  style={{ textAlign: 'center' }}
-                >
-                  Be among the first to experience elite biomechanical training equipment. 
-                  Join the waitlist for exclusive early access to our rack-mounted footplate, 
-                  GHD retrofit, and freestanding systems.
-                </motion.p>
+                <div className="flex justify-center mt-6 mb-12">
+                  <motion.p
+                    variants={fadeUp}
+                    className="text-lg text-gray-400 max-w-3xl leading-relaxed text-center"
+                  >
+                    Be among the first to experience elite biomechanical training equipment. 
+                    Join the waitlist for exclusive early access to our rack-mounted footplate, 
+                    GHD retrofit, and freestanding systems.
+                  </motion.p>
+                </div>
 
                 {/* Benefits */}
                 <motion.div
