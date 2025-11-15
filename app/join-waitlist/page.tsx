@@ -155,10 +155,9 @@ export default function JoinWaitlistPage() {
                     variants={fadeUp}
                     className="text-lg text-gray-400 max-w-3xl leading-relaxed text-center"
                   >
-                    Be among the first to access precision-engineered footplate systems 
-                    designed to amplify posterior-chain output, sprint mechanics, 
-                    and closed-chain force production. Secure your spot for early 
-                    access to the rack-mounted, GHD-retrofit, and freestanding ExIQx systems.
+                    Be among the first to train on equipment engineered for precision force application 
+                    and elite lower-body biomechanics. Join the waitlist for early access to our 
+                    rack-mounted footplate — with GHD retrofit and freestanding systems to follow.
                   </motion.p>
                 </div>
 
