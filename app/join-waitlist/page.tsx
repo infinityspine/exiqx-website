@@ -96,7 +96,7 @@ export default function JoinWaitlistPage() {
           variants={staggerChildren}
           className="relative will-change-transform"
           style={{
-            paddingTop: 'clamp(8rem, 15vw, 12rem)',
+            paddingTop: 'clamp(12rem, 20vw, 16rem)',
             paddingBottom: 'clamp(6rem, 12vw, 10rem)',
             transform: 'translateZ(0)'
           }}
@@ -113,7 +113,7 @@ export default function JoinWaitlistPage() {
             shouldReduceMotion={shouldReduceMotion}
           />
 
-          <div className="mx-auto max-w-6xl px-6 text-center">
+          <div className="mx-auto max-w-6xl px-8 text-center">
             {success ? (
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -129,7 +129,7 @@ export default function JoinWaitlistPage() {
             ) : (
               <>
                 {/* Headline Block */}
-                <div className="mb-16">
+                <div className="mb-20 space-y-3">
                   <motion.h1 
                     variants={fadeUp} 
                     className="text-5xl sm:text-6xl font-extrabold tracking-tight uppercase text-white mb-0 leading-tight"
@@ -138,7 +138,7 @@ export default function JoinWaitlistPage() {
                   </motion.h1>
                   <motion.h1 
                     variants={fadeUp} 
-                    className="text-5xl sm:text-6xl font-extrabold tracking-tight uppercase text-white mt-2 leading-tight"
+                    className="text-5xl sm:text-6xl font-extrabold tracking-tight uppercase text-white leading-tight"
                   >
                     Waitlist
                   </motion.h1>
@@ -146,13 +146,13 @@ export default function JoinWaitlistPage() {
 
                 <motion.p
                   variants={fadeUp}
-                  className="text-xl font-medium text-gray-300 mt-6"
+                  className="text-xl font-medium text-gray-300 mt-8"
                 >
                   Limited Production Run
                 </motion.p>
                 <motion.p
                   variants={fadeUp}
-                  className="text-lg text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed"
+                  className="text-lg text-gray-400 max-w-3xl mx-auto mt-6 mb-12 leading-relaxed"
                 >
                   Be among the first to experience elite biomechanical training equipment. 
                   Join the waitlist for exclusive early access to our rack-mounted footplate, 
@@ -162,13 +162,13 @@ export default function JoinWaitlistPage() {
                 {/* Benefits */}
                 <motion.div
                   variants={staggerChildren}
-                  className="grid sm:grid-cols-3 gap-10 mt-16 mb-10 max-w-3xl mx-auto"
+                  className="grid sm:grid-cols-3 gap-12 mt-24 mb-16 max-w-3xl mx-auto"
                 >
                   <motion.div
                     variants={fadeUp}
                     className="flex flex-col items-center text-center"
                   >
-                    <div className="mb-4 p-4 rounded-2xl bg-red-500/20 border border-red-500/20">
+                    <div className="mb-4 p-5 rounded-2xl bg-red-500/20 border border-red-500/20">
                       <Zap className="h-8 w-8 text-red-500" />
                     </div>
                     <h3 className="text-lg font-semibold text-white mb-2">Early Access</h3>
@@ -178,7 +178,7 @@ export default function JoinWaitlistPage() {
                     variants={fadeUp}
                     className="flex flex-col items-center text-center"
                   >
-                    <div className="mb-4 p-4 rounded-2xl bg-red-500/20 border border-red-500/20">
+                    <div className="mb-4 p-5 rounded-2xl bg-red-500/20 border border-red-500/20">
                       <Mail className="h-8 w-8 text-red-500" />
                     </div>
                     <h3 className="text-lg font-semibold text-white mb-2">Exclusive Updates</h3>
@@ -188,7 +188,7 @@ export default function JoinWaitlistPage() {
                     variants={fadeUp}
                     className="flex flex-col items-center text-center"
                   >
-                    <div className="mb-4 p-4 rounded-2xl bg-red-500/20 border border-red-500/20">
+                    <div className="mb-4 p-5 rounded-2xl bg-red-500/20 border border-red-500/20">
                       <Clock className="h-8 w-8 text-red-500" />
                     </div>
                     <h3 className="text-lg font-semibold text-white mb-2">No Commitment</h3>
@@ -197,8 +197,8 @@ export default function JoinWaitlistPage() {
                 </motion.div>
 
                 {/* Waitlist Form */}
-                <motion.div variants={fadeUp} className="flex flex-col items-center gap-4 mt-24">
-                  <form onSubmit={handleSubmit} className="flex flex-col items-center gap-4 w-full max-w-md">
+                <motion.div variants={fadeUp} className="flex flex-col items-center gap-4 mt-32">
+                  <form onSubmit={handleSubmit} className="flex flex-col items-center gap-4 w-full max-w-lg">
                     <input
                       type="email"
                       placeholder="Enter your email"
@@ -206,12 +206,12 @@ export default function JoinWaitlistPage() {
                       onChange={(e) => setEmail(e.target.value)}
                       required
                       disabled={loading}
-                      className="rounded-xl px-6 py-4 text-lg bg-white/10 border border-white/20 w-full text-white placeholder:text-gray-500 focus:outline-none focus:border-red-500/50 focus:ring-2 focus:ring-red-500/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="rounded-xl px-6 py-5 text-lg bg-white/10 border border-white/20 w-full text-white placeholder:text-gray-500 focus:outline-none focus:border-red-500/50 focus:ring-2 focus:ring-red-500/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                     />
                     <button
                       type="submit"
                       disabled={loading}
-                      className="relative w-full rounded-xl px-6 py-4 text-lg font-semibold text-white bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-red-500/25 hover:shadow-red-500/40"
+                      className="relative w-full rounded-xl px-6 py-5 text-lg font-semibold text-white bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 hover:scale-[1.02] transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-2xl shadow-red-500/30 hover:shadow-red-500/40"
                     >
                       {loading ? 'Joining...' : 'Join Waitlist'}
                     </button>
