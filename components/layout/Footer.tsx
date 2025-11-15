@@ -163,7 +163,7 @@ const Footer = memo(function Footer() {
 
           {/* Center: Tagline */}
           <p className="text-center uppercase tracking-[0.2em] text-white/70 font-inter" style={{ fontSize: 'clamp(0.8125rem, 1.6vw, 0.9375rem)' }}>
-            ENGINEERED IN ARIZONA • MADE IN THE USA
+            ENGINEERED IN ARIZONA • MADE IN THE&nbsp;USA
           </p>
 
           {/* Right: Legal Links */}
