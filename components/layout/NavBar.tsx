@@ -138,9 +138,22 @@ const NavBar = memo(function NavBar({
 
   const isWaitlistPage = pathname === '/join-waitlist'
 
+  // NEW: pages that should ALWAYS have a solid navbar (no transparency)
+  const solidPages = [
+    '/technology',
+    '/contact',
+    '/about',
+    '/services'
+  ]
+
+  const isSolidPage = solidPages.includes(pathname)
+
+  // If it's a solid page → force scrolled = true
+  const effectiveScrolled = isSolidPage ? true : scrolled
+
   const navBackground = isWaitlistPage
-    ? (scrolled ? 'bg-black/90 backdrop-blur-md border-b border-white/10' : 'bg-transparent')
-    : (scrolled ? 'bg-black/60 backdrop-blur-md border-b border-white/10' : 'bg-transparent')
+    ? (effectiveScrolled ? 'bg-black/90 backdrop-blur-md border-b border-white/10' : 'bg-transparent')
+    : (effectiveScrolled ? 'bg-black/60 backdrop-blur-md border-b border-white/10' : 'bg-transparent')
 
   return (
     <>
