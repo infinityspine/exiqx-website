@@ -150,33 +150,35 @@ const Footer = memo(function Footer() {
 
         {/* Bottom Footer */}
         <div 
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-4 items-center text-white/50 text-xs md:text-sm"
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-4 items-start text-white/50 text-xs md:text-sm"
           style={{ 
             paddingTop: 'clamp(2.5rem, 5vw, 3rem)',
             paddingBottom: 'clamp(3rem, 6vw, 4rem)'
           }}
         >
           {/* Left: Copyright */}
-          <p className="text-center md:text-left">
+          <p className="text-center md:text-left" style={{ fontSize: 'clamp(0.75rem, 1.5vw, 0.875rem)' }}>
             © {currentYear} ExIQx Performance. All rights reserved.
           </p>
 
           {/* Center: Tagline */}
-          <p className="text-center uppercase tracking-[0.2em] text-white/40 font-inter">
+          <p className="text-center uppercase tracking-[0.2em] text-white/50 font-inter" style={{ fontSize: 'clamp(0.75rem, 1.5vw, 0.875rem)' }}>
             ENGINEERED IN ARIZONA • MADE IN THE USA
           </p>
 
           {/* Right: Legal Links */}
-          <div className="flex flex-col md:flex-row items-center md:justify-end gap-4" style={{ gap: 'clamp(0.5rem, 1vw, 0.75rem)' }}>
+          <div className="flex flex-row items-center md:justify-end" style={{ gap: 'clamp(1rem, 2vw, 1.5rem)' }}>
             <Link
               href="/privacy-policy"
               className="text-white/60 hover:text-white/90 transition-colors duration-300"
+              style={{ fontSize: 'clamp(0.75rem, 1.5vw, 0.875rem)' }}
             >
               Privacy Policy
             </Link>
             <Link
               href="/terms-of-service"
               className="text-white/60 hover:text-white/90 transition-colors duration-300"
+              style={{ fontSize: 'clamp(0.75rem, 1.5vw, 0.875rem)' }}
             >
               Terms of Service
             </Link>
