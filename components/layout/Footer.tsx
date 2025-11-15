@@ -144,7 +144,7 @@ const Footer = memo(function Footer() {
         {/* Separator */}
         <div 
           className="h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" 
-          style={{ marginTop: 'clamp(4rem, 8vw, 6rem)' }}
+          style={{ marginTop: 'clamp(5rem, 10vw, 7rem)' }}
           role="separator" 
         />
 
@@ -153,32 +153,32 @@ const Footer = memo(function Footer() {
           className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-4 items-start text-white/50 text-xs md:text-sm"
           style={{ 
             paddingTop: 'clamp(2.5rem, 5vw, 3rem)',
-            paddingBottom: 'clamp(3rem, 6vw, 4rem)'
+            paddingBottom: 'clamp(4rem, 8vw, 5rem)'
           }}
         >
           {/* Left: Copyright */}
-          <p className="text-center md:text-left" style={{ fontSize: 'clamp(0.75rem, 1.5vw, 0.875rem)' }}>
+          <p className="text-center md:text-left" style={{ fontSize: 'clamp(0.8125rem, 1.6vw, 0.9375rem)' }}>
             © {currentYear} ExIQx Performance. All rights reserved.
           </p>
 
           {/* Center: Tagline */}
-          <p className="text-center uppercase tracking-[0.2em] text-white/50 font-inter" style={{ fontSize: 'clamp(0.75rem, 1.5vw, 0.875rem)' }}>
+          <p className="text-center uppercase tracking-[0.2em] text-white/70 font-inter" style={{ fontSize: 'clamp(0.8125rem, 1.6vw, 0.9375rem)' }}>
             ENGINEERED IN ARIZONA • MADE IN THE USA
           </p>
 
           {/* Right: Legal Links */}
-          <div className="flex flex-row items-center md:justify-end" style={{ gap: 'clamp(1rem, 2vw, 1.5rem)' }}>
+          <div className="flex flex-row items-center md:justify-end" style={{ gap: 'clamp(1.5rem, 3vw, 2rem)' }}>
             <Link
               href="/privacy-policy"
               className="text-white/60 hover:text-white/90 transition-colors duration-300"
-              style={{ fontSize: 'clamp(0.75rem, 1.5vw, 0.875rem)' }}
+              style={{ fontSize: 'clamp(0.8125rem, 1.6vw, 0.9375rem)' }}
             >
               Privacy Policy
             </Link>
             <Link
               href="/terms-of-service"
               className="text-white/60 hover:text-white/90 transition-colors duration-300"
-              style={{ fontSize: 'clamp(0.75rem, 1.5vw, 0.875rem)' }}
+              style={{ fontSize: 'clamp(0.8125rem, 1.6vw, 0.9375rem)' }}
             >
               Terms of Service
             </Link>
