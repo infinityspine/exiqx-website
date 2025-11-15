@@ -37,17 +37,25 @@ export async function POST(request: NextRequest) {
 
     // Insert into Supabase
     const supabase = createClient()
-    const { error: insertError } = await supabase
+    const { data, error } = await supabase
       .from('waitlist')
-      .insert({
+      .insert([{
         email: email.toLowerCase().trim(),
         source: source || 'website',
-      })
+      }])
 
-    if (insertError) {
-      console.error('Supabase insert error:', insertError)
+    // Handle duplicate emails gracefully
+    if (error && error.code === '23505') {
+      console.log('Email already exists — treating as success')
+      // Still send success response (do not show error to user)
+      return NextResponse.json({ success: true, duplicate: true })
+    }
+
+    // Handle other Supabase errors
+    if (error) {
+      console.error('Supabase insert error:', error)
       return NextResponse.json(
-        { error: 'Failed to add to waitlist' },
+        { success: false, message: 'Database error' },
         { status: 500 }
       )
     }
