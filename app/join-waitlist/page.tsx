@@ -152,7 +152,7 @@ export default function JoinWaitlistPage() {
                 </motion.p>
                 <motion.p
                   variants={fadeUp}
-                  className="text-lg text-gray-400 max-w-3xl mx-auto mt-6 mb-12 leading-relaxed"
+                  className="text-lg text-gray-400 max-w-3xl mx-auto mt-6 mb-12 leading-relaxed text-center"
                 >
                   Be among the first to experience elite biomechanical training equipment. 
                   Join the waitlist for exclusive early access to our rack-mounted footplate, 
