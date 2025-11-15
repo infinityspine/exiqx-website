@@ -1,10 +1,22 @@
 import { Resend } from 'resend'
 
-const resendApiKey = process.env.RESEND_API_KEY
+let resendInstance: Resend | null = null
 
-if (!resendApiKey) {
-  throw new Error('Missing RESEND_API_KEY environment variable')
+export function getResend() {
+  if (!resendInstance) {
+    const resendApiKey = process.env.RESEND_API_KEY
+    if (!resendApiKey) {
+      throw new Error('Missing RESEND_API_KEY environment variable')
+    }
+    resendInstance = new Resend(resendApiKey)
+  }
+  return resendInstance
 }
 
-export const resend = new Resend(resendApiKey)
+// Export a getter function instead of calling it at module load
+export const resend = {
+  get emails() {
+    return getResend().emails
+  }
+}
 

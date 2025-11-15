@@ -2,14 +2,17 @@ import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase'
 import { resend } from '@/lib/resend'
 
-const ADMIN_EMAIL = process.env.ADMIN_NOTIFICATION_EMAIL
-const FROM_EMAIL = process.env.FROM_EMAIL
-
-if (!ADMIN_EMAIL || !FROM_EMAIL) {
-  throw new Error('Missing email environment variables (ADMIN_NOTIFICATION_EMAIL, FROM_EMAIL)')
-}
-
 export async function POST(request: NextRequest) {
+  const ADMIN_EMAIL = process.env.ADMIN_NOTIFICATION_EMAIL
+  const FROM_EMAIL = process.env.FROM_EMAIL
+
+  if (!ADMIN_EMAIL || !FROM_EMAIL) {
+    console.error('Missing email environment variables (ADMIN_NOTIFICATION_EMAIL, FROM_EMAIL)')
+    return NextResponse.json(
+      { error: 'Server configuration error' },
+      { status: 500 }
+    )
+  }
   try {
     const body = await request.json()
     const { full_name, email, organization, phone, message } = body
@@ -60,8 +63,8 @@ export async function POST(request: NextRequest) {
     // Send admin notification email
     try {
       await resend.emails.send({
-        from: FROM_EMAIL,
-        to: ADMIN_EMAIL,
+        from: FROM_EMAIL as string,
+        to: ADMIN_EMAIL as string,
         subject: 'New Demo Request — ExIQx',
         html: `
           <div style="font-family: system-ui, sans-serif; color: #000;">
@@ -83,7 +86,7 @@ export async function POST(request: NextRequest) {
     // Send confirmation email to user
     try {
       await resend.emails.send({
-        from: FROM_EMAIL,
+        from: FROM_EMAIL as string,
         to: email,
         subject: 'ExIQx Demo Request Received',
         html: `
