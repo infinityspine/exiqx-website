@@ -122,15 +122,18 @@ const NavBar = memo(function NavBar({
     }
   }, [isMobileMenuOpen])
 
+  // Page-specific override for /join-waitlist
+  const isWaitlistPage = pathname === '/join-waitlist'
+
+  const navBackground = isWaitlistPage
+    ? (isScrolled ? 'bg-black/90 backdrop-blur-md border-b border-white/10' : 'bg-transparent')
+    : (isScrolled ? 'bg-black/60 backdrop-blur-md border-b border-white/10' : 'bg-transparent')
+
   return (
     <>
       <header
         className={`
-          fixed top-0 left-0 right-0 z-50 transition-all duration-500
-          ${isScrolled
-            ? 'bg-black/90 backdrop-blur-sm shadow-[0_4px_20px_rgba(0,0,0,0.35)]'
-            : 'bg-transparent backdrop-blur-0 shadow-none'
-          }
+          fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${navBackground}
           ${className}
         `}
       >
