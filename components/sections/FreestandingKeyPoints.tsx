@@ -117,7 +117,7 @@ const FreestandingKeyPoints = memo<Partial<FreestandingKeyPointsProps>>((props) 
 
   return (
     <section
-      className={`bg-[#0A0A0A] border-t border-red-500/10 ${className}`}
+      className={`bg-[#0A0A0A] border-t border-red-500/20 ${className}`}
       style={{
         paddingTop: 'clamp(3rem, 6vw, 6rem)',
         paddingBottom: 'clamp(3rem, 6vw, 6rem)',
@@ -196,7 +196,7 @@ const FreestandingKeyPoints = memo<Partial<FreestandingKeyPointsProps>>((props) 
               >
                 <motion.div
                   variants={cardHoverVariants}
-                  className="bg-[#111111] border border-red-500/10 rounded-lg transition-colors duration-300 hover:border-red-500/20 flex flex-col justify-between w-full"
+                  className="bg-[#111111] border border-red-500/20 rounded-lg transition-colors duration-300 hover:border-red-500/30 flex flex-col justify-between w-full"
                   style={{
                     padding: 'clamp(1.75rem, 3vw, 2.25rem)',
                     minHeight: 'clamp(300px, 32vh, 360px)',

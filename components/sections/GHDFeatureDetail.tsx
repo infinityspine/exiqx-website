@@ -85,7 +85,7 @@ const GHDFeatureDetail = memo<Partial<GHDFeatureDetailProps>>((props) => {
 
   return (
     <section
-      className={`bg-[#0A0A0A] border-t border-red-500/10 ${className}`}
+      className={`bg-[#0A0A0A] border-t border-red-500/20 ${className}`}
       aria-label={`${title} feature section`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -102,7 +102,7 @@ const GHDFeatureDetail = memo<Partial<GHDFeatureDetailProps>>((props) => {
             viewport={{ once: true, margin: '-100px' }}
             className={imagePosition === 'right' ? 'md:order-2' : 'md:order-1'}
           >
-            <div className="relative aspect-square rounded-lg overflow-hidden border border-red-500/10 bg-[#111111]">
+            <div className="relative aspect-square rounded-lg overflow-hidden border border-red-500/20 bg-[#111111]">
               <Image
                 src={imageSrc}
                 alt={imageAlt}
