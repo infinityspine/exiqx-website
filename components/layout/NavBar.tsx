@@ -28,7 +28,8 @@ const DEFAULT_NAV_ITEMS = [
   { label: 'Contact', href: '/contact', id: 'contact' },
 ]
 
-const SCROLL_THRESHOLD = 100
+const SCROLL_THRESHOLD_RATIO = 0.8 // 80% of viewport height
+const SCROLL_THRESHOLD_FALLBACK = 800 // SSR fallback
 const INTERSECTION_THRESHOLD = 0.5
 const MENU_CLOSE_DELAY = 300
 
@@ -48,7 +49,8 @@ const NavBar = memo(function NavBar({
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrolled = window.scrollY > SCROLL_THRESHOLD
+      const threshold = typeof window !== 'undefined' ? window.innerHeight * SCROLL_THRESHOLD_RATIO : SCROLL_THRESHOLD_FALLBACK
+      const scrolled = window.scrollY > threshold
       setIsScrolled(scrolled)
       controls.start({
         scale: scrolled ? 0.85 : 1,
