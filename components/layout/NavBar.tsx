@@ -122,7 +122,16 @@ const NavBar = memo(function NavBar({
 
   return (
     <>
-      <header className={`fixed top-0 left-0 right-0 z-50 bg-black shadow-lg ${className}`}>
+      <header
+        className={`
+          fixed top-0 left-0 right-0 z-50 transition-all duration-500
+          ${isScrolled
+            ? 'bg-black/90 backdrop-blur-sm shadow-[0_4px_20px_rgba(0,0,0,0.35)]'
+            : 'bg-transparent backdrop-blur-0 shadow-none'
+          }
+          ${className}
+        `}
+      >
         <nav
           className="relative z-10 mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8"
           aria-label="Main navigation"
@@ -168,7 +177,7 @@ const NavBar = memo(function NavBar({
                   }}
                   aria-current={isActive ? 'page' : undefined}
                   className={`relative px-2 py-1 transition-colors duration-300 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2 focus-visible:ring-offset-black ${
-                    isActive ? 'text-white' : 'text-white/60 hover:text-white/90'
+                    isActive ? 'text-white' : 'text-white/80 hover:text-white'
                   }`}
                 >
                   {item.label}
