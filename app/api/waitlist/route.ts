@@ -81,12 +81,16 @@ export async function POST(request: NextRequest) {
     }
 
     return NextResponse.json({ success: true })
-  } catch (error) {
-    console.error('Waitlist API error:', error)
+  } catch (error: any) {
+    console.error("WAITLIST API ERROR:", error);
+
     return NextResponse.json(
-      { error: 'Internal server error' },
+      { 
+        error: error?.message || error?.toString() || "Unknown server error",
+        stack: error?.stack || null 
+      },
       { status: 500 }
-    )
+    );
   }
 }
 
