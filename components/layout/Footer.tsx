@@ -167,7 +167,7 @@ const Footer = memo(function Footer() {
           </p>
 
           {/* Right: Legal Links */}
-          <div className="flex flex-row items-center md:justify-end" style={{ gap: 'clamp(1.5rem, 3vw, 2rem)' }}>
+          <div className="flex flex-row items-center justify-center md:justify-end" style={{ gap: 'clamp(1.5rem, 3vw, 2rem)' }}>
             <Link
               href="/privacy-policy"
               className="text-white/60 hover:text-white/90 transition-colors duration-300"
