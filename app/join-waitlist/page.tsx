@@ -156,7 +156,7 @@ export default function JoinWaitlistPage() {
                     className="text-lg text-gray-400 max-w-3xl leading-relaxed text-center"
                   >
                     Be among the first to experience elite biomechanical training equipment. 
-                    Join the waitlist for exclusive early access to our rack-mounted footplate, 
+                    Join the waitlist for exclusive early access to the ExIQx rack-mounted footplate, 
                     GHD retrofit, and freestanding systems.
                   </motion.p>
                 </div>
