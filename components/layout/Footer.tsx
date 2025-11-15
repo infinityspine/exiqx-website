@@ -141,44 +141,46 @@ const Footer = memo(function Footer() {
           </div>
         </div>
 
+        {/* Separator */}
+        <div 
+          className="h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" 
+          style={{ marginTop: 'clamp(4rem, 8vw, 6rem)' }}
+          role="separator" 
+        />
+
         {/* Bottom Footer */}
-        <div className="border-t border-white/5 mt-16 pt-10 text-white/50 text-xs md:text-sm flex flex-col md:flex-row md:items-center md:justify-between">
-          <p>
+        <div 
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-4 items-center text-white/50 text-xs md:text-sm"
+          style={{ 
+            paddingTop: 'clamp(2.5rem, 5vw, 3rem)',
+            paddingBottom: 'clamp(3rem, 6vw, 4rem)'
+          }}
+        >
+          {/* Left: Copyright */}
+          <p className="text-center md:text-left">
             © {currentYear} ExIQx Performance. All rights reserved.
           </p>
 
-          <div className="flex flex-col items-center text-center space-y-4">
-            <h3 className="text-xs font-semibold uppercase text-white/50 tracking-wider mb-6">
-              LEGAL
-            </h3>
-
-            <div className="flex flex-col space-y-3">
-              <Link
-                href="/privacy-policy"
-                className="relative text-white/70 hover:text-white transition-all duration-300 hover:-translate-y-[2px] hover:scale-[1.02] will-change-transform pb-[2px]"
-                style={{ fontSize: 'clamp(0.8125rem, 1.5vw, 0.875rem)' }}
-              >
-                Privacy Policy
-                <span className="absolute left-0 -bottom-[2px] h-[1px] w-0 bg-white/60 transition-all duration-300 hover:w-full"></span>
-              </Link>
-
-              <Link
-                href="/terms-of-service"
-                className="relative text-white/70 hover:text-white transition-all duration-300 hover:-translate-y-[2px] hover:scale-[1.02] will-change-transform pb-[2px]"
-                style={{ fontSize: 'clamp(0.8125rem, 1.5vw, 0.875rem)' }}
-              >
-                Terms of Service
-                <span className="absolute left-0 -bottom-[2px] h-[1px] w-0 bg-white/60 transition-all duration-300 hover:w-full"></span>
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        {/* Made in USA Badge */}
-        <div className="text-center" style={{ marginTop: 'clamp(2rem, 4vw, 3rem)' }}>
-          <p className="uppercase tracking-[0.2em] text-white/30 font-inter" style={{ fontSize: 'clamp(0.6875rem, 1.25vw, 0.75rem)' }}>
-            Engineered in Arizona • Made in the USA
+          {/* Center: Tagline */}
+          <p className="text-center uppercase tracking-[0.2em] text-white/40 font-inter">
+            ENGINEERED IN ARIZONA • MADE IN THE USA
           </p>
+
+          {/* Right: Legal Links */}
+          <div className="flex flex-col md:flex-row items-center md:justify-end gap-4" style={{ gap: 'clamp(0.5rem, 1vw, 0.75rem)' }}>
+            <Link
+              href="/privacy-policy"
+              className="text-white/60 hover:text-white/90 transition-colors duration-300"
+            >
+              Privacy Policy
+            </Link>
+            <Link
+              href="/terms-of-service"
+              className="text-white/60 hover:text-white/90 transition-colors duration-300"
+            >
+              Terms of Service
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
