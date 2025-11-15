@@ -10,15 +10,18 @@ export default function TermsOfServicePage() {
     <main className="relative bg-black text-white min-h-screen">
       {/* Hero Section */}
       <motion.section
-        className="relative py-24 md:py-32 will-change-transform"
+        className="relative will-change-transform"
         initial="hidden"
         animate="visible"
         variants={staggerChildren}
-        style={{ transform: 'translateZ(0)' }}
+        style={{ 
+          transform: 'translateZ(0)',
+          paddingTop: 'clamp(8rem, 12vw, 10rem)'
+        }}
       >
-        <div className="max-w-5xl mx-auto px-6 md:px-8">
+        <div className="max-w-4xl mx-auto px-6">
           <motion.h1
-            className="font-display text-4xl md:text-5xl font-extrabold uppercase tracking-tight text-white mb-6"
+            className="font-display text-5xl font-extrabold uppercase tracking-tight text-white mb-12"
             variants={fadeUp}
           >
             Terms of Service
@@ -43,7 +46,7 @@ export default function TermsOfServicePage() {
         variants={staggerChildren}
         style={{ transform: 'translateZ(0)' }}
       >
-        <div className="max-w-4xl mx-auto px-6 md:px-8">
+        <div className="max-w-4xl mx-auto px-6">
           {/* Acceptance of Terms */}
           <motion.div className="mb-16" variants={fadeUp}>
             <h2 className="text-3xl md:text-4xl font-extrabold uppercase tracking-tight text-white mb-6">

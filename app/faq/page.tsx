@@ -4,14 +4,14 @@ import { motion } from 'framer-motion'
 
 export default function FAQPage() {
   return (
-    <section className="min-h-screen bg-black flex items-center justify-center">
-      <div className="max-w-5xl mx-auto px-8 py-28 md:py-36 text-left md:pl-4">
+    <main className="min-h-screen bg-black text-white px-6" style={{ paddingTop: 'clamp(8rem, 12vw, 10rem)' }}>
+      <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: 'easeOut' }}
         >
-          <h1 className="text-5xl md:text-7xl font-extrabold uppercase tracking-tight mb-6 text-white">
+          <h1 className="text-5xl font-extrabold tracking-tight mb-12 text-white">
             FAQ
           </h1>
           <div className="w-32 h-[4px] bg-[#e50914] mb-16"></div>
@@ -94,6 +94,6 @@ export default function FAQPage() {
           </p>
         </motion.div>
       </div>
-    </section>
+    </main>
   )
 }
