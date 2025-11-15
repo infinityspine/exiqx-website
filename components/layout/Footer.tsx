@@ -162,7 +162,7 @@ const Footer = memo(function Footer() {
           </p>
 
           {/* Center: Tagline */}
-          <p className="text-center uppercase tracking-[0.2em] text-white/70 font-inter whitespace-nowrap" style={{ fontSize: 'clamp(0.8125rem, 1.6vw, 0.9375rem)' }}>
+          <p className="text-center uppercase tracking-[0.2em] text-white/70 font-inter whitespace-nowrap" style={{ fontSize: 'clamp(0.625rem, 1.6vw, 0.9375rem)', whiteSpace: 'nowrap' }}>
             ENGINEERED IN ARIZONA • MADE IN THE USA
           </p>
 
