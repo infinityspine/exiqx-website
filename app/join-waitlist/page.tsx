@@ -146,7 +146,7 @@ export default function JoinWaitlistPage() {
 
                 <motion.p
                   variants={fadeUp}
-                  className="text-xl font-semibold text-red-500 mt-8 tracking-wide"
+                  className="text-xl font-medium text-red-500 mt-8"
                 >
                   Limited Production Release
                 </motion.p>
@@ -155,9 +155,9 @@ export default function JoinWaitlistPage() {
                     variants={fadeUp}
                     className="text-lg text-gray-400 max-w-3xl leading-relaxed text-center"
                   >
-                    Be among the first to train on equipment engineered for precision force application 
-                    and elite lower-body biomechanics. Join the waitlist for early access to our 
-                    rack-mounted footplate — with GHD retrofit and freestanding systems to follow.
+                    Be among the first to experience elite biomechanical training equipment. 
+                    Join the waitlist for exclusive early access to our rack-mounted footplate, 
+                    GHD retrofit, and freestanding systems.
                   </motion.p>
                 </div>
 
