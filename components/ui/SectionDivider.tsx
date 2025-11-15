@@ -26,14 +26,14 @@ export default function SectionDivider({ align = 'center', label }: SectionDivid
       aria-hidden="true"
     >
       <div
-        className="h-full bg-gradient-to-r from-red-500/0 via-red-500/10 to-red-500/0"
+        className="h-full bg-gradient-to-r from-red-500/0 via-red-500/20 to-red-500/0"
         style={{
-          boxShadow: '0 0 20px rgba(229, 9, 20, 0.08)',
+          boxShadow: '0 0 20px rgba(229, 9, 20, 0.14)',
         }}
       />
       {label && (
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 px-4 bg-black">
-          <span className="text-xs uppercase tracking-[0.2em] text-red-500/40 font-semibold">
+          <span className="text-xs uppercase tracking-[0.2em] text-red-500/60 font-semibold">
             {label}
           </span>
         </div>

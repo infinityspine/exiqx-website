@@ -21,7 +21,7 @@ export default function GroundForceLink({ href, children, className = '' }: Grou
     >
       {children}
       <motion.span
-        className="absolute bottom-0 left-0 right-0 h-[1px] bg-red-500/10 origin-left will-change-transform"
+        className="absolute bottom-0 left-0 right-0 h-[1px] bg-red-500/20 origin-left will-change-transform"
         style={{ transform: 'translateZ(0)' }}
         initial={{ scaleX: 0 }}
         whileHover={shouldReduceMotion ? {} : { scaleX: 1 }}
