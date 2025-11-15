@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useSpring, useReducedMotion } from 'framer-motion'
 import { fadeUp, staggerChildren } from '@/lib/motionPresets'
-import RequestDemoForm from '@/components/forms/RequestDemoForm'
+import DemoRequestForm from '@/components/forms/DemoRequestForm'
 import { Calendar, Users, Target } from 'lucide-react'
 
 // Animated gradient orb component
@@ -138,7 +138,7 @@ export default function RequestDemoPage() {
             </motion.div>
 
             {/* Demo Request Form */}
-            <RequestDemoForm />
+            <DemoRequestForm />
           </div>
         </motion.section>
       </main>

@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase'
 import { resend } from '@/lib/resend'
+import { getWaitlistConfirmationEmail } from '@/emails/waitlist-confirmation'
+import { getWaitlistAdminNotification } from '@/emails/admin-notification'
 
 export async function POST(request: NextRequest) {
   const ADMIN_EMAIL = process.env.ADMIN_NOTIFICATION_EMAIL
@@ -39,7 +41,7 @@ export async function POST(request: NextRequest) {
       .from('waitlist')
       .insert({
         email: email.toLowerCase().trim(),
-        source: source || 'unknown',
+        source: source || 'website',
       })
 
     if (insertError) {
@@ -52,18 +54,12 @@ export async function POST(request: NextRequest) {
 
     // Send admin notification email
     try {
+      const adminEmail = getWaitlistAdminNotification(email, source || 'website')
       await resend.emails.send({
         from: FROM_EMAIL as string,
         to: ADMIN_EMAIL as string,
-        subject: 'New Waitlist Signup — ExIQx',
-        html: `
-          <div style="font-family: system-ui, sans-serif; color: #000;">
-            <h2 style="color: #dc2626;">New Waitlist Signup</h2>
-            <p><strong>Email:</strong> ${email}</p>
-            <p><strong>Source:</strong> ${source || 'unknown'}</p>
-            <p><strong>Time:</strong> ${new Date().toLocaleString()}</p>
-          </div>
-        `,
+        subject: adminEmail.subject,
+        html: adminEmail.html,
       })
     } catch (emailError) {
       console.error('Admin email error:', emailError)
@@ -72,24 +68,12 @@ export async function POST(request: NextRequest) {
 
     // Send confirmation email to user
     try {
+      const userEmail = getWaitlistConfirmationEmail(email)
       await resend.emails.send({
         from: FROM_EMAIL as string,
         to: email,
-        subject: "You're on the ExIQx Waitlist",
-        html: `
-          <div style="font-family: system-ui, sans-serif; color: #000; max-width: 600px; margin: 0 auto;">
-            <h1 style="color: #dc2626; font-size: 24px; margin-bottom: 20px;">Thank You for Joining!</h1>
-            <p style="font-size: 16px; line-height: 1.6; color: #333;">
-              You've been added to the ExIQx Performance waitlist. We'll notify you as soon as our elite biomechanical equipment becomes available.
-            </p>
-            <p style="font-size: 16px; line-height: 1.6; color: #333; margin-top: 20px;">
-              Stay tuned for updates on our rack-mounted footplate, GHD retrofit, and freestanding systems.
-            </p>
-            <p style="font-size: 14px; color: #666; margin-top: 30px;">
-              — The ExIQx Performance Team
-            </p>
-          </div>
-        `,
+        subject: userEmail.subject,
+        html: userEmail.html,
       })
     } catch (emailError) {
       console.error('User confirmation email error:', emailError)

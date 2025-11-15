@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase'
 import { resend } from '@/lib/resend'
+import { getDemoConfirmationEmail } from '@/emails/demo-confirmation'
+import { getDemoRequestAdminNotification } from '@/emails/admin-notification'
 
 export async function POST(request: NextRequest) {
   const ADMIN_EMAIL = process.env.ADMIN_NOTIFICATION_EMAIL
@@ -62,21 +64,18 @@ export async function POST(request: NextRequest) {
 
     // Send admin notification email
     try {
+      const adminEmail = getDemoRequestAdminNotification(
+        full_name,
+        email,
+        organization || null,
+        phone || null,
+        message || null
+      )
       await resend.emails.send({
         from: FROM_EMAIL as string,
         to: ADMIN_EMAIL as string,
-        subject: 'New Demo Request — ExIQx',
-        html: `
-          <div style="font-family: system-ui, sans-serif; color: #000;">
-            <h2 style="color: #dc2626;">New Demo Request</h2>
-            <p><strong>Name:</strong> ${full_name}</p>
-            <p><strong>Email:</strong> ${email}</p>
-            ${organization ? `<p><strong>Organization:</strong> ${organization}</p>` : ''}
-            ${phone ? `<p><strong>Phone:</strong> ${phone}</p>` : ''}
-            ${message ? `<p><strong>Message:</strong><br>${message.replace(/\n/g, '<br>')}</p>` : ''}
-            <p><strong>Time:</strong> ${new Date().toLocaleString()}</p>
-          </div>
-        `,
+        subject: adminEmail.subject,
+        html: adminEmail.html,
       })
     } catch (emailError) {
       console.error('Admin email error:', emailError)
@@ -85,27 +84,12 @@ export async function POST(request: NextRequest) {
 
     // Send confirmation email to user
     try {
+      const userEmail = getDemoConfirmationEmail(full_name)
       await resend.emails.send({
         from: FROM_EMAIL as string,
         to: email,
-        subject: 'ExIQx Demo Request Received',
-        html: `
-          <div style="font-family: system-ui, sans-serif; color: #000; max-width: 600px; margin: 0 auto;">
-            <h1 style="color: #dc2626; font-size: 24px; margin-bottom: 20px;">Demo Request Received</h1>
-            <p style="font-size: 16px; line-height: 1.6; color: #333;">
-              Hi ${full_name},
-            </p>
-            <p style="font-size: 16px; line-height: 1.6; color: #333; margin-top: 20px;">
-              Thank you for your interest in ExIQx Performance equipment. We've received your demo request and will contact you shortly to schedule a demonstration.
-            </p>
-            <p style="font-size: 16px; line-height: 1.6; color: #333; margin-top: 20px;">
-              Our team will reach out to discuss how our elite biomechanical systems can enhance your training facility.
-            </p>
-            <p style="font-size: 14px; color: #666; margin-top: 30px;">
-              — The ExIQx Performance Team
-            </p>
-          </div>
-        `,
+        subject: userEmail.subject,
+        html: userEmail.html,
       })
     } catch (emailError) {
       console.error('User confirmation email error:', emailError)

@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useSpring, useReducedMotion } from 'framer-motion'
 import { fadeUp, staggerChildren } from '@/lib/motionPresets'
-import JoinWaitlistForm from '@/components/forms/JoinWaitlistForm'
+import WaitlistForm from '@/components/forms/WaitlistForm'
 import { Mail, Zap, Clock } from 'lucide-react'
 
 // Animated gradient orb component
@@ -145,7 +145,7 @@ export default function JoinWaitlistPage() {
             </motion.div>
 
             {/* Waitlist Form */}
-            <JoinWaitlistForm source="join-waitlist-page" />
+            <WaitlistForm source="website" />
           </div>
         </motion.section>
       </main>
