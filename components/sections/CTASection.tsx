@@ -14,7 +14,7 @@ const CTASection = memo(function CTASection({
   headline = 'The Foundation of the ExIQx System',
   description = 'Join the waitlist to be first in line when we launch.',
   ctaText = 'Join Waitlist',
-  ctaHref = '/#waitlist'
+  ctaHref = '/join-waitlist'
 }: CTASectionProps) {
   const shouldReduceMotion = useReducedMotion()
 

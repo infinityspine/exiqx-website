@@ -154,7 +154,7 @@ const CTASection = memo(function CTASection({
           {/* Primary CTA with magnetic hover */}
           <motion.a
             ref={primaryMagneticRef}
-            href="#waitlist"
+            href="/join-waitlist"
             variants={fadeUp}
             whileHover={shouldReduceMotion ? {} : { 
               scale: 1.05, 
@@ -171,7 +171,7 @@ const CTASection = memo(function CTASection({
           {/* Secondary CTA with magnetic hover */}
           <motion.a
             ref={secondaryMagneticRef}
-            href="#contact"
+            href="/request-demo"
             variants={fadeUp}
             whileHover={shouldReduceMotion ? {} : { 
               scale: 1.05, 

@@ -74,7 +74,7 @@ export default function FreestandingContent() {
           subheadline="Elite posterior-chain loading without the rack. Perfect for home gyms, garage setups, and facilities with limited space."
           primaryCTA={{
             text: 'Join Waitlist',
-            href: '#waitlist',
+            href: '/join-waitlist',
           }}
           secondaryCTA={{
             text: 'Explore Specs',
@@ -281,7 +281,7 @@ export default function FreestandingContent() {
             headline="Elite Training Without the Infrastructure"
             description="Join the waitlist to be first in line when we launch."
             ctaText="Join Waitlist"
-            ctaHref="/#waitlist"
+            ctaHref="/join-waitlist"
           />
           </div>
         </motion.section>

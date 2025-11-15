@@ -62,7 +62,7 @@ const DEFAULT_CONTENT = {
     },
     {
       label: 'Join Waitlist',
-      href: '#waitlist',
+      href: '/join-waitlist',
       variant: 'secondary' as const,
       ariaLabel: 'Join the product waitlist'
     }

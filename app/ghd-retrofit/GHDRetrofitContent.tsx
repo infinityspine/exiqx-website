@@ -74,7 +74,7 @@ export default function GHDRetrofitContent() {
           subheadline="Transform your glute-ham developer into a precision posterior-chain loading station."
           primaryCTA={{
             text: 'Join Waitlist',
-            href: '#waitlist',
+            href: '/join-waitlist',
           }}
           secondaryCTA={{
             text: 'Explore Specs',
@@ -281,7 +281,7 @@ export default function GHDRetrofitContent() {
             headline="Unlock Your GHD's Full Potential"
             description="Join the waitlist to be first in line when we launch."
             ctaText="Join Waitlist"
-            ctaHref="/#waitlist"
+            ctaHref="/join-waitlist"
           />
           </div>
         </motion.section>

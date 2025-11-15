@@ -74,7 +74,7 @@ export default function RackMountedContent() {
           subheadline="Engineered for elite posterior-chain loading through the plantar surface."
           primaryCTA={{
             text: 'Join Waitlist',
-            href: '#waitlist',
+            href: '/join-waitlist',
           }}
           secondaryCTA={{
             text: 'Explore Specs',
@@ -281,7 +281,7 @@ export default function RackMountedContent() {
             headline="The Foundation of the ExIQx System"
             description="Join the waitlist to be first in line when we launch."
             ctaText="Join Waitlist"
-            ctaHref="/#waitlist"
+            ctaHref="/join-waitlist"
           />
           </div>
         </motion.section>
