@@ -28,7 +28,7 @@ const DEFAULT_NAV_ITEMS = [
   { label: 'Contact', href: '/contact', id: 'contact' },
 ]
 
-const SCROLL_THRESHOLD_RATIO = 0.8 // 80% of viewport height
+const SCROLL_THRESHOLD_RATIO = 0.9 // 90% of viewport height
 const SCROLL_THRESHOLD_FALLBACK = 800 // SSR fallback
 const INTERSECTION_THRESHOLD = 0.5
 const MENU_CLOSE_DELAY = 300
