@@ -146,18 +146,21 @@ export default function JoinWaitlistPage() {
 
                 <motion.p
                   variants={fadeUp}
-                  className="text-xl font-medium text-gray-300 mt-8"
+                  className="text-xl font-semibold text-red-500 mt-8 tracking-wide"
                 >
-                  Limited Production Run
+                  Limited Production Release
                 </motion.p>
-                <motion.p
-                  variants={fadeUp}
-                  className="text-lg text-gray-400 max-w-4xl mx-auto leading-relaxed text-center mt-6 mb-12"
-                >
-                  Be among the first to experience elite biomechanical training equipment. 
-                  Join the waitlist for exclusive early access to our rack-mounted footplate, 
-                  GHD retrofit, and freestanding systems.
-                </motion.p>
+                <div className="flex justify-center mt-6 mb-12">
+                  <motion.p
+                    variants={fadeUp}
+                    className="text-lg text-gray-400 max-w-3xl leading-relaxed text-center"
+                  >
+                    Be among the first to access precision-engineered footplate systems 
+                    designed to amplify posterior-chain output, sprint mechanics, 
+                    and closed-chain force production. Secure your spot for early 
+                    access to the rack-mounted, GHD-retrofit, and freestanding ExIQx systems.
+                  </motion.p>
+                </div>
 
                 {/* Benefits */}
                 <motion.div
