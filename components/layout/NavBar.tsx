@@ -41,6 +41,7 @@ const NavBar = memo(function NavBar({
   const [isScrolled, setIsScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState('')
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [scrollY, setScrollY] = useState(0)
   const controls = useAnimation()
   const router = useRouter()
   const pathname = usePathname()
@@ -49,8 +50,10 @@ const NavBar = memo(function NavBar({
 
   useEffect(() => {
     const handleScroll = () => {
+      const currentScrollY = window.scrollY
+      setScrollY(currentScrollY)
       const threshold = typeof window !== 'undefined' ? window.innerHeight * SCROLL_THRESHOLD_RATIO : SCROLL_THRESHOLD_FALLBACK
-      const scrolled = window.scrollY > threshold
+      const scrolled = currentScrollY > threshold
       setIsScrolled(scrolled)
       controls.start({
         scale: scrolled ? 0.85 : 1,
@@ -122,12 +125,22 @@ const NavBar = memo(function NavBar({
     }
   }, [isMobileMenuOpen])
 
-  // Page-specific override for /join-waitlist
+  // Old behavior for all pages except waitlist
+  const defaultScrolled = scrollY > 20
+
+  // New instant behavior for waitlist page
+  const waitlistScrolled = scrollY > 2
+
+  // If on waitlist page, use the tighter threshold
+  const scrolled = pathname === '/join-waitlist'
+    ? waitlistScrolled
+    : defaultScrolled
+
   const isWaitlistPage = pathname === '/join-waitlist'
 
   const navBackground = isWaitlistPage
-    ? (isScrolled ? 'bg-black/90 backdrop-blur-md border-b border-white/10' : 'bg-transparent')
-    : (isScrolled ? 'bg-black/60 backdrop-blur-md border-b border-white/10' : 'bg-transparent')
+    ? (scrolled ? 'bg-black/90 backdrop-blur-md border-b border-white/10' : 'bg-transparent')
+    : (scrolled ? 'bg-black/60 backdrop-blur-md border-b border-white/10' : 'bg-transparent')
 
   return (
     <>
