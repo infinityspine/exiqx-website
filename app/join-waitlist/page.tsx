@@ -1,9 +1,9 @@
 'use client'
 
+import { useState } from 'react'
 import { motion, useScroll, useSpring, useReducedMotion } from 'framer-motion'
 import { fadeUp, staggerChildren } from '@/lib/motionPresets'
-import WaitlistForm from '@/components/forms/WaitlistForm'
-import { Mail, Zap, Clock } from 'lucide-react'
+import { Mail, Zap, Clock, Check } from 'lucide-react'
 
 // Animated gradient orb component
 const AnimatedGradientOrb = ({ 
@@ -38,6 +38,11 @@ const AnimatedGradientOrb = ({
 }
 
 export default function JoinWaitlistPage() {
+  const [email, setEmail] = useState('')
+  const [loading, setLoading] = useState(false)
+  const [success, setSuccess] = useState(false)
+  const [error, setError] = useState('')
+
   const reducedMotion = useReducedMotion()
   const shouldReduceMotion = !!reducedMotion
   const { scrollYProgress } = useScroll()
@@ -46,6 +51,29 @@ export default function JoinWaitlistPage() {
     damping: 30,
     restDelta: 0.001,
   })
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setLoading(true)
+    setError('')
+
+    try {
+      const response = await fetch('/api/waitlist', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, source: 'website' })
+      })
+
+      if (!response.ok) throw new Error('Failed to join waitlist')
+
+      setSuccess(true)
+      setEmail('')
+    } catch (err) {
+      setError('Something went wrong. Please try again.')
+    } finally {
+      setLoading(false)
+    }
+  }
 
   return (
     <>
@@ -85,71 +113,116 @@ export default function JoinWaitlistPage() {
             shouldReduceMotion={shouldReduceMotion}
           />
 
-          <div className="mx-auto max-w-4xl px-6 text-center">
-            <motion.h1
-              variants={fadeUp}
-              className="font-display text-5xl sm:text-6xl lg:text-7xl font-extrabold uppercase tracking-[0.05em] text-white mb-6"
-            >
-              Early Access Waitlist
-            </motion.h1>
-            <motion.p
-              variants={fadeUp}
-              className="text-xl sm:text-2xl text-white/80 mb-4 leading-relaxed"
-            >
-              Limited Production Run
-            </motion.p>
-            <motion.p
-              variants={fadeUp}
-              className="text-lg text-white/60 max-w-2xl mx-auto mb-12 leading-relaxed"
-            >
-              Be among the first to experience elite biomechanical training equipment. 
-              Join the waitlist for exclusive early access to our rack-mounted footplate, 
-              GHD retrofit, and freestanding systems.
-            </motion.p>
+          <div className="mx-auto max-w-6xl px-6 text-center">
+            {success ? (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="text-center py-32"
+              >
+                <div className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-red-500/20 border-2 border-red-500 mb-6">
+                  <Check className="w-12 h-12 text-red-500" strokeWidth={3} />
+                </div>
+                <h2 className="text-3xl font-bold text-white mb-2">YOU'RE ON THE LIST!</h2>
+                <p className="text-gray-400 mt-2">We'll notify you when early access opens.</p>
+              </motion.div>
+            ) : (
+              <>
+                {/* Headline Block */}
+                <div className="mb-16">
+                  <motion.h1 
+                    variants={fadeUp} 
+                    className="text-5xl sm:text-6xl font-extrabold tracking-tight uppercase text-white mb-0 leading-tight"
+                  >
+                    Early Access
+                  </motion.h1>
+                  <motion.h1 
+                    variants={fadeUp} 
+                    className="text-5xl sm:text-6xl font-extrabold tracking-tight uppercase text-white mt-2 leading-tight"
+                  >
+                    Waitlist
+                  </motion.h1>
+                </div>
 
-            {/* Benefits */}
-            <motion.div
-              variants={staggerChildren}
-              className="grid sm:grid-cols-3 gap-6 mb-16 max-w-3xl mx-auto"
-            >
-              <motion.div
-                variants={fadeUp}
-                className="flex flex-col items-center text-center"
-              >
-                <div className="mb-4 p-4 rounded-2xl bg-red-500/20 border border-red-500/20">
-                  <Zap className="h-8 w-8 text-red-500" />
-                </div>
-                <h3 className="text-lg font-semibold text-white mb-2">Early Access</h3>
-                <p className="text-sm text-white/60">First priority on limited production runs</p>
-              </motion.div>
-              <motion.div
-                variants={fadeUp}
-                className="flex flex-col items-center text-center"
-              >
-                <div className="mb-4 p-4 rounded-2xl bg-red-500/20 border border-red-500/20">
-                  <Mail className="h-8 w-8 text-red-500" />
-                </div>
-                <h3 className="text-lg font-semibold text-white mb-2">Exclusive Updates</h3>
-                <p className="text-sm text-white/60">Get notified about new products and features</p>
-              </motion.div>
-              <motion.div
-                variants={fadeUp}
-                className="flex flex-col items-center text-center"
-              >
-                <div className="mb-4 p-4 rounded-2xl bg-red-500/20 border border-red-500/20">
-                  <Clock className="h-8 w-8 text-red-500" />
-                </div>
-                <h3 className="text-lg font-semibold text-white mb-2">No Commitment</h3>
-                <p className="text-sm text-white/60">Join free, opt out anytime</p>
-              </motion.div>
-            </motion.div>
+                <motion.p
+                  variants={fadeUp}
+                  className="text-xl font-medium text-gray-300 mt-6"
+                >
+                  Limited Production Run
+                </motion.p>
+                <motion.p
+                  variants={fadeUp}
+                  className="text-lg text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed"
+                >
+                  Be among the first to experience elite biomechanical training equipment. 
+                  Join the waitlist for exclusive early access to our rack-mounted footplate, 
+                  GHD retrofit, and freestanding systems.
+                </motion.p>
 
-            {/* Waitlist Form */}
-            <WaitlistForm source="website" />
+                {/* Benefits */}
+                <motion.div
+                  variants={staggerChildren}
+                  className="grid sm:grid-cols-3 gap-10 mt-16 mb-10 max-w-3xl mx-auto"
+                >
+                  <motion.div
+                    variants={fadeUp}
+                    className="flex flex-col items-center text-center"
+                  >
+                    <div className="mb-4 p-4 rounded-2xl bg-red-500/20 border border-red-500/20">
+                      <Zap className="h-8 w-8 text-red-500" />
+                    </div>
+                    <h3 className="text-lg font-semibold text-white mb-2">Early Access</h3>
+                    <p className="text-sm text-gray-400">First priority on limited production runs</p>
+                  </motion.div>
+                  <motion.div
+                    variants={fadeUp}
+                    className="flex flex-col items-center text-center"
+                  >
+                    <div className="mb-4 p-4 rounded-2xl bg-red-500/20 border border-red-500/20">
+                      <Mail className="h-8 w-8 text-red-500" />
+                    </div>
+                    <h3 className="text-lg font-semibold text-white mb-2">Exclusive Updates</h3>
+                    <p className="text-sm text-gray-400">Get notified about new products and features</p>
+                  </motion.div>
+                  <motion.div
+                    variants={fadeUp}
+                    className="flex flex-col items-center text-center"
+                  >
+                    <div className="mb-4 p-4 rounded-2xl bg-red-500/20 border border-red-500/20">
+                      <Clock className="h-8 w-8 text-red-500" />
+                    </div>
+                    <h3 className="text-lg font-semibold text-white mb-2">No Commitment</h3>
+                    <p className="text-sm text-gray-400">Join free, opt out anytime</p>
+                  </motion.div>
+                </motion.div>
+
+                {/* Waitlist Form */}
+                <motion.div variants={fadeUp} className="flex flex-col items-center gap-4 mt-24">
+                  <form onSubmit={handleSubmit} className="flex flex-col items-center gap-4 w-full max-w-md">
+                    <input
+                      type="email"
+                      placeholder="Enter your email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                      disabled={loading}
+                      className="rounded-xl px-6 py-4 text-lg bg-white/10 border border-white/20 w-full text-white placeholder:text-gray-500 focus:outline-none focus:border-red-500/50 focus:ring-2 focus:ring-red-500/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                    />
+                    <button
+                      type="submit"
+                      disabled={loading}
+                      className="relative w-full rounded-xl px-6 py-4 text-lg font-semibold text-white bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-red-500/25 hover:shadow-red-500/40"
+                    >
+                      {loading ? 'Joining...' : 'Join Waitlist'}
+                    </button>
+                  </form>
+                  {error && <p className="text-red-400 text-sm mt-2">{error}</p>}
+                </motion.div>
+              </>
+            )}
           </div>
         </motion.section>
       </main>
     </>
   )
 }
-
