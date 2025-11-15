@@ -14,8 +14,8 @@ function FooterGlowBar() {
         w-full
         rounded-full
         bg-gradient-to-r
-        from-red-600/40 via-red-500/55 to-red-600/40
-        shadow-[0_0_18px_4px_rgba(229,9,20,0.28)]
+        from-red-500/10 via-red-500/15 to-red-500/10
+        shadow-[0_0_18px_4px_rgba(229,9,20,0.08)]
         blur-[2px]
         animate-footerGlowStrong
         pointer-events-none

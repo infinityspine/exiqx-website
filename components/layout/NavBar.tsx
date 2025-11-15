@@ -186,7 +186,7 @@ const NavBar = memo(function NavBar({
                   {isActive && (
                     <motion.div
                       layoutId="activeIndicator"
-                      className="absolute -bottom-1 left-0 right-0 h-[2px] bg-red-600"
+                      className="absolute -bottom-1 left-0 right-0 h-[2px] bg-red-500/10"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ duration: 0.3 }}
@@ -276,7 +276,7 @@ const NavBar = memo(function NavBar({
                         {item.label}
                         {isActive && (
                           <motion.div
-                            className="absolute -bottom-1 left-2 right-2 h-[2px] bg-red-600"
+                            className="absolute -bottom-1 left-2 right-2 h-[2px] bg-red-500/10"
                             layoutId="mobileActiveIndicator"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
