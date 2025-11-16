@@ -177,7 +177,7 @@ const HeroSection = memo(function HeroSection({
         style={{ y: heroImageY }}
         className="pointer-events-none absolute right-0 top-0 bottom-0 flex items-center justify-end w-[60%]"
       >
-        <div className="relative w-full h-[92vh] pr-[18%]">
+        <div className="relative w-full h-[92vh] pr-[25%]">
           <img
             src="/images/footplate-hero.png"
             alt={validatedData.backgroundImageAlt}
