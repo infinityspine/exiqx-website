@@ -197,7 +197,7 @@ const HeroSection = memo(function HeroSection({
         {/* Hero Text Left */}
         <motion.div
           style={{ y: heroContentY }}
-          className="absolute left-0 top-1/2 -translate-y-[40%] z-10 max-w-[560px] flex flex-col items-start text-left pl-[6%]"
+          className="absolute left-0 top-1/2 translate-y-[10%] z-10 max-w-[560px] flex flex-col items-start text-left pl-[6%]"
           variants={staggerChildren}
           initial="hidden"
           animate="visible"
@@ -256,7 +256,7 @@ const HeroSection = memo(function HeroSection({
           </div>
 
           {/* Headline - Higher Position */}
-          <div className="absolute bottom-[15vh] left-0 right-0 z-10 px-5 pb-6 pt-32 bg-gradient-to-t from-black via-black to-transparent">
+          <div className="absolute bottom-[3vh] left-0 right-0 z-10 px-5 pb-6 pt-32 bg-gradient-to-t from-black via-black to-transparent">
             <h1 className="text-[1.85rem] leading-[1.1] font-extrabold text-white tracking-tight text-center">
               {validatedData.headline}
             </h1>
