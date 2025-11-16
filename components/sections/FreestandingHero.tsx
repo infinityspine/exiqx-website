@@ -17,7 +17,7 @@ const CTAButtonSchema = z.object({
 
 const FreestandingHeroPropsSchema = z.object({
   headline: z.string().default('TRAIN ANYWHERE'),
-  subheadline: z.string().default('Elite posterior-chain loading without the rack. Perfect for home gyms, garage setups, and facilities with limited space.'),
+  subheadline: z.string().default('Commercial-grade posterior-chain loading without the rack. Ideal for PT clinics, performance centers, and facilities requiring portable precision training equipment.'),
   eyebrow: z.string().optional(),
   microTagline: z.string().optional(),
   primaryCTA: CTAButtonSchema.optional(),
@@ -112,7 +112,7 @@ const FreestandingHero = memo<Partial<FreestandingHeroProps>>((props) => {
       >
         <Image
           src={backgroundImage}
-          alt="Freestanding ExIQx footplate system for home gyms"
+          alt="Freestanding ExIQx footplate system for professional facilities"
           fill
           priority
           className="object-cover object-center scale-110"

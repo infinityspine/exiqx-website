@@ -49,22 +49,22 @@ const DEFAULT_CONTENT = {
   id: 'footplate',
   backgroundImage: '/hero-footplate.jpg',
   backgroundImageAlt: 'ExIQx Performance rack-mounted footplate in professional gym setting',
-  headline: 'Rack-Mounted Footplate.',
-  subheadline: 'Posterior chain training.',
-  subheadlineAccent: 'Redefined.',
-  tagline: 'Patent-Pending Design • Engineered in Arizona',
+  headline: 'Patent-Protected Plantarflexion Training.',
+  subheadline: 'Commercial-grade biomechanical equipment trusted by D1 programs, PT clinics, and professional athletes.',
+  subheadlineAccent: undefined,
+  tagline: 'Patent-Pending Technology • Commercial-Grade Construction • Engineered in Arizona',
   ctaButtons: [
+    {
+      label: 'Request Demo',
+      href: '/request-demo',
+      variant: 'primary' as const,
+      ariaLabel: 'Request a professional demonstration'
+    },
     {
       label: 'Explore Specs',
       href: '#specs',
-      variant: 'primary' as const,
-      ariaLabel: 'Explore product specifications'
-    },
-    {
-      label: 'Join Waitlist',
-      href: '/join-waitlist',
       variant: 'secondary' as const,
-      ariaLabel: 'Join the product waitlist'
+      ariaLabel: 'Explore product specifications'
     }
   ]
 }

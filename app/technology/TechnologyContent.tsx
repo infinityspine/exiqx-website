@@ -134,7 +134,7 @@ export default function TechnologyPage() {
             >
               <div className="text-base sm:text-lg text-white/70 font-light leading-relaxed">
                 <p>
-                  The ExIQx Footplate re-engineers posterior-chain training through biomechanical precision and authentic ground-force mechanics. Every component is designed to honor the physics of human movement, creating training systems that translate directly to athletic performance.
+                  The ExIQx Footplate re-engineers posterior-chain training through biomechanical precision and authentic ground-force mechanics. <span className="text-red-500/90 font-semibold">Patent-protected technology</span> designed to honor the physics of human movement, creating commercial-grade training systems that translate directly to elite athletic performance and clinical rehabilitation.
                 </p>
               </div>
           </motion.div>

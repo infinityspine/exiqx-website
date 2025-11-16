@@ -69,18 +69,18 @@ export default function FreestandingContent() {
       <main className="relative bg-black overflow-hidden">
         {/* Hero Section - No animation wrapper to preserve FreestandingHero's internal animations */}
         <FreestandingHero
-          eyebrow="FREESTANDING FOOTPLATE SYSTEM"
-          headline="TRAIN ANYWHERE"
-          subheadline="Elite posterior-chain loading without the rack. Perfect for home gyms, garage setups, and facilities with limited space."
+          eyebrow="COMMERCIAL-GRADE FREESTANDING SYSTEM"
+          headline="FREESTANDING FOOTPLATE"
+          subheadline="Commercial-grade posterior-chain loading without the rack. Ideal for PT clinics, performance centers, and facilities requiring portable precision training equipment."
           primaryCTA={{
-            text: 'Join Waitlist',
-            href: '/join-waitlist',
+            text: 'Request Demo',
+            href: '/request-demo',
           }}
           secondaryCTA={{
-            text: 'Explore Specs',
-            href: '#specs',
+            text: 'Contact Sales',
+            href: '/contact',
           }}
-          microTagline="Patent-pending design. Engineered in Arizona."
+          microTagline="Patent-pending technology. Commercial-grade construction. Engineered in Arizona."
           backgroundImage="/freestanding-hero.jpg"
           showShimmer={true}
         />
@@ -95,7 +95,7 @@ export default function FreestandingContent() {
             {
               icon: 'ruler',
               title: 'Ultimate Portability',
-              body: 'No rack required. Stabilized base design allows for setup in any space — home gyms, garage training areas, or facilities without dedicated rack systems.',
+              body: 'No rack required. Stabilized base design allows for setup in any professional space — PT clinics, performance centers, or facilities without dedicated rack systems.',
             },
             {
               icon: 'zap',
@@ -142,12 +142,12 @@ export default function FreestandingContent() {
           <div className="py-24 md:py-32">
             <FreestandingFeatureDetail
               title="Rack-Free Performance"
-              description="The freestanding configuration delivers the same precision biomechanics as the rack-mounted system, with a stabilized base design that requires only standard weight plates — perfect for home gyms and portable training setups."
+              description="The freestanding configuration delivers the same precision biomechanics as the rack-mounted system, with a stabilized base design that requires only standard weight plates — perfect for professional facilities requiring portable commercial-grade equipment."
               features={[
-                'No rack infrastructure required — train anywhere',
+                'No rack infrastructure required — deploy in any professional space',
                 'Weight-plate stabilization system for rigid base',
                 'Tool-free adjustment between 10°–70° plantarflexion',
-                'Compact footprint for garages and home training spaces',
+                'Compact footprint for PT clinics and performance centers',
               ]}
               imageSrc="/freestanding-side.jpg"
               imageAlt="Freestanding Footplate Side View"
@@ -278,10 +278,10 @@ export default function FreestandingContent() {
           />
           <div className="max-w-5xl mx-auto px-6 md:px-8 py-24 md:py-32">
             <CTASection
-            headline="Elite Training Without the Infrastructure"
-            description="Join the waitlist to be first in line when we launch."
-            ctaText="Join Waitlist"
-            ctaHref="/join-waitlist"
+            headline="Commercial-Grade Portable Training"
+            description="Request a demonstration for your facility or contact our sales team for pricing and availability."
+            ctaText="Request Demo"
+            ctaHref="/request-demo"
           />
           </div>
         </motion.section>

@@ -43,7 +43,7 @@ const UseCases = memo(function UseCases({
             variants={fadeUp}
             className="mt-4 text-lg text-white/70 font-light leading-relaxed"
           >
-            Versatile equipment for comprehensive posterior chain development
+            Professional-grade training applications for elite performance and clinical rehabilitation
           </motion.p>
         </motion.div>
 

@@ -167,10 +167,10 @@ export default function AboutPage() {
             >
               <div className="text-base sm:text-lg text-white/70 font-light leading-relaxed">
                 <p style={{ marginBottom: 'clamp(2rem, 4vw, 3rem)' }}>
-                  ExIQx Performance exists at the convergence of biomechanics, precision engineering, and authentic ground-force movement science.
+                  ExIQx Performance is a commercial-grade performance equipment company specializing in patent-protected biomechanical training systems for elite athletic performance and clinical rehabilitation.
                 </p>
                 <p>
-                  We design training systems anchored in mechanical truth—not trends or compromise. Every component respects the physics that govern human performance.
+                  We design professional training equipment anchored in mechanical truth—not trends or compromise. Every component respects the physics that govern human performance, engineered for D1 programs, PT clinics, and professional training facilities.
                 </p>
               </div>
             </motion.div>
@@ -244,10 +244,10 @@ export default function AboutPage() {
             >
               <div className="text-base sm:text-lg text-white/70 font-light leading-relaxed">
                 <p style={{ marginBottom: 'clamp(2rem, 4vw, 3rem)' }}>
-                  Our equipment honors natural human mechanics, joint kinematics, and force vector accuracy.
+                  Our commercial-grade equipment honors natural human mechanics, joint kinematics, and force vector accuracy through patent-protected closed-chain plantarflexion technology.
                 </p>
                 <p>
-                  Built for athletes and professionals who demand training tools that translate directly to performance.
+                  Built for D1 strength & conditioning programs, physical therapy clinics, professional teams, and elite performance centers who demand training tools that translate directly to athletic performance and clinical outcomes.
                 </p>
               </div>
             </motion.div>
@@ -321,10 +321,10 @@ export default function AboutPage() {
             >
               <div className="text-base sm:text-lg text-white/70 font-light leading-relaxed">
                 <p style={{ marginBottom: 'clamp(2rem, 4vw, 3rem)' }}>
-                  Movement fidelity is non-negotiable. Every product is engineered with disciplined minimalism and mechanical precision.
+                  Movement fidelity is non-negotiable. Every commercial-grade product is engineered with disciplined minimalism, mechanical precision, and patent-protected technology.
                 </p>
                 <p>
-                  We eliminate noise. We refine motion.
+                  We eliminate noise. We refine motion. We deliver professional performance equipment that meets the demands of elite training environments.
                 </p>
               </div>
             </motion.div>
@@ -398,10 +398,10 @@ export default function AboutPage() {
             >
               <div className="text-base sm:text-lg text-white/70 font-light leading-relaxed">
                 <p style={{ marginBottom: 'clamp(2rem, 4vw, 3rem)' }}>
-                  We serve those who pursue biomechanical authenticity. ExIQx exists for the relentless pursuit of mechanical perfection.
+                  We serve D1 programs, PT clinics, professional teams, and elite performance centers who pursue biomechanical authenticity. ExIQx exists for the relentless pursuit of mechanical perfection in commercial-grade training equipment.
                 </p>
                 <p>
-                  Built for those who refuse to settle.
+                  Advancing athletic performance and injury prevention through patent-protected technology and precision engineering.
                 </p>
               </div>
             </motion.div>

@@ -69,18 +69,18 @@ export default function GHDRetrofitContent() {
       <main className="relative bg-black overflow-hidden">
         {/* Hero Section - No animation wrapper to preserve GHDHero's internal animations */}
         <GHDHero
-          eyebrow="GHD-MOUNTED FOOTPLATE SYSTEM"
+          eyebrow="COMMERCIAL-GRADE GHD RETROFIT SYSTEM"
           headline="RETROFIT YOUR GHD"
-          subheadline="Transform your glute-ham developer into a precision posterior-chain loading station."
+          subheadline="Transform your commercial glute-ham developer into a precision posterior-chain loading station for professional training and clinical rehabilitation."
           primaryCTA={{
-            text: 'Join Waitlist',
-            href: '/join-waitlist',
+            text: 'Request Demo',
+            href: '/request-demo',
           }}
           secondaryCTA={{
-            text: 'Explore Specs',
-            href: '#specs',
+            text: 'Contact Sales',
+            href: '/contact',
           }}
-          microTagline="Patent-pending design. Engineered in Arizona."
+          microTagline="Patent-pending technology. Commercial-grade construction. Engineered in Arizona."
           backgroundImage="/ghd-mounted-hero.jpg"
           showShimmer={true}
         />
@@ -278,10 +278,10 @@ export default function GHDRetrofitContent() {
           />
           <div className="max-w-5xl mx-auto px-6 md:px-8 py-24 md:py-32">
             <CTASection
-            headline="Unlock Your GHD's Full Potential"
-            description="Join the waitlist to be first in line when we launch."
-            ctaText="Join Waitlist"
-            ctaHref="/join-waitlist"
+            headline="Professional GHD Retrofit Solution"
+            description="Request a demonstration for your facility or contact our sales team for pricing and availability."
+            ctaText="Request Demo"
+            ctaHref="/request-demo"
           />
           </div>
         </motion.section>

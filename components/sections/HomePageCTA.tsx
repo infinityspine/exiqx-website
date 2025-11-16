@@ -61,15 +61,15 @@ const CTASection = memo(function CTASection({
             className="font-display text-4xl font-extrabold uppercase tracking-[0.05em] text-white lg:text-6xl"
             style={{ transform: 'translateZ(0)' }}
           >
-            Elevate Your Training
+            Professional Performance Equipment
           </motion.h2>
           <motion.p 
             variants={fadeUp}
             className="mt-6 text-xl text-white/80 lg:text-2xl leading-relaxed"
           >
-            Join the waitlist for exclusive early access to the{' '}
+            Commercial-grade biomechanical training systems for{' '}
             <span className="font-semibold text-accent">
-              Rack-Mounted Footplate
+              D1 programs, PT clinics, and elite performance centers
             </span>
           </motion.p>
         </motion.div>
@@ -154,7 +154,7 @@ const CTASection = memo(function CTASection({
           {/* Primary CTA with magnetic hover */}
           <motion.a
             ref={primaryMagneticRef}
-            href="/join-waitlist"
+            href="/request-demo"
             variants={fadeUp}
             whileHover={shouldReduceMotion ? {} : { 
               scale: 1.05, 
@@ -165,13 +165,13 @@ const CTASection = memo(function CTASection({
             className="inline-block rounded-xl bg-accent px-10 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition-all duration-300 hover:bg-red-700 hover:shadow-[0_10px_30px_rgba(220,38,38,0.55)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-black will-change-transform"
             style={{ transform: 'translateZ(0)' }}
           >
-            Join Waitlist
+            Request Demo
           </motion.a>
 
           {/* Secondary CTA with magnetic hover */}
           <motion.a
             ref={secondaryMagneticRef}
-            href="/request-demo"
+            href="/contact"
             variants={fadeUp}
             whileHover={shouldReduceMotion ? {} : { 
               scale: 1.05, 
@@ -182,7 +182,7 @@ const CTASection = memo(function CTASection({
             className="inline-block rounded-xl border border-zinc-800/60 bg-zinc-950/40 px-10 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-white backdrop-blur-md transition-all duration-300 hover:border-white/90 hover:bg-white/10 hover:shadow-[0_10px_30px_rgba(255,255,255,0.1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black will-change-transform"
             style={{ transform: 'translateZ(0)' }}
           >
-            Request Demo
+            Contact Sales
           </motion.a>
         </motion.div>
 
