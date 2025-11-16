@@ -371,15 +371,15 @@ const HeroSection = memo(function HeroSection({
           <img
             src="/images/footplate-hero.png"
             alt={validatedData.backgroundImageAlt}
-            className="w-[130%] max-w-[660px] h-auto object-contain relative z-10"
+            className="w-[120%] max-w-[620px] h-auto object-contain relative z-10"
             style={{
               filter: 'drop-shadow(0 40px 80px rgba(0,0,0,0.8)) drop-shadow(0 0 70px rgba(220,38,38,0.4))',
             }}
           />
         </div>
 
-        {/* Text Content - PULLED UP HARD */}
-        <div className="relative px-6 pb-10 -mt-20">
+        {/* Text Content - TIGHT TO IMAGE */}
+        <div className="relative px-6 pb-8 -mt-48">
           <div className="max-w-xl mx-auto text-center">
             
             {/* Headline */}
