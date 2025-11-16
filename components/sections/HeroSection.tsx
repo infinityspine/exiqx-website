@@ -1,6 +1,6 @@
 'use client'
 
-import { memo, useRef } from 'react'
+import { memo, useRef, useState, useEffect } from 'react'
 import { motion, useReducedMotion, useScroll } from 'framer-motion'
 import { z } from 'zod'
 import { heroFade, fadeUp, staggerChildren } from '@/lib/motionPresets'
@@ -135,6 +135,16 @@ const HeroSection = memo(function HeroSection({
   
   const shouldReduceMotion = !!useReducedMotion()
   const containerRef = useRef<HTMLElement>(null)
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024)
+    }
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -175,16 +185,16 @@ const HeroSection = memo(function HeroSection({
       {/* Product Image */}
       <motion.div
         style={{ y: heroImageY }}
-        className="pointer-events-none absolute right-0 top-0 bottom-0 flex items-center justify-end w-[60%]"
+        className="pointer-events-none absolute inset-0 lg:right-0 lg:top-0 lg:bottom-0 flex items-center justify-center lg:justify-end w-full lg:w-[60%]"
       >
-        <div className="relative w-full h-[92vh] pr-[25%]">
+        <div className="relative w-full h-[50vh] lg:h-[92vh] pr-0 lg:pr-[25%]">
           <img
             src="/images/footplate-hero.png"
             alt={validatedData.backgroundImageAlt}
             className="w-full h-full object-contain object-right"
             style={{
               filter: 'drop-shadow(0 30px 90px rgba(0,0,0,0.7)) drop-shadow(0 0 50px rgba(220,38,38,0.15))',
-              transform: 'scale(2.2)'
+              transform: isMobile ? 'scale(1.2)' : 'scale(2.2)'
             }}
           />
         </div>
@@ -193,7 +203,7 @@ const HeroSection = memo(function HeroSection({
       {/* Hero Text */}
       <motion.div
         style={{ y: heroContentY }}
-        className="absolute left-0 top-1/2 -translate-y-[40%] z-10 flex max-w-[560px] flex-col items-start text-left pl-[6%]"
+        className="relative lg:absolute lg:left-0 lg:top-1/2 lg:-translate-y-[40%] z-10 flex max-w-full lg:max-w-[560px] flex-col items-center lg:items-start text-center lg:text-left px-6 lg:pl-[6%] pt-32 lg:pt-0"
         variants={staggerChildren}
         initial="hidden"
         animate="visible"
