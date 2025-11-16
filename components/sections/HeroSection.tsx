@@ -2,7 +2,6 @@
 
 import { memo, useRef } from 'react'
 import { motion, useReducedMotion, useScroll } from 'framer-motion'
-import Image from 'next/image'
 import { z } from 'zod'
 import { heroFade, fadeUp, staggerChildren } from '@/lib/motionPresets'
 import { useParallax } from '@/hooks/useParallax'
@@ -217,17 +216,13 @@ const HeroSection = memo(function HeroSection({
           y: heroImageY,
           transform: 'translateZ(0)'
         }}
-        className="pointer-events-none absolute inset-0 flex items-center justify-center md:justify-end will-change-transform"
+        className="pointer-events-none absolute right-0 top-0 bottom-0 flex items-center justify-end w-1/2 will-change-transform"
       >
-        <div className="relative w-full max-w-4xl h-[80vh] md:mr-[5%]">
-          <Image
+        <div className="relative w-full h-[70vh] mr-[8%]">
+          <img
             src="/images/footplate-hero.png"
             alt="ExIQx Performance rack-mounted footplate with patent-protected plantarflexion mechanism"
-            fill
-            priority={priority}
-            quality={95}
-            sizes="(max-width: 768px) 90vw, 50vw"
-            className="object-contain object-center md:object-right"
+            className="w-full h-full object-contain"
             style={{
               filter: 'drop-shadow(0 20px 60px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 40px rgba(220, 38, 38, 0.15))',
             }}
