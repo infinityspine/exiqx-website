@@ -191,7 +191,7 @@ const GHDHero = memo<Partial<GHDHeroProps>>((props) => {
                 }}
                 whileTap={shouldReduceMotion ? {} : { scale: 0.96 }}
                 transition={{ duration: ANIMATION_CONSTANTS.DURATION_FAST }}
-                className="bg-accent text-white px-10 py-4 rounded-xl text-[11px] font-semibold uppercase tracking-[0.2em] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-black font-inter"
+                className="bg-gradient-to-r from-red-600 to-red-700 text-white px-8 py-4 rounded-xl text-[11px] font-semibold uppercase tracking-[0.2em] transition-all duration-300 hover:from-red-500 hover:to-red-600 hover:scale-[1.02] shadow-2xl shadow-red-500/30 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-black font-inter"
                 aria-label={primaryCTA.text}
               >
                 {primaryCTA.text}
@@ -210,7 +210,7 @@ const GHDHero = memo<Partial<GHDHeroProps>>((props) => {
                 }}
                 whileTap={shouldReduceMotion ? {} : { scale: 0.96 }}
                 transition={{ duration: ANIMATION_CONSTANTS.DURATION_FAST }}
-                className="border border-white/25 bg-white/10 text-white backdrop-blur-md px-10 py-4 rounded-xl text-[11px] font-semibold uppercase tracking-[0.2em] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black font-inter"
+                className="border border-white/20 bg-transparent text-white px-8 py-4 rounded-xl text-[11px] font-semibold uppercase tracking-[0.2em] transition-all duration-300 hover:bg-white/10 hover:border-white/40 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black font-inter"
                 aria-label={secondaryCTA.text}
               >
                 {secondaryCTA.text}
