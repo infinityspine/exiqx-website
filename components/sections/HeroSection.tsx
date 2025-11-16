@@ -174,7 +174,7 @@ const HeroSection = memo(function HeroSection({
       {/* Black Background */}
       <div className="absolute inset-0 bg-black" />
 
-      {/* Desktop: Product Image Right */}
+      {/* Desktop: Product Image Right - DON'T TOUCH */}
       <motion.div
         style={{ y: heroImageY }}
         className="pointer-events-none hidden lg:flex absolute right-0 top-0 bottom-0 w-[55%] items-center justify-end"
@@ -192,25 +192,23 @@ const HeroSection = memo(function HeroSection({
         </div>
       </motion.div>
 
-      {/* Mobile: Product Image Top */}
+      {/* Mobile: Product Image - FIXED */}
       <motion.div
         style={{ y: heroImageY }}
-        className="pointer-events-none lg:hidden absolute inset-0 flex items-start justify-center pt-24"
+        className="pointer-events-none lg:hidden absolute right-0 top-[15%] w-[70%] h-[40vh]"
       >
-        <div className="relative w-full h-[35vh]">
-          <img
-            src="/images/footplate-hero.png"
-            alt={validatedData.backgroundImageAlt}
-            className="w-full h-full object-contain"
-            style={{
-              filter: 'drop-shadow(0 20px 60px rgba(0,0,0,0.7)) drop-shadow(0 0 40px rgba(220,38,38,0.15))',
-              transform: 'scale(1.5)'
-            }}
-          />
-        </div>
+        <img
+          src="/images/footplate-hero.png"
+          alt={validatedData.backgroundImageAlt}
+          className="w-full h-full object-contain object-right"
+          style={{
+            filter: 'drop-shadow(0 20px 60px rgba(0,0,0,0.7)) drop-shadow(0 0 40px rgba(220,38,38,0.15))',
+            transform: 'scale(1.8)'
+          }}
+        />
       </motion.div>
 
-      {/* Desktop: Hero Text Left */}
+      {/* Desktop: Hero Text Left - DON'T TOUCH */}
       <motion.div
         style={{ y: heroContentY }}
         className="hidden lg:flex absolute left-0 top-1/2 -translate-y-[40%] z-10 max-w-[560px] flex-col items-start text-left pl-[6%]"
@@ -253,31 +251,31 @@ const HeroSection = memo(function HeroSection({
         </motion.p>
       </motion.div>
 
-      {/* Mobile: Hero Text Bottom */}
+      {/* Mobile: Hero Text - FIXED */}
       <motion.div
         style={{ y: heroContentY }}
-        className="lg:hidden absolute bottom-0 left-0 right-0 z-10 flex flex-col items-center text-center px-6 pb-16"
+        className="lg:hidden absolute inset-x-0 bottom-0 z-10 flex flex-col items-start text-left px-6 pb-12"
         variants={staggerChildren}
         initial="hidden"
         animate="visible"
       >
         <motion.h1
           variants={fadeUp}
-          className="text-[2.2rem] font-extrabold tracking-[0.05em] uppercase leading-[1.05] font-display mb-6"
+          className="text-[1.75rem] font-extrabold tracking-[0.03em] uppercase leading-[1.1] font-display mb-4"
         >
           {validatedData.headline}
         </motion.h1>
 
         <motion.p
           variants={fadeUp}
-          className="text-[1rem] font-medium text-white/85 leading-[1.6] mb-8 max-w-md"
+          className="text-[0.9rem] font-medium text-white/80 leading-[1.5] mb-6"
         >
           {validatedData.subheadline}
         </motion.p>
 
         <motion.div
           variants={fadeUp}
-          className="flex flex-col w-full max-w-sm gap-4 mb-6"
+          className="flex flex-col w-full gap-3 mb-5"
         >
           {validatedData.ctaButtons.map((button) => (
             <CTAButton
@@ -290,7 +288,7 @@ const HeroSection = memo(function HeroSection({
 
         <motion.p
           variants={fadeUp}
-          className="text-[9px] uppercase tracking-[0.2em] text-white/60"
+          className="text-[8px] uppercase tracking-[0.2em] text-white/50 leading-[1.4]"
         >
           {validatedData.tagline}
         </motion.p>
