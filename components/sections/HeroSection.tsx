@@ -378,8 +378,8 @@ const HeroSection = memo(function HeroSection({
           />
         </div>
 
-        {/* Text Content - TIGHT */}
-        <div className="relative px-6 pb-10 -mt-10">
+        {/* Text Content - PULLED UP HARD */}
+        <div className="relative px-6 pb-10 -mt-20">
           <div className="max-w-xl mx-auto text-center">
             
             {/* Headline */}
