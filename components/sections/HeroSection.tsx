@@ -210,21 +210,21 @@ const HeroSection = memo(function HeroSection({
       {/* Black Background */}
       <div className="absolute inset-0 bg-black" aria-hidden="true" />
 
-      {/* Product Image with Parallax */}
+      {/* Product Image with Parallax - MASSIVE */}
       <motion.div
         style={{
           y: heroImageY,
           transform: 'translateZ(0)'
         }}
-        className="pointer-events-none absolute right-0 top-0 bottom-0 flex items-center justify-end w-3/5 will-change-transform"
+        className="pointer-events-none absolute inset-0 flex items-center justify-center will-change-transform"
       >
-        <div className="relative w-full h-[85vh] mr-[-5%]">
+        <div className="relative w-[90%] h-[90vh]">
           <img
             src="/images/footplate-hero.png"
             alt="ExIQx Performance rack-mounted footplate with patent-protected plantarflexion mechanism"
             className="w-full h-full object-contain"
             style={{
-              filter: 'drop-shadow(0 20px 60px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 40px rgba(220, 38, 38, 0.15))',
+              filter: 'drop-shadow(0 25px 80px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 60px rgba(220, 38, 38, 0.2))',
             }}
           />
         </div>
