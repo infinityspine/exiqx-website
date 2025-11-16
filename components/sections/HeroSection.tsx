@@ -244,7 +244,7 @@ const HeroSection = memo(function HeroSection({
         <div className="relative min-h-[100dvh] bg-black overflow-hidden">
           
           {/* MASSIVE Product Image - High Position */}
-          <div className="absolute left-0 right-0 top-[-12vh] bottom-0 flex items-start justify-center">
+          <div className="absolute left-0 right-0 top-[-18vh] bottom-0 flex items-start justify-center">
             <img
               src="/images/footplate-hero.png"
               alt={validatedData.backgroundImageAlt}
@@ -256,7 +256,7 @@ const HeroSection = memo(function HeroSection({
           </div>
 
           {/* Headline - Fixed at Bottom with Safe Area */}
-          <div className="absolute bottom-0 left-0 right-0 z-10 px-5 pb-[max(env(safe-area-inset-bottom),1.5rem)] pt-32 bg-gradient-to-t from-black via-black to-transparent">
+          <div className="absolute bottom-[6vh] left-0 right-0 z-10 px-5 pb-[max(env(safe-area-inset-bottom),1.5rem)] pt-32 bg-gradient-to-t from-black via-black to-transparent">
             <h1 className="text-[clamp(1.6rem,5vw,1.85rem)] leading-[1.1] font-extrabold text-white tracking-tight text-center">
               {validatedData.headline}
             </h1>
