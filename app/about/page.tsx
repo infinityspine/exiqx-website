@@ -63,7 +63,7 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 blur-sm opacity-50" />
       </motion.div>
 
-      <main className="min-h-screen bg-black text-white overflow-x-hidden overflow-y-visible">
+      <main className="min-h-screen bg-black text-white">
         {/* Hero Intro Section */}
         <motion.section
           initial="hidden"
@@ -77,27 +77,29 @@ export default function AboutPage() {
             transform: 'translateZ(0)'
           }}
         >
-          {/* Animated gradient orbs with scroll parallax */}
-          <AnimatedGradientOrb 
-            className="top-0 right-1/4 w-96 h-96" 
-            delay={0}
-            shouldReduceMotion={!!shouldReduceMotion}
-          />
-          <AnimatedGradientOrb 
-            className="bottom-0 left-1/4 w-80 h-80 bg-blue-500/10" 
-            delay={2}
-            shouldReduceMotion={!!shouldReduceMotion}
-          />
+          <div className="relative overflow-hidden">
+            {/* Animated gradient orbs with scroll parallax */}
+            <AnimatedGradientOrb 
+              className="top-0 right-1/4 w-96 h-96" 
+              delay={0}
+              shouldReduceMotion={!!shouldReduceMotion}
+            />
+            <AnimatedGradientOrb 
+              className="bottom-0 left-1/4 w-80 h-80 bg-blue-500/10" 
+              delay={2}
+              shouldReduceMotion={!!shouldReduceMotion}
+            />
 
-          <div className="mx-auto max-w-4xl px-6">
-            <motion.h1
-              className="font-display text-5xl sm:text-6xl lg:text-7xl font-extrabold uppercase tracking-[0.05em] text-white"
-              style={{ 
-                marginBottom: 'clamp(2rem, 4vw, 3rem)',
-              }}
-            >
-              About
-            </motion.h1>
+            <div className="mx-auto max-w-4xl px-6">
+              <motion.h1
+                className="font-display text-5xl sm:text-6xl lg:text-7xl font-extrabold uppercase tracking-[0.05em] text-white"
+                style={{ 
+                  marginBottom: 'clamp(2rem, 4vw, 3rem)',
+                }}
+              >
+                About
+              </motion.h1>
+            </div>
           </div>
         </motion.section>
 
@@ -116,14 +118,15 @@ export default function AboutPage() {
             transform: 'translateZ(0)'
           }}
         >
-          {/* Animated gradient orb with scroll parallax */}
-          <AnimatedGradientOrb 
-            className="top-1/4 left-0 w-72 h-72" 
-            delay={1}
-            shouldReduceMotion={!!shouldReduceMotion}
-          />
+          <div className="relative overflow-hidden">
+            {/* Animated gradient orb with scroll parallax */}
+            <AnimatedGradientOrb 
+              className="top-1/4 left-0 w-72 h-72" 
+              delay={1}
+              shouldReduceMotion={!!shouldReduceMotion}
+            />
 
-          <div className="mx-auto max-w-4xl px-6">
+            <div className="mx-auto max-w-4xl px-6">
             <div className="flex items-start gap-6" style={{ marginBottom: 'clamp(2.5rem, 5vw, 4rem)' }}>
               <motion.div 
                 className="flex-shrink-0"
@@ -174,6 +177,7 @@ export default function AboutPage() {
                 </p>
               </div>
             </motion.div>
+            </div>
           </div>
         </motion.section>
 
@@ -192,14 +196,15 @@ export default function AboutPage() {
             transform: 'translateZ(0)'
           }}
         >
-          {/* Animated gradient orb with scroll parallax */}
-          <AnimatedGradientOrb 
-            className="top-0 right-1/3 w-80 h-80" 
-            delay={0.5}
-            shouldReduceMotion={!!shouldReduceMotion}
-          />
+          <div className="relative overflow-hidden">
+            {/* Animated gradient orb with scroll parallax */}
+            <AnimatedGradientOrb 
+              className="top-0 right-1/3 w-80 h-80" 
+              delay={0.5}
+              shouldReduceMotion={!!shouldReduceMotion}
+            />
 
-          <div className="mx-auto max-w-4xl px-6">
+            <div className="mx-auto max-w-4xl px-6">
             <div className="flex items-start gap-6" style={{ marginBottom: 'clamp(2.5rem, 5vw, 4rem)' }}>
               <motion.div 
                 className="flex-shrink-0"
@@ -251,6 +256,7 @@ export default function AboutPage() {
                 </p>
               </div>
             </motion.div>
+            </div>
           </div>
         </motion.section>
 
@@ -269,14 +275,15 @@ export default function AboutPage() {
             transform: 'translateZ(0)'
           }}
         >
-          {/* Animated gradient orb with scroll parallax */}
-          <AnimatedGradientOrb 
-            className="bottom-0 left-1/4 w-96 h-96 bg-blue-500/10" 
-            delay={1.5}
-            shouldReduceMotion={!!shouldReduceMotion}
-          />
+          <div className="relative overflow-hidden">
+            {/* Animated gradient orb with scroll parallax */}
+            <AnimatedGradientOrb 
+              className="bottom-0 left-1/4 w-96 h-96 bg-blue-500/10" 
+              delay={1.5}
+              shouldReduceMotion={!!shouldReduceMotion}
+            />
 
-          <div className="mx-auto max-w-4xl px-6">
+            <div className="mx-auto max-w-4xl px-6">
             <div className="flex items-start gap-6" style={{ marginBottom: 'clamp(2.5rem, 5vw, 4rem)' }}>
               <motion.div 
                 className="flex-shrink-0"
@@ -328,6 +335,7 @@ export default function AboutPage() {
                 </p>
               </div>
             </motion.div>
+            </div>
           </div>
         </motion.section>
 
@@ -346,14 +354,15 @@ export default function AboutPage() {
             transform: 'translateZ(0)'
           }}
         >
-          {/* Animated gradient orb with scroll parallax */}
-          <AnimatedGradientOrb 
-            className="top-1/2 left-1/4 w-96 h-96" 
-            delay={2}
-            shouldReduceMotion={!!shouldReduceMotion}
-          />
+          <div className="relative overflow-hidden">
+            {/* Animated gradient orb with scroll parallax */}
+            <AnimatedGradientOrb 
+              className="top-1/2 left-1/4 w-96 h-96" 
+              delay={2}
+              shouldReduceMotion={!!shouldReduceMotion}
+            />
 
-          <div className="mx-auto max-w-4xl px-6">
+            <div className="mx-auto max-w-4xl px-6">
             <div className="flex items-start gap-6" style={{ marginBottom: 'clamp(2.5rem, 5vw, 4rem)' }}>
               <motion.div 
                 className="flex-shrink-0"
@@ -405,6 +414,7 @@ export default function AboutPage() {
                 </p>
               </div>
             </motion.div>
+            </div>
           </div>
         </motion.section>
       </main>
