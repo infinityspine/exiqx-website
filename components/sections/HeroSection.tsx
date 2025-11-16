@@ -352,8 +352,8 @@ const HeroSection = memo(function HeroSection({
           </>
         )}
 
-        {/* Product Image - PULLED WAY UP */}
-        <div className="relative w-full -mt-32 mb-0 flex items-start justify-center">
+        {/* Product Image - TIGHT TO TOP */}
+        <div className="relative w-full -mt-24 mb-0 flex items-start justify-center">
           {!shouldReduceMotion && (
             <motion.div
               animate={{
@@ -371,20 +371,20 @@ const HeroSection = memo(function HeroSection({
           <img
             src="/images/footplate-hero.png"
             alt={validatedData.backgroundImageAlt}
-            className="w-[150%] max-w-[750px] h-auto object-contain relative z-10"
+            className="w-[135%] max-w-[680px] h-auto object-contain relative z-10"
             style={{
               filter: 'drop-shadow(0 40px 80px rgba(0,0,0,0.8)) drop-shadow(0 0 70px rgba(220,38,38,0.4))',
             }}
           />
         </div>
 
-        {/* Text Content - PULLED UP */}
-        <div className="relative px-6 pb-12 -mt-12">
+        {/* Text Content - COMPACT */}
+        <div className="relative px-6 pb-10 -mt-8">
           <div className="max-w-xl mx-auto text-center">
             
             {/* Headline */}
             <h1 
-              className="text-[clamp(1.95rem,6.2vw,2.5rem)] leading-[1.1] font-black text-white tracking-tight mb-6"
+              className="text-[clamp(1.75rem,5.8vw,2.3rem)] leading-[1.08] font-black text-white tracking-tight mb-5"
               style={{
                 textShadow: '0 4px 40px rgba(0,0,0,0.9), 0 0 80px rgba(220,38,38,0.4)'
               }}
@@ -393,7 +393,7 @@ const HeroSection = memo(function HeroSection({
             </h1>
 
             {/* Subheadline */}
-            <p className="text-[clamp(0.98rem,3.2vw,1.08rem)] text-white/88 leading-[1.65] mb-12">
+            <p className="text-[clamp(0.95rem,3vw,1.05rem)] text-white/88 leading-[1.6] mb-10">
               {validatedData.subheadline}
             </p>
 
