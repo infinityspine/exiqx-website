@@ -61,10 +61,10 @@ const DEFAULT_CONTENT = {
       ariaLabel: 'Request a professional demonstration'
     },
     {
-      label: 'Explore Specs',
-      href: '#specs',
+      label: 'Request Early Access',
+      href: '/early-access',
       variant: 'secondary' as const,
-      ariaLabel: 'Explore product specifications'
+      ariaLabel: 'Request early access to limited production'
     }
   ]
 }

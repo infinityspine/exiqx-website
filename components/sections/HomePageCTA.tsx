@@ -162,7 +162,7 @@ const CTASection = memo(function CTASection({
               transition: { type: "spring", stiffness: 200, damping: 20 }
             }}
             transition={{ type: "spring", stiffness: 200, damping: 20 }}
-            className="inline-block rounded-xl bg-accent px-10 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition-all duration-300 hover:bg-red-700 hover:shadow-[0_10px_30px_rgba(220,38,38,0.55)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-black will-change-transform"
+            className="inline-block rounded-xl bg-gradient-to-r from-red-600 to-red-700 px-8 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition-all duration-300 hover:from-red-500 hover:to-red-600 hover:scale-[1.02] shadow-2xl shadow-red-500/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-black will-change-transform"
             style={{ transform: 'translateZ(0)' }}
           >
             Request Demo
@@ -171,7 +171,7 @@ const CTASection = memo(function CTASection({
           {/* Secondary CTA with magnetic hover */}
           <motion.a
             ref={secondaryMagneticRef}
-            href="/contact"
+            href="/early-access"
             variants={fadeUp}
             whileHover={shouldReduceMotion ? {} : { 
               scale: 1.05, 
@@ -179,10 +179,10 @@ const CTASection = memo(function CTASection({
               transition: { type: "spring", stiffness: 200, damping: 20 }
             }}
             transition={{ type: "spring", stiffness: 200, damping: 20 }}
-            className="inline-block rounded-xl border border-zinc-800/60 bg-zinc-950/40 px-10 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-white backdrop-blur-md transition-all duration-300 hover:border-white/90 hover:bg-white/10 hover:shadow-[0_10px_30px_rgba(255,255,255,0.1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black will-change-transform"
+            className="inline-block rounded-xl border border-white/20 bg-transparent px-10 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition-all duration-300 hover:bg-white/10 hover:border-white/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black will-change-transform"
             style={{ transform: 'translateZ(0)' }}
           >
-            Contact Sales
+            Request Early Access
           </motion.a>
         </motion.div>
 
