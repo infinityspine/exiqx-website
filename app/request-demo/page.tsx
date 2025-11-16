@@ -92,13 +92,15 @@ export default function RequestDemoPage() {
             >
               Request a Demo
             </motion.h1>
-            <motion.p
+            <motion.div
               variants={fadeUp}
-              className="text-xl sm:text-2xl text-white/80 mb-12 text-center leading-relaxed max-w-2xl mx-auto"
+              className="flex justify-center mb-12"
             >
-              Experience ExIQx Performance equipment firsthand. Schedule a demonstration 
-              to see how our elite biomechanical systems can transform your training facility.
-            </motion.p>
+              <p className="text-xl sm:text-2xl text-white/80 text-center leading-relaxed max-w-2xl">
+                Experience ExIQx Performance equipment firsthand. Schedule a demonstration 
+                to see how our elite biomechanical systems can transform your training facility.
+              </p>
+            </motion.div>
 
             {/* Benefits */}
             <motion.div
