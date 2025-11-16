@@ -352,8 +352,8 @@ const HeroSection = memo(function HeroSection({
           </>
         )}
 
-        {/* Product Image - TIGHT TO TOP */}
-        <div className="relative w-full -mt-24 mb-0 flex items-start justify-center">
+        {/* Product Image - HIGH & TIGHT */}
+        <div className="relative w-full -mt-28 mb-0 flex items-start justify-center">
           {!shouldReduceMotion && (
             <motion.div
               animate={{
@@ -371,7 +371,7 @@ const HeroSection = memo(function HeroSection({
           <img
             src="/images/footplate-hero.png"
             alt={validatedData.backgroundImageAlt}
-            className="w-[135%] max-w-[680px] h-auto object-contain relative z-10"
+            className="w-[125%] max-w-[640px] h-auto object-contain relative z-10"
             style={{
               filter: 'drop-shadow(0 40px 80px rgba(0,0,0,0.8)) drop-shadow(0 0 70px rgba(220,38,38,0.4))',
             }}
@@ -379,12 +379,12 @@ const HeroSection = memo(function HeroSection({
         </div>
 
         {/* Text Content - COMPACT */}
-        <div className="relative px-6 pb-10 -mt-8">
+        <div className="relative px-6 pb-10 -mt-6">
           <div className="max-w-xl mx-auto text-center">
             
             {/* Headline */}
             <h1 
-              className="text-[clamp(1.75rem,5.8vw,2.3rem)] leading-[1.08] font-black text-white tracking-tight mb-5"
+              className="text-[clamp(1.65rem,5.5vw,2.2rem)] leading-[1.06] font-black text-white tracking-tight mb-4"
               style={{
                 textShadow: '0 4px 40px rgba(0,0,0,0.9), 0 0 80px rgba(220,38,38,0.4)'
               }}
@@ -393,7 +393,7 @@ const HeroSection = memo(function HeroSection({
             </h1>
 
             {/* Subheadline */}
-            <p className="text-[clamp(0.95rem,3vw,1.05rem)] text-white/88 leading-[1.6] mb-10">
+            <p className="text-[clamp(0.92rem,2.9vw,1.02rem)] text-white/88 leading-[1.58] mb-9">
               {validatedData.subheadline}
             </p>
 
