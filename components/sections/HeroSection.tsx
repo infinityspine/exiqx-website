@@ -353,7 +353,7 @@ const HeroSection = memo(function HeroSection({
         )}
 
         {/* Product Image */}
-        <div className="relative w-full pt-4 pb-6 flex items-center justify-center">
+        <div className="relative w-full pt-0 pb-6 flex items-center justify-center -mt-4">
           {!shouldReduceMotion && (
             <motion.div
               animate={{
