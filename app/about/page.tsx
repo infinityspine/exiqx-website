@@ -127,7 +127,7 @@ export default function AboutPage() {
             />
 
             <div className="mx-auto max-w-4xl px-6">
-            <div className="flex items-start gap-6" style={{ marginBottom: 'clamp(2.5rem, 5vw, 4rem)' }}>
+              <div className="flex items-start gap-6" style={{ marginBottom: 'clamp(2.5rem, 5vw, 4rem)' }}>
               <motion.div 
                 className="flex-shrink-0"
                 whileHover={shouldReduceMotion ? {} : { scale: 1.05, transition: { duration: 0.3 } }}
@@ -153,7 +153,7 @@ export default function AboutPage() {
               >
                 Our Philosophy
               </motion.h2>
-            </div>
+              </div>
 
             <motion.div
               className="relative bg-zinc-950/40 backdrop-blur-sm border border-zinc-800/60 rounded-2xl shadow-2xl overflow-hidden will-change-transform"
@@ -205,7 +205,7 @@ export default function AboutPage() {
             />
 
             <div className="mx-auto max-w-4xl px-6">
-            <div className="flex items-start gap-6" style={{ marginBottom: 'clamp(2.5rem, 5vw, 4rem)' }}>
+              <div className="flex items-start gap-6" style={{ marginBottom: 'clamp(2.5rem, 5vw, 4rem)' }}>
               <motion.div 
                 className="flex-shrink-0"
                 whileHover={shouldReduceMotion ? {} : { scale: 1.05, transition: { duration: 0.3 } }}
@@ -232,7 +232,7 @@ export default function AboutPage() {
               >
                 Our Approach
               </motion.h2>
-            </div>
+              </div>
 
             <motion.div
               className="relative bg-zinc-950/40 backdrop-blur-sm border border-zinc-800/60 rounded-2xl shadow-2xl overflow-hidden will-change-transform"
@@ -284,7 +284,7 @@ export default function AboutPage() {
             />
 
             <div className="mx-auto max-w-4xl px-6">
-            <div className="flex items-start gap-6" style={{ marginBottom: 'clamp(2.5rem, 5vw, 4rem)' }}>
+              <div className="flex items-start gap-6" style={{ marginBottom: 'clamp(2.5rem, 5vw, 4rem)' }}>
               <motion.div 
                 className="flex-shrink-0"
                 whileHover={shouldReduceMotion ? {} : { scale: 1.05, transition: { duration: 0.3 } }}
@@ -311,7 +311,7 @@ export default function AboutPage() {
               >
                 Our Standards
               </motion.h2>
-            </div>
+              </div>
 
             <motion.div
               className="relative bg-zinc-950/40 backdrop-blur-sm border border-zinc-800/60 rounded-2xl shadow-2xl overflow-hidden will-change-transform"
@@ -363,7 +363,7 @@ export default function AboutPage() {
             />
 
             <div className="mx-auto max-w-4xl px-6">
-            <div className="flex items-start gap-6" style={{ marginBottom: 'clamp(2.5rem, 5vw, 4rem)' }}>
+              <div className="flex items-start gap-6" style={{ marginBottom: 'clamp(2.5rem, 5vw, 4rem)' }}>
               <motion.div 
                 className="flex-shrink-0"
                 whileHover={shouldReduceMotion ? {} : { scale: 1.05, transition: { duration: 0.3 } }}
@@ -390,7 +390,7 @@ export default function AboutPage() {
               >
                 Our Mission
               </motion.h2>
-            </div>
+              </div>
 
             <motion.div
               className="relative bg-zinc-950/40 backdrop-blur-sm border border-zinc-800/60 rounded-2xl shadow-2xl overflow-hidden will-change-transform"
