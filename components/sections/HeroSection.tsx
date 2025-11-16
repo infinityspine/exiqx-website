@@ -125,7 +125,7 @@ const CTAButton = memo(function CTAButton({
 })
 
 // ============================================================================
-// MAIN HERO COMPONENT
+// MAIN HERO COMPONENT - ELITE VERSION
 // ============================================================================
 
 const HeroSection = memo(function HeroSection({
@@ -171,12 +171,11 @@ const HeroSection = memo(function HeroSection({
       animate="visible"
       variants={heroFade}
     >
-      {/* Desktop: Single Screen Layout - DON'T TOUCH */}
+      {/* DESKTOP - ELITE */}
       <div className="hidden lg:block relative h-screen overflow-hidden">
-        {/* Black Background */}
         <div className="absolute inset-0 bg-black" />
 
-        {/* Product Image Right */}
+        {/* Product Image Right - ELITE */}
         <motion.div
           style={{ y: heroImageY }}
           className="pointer-events-none absolute right-0 top-0 bottom-0 w-[55%] flex items-center justify-end"
@@ -194,7 +193,7 @@ const HeroSection = memo(function HeroSection({
           </div>
         </motion.div>
 
-        {/* Hero Text Left */}
+        {/* Hero Text Left - ELITE */}
         <motion.div
           style={{ y: heroContentY }}
           className="absolute left-0 top-1/2 -translate-y-[40%] z-10 max-w-[560px] flex flex-col items-start text-left pl-[6%]"
@@ -238,35 +237,35 @@ const HeroSection = memo(function HeroSection({
         </motion.div>
       </div>
 
-      {/* Mobile: ELITE - Consistent Across All Devices */}
+      {/* MOBILE - ELITE - FIXED */}
       <div className="lg:hidden">
-        {/* Hero Section - Full Viewport with Safe Area */}
-        <div className="relative min-h-[120dvh] bg-black overflow-x-hidden overflow-y-visible">
+        {/* Hero Image Section */}
+        <div className="relative min-h-[100dvh] bg-black overflow-hidden flex flex-col justify-between">
           
-          {/* MASSIVE Product Image - High Position */}
-          <div className="absolute left-0 right-0 top-[-22vh] bottom-0 flex items-start justify-center">
+          {/* Product Image - HIGH */}
+          <div className="flex-1 flex items-start justify-center pt-0">
             <img
               src="/images/footplate-hero.png"
               alt={validatedData.backgroundImageAlt}
-              className="w-[150%] max-w-[880px] h-auto object-contain"
+              className="w-[150%] max-w-[880px] h-auto object-contain -mt-8"
               style={{
                 filter: 'drop-shadow(0 40px 90px rgba(0,0,0,0.7)) drop-shadow(0 0 80px rgba(220,38,38,0.35))'
               }}
             />
           </div>
 
-          {/* Headline - Fixed at Bottom with Safe Area */}
-          <div className="absolute bottom-[-20vh] left-0 right-0 z-10 px-5 pb-[max(env(safe-area-inset-bottom),1.5rem)] pt-32 bg-gradient-to-t from-black via-black to-transparent">
-            <h1 className="text-[clamp(1.6rem,5vw,1.85rem)] leading-[1.1] font-extrabold text-white tracking-tight text-center">
+          {/* Headline at Bottom */}
+          <div className="relative z-10 px-5 pb-8 pt-24 bg-gradient-to-t from-black via-black to-transparent">
+            <h1 className="text-[clamp(1.7rem,5vw,1.9rem)] leading-[1.1] font-extrabold text-white tracking-tight text-center">
               {validatedData.headline}
             </h1>
           </div>
         </div>
 
-        {/* Content Section - Scroll to Reveal */}
+        {/* Content Section */}
         <div className="relative bg-black py-14 px-6">
           <div className="max-w-xl mx-auto text-center">
-            <p className="text-[clamp(0.95rem,3vw,1.05rem)] text-white/80 leading-[1.55] mb-10">
+            <p className="text-[clamp(0.98rem,3vw,1.05rem)] text-white/80 leading-[1.55] mb-10">
               {validatedData.subheadline}
             </p>
 
@@ -280,7 +279,7 @@ const HeroSection = memo(function HeroSection({
               ))}
             </div>
 
-            <p className="text-[clamp(7px,2vw,9px)] tracking-[0.2em] text-white/50 uppercase leading-[1.6]">
+            <p className="text-[8.5px] tracking-[0.2em] text-white/50 uppercase leading-[1.6]">
               {validatedData.tagline}
             </p>
           </div>
