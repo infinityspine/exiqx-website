@@ -86,13 +86,7 @@ const createButtonAnimations = (shouldReduce: boolean) => ({
   }
 })
 
-const CTAButton = memo(function CTAButton({
-  button,
-  shouldReduceMotion
-}: {
-  button: z.infer<typeof CTAButtonSchema>
-  shouldReduceMotion: boolean
-}) {
+const CTAButton = memo(function CTAButton({ button, shouldReduceMotion }: any) {
   const animations = createButtonAnimations(shouldReduceMotion)
   const isPrimary = button.variant === 'primary'
 
@@ -121,16 +115,18 @@ const CTAButton = memo(function CTAButton({
 // MAIN HERO COMPONENT
 // =======================================
 
-const HeroSection = memo(function HeroSection({
-  id = DEFAULT_CONTENT.id,
-  backgroundImage = DEFAULT_CONTENT.backgroundImage,
-  backgroundImageAlt = DEFAULT_CONTENT.backgroundImageAlt,
-  headline = DEFAULT_CONTENT.headline,
-  subheadline = DEFAULT_CONTENT.subheadline,
-  subheadlineAccent = DEFAULT_CONTENT.subheadlineAccent,
-  tagline = DEFAULT_CONTENT.tagline,
-  ctaButtons = DEFAULT_CONTENT.ctaButtons
-}: HeroSectionProps) {
+const HeroSection = memo(function HeroSection(props: HeroSectionProps) {
+  const {
+    id = DEFAULT_CONTENT.id,
+    backgroundImage = DEFAULT_CONTENT.backgroundImage,
+    backgroundImageAlt = DEFAULT_CONTENT.backgroundImageAlt,
+    headline = DEFAULT_CONTENT.headline,
+    subheadline = DEFAULT_CONTENT.subheadline,
+    subheadlineAccent = DEFAULT_CONTENT.subheadlineAccent,
+    tagline = DEFAULT_CONTENT.tagline,
+    ctaButtons = DEFAULT_CONTENT.ctaButtons
+  } = props
+
   const shouldReduceMotion = !!useReducedMotion()
   const containerRef = useRef<HTMLElement>(null)
 
@@ -157,19 +153,19 @@ const HeroSection = memo(function HeroSection({
     <motion.section
       ref={containerRef}
       id={validatedData.id}
-      className="relative"
       aria-label="Hero section"
+      className="relative"
       initial="hidden"
       animate="visible"
       variants={heroFade}
     >
-      {/* ======================================= */}
-      {/* DESKTOP (unchanged, perfect) */}
-      {/* ======================================= */}
+      {/* =========================== */}
+      {/* DESKTOP (unchanged) */}
+      {/* =========================== */}
       <div className="hidden lg:block relative min-h-screen overflow-hidden">
         <div className="absolute inset-0 bg-black" />
 
-        {/* Product Image */}
+        {/* Desktop Product Image */}
         <motion.div
           style={{ y: heroImageY }}
           className="pointer-events-none absolute right-0 top-0 bottom-0 w-[55%] flex items-center justify-end"
@@ -188,23 +184,17 @@ const HeroSection = memo(function HeroSection({
           </div>
         </motion.div>
 
-        {/* Text Left */}
+        {/* Desktop Text */}
         <motion.div
           style={{ y: heroContentY }}
           className="absolute left-0 top-1/2 -translate-y-[38%] z-10 max-w-[560px] flex flex-col items-start text-left pl-[6%]"
           variants={staggerChildren}
         >
-          <motion.h1
-            variants={fadeUp}
-            className="text-[clamp(2.4rem,5vw,4.8rem)] font-extrabold tracking-[0.05em] uppercase leading-[1.05] font-display mb-16"
-          >
+          <motion.h1 variants={fadeUp} className="text-[clamp(2.4rem,5vw,4.8rem)] font-extrabold uppercase leading-[1.05] font-display mb-16">
             {validatedData.headline}
           </motion.h1>
 
-          <motion.p
-            variants={fadeUp}
-            className="text-[clamp(1.05rem,1.6vw,1.25rem)] font-medium text-white/85 leading-[1.8] mb-12"
-          >
+          <motion.p variants={fadeUp} className="text-[clamp(1.05rem,1.6vw,1.25rem)] text-white/85 leading-[1.8] mb-12">
             {validatedData.subheadline}
           </motion.p>
 
@@ -214,19 +204,17 @@ const HeroSection = memo(function HeroSection({
             ))}
           </motion.div>
 
-          <motion.p className="text-[10px] uppercase tracking-[0.25em] text-white/60">
-            {validatedData.tagline}
-          </motion.p>
+          <motion.p className="text-[10px] uppercase tracking-[0.25em] text-white/60">{validatedData.tagline}</motion.p>
         </motion.div>
       </div>
 
-      {/* ======================================= */}
-      {/* MOBILE — FIXED APPLE-STYLE, NO OVERLAP */}
-      {/* ======================================= */}
+      {/* =========================== */}
+      {/* MOBILE — tighten spacing */}
+      {/* =========================== */}
       <div className="lg:hidden w-full bg-black">
 
-        {/* HERO IMAGE (static, no absolute, no overlap) */}
-        <div className="w-full pt-10 pb-6 flex justify-center">
+        {/* HERO IMAGE — reduced vertical padding */}
+        <div className="w-full pt-6 pb-2 flex justify-center">
           <img
             src="/images/footplate-hero.png"
             alt={validatedData.backgroundImageAlt}
@@ -239,7 +227,7 @@ const HeroSection = memo(function HeroSection({
           />
         </div>
 
-        {/* TEXT + CTA BLOCK */}
+        {/* TEXT + CTA */}
         <div className="px-6 pb-16 flex flex-col items-center text-center max-w-lg mx-auto">
 
           <h1 className="text-[1.85rem] leading-[1.12] font-extrabold text-white tracking-tight mb-4">
@@ -259,6 +247,7 @@ const HeroSection = memo(function HeroSection({
           <p className="text-[8px] tracking-[0.20em] text-white/45 uppercase leading-[1.5]">
             {validatedData.tagline}
           </p>
+
         </div>
       </div>
     </motion.section>
