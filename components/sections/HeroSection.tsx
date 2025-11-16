@@ -238,16 +238,16 @@ const HeroSection = memo(function HeroSection({
         </motion.div>
       </div>
 
-      {/* Mobile: Elite Tesla-Style Layout */}
+      {/* Mobile: ELITE Tesla-Style Layout */}
       <div className="lg:hidden">
         {/* Hero Section: Image + Headline Overlay */}
         <div className="relative min-h-screen bg-black">
-          {/* Product Image - Positioned Higher */}
-          <div className="relative h-[70vh] flex items-start justify-center pt-16">
+          {/* Product Image - ELITE HIGH POSITIONING */}
+          <div className="relative h-[68vh] flex items-start justify-center pt-6">
             <img
               src="/images/footplate-hero.png"
               alt={validatedData.backgroundImageAlt}
-              className="w-[95%] max-w-[550px] h-auto object-contain mt-8"
+              className="w-[95%] max-w-[550px] h-auto object-contain"
               style={{
                 filter: 'drop-shadow(0 30px 70px rgba(0,0,0,0.6)) drop-shadow(0 0 60px rgba(220,38,38,0.25))'
               }}
