@@ -417,6 +417,55 @@ export default function AboutPage() {
             </div>
           </div>
         </motion.section>
+
+        <SectionDivider />
+
+        {/* CTA Section */}
+        <motion.section
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={fadeUp}
+          className="relative will-change-transform"
+          style={{
+            paddingTop: 'clamp(5rem, 10vw, 8rem)',
+            paddingBottom: 'clamp(5rem, 10vw, 8rem)',
+            transform: 'translateZ(0)'
+          }}
+        >
+          <div className="relative overflow-hidden">
+            <div className="mx-auto max-w-4xl px-6 text-center">
+              <motion.h2 
+                className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold uppercase tracking-[0.05em] text-white mb-8"
+              >
+                Connect With Our Team
+              </motion.h2>
+              <motion.p 
+                className="text-lg sm:text-xl text-white/70 font-light mb-12"
+              >
+                Contact our sales team for commercial pricing, facility consultations, and professional equipment inquiries.
+              </motion.p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <motion.a
+                  href="/contact"
+                  whileHover={shouldReduceMotion ? {} : { scale: 1.05 }}
+                  whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
+                  className="inline-block rounded-xl bg-gradient-to-r from-red-600 to-red-700 px-8 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition-all duration-300 hover:from-red-500 hover:to-red-600 hover:scale-[1.02] shadow-2xl shadow-red-500/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-black w-full sm:w-auto"
+                >
+                  Contact Sales
+                </motion.a>
+                <motion.a
+                  href="/early-access"
+                  whileHover={shouldReduceMotion ? {} : { scale: 1.05 }}
+                  whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
+                  className="inline-block rounded-xl border border-white/20 bg-transparent px-8 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition-all duration-300 hover:bg-white/10 hover:border-white/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black w-full sm:w-auto"
+                >
+                  Request Early Access
+                </motion.a>
+              </div>
+            </div>
+          </div>
+        </motion.section>
       </main>
     </>
   )

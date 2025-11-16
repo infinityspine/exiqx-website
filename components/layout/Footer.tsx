@@ -141,10 +141,25 @@ const Footer = memo(function Footer() {
           </div>
         </div>
 
+        {/* Persistent Early Access CTA */}
+        <div 
+          className="text-center"
+          style={{ marginTop: 'clamp(4rem, 8vw, 6rem)' }}
+        >
+          <Link
+            href="/early-access"
+            className="inline-flex items-center gap-2 text-white/70 hover:text-white transition-colors duration-300 group"
+            style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1rem)' }}
+          >
+            <span>Request Early Access to Limited Production</span>
+            <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+          </Link>
+        </div>
+
         {/* Separator */}
         <div 
           className="h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" 
-          style={{ marginTop: 'clamp(5rem, 10vw, 7rem)' }}
+          style={{ marginTop: 'clamp(3rem, 6vw, 5rem)' }}
           role="separator" 
         />
 
