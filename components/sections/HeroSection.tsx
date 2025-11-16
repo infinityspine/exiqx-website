@@ -310,100 +310,36 @@ const HeroSection = memo(function HeroSection({
       </div>
 
       {/* MOBILE - CLEAN & FUNCTIONAL */}
-      <div className="lg:hidden bg-black min-h-[100dvh] flex flex-col">
+      <div className="lg:hidden bg-black">
         
-        {/* Animated Background for Mobile */}
-        {!shouldReduceMotion && (
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <motion.div
-              animate={{
-                scale: [1, 1.3, 1],
-                opacity: [0.25, 0.4, 0.25],
-              }}
-              transition={{
-                duration: 6,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              className="absolute top-[30%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-radial from-red-600/40 via-red-900/15 to-transparent blur-3xl"
-            />
-          </div>
-        )}
-
-        {/* Floating Particles Mobile */}
-        {!shouldReduceMotion && (
-          <div className="absolute inset-0 pointer-events-none">
-            {[...Array(12)].map((_, i) => (
-              <motion.div
-                key={i}
-                className="absolute w-0.5 h-0.5 bg-white/15 rounded-full"
-                style={{
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`,
-                }}
-                animate={{
-                  y: [0, -25, 0],
-                  opacity: [0, 0.8, 0],
-                }}
-                transition={{
-                  duration: 3 + Math.random() * 2,
-                  repeat: Infinity,
-                  delay: Math.random() * 2,
-                }}
-              />
-            ))}
-          </div>
-        )}
-
-        {/* Product Image - Top Section */}
-        <div className="relative flex items-center justify-center py-8 px-4">
-          {/* Spotlight Effect Mobile */}
-          {!shouldReduceMotion && (
-            <motion.div
-              animate={{
-                opacity: [0.35, 0.65, 0.35],
-                scale: [1, 1.15, 1],
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              className="absolute inset-0 bg-gradient-radial from-red-500/30 via-red-600/10 to-transparent blur-3xl pointer-events-none"
-            />
-          )}
-          
+        {/* Product Image Section */}
+        <div className="flex items-center justify-center py-12">
           <img
             src="/images/footplate-hero.png"
             alt={validatedData.backgroundImageAlt}
-            className="w-[140%] max-w-[700px] h-auto object-contain relative z-10"
+            className="w-[140%] max-w-[700px] h-auto object-contain"
             style={{
               filter: 'drop-shadow(0 40px 80px rgba(0,0,0,0.8)) drop-shadow(0 0 70px rgba(220,38,38,0.4))',
             }}
           />
         </div>
 
-        {/* Content Section - Bottom */}
-        <div className="relative z-20 px-6 pb-12 mt-auto">
-          <div className="max-w-xl mx-auto space-y-8">
+        {/* Text Content Section */}
+        <div className="px-6 pb-12 text-center">
+          <div className="max-w-xl mx-auto">
             
             {/* Headline */}
-            <h1 
-              className="text-[clamp(2rem,6.5vw,2.6rem)] leading-[1.08] font-black text-white tracking-[-0.01em] text-center"
-              style={{
-                textShadow: '0 4px 40px rgba(0,0,0,0.9), 0 0 80px rgba(220,38,38,0.4)'
-              }}
-            >
+            <h1 className="text-[clamp(2rem,6.5vw,2.6rem)] leading-[1.08] font-black text-white tracking-[-0.01em] mb-6 text-center">
               {validatedData.headline}
             </h1>
 
             {/* Subheadline */}
-            <p className="text-[clamp(0.98rem,3.2vw,1.1rem)] text-white/88 leading-[1.62] text-center">
+            <p className="text-[clamp(0.98rem,3.2vw,1.1rem)] text-white/88 leading-[1.62] mb-12 text-center">
               {validatedData.subheadline}
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-4 mb-12">
               {validatedData.ctaButtons.map((button) => (
                 <CTAButton
                   key={button.href}
@@ -414,13 +350,9 @@ const HeroSection = memo(function HeroSection({
             </div>
 
             {/* Tagline */}
-            <div className="flex items-center justify-center gap-3 pt-2">
-              <div className="w-10 h-[1px] bg-gradient-to-r from-transparent via-red-500/60 to-transparent" />
-              <p className="text-[9px] tracking-[0.28em] text-white/50 uppercase leading-[1.6] font-medium">
-                {validatedData.tagline}
-              </p>
-              <div className="w-10 h-[1px] bg-gradient-to-r from-transparent via-red-500/60 to-transparent" />
-            </div>
+            <p className="text-[9px] tracking-[0.28em] text-white/50 uppercase leading-[1.6] font-medium text-center">
+              {validatedData.tagline}
+            </p>
           </div>
         </div>
 
