@@ -192,23 +192,17 @@ const HeroSection = memo(function HeroSection({
         </div>
       </motion.div>
 
-      {/* Mobile: Product Image - FIXED */}
-      <motion.div
-        style={{ y: heroImageY }}
-        className="pointer-events-none lg:hidden absolute inset-x-0 top-[22%] flex justify-center"
-      >
+      {/* Mobile: Product Image - Apple Style */}
+      <div className="lg:hidden w-full flex justify-center pt-20 pb-6">
         <img
           src="/images/footplate-hero.png"
           alt={validatedData.backgroundImageAlt}
-          className="object-contain"
+          className="w-[80%] h-auto object-contain"
           style={{
-            width: '78%',
-            height: '30vh',
-            filter: 'drop-shadow(0 20px 60px rgba(0,0,0,0.7)) drop-shadow(0 0 40px rgba(220,38,38,0.15))',
-            transform: 'scale(1.45)'
+            filter: 'drop-shadow(0 18px 45px rgba(0,0,0,0.35))'
           }}
         />
-      </motion.div>
+      </div>
 
       {/* Desktop: Hero Text Left - DON'T TOUCH */}
       <motion.div
@@ -253,32 +247,17 @@ const HeroSection = memo(function HeroSection({
         </motion.p>
       </motion.div>
 
-      {/* Mobile: Hero Text - FIXED */}
-      <motion.div
-        style={{ y: heroContentY }}
-        className="lg:hidden absolute bottom-0 left-0 right-0 z-10 flex flex-col items-center text-center px-6 pb-12 max-w-[88%] mx-auto"
-        variants={staggerChildren}
-        initial="hidden"
-        animate="visible"
-      >
-        <motion.h1
-          variants={fadeUp}
-          className="text-[1.55rem] leading-[1.18] tracking-[0.02em] font-extrabold uppercase mb-4 text-white"
-        >
+      {/* Mobile: Hero Text - Apple Style */}
+      <div className="lg:hidden w-full flex flex-col items-center text-center px-6 pb-14">
+        <h1 className="text-[1.85rem] leading-[1.15] font-extrabold text-white tracking-tight mb-4">
           {validatedData.headline}
-        </motion.h1>
+        </h1>
 
-        <motion.p
-          variants={fadeUp}
-          className="text-[0.92rem] leading-[1.55] text-white/75 mb-6 max-w-[95%]"
-        >
+        <p className="text-[1rem] text-white/80 leading-[1.55] max-w-[90%] mb-8">
           {validatedData.subheadline}
-        </motion.p>
+        </p>
 
-        <motion.div
-          variants={fadeUp}
-          className="flex flex-col w-full gap-3 mb-6 mt-1"
-        >
+        <div className="flex flex-col w-full max-w-sm gap-3 mb-8">
           {validatedData.ctaButtons.map((button) => (
             <CTAButton
               key={button.href}
@@ -286,15 +265,12 @@ const HeroSection = memo(function HeroSection({
               shouldReduceMotion={shouldReduceMotion}
             />
           ))}
-        </motion.div>
+        </div>
 
-        <motion.p
-          variants={fadeUp}
-          className="text-[7.5px] tracking-[0.22em] text-white/45 leading-[1.4] mt-3"
-        >
+        <p className="text-[8px] tracking-[0.22em] text-white/45">
           {validatedData.tagline}
-        </motion.p>
-      </motion.div>
+        </p>
+      </div>
     </motion.section>
   )
 })
