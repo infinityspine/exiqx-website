@@ -172,7 +172,7 @@ const HeroSection = memo(function HeroSection({
       variants={heroFade}
     >
       {/* Desktop: Single Screen Layout - DON'T TOUCH */}
-      <div className="hidden lg:block relative h-screen overflow-hidden">
+      <div className="hidden lg:block relative min-h-screen overflow-x-hidden overflow-y-visible pb-8">
         {/* Black Background */}
         <div className="absolute inset-0 bg-black" />
 
