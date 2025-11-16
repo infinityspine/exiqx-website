@@ -8,13 +8,17 @@ interface CTASectionProps {
   description?: string
   ctaText?: string
   ctaHref?: string
+  secondaryCtaText?: string
+  secondaryCtaHref?: string
 }
 
 const CTASection = memo(function CTASection({
   headline = 'The Foundation of the ExIQx System',
   description = 'Join the waitlist to be first in line when we launch.',
   ctaText = 'Join Waitlist',
-  ctaHref = '/join-waitlist'
+  ctaHref = '/join-waitlist',
+  secondaryCtaText,
+  secondaryCtaHref
 }: CTASectionProps) {
   const shouldReduceMotion = useReducedMotion()
 
@@ -49,15 +53,30 @@ const CTASection = memo(function CTASection({
             {description}
           </p>
 
-          {/* CTA Button */}
-          <motion.a
-            href={ctaHref}
-            whileHover={shouldReduceMotion ? {} : { scale: 1.05 }}
-            whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
-            className="inline-block rounded-xl bg-accent px-10 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition-all duration-300 hover:bg-red-700 hover:shadow-[0_10px_30px_rgba(220,38,38,0.55)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-black"
-          >
-            {ctaText}
-          </motion.a>
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            {/* Primary CTA */}
+            <motion.a
+              href={ctaHref}
+              whileHover={shouldReduceMotion ? {} : { scale: 1.05 }}
+              whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
+              className="inline-block rounded-xl bg-gradient-to-r from-red-600 to-red-700 px-8 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition-all duration-300 hover:from-red-500 hover:to-red-600 hover:scale-[1.02] shadow-2xl shadow-red-500/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-black w-full sm:w-auto"
+            >
+              {ctaText}
+            </motion.a>
+
+            {/* Secondary CTA */}
+            {secondaryCtaText && secondaryCtaHref && (
+              <motion.a
+                href={secondaryCtaHref}
+                whileHover={shouldReduceMotion ? {} : { scale: 1.05 }}
+                whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
+                className="inline-block rounded-xl border border-white/20 bg-transparent px-8 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition-all duration-300 hover:bg-white/10 hover:border-white/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black w-full sm:w-auto"
+              >
+                {secondaryCtaText}
+              </motion.a>
+            )}
+          </div>
         </motion.div>
       </div>
     </section>
