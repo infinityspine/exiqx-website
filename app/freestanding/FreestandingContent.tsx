@@ -369,7 +369,25 @@ export default function FreestandingContent() {
             description="Request a demonstration for your facility or contact our sales team for pricing and availability."
             ctaText="Request Demo"
             ctaHref="/request-demo"
+            secondaryCtaText="Contact Sales"
+            secondaryCtaHref="/contact"
           />
+          {/* Tertiary CTA - Request Early Access */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-center mt-8"
+          >
+            <motion.a
+              href="/early-access"
+              whileHover={shouldReduceMotion ? {} : { scale: 1.02 }}
+              className="inline-block text-sm px-6 py-3 rounded-xl border border-white/20 bg-transparent text-white/70 hover:text-white hover:bg-white/10 hover:border-white/40 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+            >
+              Request Early Access →
+            </motion.a>
+          </motion.div>
           </div>
         </motion.section>
       </main>

@@ -315,6 +315,22 @@ const NavBar = memo(function NavBar({
                       </motion.a>
                     )
                   })}
+                  
+                  {/* Early Access Link - Mobile Only */}
+                  <motion.a
+                    href="/early-access"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      handleNavigation('/early-access')
+                    }}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 20 }}
+                    transition={{ delay: validatedItems.length * 0.05, duration: 0.3 }}
+                    className="relative text-lg uppercase tracking-[0.16em] text-white/70 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:rounded px-2 py-1 -ml-2 mt-2 border-t border-white/10 pt-6"
+                  >
+                    Early Access
+                  </motion.a>
                 </div>
 
                 <motion.div
