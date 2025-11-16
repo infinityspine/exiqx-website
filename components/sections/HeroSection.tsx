@@ -197,7 +197,7 @@ const HeroSection = memo(function HeroSection({
         {/* Hero Text Left */}
         <motion.div
           style={{ y: heroContentY }}
-          className="absolute left-0 top-1/2 -translate-y-[30%] z-10 max-w-[560px] flex flex-col items-start text-left pl-[6%]"
+          className="absolute left-0 top-1/2 -translate-y-[38%] z-10 max-w-[560px] flex flex-col items-start text-left pl-[6%]"
           variants={staggerChildren}
           initial="hidden"
           animate="visible"
