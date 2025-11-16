@@ -243,11 +243,11 @@ const HeroSection = memo(function HeroSection({
         {/* Hero Section: Image + Headline Overlay */}
         <div className="relative min-h-screen bg-black">
           {/* Product Image - Positioned Higher */}
-          <div className="relative h-[75vh] flex items-start justify-center pt-24">
+          <div className="relative h-[70vh] flex items-start justify-center pt-16">
             <img
               src="/images/footplate-hero.png"
               alt={validatedData.backgroundImageAlt}
-              className="w-[95%] max-w-[550px] h-auto object-contain"
+              className="w-[95%] max-w-[550px] h-auto object-contain mt-8"
               style={{
                 filter: 'drop-shadow(0 30px 70px rgba(0,0,0,0.6)) drop-shadow(0 0 60px rgba(220,38,38,0.25))'
               }}
