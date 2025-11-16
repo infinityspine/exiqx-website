@@ -51,7 +51,7 @@ const DEFAULT_CONTENT = {
   headline: 'Patent-Protected Closed-Chain Forefoot Training.',
   subheadline: 'Engineered for elite performance. Validated by clinicians. Trusted by those who refuse compromise.',
   subheadlineAccent: undefined,
-  tagline: 'Patent-Pending Technology • Commercial-Grade Construction • Engineered in Arizona',
+  tagline: 'Patent-Protected • Precision-Engineered • Built in Arizona',
   ctaButtons: [
     {
       label: 'Request Demo',
