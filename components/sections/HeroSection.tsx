@@ -241,7 +241,7 @@ const HeroSection = memo(function HeroSection({
       {/* Mobile: ELITE - Consistent Across All Devices */}
       <div className="lg:hidden">
         {/* Hero Section - Full Viewport with Safe Area */}
-        <div className="relative min-h-[100dvh] bg-black overflow-hidden">
+        <div className="relative min-h-[100dvh] bg-black overflow-x-hidden overflow-y-visible">
           
           {/* MASSIVE Product Image - High Position */}
           <div className="absolute left-0 right-0 top-[-22vh] bottom-0 flex items-start justify-center">
