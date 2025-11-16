@@ -125,7 +125,7 @@ const CTAButton = memo(function CTAButton({
 })
 
 // ============================================================================
-// MAIN HERO COMPONENT - ELITE VERSION
+// MAIN HERO COMPONENT - SMOOTH SCROLL
 // ============================================================================
 
 const HeroSection = memo(function HeroSection({
@@ -172,10 +172,10 @@ const HeroSection = memo(function HeroSection({
       variants={heroFade}
     >
       {/* DESKTOP - ELITE */}
-      <div className="hidden lg:block relative h-screen overflow-hidden">
+      <div className="hidden lg:block relative h-screen">
         <div className="absolute inset-0 bg-black" />
 
-        {/* Product Image Right - ELITE */}
+        {/* Product Image Right */}
         <motion.div
           style={{ y: heroImageY }}
           className="pointer-events-none absolute right-0 top-0 bottom-0 w-[55%] flex items-center justify-end"
@@ -193,7 +193,7 @@ const HeroSection = memo(function HeroSection({
           </div>
         </motion.div>
 
-        {/* Hero Text Left - ELITE */}
+        {/* Hero Text Left */}
         <motion.div
           style={{ y: heroContentY }}
           className="absolute left-0 top-1/2 -translate-y-[40%] z-10 max-w-[560px] flex flex-col items-start text-left pl-[6%]"
@@ -237,10 +237,10 @@ const HeroSection = memo(function HeroSection({
         </motion.div>
       </div>
 
-      {/* MOBILE - ELITE - FIXED */}
-      <div className="lg:hidden">
+      {/* MOBILE - ELITE - SMOOTH SCROLL */}
+      <div className="lg:hidden bg-black">
         {/* Hero Image Section */}
-        <div className="relative min-h-[100dvh] bg-black overflow-hidden flex flex-col justify-between">
+        <div className="relative min-h-[100dvh] flex flex-col justify-between">
           
           {/* Product Image - HIGH */}
           <div className="flex-1 flex items-start justify-center pt-0">
@@ -263,7 +263,7 @@ const HeroSection = memo(function HeroSection({
         </div>
 
         {/* Content Section */}
-        <div className="relative bg-black py-14 px-6">
+        <div className="relative py-14 px-6">
           <div className="max-w-xl mx-auto text-center">
             <p className="text-[clamp(0.98rem,3vw,1.05rem)] text-white/80 leading-[1.55] mb-10">
               {validatedData.subheadline}
