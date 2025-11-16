@@ -177,14 +177,14 @@ const HeroSection = memo(function HeroSection({
         style={{ y: heroImageY }}
         className="pointer-events-none absolute right-0 top-0 bottom-0 flex items-center justify-end w-[60%]"
       >
-        <div className="relative w-full h-[90vh] pr-[26%]">
+        <div className="relative w-full h-[92vh] pr-[18%]">
           <img
             src="/images/footplate-hero.png"
             alt={validatedData.backgroundImageAlt}
             className="w-full h-full object-contain object-right"
             style={{
               filter: 'drop-shadow(0 30px 90px rgba(0,0,0,0.7)) drop-shadow(0 0 50px rgba(220,38,38,0.15))',
-              transform: 'scale(1.75)'
+              transform: 'scale(2.2)'
             }}
           />
         </div>
@@ -193,7 +193,7 @@ const HeroSection = memo(function HeroSection({
       {/* Hero Text */}
       <motion.div
         style={{ y: heroContentY }}
-        className="absolute left-0 z-10 flex max-w-[560px] flex-col items-start text-left pl-[14%]"
+        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 flex max-w-[560px] flex-col items-start text-left pl-[6%]"
         variants={staggerChildren}
         initial="hidden"
         animate="visible"
