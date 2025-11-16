@@ -165,111 +165,119 @@ const HeroSection = memo(function HeroSection({
     <motion.section
       ref={containerRef}
       id={validatedData.id}
-      className="relative h-screen overflow-hidden"
+      className="relative"
       aria-label="Hero section"
       initial="hidden"
       animate="visible"
       variants={heroFade}
     >
-      {/* Black Background */}
-      <div className="absolute inset-0 bg-black" />
+      {/* Desktop: Single Screen Layout */}
+      <div className="hidden lg:block relative h-screen overflow-hidden">
+        {/* Black Background */}
+        <div className="absolute inset-0 bg-black" />
 
-      {/* Desktop: Product Image Right - DON'T TOUCH */}
-      <motion.div
-        style={{ y: heroImageY }}
-        className="pointer-events-none hidden lg:flex absolute right-0 top-0 bottom-0 w-[55%] items-center justify-end"
-      >
-        <div className="relative w-full h-[92vh] pr-[25%]">
+        {/* Product Image Right */}
+        <motion.div
+          style={{ y: heroImageY }}
+          className="pointer-events-none absolute right-0 top-0 bottom-0 w-[55%] flex items-center justify-end"
+        >
+          <div className="relative w-full h-[92vh] pr-[25%]">
+            <img
+              src="/images/footplate-hero.png"
+              alt={validatedData.backgroundImageAlt}
+              className="w-full h-full object-contain object-right"
+              style={{
+                filter: 'drop-shadow(0 30px 90px rgba(0,0,0,0.7)) drop-shadow(0 0 50px rgba(220,38,38,0.15))',
+                transform: 'scale(2.2)'
+              }}
+            />
+          </div>
+        </motion.div>
+
+        {/* Hero Text Left */}
+        <motion.div
+          style={{ y: heroContentY }}
+          className="absolute left-0 top-1/2 -translate-y-[40%] z-10 max-w-[560px] flex flex-col items-start text-left pl-[6%]"
+          variants={staggerChildren}
+          initial="hidden"
+          animate="visible"
+        >
+          <motion.h1
+            variants={fadeUp}
+            className="text-[clamp(2.4rem,5vw,4.8rem)] font-extrabold tracking-[0.05em] uppercase leading-[1.05] font-display mb-20"
+          >
+            {validatedData.headline}
+          </motion.h1>
+
+          <motion.p
+            variants={fadeUp}
+            className="text-[clamp(1.05rem,1.6vw,1.25rem)] font-medium text-white/85 leading-[1.8] mb-16"
+          >
+            {validatedData.subheadline}
+          </motion.p>
+
+          <motion.div
+            variants={fadeUp}
+            className="flex flex-wrap items-center gap-5 mb-14"
+          >
+            {validatedData.ctaButtons.map((button) => (
+              <CTAButton
+                key={button.href}
+                button={button}
+                shouldReduceMotion={shouldReduceMotion}
+              />
+            ))}
+          </motion.div>
+
+          <motion.p
+            variants={fadeUp}
+            className="text-[10px] uppercase tracking-[0.25em] text-white/60"
+          >
+            {validatedData.tagline}
+          </motion.p>
+        </motion.div>
+      </div>
+
+      {/* Mobile: Tesla-Style Vertical Sections */}
+      <div className="lg:hidden">
+        {/* Full-Screen Hero Image */}
+        <div className="relative h-[80vh] bg-black flex items-center justify-center overflow-hidden">
           <img
             src="/images/footplate-hero.png"
             alt={validatedData.backgroundImageAlt}
-            className="w-full h-full object-contain object-right"
+            className="w-[90%] max-w-[500px] h-auto object-contain"
             style={{
-              filter: 'drop-shadow(0 30px 90px rgba(0,0,0,0.7)) drop-shadow(0 0 50px rgba(220,38,38,0.15))',
-              transform: 'scale(2.2)'
+              filter: 'drop-shadow(0 25px 60px rgba(0,0,0,0.5)) drop-shadow(0 0 50px rgba(220,38,38,0.2))'
             }}
           />
         </div>
-      </motion.div>
 
-      {/* Mobile: Product Image - Apple Style */}
-      <div className="lg:hidden w-full flex justify-center pt-20 pb-6">
-        <img
-          src="/images/footplate-hero.png"
-          alt={validatedData.backgroundImageAlt}
-          className="w-[80%] h-auto object-contain"
-          style={{
-            filter: 'drop-shadow(0 18px 45px rgba(0,0,0,0.35))'
-          }}
-        />
-      </div>
+        {/* Content Section Below */}
+        <div className="relative bg-black py-16 px-6">
+          <div className="max-w-xl mx-auto text-center">
+            <h1 className="text-[2.1rem] leading-[1.1] font-extrabold text-white tracking-tight mb-6">
+              {validatedData.headline}
+            </h1>
 
-      {/* Desktop: Hero Text Left - DON'T TOUCH */}
-      <motion.div
-        style={{ y: heroContentY }}
-        className="hidden lg:flex absolute left-0 top-1/2 -translate-y-[40%] z-10 max-w-[560px] flex-col items-start text-left pl-[6%]"
-        variants={staggerChildren}
-        initial="hidden"
-        animate="visible"
-      >
-        <motion.h1
-          variants={fadeUp}
-          className="text-[clamp(2.4rem,5vw,4.8rem)] font-extrabold tracking-[0.05em] uppercase leading-[1.05] font-display mb-20"
-        >
-          {validatedData.headline}
-        </motion.h1>
+            <p className="text-[1.05rem] text-white/80 leading-[1.55] mb-10">
+              {validatedData.subheadline}
+            </p>
 
-        <motion.p
-          variants={fadeUp}
-          className="text-[clamp(1.05rem,1.6vw,1.25rem)] font-medium text-white/85 leading-[1.8] mb-16"
-        >
-          {validatedData.subheadline}
-        </motion.p>
+            <div className="flex flex-col gap-4 mb-10">
+              {validatedData.ctaButtons.map((button) => (
+                <CTAButton
+                  key={button.href}
+                  button={button}
+                  shouldReduceMotion={shouldReduceMotion}
+                />
+              ))}
+            </div>
 
-        <motion.div
-          variants={fadeUp}
-          className="flex flex-wrap items-center gap-5 mb-14"
-        >
-          {validatedData.ctaButtons.map((button) => (
-            <CTAButton
-              key={button.href}
-              button={button}
-              shouldReduceMotion={shouldReduceMotion}
-            />
-          ))}
-        </motion.div>
-
-        <motion.p
-          variants={fadeUp}
-          className="text-[10px] uppercase tracking-[0.25em] text-white/60"
-        >
-          {validatedData.tagline}
-        </motion.p>
-      </motion.div>
-
-      {/* Mobile: Hero Text - Apple Style */}
-      <div className="lg:hidden w-full flex flex-col items-center text-center px-6 pb-14">
-        <h1 className="text-[1.85rem] leading-[1.15] font-extrabold text-white tracking-tight mb-4">
-          {validatedData.headline}
-        </h1>
-
-        <p className="text-[1rem] text-white/80 leading-[1.55] max-w-[90%] mb-8">
-          {validatedData.subheadline}
-        </p>
-
-        <div className="flex flex-col w-full max-w-sm gap-3 mb-8">
-          {validatedData.ctaButtons.map((button) => (
-            <CTAButton
-              key={button.href}
-              button={button}
-              shouldReduceMotion={shouldReduceMotion}
-            />
-          ))}
+            <p className="text-[9px] tracking-[0.2em] text-white/50 uppercase leading-[1.6]">
+              {validatedData.tagline}
+            </p>
+          </div>
         </div>
-
-        <p className="text-[8px] tracking-[0.22em] text-white/45">
-          {validatedData.tagline}
-        </p>
       </div>
     </motion.section>
   )
