@@ -353,7 +353,7 @@ const HeroSection = memo(function HeroSection({
         )}
 
         {/* Product Image - PULLED WAY UP */}
-        <div className="relative w-full -mt-20 mb-0 flex items-start justify-center">
+        <div className="relative w-full -mt-32 mb-0 flex items-start justify-center">
           {!shouldReduceMotion && (
             <motion.div
               animate={{
@@ -378,8 +378,8 @@ const HeroSection = memo(function HeroSection({
           />
         </div>
 
-        {/* Text Content - Properly Spaced */}
-        <div className="relative px-6 pb-12">
+        {/* Text Content - PULLED UP */}
+        <div className="relative px-6 pb-12 -mt-12">
           <div className="max-w-xl mx-auto text-center">
             
             {/* Headline */}
