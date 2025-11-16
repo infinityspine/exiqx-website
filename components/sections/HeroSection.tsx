@@ -353,7 +353,7 @@ const HeroSection = memo(function HeroSection({
         )}
 
         {/* Product Image */}
-        <div className="relative w-full py-12 flex items-center justify-center">
+        <div className="relative w-full pt-4 pb-6 flex items-center justify-center">
           {!shouldReduceMotion && (
             <motion.div
               animate={{
@@ -371,7 +371,7 @@ const HeroSection = memo(function HeroSection({
           <img
             src="/images/footplate-hero.png"
             alt={validatedData.backgroundImageAlt}
-            className="w-[140%] max-w-[700px] h-auto object-contain relative z-10"
+            className="w-[150%] max-w-[750px] h-auto object-contain relative z-10"
             style={{
               filter: 'drop-shadow(0 40px 80px rgba(0,0,0,0.8)) drop-shadow(0 0 70px rgba(220,38,38,0.4))',
             }}
@@ -379,7 +379,7 @@ const HeroSection = memo(function HeroSection({
         </div>
 
         {/* Text Content - Properly Spaced */}
-        <div className="relative px-6 pb-16">
+        <div className="relative px-6 pb-12">
           <div className="max-w-xl mx-auto text-center">
             
             {/* Headline */}
