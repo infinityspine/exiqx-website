@@ -310,7 +310,7 @@ const HeroSection = memo(function HeroSection({
       </div>
 
       {/* MOBILE - CLEAN & FUNCTIONAL */}
-      <div className="lg:hidden bg-black pt-2">
+      <div className="lg:hidden bg-black">
         {/* Background Effects */}
         {!shouldReduceMotion && (
           <>
@@ -352,8 +352,8 @@ const HeroSection = memo(function HeroSection({
           </>
         )}
 
-        {/* Product Image */}
-        <div className="relative w-full pb-4 flex items-start justify-center">
+        {/* Product Image - PULLED TO TOP */}
+        <div className="relative w-full -mt-8 mb-0 flex items-start justify-center">
           {!shouldReduceMotion && (
             <motion.div
               animate={{
