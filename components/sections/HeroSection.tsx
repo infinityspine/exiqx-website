@@ -41,7 +41,7 @@ interface HeroSectionProps {
 }
 
 // ============================================================================
-// CONSTANTS
+// DEFAULT CONTENT
 // ============================================================================
 
 const DEFAULT_CONTENT = {
@@ -68,41 +68,9 @@ const DEFAULT_CONTENT = {
   ]
 }
 
-const EASE_CUSTOM = [0.16, 1, 0.3, 1] as const
-const DURATION_BASE = 1
-const DURATION_LONG = 1.2
-
 // ============================================================================
-// ANIMATION FUNCTIONS
+// BUTTON ANIMATIONS
 // ============================================================================
-
-const createAnimationVariants = (shouldReduce: boolean) => ({
-  backgroundImage: {
-    initial: shouldReduce ? {} : { opacity: 0, scale: 1.02 },
-    animate: shouldReduce ? {} : { opacity: 1, scale: 1 },
-    transition: shouldReduce ? { duration: 0 } : { duration: DURATION_LONG, ease: EASE_CUSTOM }
-  },
-  headline: {
-    initial: shouldReduce ? {} : { opacity: 0, y: 40 },
-    animate: shouldReduce ? {} : { opacity: 1, y: 0 },
-    transition: shouldReduce ? { duration: 0 } : { duration: DURATION_BASE, ease: EASE_CUSTOM }
-  },
-  subheadline: {
-    initial: shouldReduce ? {} : { opacity: 0, y: 20 },
-    animate: shouldReduce ? {} : { opacity: 1, y: 0 },
-    transition: shouldReduce ? { duration: 0 } : { duration: DURATION_BASE, delay: 0.18, ease: EASE_CUSTOM }
-  },
-  cta: {
-    initial: shouldReduce ? {} : { opacity: 0, y: 24 },
-    animate: shouldReduce ? {} : { opacity: 1, y: 0 },
-    transition: shouldReduce ? { duration: 0 } : { duration: DURATION_BASE, delay: 0.3, ease: EASE_CUSTOM }
-  },
-  tagline: {
-    initial: shouldReduce ? {} : { opacity: 0 },
-    animate: shouldReduce ? {} : { opacity: 1 },
-    transition: shouldReduce ? { duration: 0 } : { duration: DURATION_LONG, delay: 0.55 }
-  }
-})
 
 const createButtonAnimations = (shouldReduce: boolean) => ({
   primary: {
@@ -123,18 +91,13 @@ const createButtonAnimations = (shouldReduce: boolean) => ({
 })
 
 // ============================================================================
-// SUB-COMPONENTS
+// CTA BUTTON COMPONENT
 // ============================================================================
 
-interface CTAButtonProps {
-  button: z.infer<typeof CTAButtonSchema>
-  shouldReduceMotion: boolean
-}
-
-const CTAButton = memo(function CTAButton({ button, shouldReduceMotion }: CTAButtonProps) {
+const CTAButton = memo(function CTAButton({ button, shouldReduceMotion }: { button: z.infer<typeof CTAButtonSchema>, shouldReduceMotion: boolean }) {
   const animations = createButtonAnimations(shouldReduceMotion)
   const isPrimary = button.variant === 'primary'
-  
+
   return (
     <motion.a
       href={button.href}
@@ -145,8 +108,8 @@ const CTAButton = memo(function CTAButton({ button, shouldReduceMotion }: CTABut
         transition-all duration-300
         focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-black
         ${isPrimary 
-          ? 'bg-gradient-to-r from-red-600 to-red-700 text-white hover:from-red-500 hover:to-red-600 hover:scale-[1.02] shadow-2xl shadow-red-500/30 focus-visible:ring-accent' 
-          : 'border border-white/20 bg-transparent text-white hover:bg-white/10 hover:border-white/40 focus-visible:ring-white'
+          ? 'bg-gradient-to-r from-red-600 to-red-700 text-white hover:from-red-500 hover:to-red-600 shadow-2xl shadow-red-500/30'
+          : 'border border-white/20 bg-transparent text-white hover:bg-white/10 hover:border-white/40'
         }
       `}
     >
@@ -156,7 +119,7 @@ const CTAButton = memo(function CTAButton({ button, shouldReduceMotion }: CTABut
 })
 
 // ============================================================================
-// MAIN COMPONENT
+// MAIN HERO COMPONENT
 // ============================================================================
 
 const HeroSection = memo(function HeroSection({
@@ -168,18 +131,16 @@ const HeroSection = memo(function HeroSection({
   subheadlineAccent = DEFAULT_CONTENT.subheadlineAccent,
   tagline = DEFAULT_CONTENT.tagline,
   ctaButtons = DEFAULT_CONTENT.ctaButtons,
-  priority = true
 }: HeroSectionProps) {
+  
   const shouldReduceMotion = !!useReducedMotion()
   const containerRef = useRef<HTMLElement>(null)
 
-  // Scroll-based parallax
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ['start start', 'end start'],
   })
 
-  // Tesla-style parallax with depth
   const heroImageY = shouldReduceMotion ? undefined : useParallax(scrollYProgress, 60)
   const heroContentY = shouldReduceMotion ? undefined : useParallax(scrollYProgress, 30)
 
@@ -194,8 +155,6 @@ const HeroSection = memo(function HeroSection({
     ctaButtons
   })
 
-  const variants = createAnimationVariants(shouldReduceMotion)
-
   return (
     <motion.section
       ref={containerRef}
@@ -205,54 +164,51 @@ const HeroSection = memo(function HeroSection({
       initial="hidden"
       animate="visible"
       variants={heroFade}
-      style={{ transform: 'translateZ(0)' }}
     >
       {/* Black Background */}
-      <div className="absolute inset-0 bg-black" aria-hidden="true" />
+      <div className="absolute inset-0 bg-black" />
 
-      {/* Product Image with Parallax - Elite Right-Aligned */}
+      {/* Cinematic gradient behind product */}
+      <div className="absolute right-0 top-0 bottom-0 w-[65%] 
+        bg-gradient-to-l from-black via-black/80 to-transparent pointer-events-none" />
+
+      {/* Product Image */}
       <motion.div
-        style={{
-          y: heroImageY,
-          transform: 'translateZ(0)'
-        }}
-        className="pointer-events-none absolute right-0 top-0 bottom-0 flex items-center justify-end w-[55%] will-change-transform"
+        style={{ y: heroImageY }}
+        className="pointer-events-none absolute right-0 top-0 bottom-0 flex items-center justify-end w-[60%]"
       >
-        <div className="relative w-full h-[90vh] pr-[20%]">
+        <div className="relative w-full h-[90vh] pr-[26%]">
           <img
             src="/images/footplate-hero.png"
-            alt="ExIQx Performance rack-mounted footplate with patent-protected plantarflexion mechanism"
+            alt={validatedData.backgroundImageAlt}
             className="w-full h-full object-contain object-right"
             style={{
-              filter: 'drop-shadow(0 30px 90px rgba(0, 0, 0, 0.7)) drop-shadow(0 0 50px rgba(220, 38, 38, 0.15))',
-              transform: 'scale(1.8)',
+              filter: 'drop-shadow(0 30px 90px rgba(0,0,0,0.7)) drop-shadow(0 0 50px rgba(220,38,38,0.15))',
+              transform: 'scale(1.75)'
             }}
           />
         </div>
       </motion.div>
 
-      {/* Content with Parallax */}
+      {/* Hero Text */}
       <motion.div
-        style={{
-          y: heroContentY,
-          transform: 'translateZ(0)'
-        }}
-        className="absolute left-0 z-10 flex max-w-[650px] flex-col items-start text-left pl-[6%] will-change-transform"
+        style={{ y: heroContentY }}
+        className="absolute left-0 z-10 flex max-w-[560px] flex-col items-start text-left pl-[14%]"
         variants={staggerChildren}
         initial="hidden"
         animate="visible"
       >
         <motion.h1
           variants={fadeUp}
-          className="text-[clamp(2.4rem,5vw,4.8rem)] font-extrabold tracking-[0.05em] uppercase leading-[1.05] font-display mb-16 sm:mb-20"
+          className="text-[clamp(2.4rem,5vw,4.8rem)] font-extrabold tracking-[0.05em] uppercase leading-[1.05] font-display mb-20 sm:mb-24"
         >
           {validatedData.headline}
         </motion.h1>
 
         <motion.p
           variants={fadeUp}
-          className="text-[clamp(1.05rem,1.6vw,1.25rem)] font-medium text-white/85 leading-[1.8] max-w-2xl"
-          style={{ marginBottom: 'clamp(3.5rem, 9vw, 5rem)' }}
+          className="text-[clamp(1.05rem,1.6vw,1.25rem)] font-medium text-white/85 leading-[1.8]"
+          style={{ marginBottom: 'clamp(4rem, 10vw, 6rem)' }}
         >
           {validatedData.subheadline}{' '}
           {validatedData.subheadlineAccent && (
@@ -264,15 +220,13 @@ const HeroSection = memo(function HeroSection({
 
         <motion.div
           variants={fadeUp}
-          className="flex flex-wrap items-center justify-center md:justify-start gap-5 mb-12 sm:mb-14"
-          role="group"
-          aria-label="Call to action buttons"
+          className="flex flex-wrap items-center gap-5 mb-12 sm:mb-14"
         >
           {validatedData.ctaButtons.map((button) => (
             <CTAButton
               key={button.href}
               button={button}
-              shouldReduceMotion={!!shouldReduceMotion}
+              shouldReduceMotion={shouldReduceMotion}
             />
           ))}
         </motion.div>
