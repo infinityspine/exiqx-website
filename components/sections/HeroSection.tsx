@@ -238,25 +238,25 @@ const HeroSection = memo(function HeroSection({
         </motion.div>
       </div>
 
-      {/* Mobile: ELITE Tesla-Style Layout */}
+      {/* Mobile: ELITE Layout - 25% Larger Image + iPhone X Fix */}
       <div className="lg:hidden">
-        {/* Hero Section: Image + Headline Overlay */}
-        <div className="relative min-h-screen bg-black">
-          {/* Product Image - ELITE HIGH POSITIONING */}
-          <div className="relative h-[68vh] flex items-start justify-center pt-6">
+        {/* Hero Section: Image + Headline - iPhone X Compatible */}
+        <div className="relative h-[100vh] bg-black flex flex-col">
+          {/* Product Image - 25% LARGER */}
+          <div className="relative flex-1 flex items-start justify-center pt-4 overflow-hidden">
             <img
               src="/images/footplate-hero.png"
               alt={validatedData.backgroundImageAlt}
-              className="w-[95%] max-w-[550px] h-auto object-contain"
+              className="w-[120%] max-w-[700px] h-auto object-contain"
               style={{
-                filter: 'drop-shadow(0 30px 70px rgba(0,0,0,0.6)) drop-shadow(0 0 60px rgba(220,38,38,0.25))'
+                filter: 'drop-shadow(0 35px 80px rgba(0,0,0,0.65)) drop-shadow(0 0 70px rgba(220,38,38,0.3))'
               }}
             />
           </div>
 
-          {/* Headline Overlay - Visible on Page Load */}
-          <div className="absolute bottom-0 left-0 right-0 px-6 pb-8 bg-gradient-to-t from-black via-black/95 to-transparent pt-32">
-            <h1 className="text-[2.2rem] leading-[1.08] font-extrabold text-white tracking-tight text-center mb-3">
+          {/* Headline - Fixed Position for iPhone X */}
+          <div className="relative px-6 pb-10 pt-6 bg-gradient-to-t from-black via-black/98 to-transparent">
+            <h1 className="text-[2rem] leading-[1.1] font-extrabold text-white tracking-tight text-center">
               {validatedData.headline}
             </h1>
           </div>
