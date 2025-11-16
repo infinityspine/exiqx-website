@@ -310,7 +310,7 @@ const HeroSection = memo(function HeroSection({
       </div>
 
       {/* MOBILE - CLEAN & FUNCTIONAL */}
-      <div className="lg:hidden bg-black">
+      <div className="lg:hidden bg-[#0a0a0a]">
         {/* Background Effects */}
         {!shouldReduceMotion && (
           <>
@@ -318,28 +318,28 @@ const HeroSection = memo(function HeroSection({
               <motion.div
                 animate={{
                   scale: [1, 1.3, 1],
-                  opacity: [0.25, 0.4, 0.25],
+                  opacity: [0.35, 0.5, 0.35],
                 }}
                 transition={{
                   duration: 6,
                   repeat: Infinity,
                   ease: "easeInOut"
                 }}
-                className="absolute top-[30%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-radial from-red-600/40 via-red-900/15 to-transparent blur-3xl"
+                className="absolute top-[30%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-radial from-red-600/50 via-red-900/20 to-transparent blur-3xl"
               />
             </div>
             <div className="absolute inset-0 pointer-events-none">
               {[...Array(12)].map((_, i) => (
                 <motion.div
                   key={i}
-                  className="absolute w-0.5 h-0.5 bg-white/15 rounded-full"
+                  className="absolute w-0.5 h-0.5 bg-white/25 rounded-full"
                   style={{
                     left: `${Math.random() * 100}%`,
                     top: `${Math.random() * 100}%`,
                   }}
                   animate={{
                     y: [0, -25, 0],
-                    opacity: [0, 0.8, 0],
+                    opacity: [0, 0.9, 0],
                   }}
                   transition={{
                     duration: 3 + Math.random() * 2,
@@ -357,7 +357,7 @@ const HeroSection = memo(function HeroSection({
           {!shouldReduceMotion && (
             <motion.div
               animate={{
-                opacity: [0.35, 0.65, 0.35],
+                opacity: [0.4, 0.7, 0.4],
                 scale: [1, 1.15, 1],
               }}
               transition={{
@@ -365,7 +365,7 @@ const HeroSection = memo(function HeroSection({
                 repeat: Infinity,
                 ease: "easeInOut"
               }}
-              className="absolute inset-0 bg-gradient-radial from-red-500/30 via-red-600/10 to-transparent blur-3xl pointer-events-none"
+              className="absolute inset-0 bg-gradient-radial from-red-500/40 via-red-600/15 to-transparent blur-3xl pointer-events-none"
             />
           )}
           <img
