@@ -63,7 +63,7 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 blur-sm opacity-50" />
       </motion.div>
 
-      <main className="min-h-screen bg-black text-white overflow-x-hidden">
+      <main className="min-h-screen bg-black text-white overflow-x-hidden overflow-y-visible">
         {/* Hero Intro Section */}
         <motion.section
           initial="hidden"

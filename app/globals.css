@@ -86,7 +86,6 @@ html {
   scrollbar-width: none; /* Firefox */
 }
 
-html::-webkit-scrollbar,
 html::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Edge */
 }
