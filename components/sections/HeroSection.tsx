@@ -256,17 +256,14 @@ const HeroSection = memo(function HeroSection({
             />
           </div>
 
-          {/* Headline - Higher Position */}
-          <div className="absolute bottom-[1vh] left-0 right-0 z-10 px-5 pb-6 pt-32 bg-gradient-to-t from-black via-black to-transparent">
-            <h1 className="text-[1.85rem] leading-[1.1] font-extrabold text-white tracking-tight text-center">
-              {validatedData.headline}
-            </h1>
-          </div>
         </div>
 
         {/* Content Section - Scroll to Reveal */}
         <div className="relative bg-black py-14 px-6">
           <div className="max-w-xl mx-auto text-center">
+            <h1 className="text-[1.85rem] leading-[1.1] font-extrabold text-white tracking-tight mb-6">
+              {validatedData.headline}
+            </h1>
             <p className="text-[1.05rem] text-white/80 leading-[1.55] mb-10">
               {validatedData.subheadline}
             </p>
