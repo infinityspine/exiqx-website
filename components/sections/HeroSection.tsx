@@ -1,6 +1,6 @@
 'use client'
 
-import { memo, useRef, useState, useEffect } from 'react'
+import { memo, useRef } from 'react'
 import { motion, useReducedMotion, useScroll } from 'framer-motion'
 import { z } from 'zod'
 import { heroFade, fadeUp, staggerChildren } from '@/lib/motionPresets'
@@ -94,7 +94,13 @@ const createButtonAnimations = (shouldReduce: boolean) => ({
 // CTA BUTTON COMPONENT
 // ============================================================================
 
-const CTAButton = memo(function CTAButton({ button, shouldReduceMotion }: { button: z.infer<typeof CTAButtonSchema>, shouldReduceMotion: boolean }) {
+const CTAButton = memo(function CTAButton({ 
+  button, 
+  shouldReduceMotion 
+}: { 
+  button: z.infer<typeof CTAButtonSchema>
+  shouldReduceMotion: boolean 
+}) {
   const animations = createButtonAnimations(shouldReduceMotion)
   const isPrimary = button.variant === 'primary'
 
@@ -135,16 +141,6 @@ const HeroSection = memo(function HeroSection({
   
   const shouldReduceMotion = !!useReducedMotion()
   const containerRef = useRef<HTMLElement>(null)
-  const [isMobile, setIsMobile] = useState(false)
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 1024)
-    }
-    checkMobile()
-    window.addEventListener('resize', checkMobile)
-    return () => window.removeEventListener('resize', checkMobile)
-  }, [])
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -169,7 +165,7 @@ const HeroSection = memo(function HeroSection({
     <motion.section
       ref={containerRef}
       id={validatedData.id}
-      className="relative flex flex-col lg:flex-row h-screen items-center justify-center lg:justify-start overflow-hidden"
+      className="relative h-screen overflow-hidden"
       aria-label="Hero section"
       initial="hidden"
       animate="visible"
@@ -178,59 +174,67 @@ const HeroSection = memo(function HeroSection({
       {/* Black Background */}
       <div className="absolute inset-0 bg-black" />
 
-      {/* Cinematic gradient behind product */}
-      <div className="absolute right-0 top-0 bottom-0 w-[65%] 
-        bg-gradient-to-l from-black via-black/80 to-transparent pointer-events-none" />
-
-      {/* Product Image */}
+      {/* Desktop: Product Image Right */}
       <motion.div
         style={{ y: heroImageY }}
-        className="pointer-events-none absolute inset-0 flex items-center justify-center lg:justify-end w-full lg:w-[60%] lg:right-0"
+        className="pointer-events-none hidden lg:flex absolute right-0 top-0 bottom-0 w-[55%] items-center justify-end"
       >
-        <div className="relative w-full h-[40vh] lg:h-[92vh] mt-20 lg:mt-0 pr-0 lg:pr-[25%]">
+        <div className="relative w-full h-[92vh] pr-[25%]">
           <img
             src="/images/footplate-hero.png"
             alt={validatedData.backgroundImageAlt}
             className="w-full h-full object-contain object-right"
             style={{
               filter: 'drop-shadow(0 30px 90px rgba(0,0,0,0.7)) drop-shadow(0 0 50px rgba(220,38,38,0.15))',
-              transform: isMobile ? 'scale(1.5)' : 'scale(2.2)'
+              transform: 'scale(2.2)'
             }}
           />
         </div>
       </motion.div>
 
-      {/* Hero Text */}
+      {/* Mobile: Product Image Top */}
+      <motion.div
+        style={{ y: heroImageY }}
+        className="pointer-events-none lg:hidden absolute inset-0 flex items-start justify-center pt-24"
+      >
+        <div className="relative w-full h-[35vh]">
+          <img
+            src="/images/footplate-hero.png"
+            alt={validatedData.backgroundImageAlt}
+            className="w-full h-full object-contain"
+            style={{
+              filter: 'drop-shadow(0 20px 60px rgba(0,0,0,0.7)) drop-shadow(0 0 40px rgba(220,38,38,0.15))',
+              transform: 'scale(1.5)'
+            }}
+          />
+        </div>
+      </motion.div>
+
+      {/* Desktop: Hero Text Left */}
       <motion.div
         style={{ y: heroContentY }}
-        className="absolute top-[55%] lg:top-1/2 left-1/2 lg:left-0 -translate-x-1/2 lg:translate-x-0 -translate-y-1/2 lg:-translate-y-[40%] z-10 flex max-w-[90%] lg:max-w-[560px] flex-col items-center lg:items-start text-center lg:text-left px-6 lg:pl-[6%]"
+        className="hidden lg:flex absolute left-0 top-1/2 -translate-y-[40%] z-10 max-w-[560px] flex-col items-start text-left pl-[6%]"
         variants={staggerChildren}
         initial="hidden"
         animate="visible"
       >
         <motion.h1
           variants={fadeUp}
-          className="text-[clamp(2.4rem,5vw,4.8rem)] font-extrabold tracking-[0.05em] uppercase leading-[1.05] font-display mb-20 sm:mb-24"
+          className="text-[clamp(2.4rem,5vw,4.8rem)] font-extrabold tracking-[0.05em] uppercase leading-[1.05] font-display mb-20"
         >
           {validatedData.headline}
         </motion.h1>
 
         <motion.p
           variants={fadeUp}
-          className="text-[clamp(1.05rem,1.6vw,1.25rem)] font-medium text-white/85 leading-[1.8]"
-          style={{ marginBottom: 'clamp(4rem, 10vw, 6rem)' }}
+          className="text-[clamp(1.05rem,1.6vw,1.25rem)] font-medium text-white/85 leading-[1.8] mb-16"
         >
-          {validatedData.subheadline}{' '}
-          {validatedData.subheadlineAccent && (
-            <span className="text-accent font-semibold">
-              {validatedData.subheadlineAccent}
-            </span>
-          )}
+          {validatedData.subheadline}
         </motion.p>
 
         <motion.div
           variants={fadeUp}
-          className="flex flex-wrap items-center gap-5 mb-12 sm:mb-14"
+          className="flex flex-wrap items-center gap-5 mb-14"
         >
           {validatedData.ctaButtons.map((button) => (
             <CTAButton
@@ -244,6 +248,49 @@ const HeroSection = memo(function HeroSection({
         <motion.p
           variants={fadeUp}
           className="text-[10px] uppercase tracking-[0.25em] text-white/60"
+        >
+          {validatedData.tagline}
+        </motion.p>
+      </motion.div>
+
+      {/* Mobile: Hero Text Bottom */}
+      <motion.div
+        style={{ y: heroContentY }}
+        className="lg:hidden absolute bottom-0 left-0 right-0 z-10 flex flex-col items-center text-center px-6 pb-16"
+        variants={staggerChildren}
+        initial="hidden"
+        animate="visible"
+      >
+        <motion.h1
+          variants={fadeUp}
+          className="text-[2.2rem] font-extrabold tracking-[0.05em] uppercase leading-[1.05] font-display mb-6"
+        >
+          {validatedData.headline}
+        </motion.h1>
+
+        <motion.p
+          variants={fadeUp}
+          className="text-[1rem] font-medium text-white/85 leading-[1.6] mb-8 max-w-md"
+        >
+          {validatedData.subheadline}
+        </motion.p>
+
+        <motion.div
+          variants={fadeUp}
+          className="flex flex-col w-full max-w-sm gap-4 mb-6"
+        >
+          {validatedData.ctaButtons.map((button) => (
+            <CTAButton
+              key={button.href}
+              button={button}
+              shouldReduceMotion={shouldReduceMotion}
+            />
+          ))}
+        </motion.div>
+
+        <motion.p
+          variants={fadeUp}
+          className="text-[9px] uppercase tracking-[0.2em] text-white/60"
         >
           {validatedData.tagline}
         </motion.p>
