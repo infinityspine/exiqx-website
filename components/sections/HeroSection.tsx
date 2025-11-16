@@ -218,7 +218,7 @@ const HeroSection = memo(function HeroSection({
         }}
         className="pointer-events-none absolute right-0 top-0 bottom-0 flex items-center justify-end w-[55%] will-change-transform"
       >
-        <div className="relative w-full h-[85vh] mr-[-8%]">
+        <div className="relative w-full h-[85vh] mr-[5%]">
           <img
             src="/images/footplate-hero.png"
             alt="ExIQx Performance rack-mounted footplate with patent-protected plantarflexion mechanism"
