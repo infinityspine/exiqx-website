@@ -199,6 +199,93 @@ export default function GHDRetrofitContent() {
 
         <SectionDivider />
 
+        {/* Professional Applications */}
+        <motion.section
+          id="applications"
+          className="scroll-mt-24 relative"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={fadeUp}
+          style={{ transform: 'translateZ(0)' }}
+          aria-labelledby="applications-title"
+        >
+          {/* Animated gradient orbs */}
+          <AnimatedGradientOrb 
+            className="top-0 right-1/3 w-80 h-80" 
+            delay={0.5}
+            shouldReduceMotion={!!shouldReduceMotion}
+          />
+          <AnimatedGradientOrb 
+            className="bottom-0 left-1/3 w-80 h-80 bg-blue-500/10" 
+            delay={2.5}
+            shouldReduceMotion={!!shouldReduceMotion}
+          />
+          <div className="py-24 md:py-32">
+            <div className="max-w-5xl mx-auto px-6 md:px-8">
+              <motion.div
+                variants={staggerChildren}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-100px" }}
+              >
+                <motion.h2
+                  id="applications-title"
+                  variants={fadeUp}
+                  className="font-display text-4xl sm:text-5xl font-extrabold uppercase tracking-[0.05em] text-white mb-12 text-center"
+                >
+                  Professional Applications
+                </motion.h2>
+                <motion.div
+                  variants={fadeUp}
+                  className="grid gap-8 md:grid-cols-2 lg:grid-cols-4"
+                >
+                  {[
+                    {
+                      title: 'NCAA Division I',
+                      description: 'Strength & conditioning programs for elite collegiate athletics'
+                    },
+                    {
+                      title: 'Physical Therapy',
+                      description: 'Sports medicine clinics and rehabilitation centers'
+                    },
+                    {
+                      title: 'Professional Teams',
+                      description: 'NFL, NBA, MLB training facilities and performance centers'
+                    },
+                    {
+                      title: 'High-Performance Centers',
+                      description: 'Elite training facilities and sports performance institutes'
+                    }
+                  ].map((app, index) => (
+                    <motion.div
+                      key={index}
+                      variants={fadeUp}
+                      className="group relative bg-zinc-950/40 backdrop-blur-sm border border-zinc-800/60 rounded-xl p-6 hover:border-red-900/50 transition-all duration-300 overflow-hidden will-change-transform"
+                      style={{ transform: 'translateZ(0)' }}
+                      whileHover={shouldReduceMotion ? {} : { 
+                        y: -8,
+                        scale: 1.03,
+                        transition: { type: "spring", stiffness: 160, damping: 20 }
+                      }}
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-br from-red-500/0 via-red-500/0 to-red-500/0 group-hover:from-red-500/5 group-hover:via-red-500/0 group-hover:to-transparent rounded-xl transition-all duration-500 pointer-events-none" />
+                      <h3 className="relative text-xl font-bold text-white mb-3 group-hover:text-red-400 transition-colors duration-300">
+                        {app.title}
+                      </h3>
+                      <p className="relative text-white/70 leading-relaxed text-sm">
+                        {app.description}
+                      </p>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              </motion.div>
+            </div>
+          </div>
+        </motion.section>
+
+        <SectionDivider />
+
         {/* Technical Specs */}
         <motion.section
           id="specs"

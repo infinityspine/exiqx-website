@@ -59,7 +59,7 @@ const FootplateFeatures = memo(function FootplateFeatures({
             variants={fadeUp}
             className="text-lg text-white/70 leading-relaxed"
           >
-            Patent-pending design engineered for elite performance
+            Patent-protected commercial-grade equipment engineered for D1 programs, PT clinics, and professional training facilities
           </motion.p>
         </motion.div>
 
