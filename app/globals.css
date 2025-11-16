@@ -79,6 +79,16 @@ html {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+}
+
+html::-webkit-scrollbar,
+html::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
 }
 
 /* Reduced motion support */
@@ -101,8 +111,16 @@ body {
   font-size: 16px;
   line-height: 1.6;
   letter-spacing: 0.01em;
+  margin: 0;
+  padding: 0;
   overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
   font-feature-settings: "kern" 1, "liga" 1;
+}
+
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
 }
 
 /* ============================================================================
@@ -167,17 +185,7 @@ a:hover {
   color: var(--background);
 }
 
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-::-webkit-scrollbar-thumb {
-  background: var(--muted);
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--foreground);
-}
+/* Scrollbar styles removed - using hidden scrollbars for clean scrolling */
 
 /* ============================================================================
    UTILITIES
