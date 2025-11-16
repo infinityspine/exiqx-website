@@ -142,12 +142,12 @@ const CTAButton = memo(function CTAButton({ button, shouldReduceMotion }: CTABut
       aria-label={button.ariaLabel || button.label}
       {...animations[button.variant]}
       className={`
-        rounded-xl px-10 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] 
+        rounded-xl px-8 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] 
         transition-all duration-300
         focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-black
         ${isPrimary 
-          ? 'bg-accent text-white focus-visible:ring-accent' 
-          : 'border border-white/25 bg-white/10 text-white backdrop-blur-md focus-visible:ring-white'
+          ? 'bg-gradient-to-r from-red-600 to-red-700 text-white hover:from-red-500 hover:to-red-600 hover:scale-[1.02] shadow-2xl shadow-red-500/30 focus-visible:ring-accent' 
+          : 'border border-white/20 bg-transparent text-white hover:bg-white/10 hover:border-white/40 focus-visible:ring-white'
         }
       `}
     >
