@@ -169,7 +169,7 @@ const HeroSection = memo(function HeroSection({
     <motion.section
       ref={containerRef}
       id={validatedData.id}
-      className="relative flex h-screen items-center overflow-hidden"
+      className="relative flex flex-col lg:flex-row h-screen items-center justify-center lg:justify-start overflow-hidden"
       aria-label="Hero section"
       initial="hidden"
       animate="visible"
@@ -185,16 +185,16 @@ const HeroSection = memo(function HeroSection({
       {/* Product Image */}
       <motion.div
         style={{ y: heroImageY }}
-        className="pointer-events-none absolute inset-0 lg:right-0 lg:top-0 lg:bottom-0 flex items-center justify-center lg:justify-end w-full lg:w-[60%]"
+        className="pointer-events-none absolute inset-0 flex items-center justify-center lg:justify-end w-full lg:w-[60%] lg:right-0"
       >
-        <div className="relative w-full h-[50vh] lg:h-[92vh] pr-0 lg:pr-[25%]">
+        <div className="relative w-full h-[40vh] lg:h-[92vh] mt-20 lg:mt-0 pr-0 lg:pr-[25%]">
           <img
             src="/images/footplate-hero.png"
             alt={validatedData.backgroundImageAlt}
             className="w-full h-full object-contain object-right"
             style={{
               filter: 'drop-shadow(0 30px 90px rgba(0,0,0,0.7)) drop-shadow(0 0 50px rgba(220,38,38,0.15))',
-              transform: isMobile ? 'scale(1.2)' : 'scale(2.2)'
+              transform: isMobile ? 'scale(1.5)' : 'scale(2.2)'
             }}
           />
         </div>
@@ -203,7 +203,7 @@ const HeroSection = memo(function HeroSection({
       {/* Hero Text */}
       <motion.div
         style={{ y: heroContentY }}
-        className="relative lg:absolute lg:left-0 lg:top-1/2 lg:-translate-y-[40%] z-10 flex max-w-full lg:max-w-[560px] flex-col items-center lg:items-start text-center lg:text-left px-6 lg:pl-[6%] pt-32 lg:pt-0"
+        className="absolute top-[55%] lg:top-1/2 left-1/2 lg:left-0 -translate-x-1/2 lg:translate-x-0 -translate-y-1/2 lg:-translate-y-[40%] z-10 flex max-w-[90%] lg:max-w-[560px] flex-col items-center lg:items-start text-center lg:text-left px-6 lg:pl-[6%]"
         variants={staggerChildren}
         initial="hidden"
         animate="visible"
