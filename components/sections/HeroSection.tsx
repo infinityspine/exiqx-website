@@ -48,7 +48,7 @@ const DEFAULT_CONTENT = {
   id: 'footplate',
   backgroundImage: '/hero-footplate.jpg',
   backgroundImageAlt: 'ExIQx Performance rack-mounted footplate in professional gym setting',
-  headline: 'Patent-Protected Plantarflexion Training.',
+  headline: 'Patent-Protected Closed-Chain Forefoot Training.',
   subheadline: 'Commercial-grade biomechanical equipment trusted by D1 programs, PT clinics, and professional athletes.',
   subheadlineAccent: undefined,
   tagline: 'Patent-Pending Technology • Commercial-Grade Construction • Engineered in Arizona',
