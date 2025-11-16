@@ -352,8 +352,8 @@ const HeroSection = memo(function HeroSection({
           </>
         )}
 
-        {/* Product Image - HIGH & TIGHT */}
-        <div className="relative w-full -mt-28 mb-0 flex items-start justify-center">
+        {/* Product Image - AGGRESSIVE TOP */}
+        <div className="relative w-full -mt-40 mb-0 flex items-start justify-center">
           {!shouldReduceMotion && (
             <motion.div
               animate={{
@@ -371,15 +371,15 @@ const HeroSection = memo(function HeroSection({
           <img
             src="/images/footplate-hero.png"
             alt={validatedData.backgroundImageAlt}
-            className="w-[125%] max-w-[640px] h-auto object-contain relative z-10"
+            className="w-[130%] max-w-[660px] h-auto object-contain relative z-10"
             style={{
               filter: 'drop-shadow(0 40px 80px rgba(0,0,0,0.8)) drop-shadow(0 0 70px rgba(220,38,38,0.4))',
             }}
           />
         </div>
 
-        {/* Text Content - COMPACT */}
-        <div className="relative px-6 pb-10 -mt-6">
+        {/* Text Content - TIGHT */}
+        <div className="relative px-6 pb-10 -mt-10">
           <div className="max-w-xl mx-auto text-center">
             
             {/* Headline */}
