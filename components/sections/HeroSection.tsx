@@ -195,15 +195,17 @@ const HeroSection = memo(function HeroSection({
       {/* Mobile: Product Image - FIXED */}
       <motion.div
         style={{ y: heroImageY }}
-        className="pointer-events-none lg:hidden absolute right-0 top-[15%] w-[70%] h-[40vh]"
+        className="pointer-events-none lg:hidden absolute inset-x-0 top-[22%] flex justify-center"
       >
         <img
           src="/images/footplate-hero.png"
           alt={validatedData.backgroundImageAlt}
-          className="w-full h-full object-contain object-right"
+          className="object-contain"
           style={{
+            width: '78%',
+            height: '30vh',
             filter: 'drop-shadow(0 20px 60px rgba(0,0,0,0.7)) drop-shadow(0 0 40px rgba(220,38,38,0.15))',
-            transform: 'scale(1.8)'
+            transform: 'scale(1.45)'
           }}
         />
       </motion.div>
@@ -254,28 +256,28 @@ const HeroSection = memo(function HeroSection({
       {/* Mobile: Hero Text - FIXED */}
       <motion.div
         style={{ y: heroContentY }}
-        className="lg:hidden absolute inset-x-0 bottom-0 z-10 flex flex-col items-start text-left px-6 pb-12"
+        className="lg:hidden absolute bottom-0 left-0 right-0 z-10 flex flex-col items-center text-center px-6 pb-12 max-w-[88%] mx-auto"
         variants={staggerChildren}
         initial="hidden"
         animate="visible"
       >
         <motion.h1
           variants={fadeUp}
-          className="text-[1.75rem] font-extrabold tracking-[0.03em] uppercase leading-[1.1] font-display mb-4"
+          className="text-[1.55rem] leading-[1.18] tracking-[0.02em] font-extrabold uppercase mb-4 text-white"
         >
           {validatedData.headline}
         </motion.h1>
 
         <motion.p
           variants={fadeUp}
-          className="text-[0.9rem] font-medium text-white/80 leading-[1.5] mb-6"
+          className="text-[0.92rem] leading-[1.55] text-white/75 mb-6 max-w-[95%]"
         >
           {validatedData.subheadline}
         </motion.p>
 
         <motion.div
           variants={fadeUp}
-          className="flex flex-col w-full gap-3 mb-5"
+          className="flex flex-col w-full gap-3 mb-6 mt-1"
         >
           {validatedData.ctaButtons.map((button) => (
             <CTAButton
@@ -288,7 +290,7 @@ const HeroSection = memo(function HeroSection({
 
         <motion.p
           variants={fadeUp}
-          className="text-[8px] uppercase tracking-[0.2em] text-white/50 leading-[1.4]"
+          className="text-[7.5px] tracking-[0.22em] text-white/45 leading-[1.4] mt-3"
         >
           {validatedData.tagline}
         </motion.p>
