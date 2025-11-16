@@ -171,7 +171,7 @@ const HeroSection = memo(function HeroSection({
       animate="visible"
       variants={heroFade}
     >
-      {/* Desktop: Single Screen Layout */}
+      {/* Desktop: Single Screen Layout - DON'T TOUCH */}
       <div className="hidden lg:block relative h-screen overflow-hidden">
         {/* Black Background */}
         <div className="absolute inset-0 bg-black" />
@@ -238,27 +238,33 @@ const HeroSection = memo(function HeroSection({
         </motion.div>
       </div>
 
-      {/* Mobile: Tesla-Style Vertical Sections */}
+      {/* Mobile: Elite Tesla-Style Layout */}
       <div className="lg:hidden">
-        {/* Full-Screen Hero Image */}
-        <div className="relative h-[80vh] bg-black flex items-center justify-center overflow-hidden">
-          <img
-            src="/images/footplate-hero.png"
-            alt={validatedData.backgroundImageAlt}
-            className="w-[90%] max-w-[500px] h-auto object-contain"
-            style={{
-              filter: 'drop-shadow(0 25px 60px rgba(0,0,0,0.5)) drop-shadow(0 0 50px rgba(220,38,38,0.2))'
-            }}
-          />
-        </div>
+        {/* Hero Section: Image + Headline Overlay */}
+        <div className="relative min-h-screen bg-black">
+          {/* Product Image - Positioned Higher */}
+          <div className="relative h-[75vh] flex items-start justify-center pt-24">
+            <img
+              src="/images/footplate-hero.png"
+              alt={validatedData.backgroundImageAlt}
+              className="w-[95%] max-w-[550px] h-auto object-contain"
+              style={{
+                filter: 'drop-shadow(0 30px 70px rgba(0,0,0,0.6)) drop-shadow(0 0 60px rgba(220,38,38,0.25))'
+              }}
+            />
+          </div>
 
-        {/* Content Section Below */}
-        <div className="relative bg-black py-16 px-6">
-          <div className="max-w-xl mx-auto text-center">
-            <h1 className="text-[2.1rem] leading-[1.1] font-extrabold text-white tracking-tight mb-6">
+          {/* Headline Overlay - Visible on Page Load */}
+          <div className="absolute bottom-0 left-0 right-0 px-6 pb-8 bg-gradient-to-t from-black via-black/95 to-transparent pt-32">
+            <h1 className="text-[2.2rem] leading-[1.08] font-extrabold text-white tracking-tight text-center mb-3">
               {validatedData.headline}
             </h1>
+          </div>
+        </div>
 
+        {/* Content Section - Scroll to Reveal */}
+        <div className="relative bg-black py-14 px-6">
+          <div className="max-w-xl mx-auto text-center">
             <p className="text-[1.05rem] text-white/80 leading-[1.55] mb-10">
               {validatedData.subheadline}
             </p>
