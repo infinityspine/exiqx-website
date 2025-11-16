@@ -118,7 +118,7 @@ export default function EarlyAccessPage() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          variants={fadeUp}
+          variants={staggerChildren}
           className="relative will-change-transform"
           style={{
             paddingTop: 'clamp(8rem, 12vw, 10rem)',
@@ -138,21 +138,24 @@ export default function EarlyAccessPage() {
               shouldReduceMotion={!!shouldReduceMotion}
             />
 
-            <div className="mx-auto max-w-4xl px-6">
+            <div className="w-full max-w-3xl mx-auto text-center px-6 mt-24 mb-16">
               <motion.h1
-                className="font-display text-5xl sm:text-6xl lg:text-7xl font-extrabold uppercase tracking-[0.05em] text-white mb-8"
+                variants={fadeUp}
+                className="text-white font-extrabold uppercase tracking-[0.06em] text-[clamp(2rem,5vw,4rem)] leading-tight mb-6 text-center"
               >
                 Early Access Program
               </motion.h1>
               
               <motion.p
-                className="text-xl sm:text-2xl text-white/80 font-medium mb-4"
+                variants={fadeUp}
+                className="text-white/80 text-[clamp(1rem,2vw,1.25rem)] leading-relaxed max-w-2xl mx-auto mb-4 text-center"
               >
                 Limited production slots for D1 programs, PT clinics, professional teams, and elite performance centers.
               </motion.p>
               
               <motion.p
-                className="text-lg text-white/70 font-light leading-relaxed"
+                variants={fadeUp}
+                className="text-white/60 text-[0.9rem] leading-relaxed max-w-2xl mx-auto text-center mb-10"
               >
                 Request priority access to our first production run of patent-protected commercial-grade equipment.
               </motion.p>
