@@ -208,36 +208,32 @@ const HeroSection = memo(function HeroSection({
       variants={heroFade}
       style={{ transform: 'translateZ(0)' }}
     >
-      {/* Background Image with Parallax */}
+      {/* Black Background */}
+      <div className="absolute inset-0 bg-black" aria-hidden="true" />
+
+      {/* Product Image with Parallax */}
       <motion.div
         style={{
           y: heroImageY,
           transform: 'translateZ(0)'
         }}
-        className="pointer-events-none absolute inset-0 will-change-transform"
+        className="pointer-events-none absolute inset-0 flex items-center justify-center md:justify-end will-change-transform"
       >
-        <Image
-          src={validatedData.backgroundImage}
-          alt={validatedData.backgroundImageAlt}
-          fill
-          priority={priority}
-          quality={85}
-          sizes="100vw"
-          className="object-cover object-center scale-110"
-        />
+        <div className="relative w-full max-w-2xl h-full md:mr-[-10%]">
+          <Image
+            src="/images/footplate-hero.png"
+            alt="ExIQx Performance rack-mounted footplate with patent-protected plantarflexion mechanism"
+            fill
+            priority={priority}
+            quality={95}
+            sizes="(max-width: 768px) 90vw, 50vw"
+            className="object-contain object-center md:object-right"
+            style={{
+              filter: 'drop-shadow(0 20px 60px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 40px rgba(220, 38, 38, 0.15))',
+            }}
+          />
+        </div>
       </motion.div>
-
-      {/* Gradient Overlay */}
-      <div 
-        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/10 via-black/70 to-black/95"
-        aria-hidden="true"
-      />
-
-      {/* Radial Vignette Overlay */}
-      <div 
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,black_100%)] opacity-40"
-        aria-hidden="true"
-      />
 
       {/* Content with Parallax */}
       <motion.div
@@ -245,7 +241,7 @@ const HeroSection = memo(function HeroSection({
           y: heroContentY,
           transform: 'translateZ(0)'
         }}
-        className="relative z-10 flex max-w-5xl flex-col items-center text-center px-4 will-change-transform"
+        className="relative z-10 flex max-w-5xl flex-col items-center md:items-start text-center md:text-left px-4 md:pl-12 will-change-transform"
         variants={staggerChildren}
         initial="hidden"
         animate="visible"
@@ -272,7 +268,7 @@ const HeroSection = memo(function HeroSection({
 
         <motion.div
           variants={fadeUp}
-          className="flex flex-wrap items-center justify-center gap-5 mb-12 sm:mb-14"
+          className="flex flex-wrap items-center justify-center md:justify-start gap-5 mb-12 sm:mb-14"
           role="group"
           aria-label="Call to action buttons"
         >
