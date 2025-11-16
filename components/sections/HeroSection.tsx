@@ -250,7 +250,8 @@ const HeroSection = memo(function HeroSection({
               alt={validatedData.backgroundImageAlt}
               className="w-[142.5%] max-w-[836px] h-auto object-contain"
               style={{
-                filter: 'drop-shadow(0 40px 90px rgba(0,0,0,0.7)) drop-shadow(0 0 80px rgba(220,38,38,0.35))'
+                filter: 'drop-shadow(0 40px 90px rgba(0,0,0,0.7)) drop-shadow(0 0 80px rgba(220,38,38,0.35))',
+                transform: 'translateX(8px)'
               }}
             />
           </div>
