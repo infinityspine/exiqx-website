@@ -352,8 +352,8 @@ const HeroSection = memo(function HeroSection({
           </>
         )}
 
-        {/* Product Image - PULLED TO TOP */}
-        <div className="relative w-full -mt-8 mb-0 flex items-start justify-center">
+        {/* Product Image - PULLED WAY UP */}
+        <div className="relative w-full -mt-20 mb-0 flex items-start justify-center">
           {!shouldReduceMotion && (
             <motion.div
               animate={{
