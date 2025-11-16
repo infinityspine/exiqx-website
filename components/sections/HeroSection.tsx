@@ -218,14 +218,14 @@ const HeroSection = memo(function HeroSection({
         }}
         className="pointer-events-none absolute right-0 top-0 bottom-0 flex items-center justify-end w-[55%] will-change-transform"
       >
-        <div className="relative w-full h-[85vh] pr-[25%]">
+        <div className="relative w-full h-[90vh] pr-[20%]">
           <img
             src="/images/footplate-hero.png"
             alt="ExIQx Performance rack-mounted footplate with patent-protected plantarflexion mechanism"
             className="w-full h-full object-contain object-right"
             style={{
               filter: 'drop-shadow(0 30px 90px rgba(0, 0, 0, 0.7)) drop-shadow(0 0 50px rgba(220, 38, 38, 0.15))',
-              transform: 'scale(2.0)',
+              transform: 'scale(1.8)',
             }}
           />
         </div>
@@ -237,7 +237,7 @@ const HeroSection = memo(function HeroSection({
           y: heroContentY,
           transform: 'translateZ(0)'
         }}
-        className="absolute left-0 z-10 flex max-w-[550px] flex-col items-start text-left pl-[6%] will-change-transform"
+        className="absolute left-0 z-10 flex max-w-[650px] flex-col items-start text-left pl-[6%] will-change-transform"
         variants={staggerChildren}
         initial="hidden"
         animate="visible"
