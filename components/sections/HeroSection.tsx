@@ -225,6 +225,7 @@ const HeroSection = memo(function HeroSection({
             className="w-full h-full object-contain"
             style={{
               filter: 'drop-shadow(0 25px 80px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 60px rgba(220, 38, 38, 0.2))',
+              transform: 'scale(2.5)',
             }}
           />
         </div>
