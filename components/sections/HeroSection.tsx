@@ -200,7 +200,7 @@ const HeroSection = memo(function HeroSection({
     <motion.section
       ref={containerRef}
       id={validatedData.id}
-      className="relative flex h-screen items-center justify-center overflow-hidden px-6"
+      className="relative flex h-screen items-center overflow-hidden"
       aria-label="Hero section"
       initial="hidden"
       animate="visible"
@@ -237,7 +237,7 @@ const HeroSection = memo(function HeroSection({
           y: heroContentY,
           transform: 'translateZ(0)'
         }}
-        className="relative z-10 flex max-w-[700px] flex-col items-start text-left pl-[8%] md:pl-[14%] will-change-transform"
+        className="absolute left-0 z-10 flex max-w-[550px] flex-col items-start text-left pl-[6%] will-change-transform"
         variants={staggerChildren}
         initial="hidden"
         animate="visible"
