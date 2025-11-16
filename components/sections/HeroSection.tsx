@@ -237,7 +237,7 @@ const HeroSection = memo(function HeroSection({
           y: heroContentY,
           transform: 'translateZ(0)'
         }}
-        className="relative z-10 flex max-w-2xl flex-col items-start text-left pl-[6%] md:pl-[10%] will-change-transform"
+        className="relative z-10 flex max-w-[700px] flex-col items-start text-left pl-[8%] md:pl-[14%] will-change-transform"
         variants={staggerChildren}
         initial="hidden"
         animate="visible"
