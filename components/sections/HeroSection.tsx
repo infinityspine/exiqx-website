@@ -238,24 +238,24 @@ const HeroSection = memo(function HeroSection({
         </motion.div>
       </div>
 
-      {/* Mobile: ELITE - Text HIGHER on Page Load */}
+      {/* Mobile: ELITE - 10% LARGER IMAGE */}
       <div className="lg:hidden">
         {/* Hero Section - Full Viewport */}
         <div className="relative h-screen bg-black overflow-hidden">
           
-          {/* MASSIVE Product Image - POSITIONED HIGH */}
+          {/* MASSIVE Product Image - 10% LARGER (150%) */}
           <div className="absolute inset-0 flex items-start justify-center pt-2">
             <img
               src="/images/footplate-hero.png"
               alt={validatedData.backgroundImageAlt}
-              className="w-[140%] max-w-[800px] h-auto object-contain"
+              className="w-[150%] max-w-[880px] h-auto object-contain"
               style={{
                 filter: 'drop-shadow(0 40px 90px rgba(0,0,0,0.7)) drop-shadow(0 0 80px rgba(220,38,38,0.35))'
               }}
             />
           </div>
 
-          {/* Headline - MOVED UP (from bottom-0 to bottom-[15vh]) */}
+          {/* Headline - Higher Position */}
           <div className="absolute bottom-[15vh] left-0 right-0 z-10 px-5 pb-6 pt-32 bg-gradient-to-t from-black via-black to-transparent">
             <h1 className="text-[1.85rem] leading-[1.1] font-extrabold text-white tracking-tight text-center">
               {validatedData.headline}
