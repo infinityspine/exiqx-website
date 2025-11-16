@@ -238,13 +238,13 @@ const HeroSection = memo(function HeroSection({
         </motion.div>
       </div>
 
-      {/* Mobile: ELITE - MASSIVE IMAGE + VISIBLE HEADLINE */}
+      {/* Mobile: ELITE - MASSIVE IMAGE POSITIONED HIGH */}
       <div className="lg:hidden">
         {/* Hero Section - Full Viewport */}
         <div className="relative h-screen bg-black overflow-hidden">
           
-          {/* MASSIVE Product Image */}
-          <div className="absolute inset-0 flex items-center justify-center">
+          {/* MASSIVE Product Image - POSITIONED HIGH */}
+          <div className="absolute inset-0 flex items-start justify-center pt-8">
             <img
               src="/images/footplate-hero.png"
               alt={validatedData.backgroundImageAlt}
