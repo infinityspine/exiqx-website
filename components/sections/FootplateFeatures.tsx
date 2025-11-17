@@ -35,7 +35,7 @@ const FootplateFeatures = memo(function FootplateFeatures({
   return (
     <section
       id="features"
-      className="relative min-h-screen bg-[#050505] px-6 py-20 lg:py-32"
+      className="relative min-h-screen bg-[#050505] px-6 pt-[calc(5rem+20px)] pb-20 lg:pt-[calc(8rem+20px)] lg:pb-32"
       aria-labelledby="features-heading"
     >
       <div className="mx-auto max-w-7xl">
@@ -51,7 +51,7 @@ const FootplateFeatures = memo(function FootplateFeatures({
             id="features-heading"
             variants={fadeUp}
             className="font-display text-4xl font-extrabold uppercase tracking-[0.05em] text-white lg:text-5xl"
-            style={{ marginBottom: 'clamp(1.5rem, 3vw, 2.5rem)', transform: 'translateZ(0)' }}
+            style={{ marginBottom: 'calc(clamp(1.5rem, 3vw, 2.5rem) - 10px)', transform: 'translateZ(0)' }}
           >
             Technical Specifications
           </motion.h2>
@@ -101,7 +101,7 @@ const FootplateFeatures = memo(function FootplateFeatures({
               <div className="h-7 w-7 rounded bg-red-500" aria-hidden="true" />
               <div className="absolute inset-0 rounded-2xl bg-red-500/10 blur-xl" aria-hidden="true" />
             </motion.div>
-            <h3 className="relative mb-2 font-display text-xl font-bold uppercase tracking-[0.03em] text-white transition-colors duration-300 group-hover:text-red-400">
+            <h3 className="relative mb-2 font-display text-xl font-bold uppercase tracking-[0.03em] tracking-wide text-white transition-colors duration-300 group-hover:text-red-400">
               Authentic Ground-Force Mechanics
             </h3>
             <p className="relative text-white/60 leading-relaxed">
