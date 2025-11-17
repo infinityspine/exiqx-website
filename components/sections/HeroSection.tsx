@@ -216,10 +216,10 @@ const HeroSection = memo(function HeroSection({
           </div>
         )}
 
-        {/* PRODUCT IMAGE - MASSIVE SCALE & DRAMATIC OVERLAP */}
+        {/* PRODUCT IMAGE - MAXIMUM DRAMA & OVERLAP */}
         <motion.div
           style={{ y: heroImageY }}
-          className="pointer-events-none absolute right-[-8%] top-1/2 -translate-y-1/2 z-20"
+          className="pointer-events-none absolute right-[-11%] top-1/2 -translate-y-1/2 z-20"
         >
           <div className="relative">
             {/* ANIMATED SPOTLIGHT */}
@@ -274,10 +274,10 @@ const HeroSection = memo(function HeroSection({
             {validatedData.headline}
           </motion.h1>
 
-          {/* REFINED SUBHEADLINE */}
+          {/* ENHANCED SUBHEADLINE - MORE PRESENCE */}
           <motion.p
             variants={fadeUp}
-            className="text-[clamp(1.15rem,2vw,1.5rem)] font-medium text-white/92 leading-[1.65] mb-22 max-w-[650px]"
+            className="text-[clamp(1.2rem,2.1vw,1.65rem)] font-medium text-white/92 leading-[1.65] mb-22 max-w-[650px]"
           >
             {validatedData.subheadline}
           </motion.p>
@@ -296,13 +296,18 @@ const HeroSection = memo(function HeroSection({
             ))}
           </motion.div>
 
-          {/* REFINED TAGLINE */}
+          {/* ELEVATED TAGLINE WITH STRONGER ACCENT */}
           <motion.div
             variants={fadeUp}
             className="flex items-center gap-4"
           >
-            <div className="w-14 h-[1px] bg-gradient-to-r from-red-500/70 to-transparent" />
-            <p className="text-[11.5px] uppercase tracking-[0.32em] text-white/55 font-medium">
+            <div 
+              className="w-16 h-[1.5px] bg-gradient-to-r from-red-500/80 to-transparent"
+              style={{
+                boxShadow: '0 0 12px rgba(220,38,38,0.4)'
+              }}
+            />
+            <p className="text-[11.5px] uppercase tracking-[0.32em] text-white/60 font-medium">
               {validatedData.tagline}
             </p>
           </motion.div>
@@ -352,7 +357,7 @@ const HeroSection = memo(function HeroSection({
           </>
         )}
 
-        {/* Product Image */}
+        {/* Product Image - REFINED SCALE */}
         <div className="relative w-full -mt-40 mb-0 flex items-start justify-center">
           {!shouldReduceMotion && (
             <motion.div
@@ -372,7 +377,7 @@ const HeroSection = memo(function HeroSection({
           <img
             src="/images/footplate-hero.png"
             alt={validatedData.backgroundImageAlt}
-            className="w-[120%] max-w-[620px] h-auto object-contain relative z-10"
+            className="w-[112%] max-w-[620px] h-auto object-contain relative z-10"
             style={{
               filter: 'drop-shadow(0 40px 80px rgba(0,0,0,0.8)) drop-shadow(0 0 70px rgba(220,38,38,0.4))',
             }}
@@ -409,13 +414,23 @@ const HeroSection = memo(function HeroSection({
               ))}
             </div>
 
-            {/* Tagline */}
+            {/* Tagline - ENHANCED ACCENT */}
             <div className="flex items-center justify-center gap-3">
-              <div className="w-10 h-[1px] bg-gradient-to-r from-transparent via-red-500/60 to-transparent" />
-              <p className="text-[9px] tracking-[0.28em] text-white/50 uppercase leading-[1.6] font-medium">
+              <div 
+                className="w-12 h-[1.5px] bg-gradient-to-r from-transparent via-red-500/70 to-transparent"
+                style={{
+                  boxShadow: '0 0 10px rgba(220,38,38,0.35)'
+                }}
+              />
+              <p className="text-[9px] tracking-[0.28em] text-white/55 uppercase leading-[1.6] font-medium">
                 {validatedData.tagline}
               </p>
-              <div className="w-10 h-[1px] bg-gradient-to-r from-transparent via-red-500/60 to-transparent" />
+              <div 
+                className="w-12 h-[1.5px] bg-gradient-to-r from-transparent via-red-500/70 to-transparent"
+                style={{
+                  boxShadow: '0 0 10px rgba(220,38,38,0.35)'
+                }}
+              />
             </div>
           </div>
         </div>
