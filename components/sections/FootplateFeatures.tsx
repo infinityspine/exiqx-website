@@ -143,7 +143,7 @@ const FootplateFeatures = memo(function FootplateFeatures({
               Precision-Engineered
             </h3>
             <p className="relative text-white/60 leading-relaxed">
-              Hybrid aluminum and steel construction. CNC-machined to aerospace tolerances. Made in the USA.
+              Hybrid aluminum–steel construction. CNC-machined to aerospace-level tolerances. Built in the USA.
             </p>
           </motion.div>
 
@@ -181,7 +181,7 @@ const FootplateFeatures = memo(function FootplateFeatures({
               Adjustable 10° to 70°
             </h3>
             <p className="relative text-white/60 leading-relaxed">
-              User-tuned plantarflexion angles for every athlete, training objective, and rehabilitation phase
+              User-tuned plantarflexion angles for any athlete, training demand, or rehabilitation phase.
             </p>
           </motion.div>
         </motion.div>
