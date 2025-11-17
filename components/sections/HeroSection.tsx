@@ -227,7 +227,7 @@ const HeroSection = memo(function HeroSection({
         {/* PRODUCT IMAGE */}
         <motion.div
           style={{ y: heroImageY }}
-          className="pointer-events-none absolute right-[-1%] top-1/2 -translate-y-1/2 z-20"
+          className="pointer-events-none absolute right-[3%] top-[52%] -translate-y-1/2 z-20"
         >
           <div className="relative">
             <img
@@ -237,7 +237,7 @@ const HeroSection = memo(function HeroSection({
               style={{
                 filter:
                   'drop-shadow(0 40px 120px rgba(0,0,0,0.9)) drop-shadow(0 0 80px rgba(220,38,38,0.25))',
-                transform: 'scale(2.3)'
+                transform: 'scale(1.9)'
               }}
             />
           </div>
