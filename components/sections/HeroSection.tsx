@@ -226,14 +226,14 @@ const HeroSection = memo(function HeroSection({
 
         {/* PRODUCT IMAGE */}
         <motion.div
-          className="pointer-events-none absolute right-[8%] top-1/2 -translate-y-1/2 z-20 scale-[0.78]"
+          className="pointer-events-none absolute right-[2%] top-1/2 -translate-y-1/2 z-20 scale-[0.86]"
           style={{ y: heroImageY }}
         >
           <div className="relative">
             <img
               src="/images/footplate-hero.png"
               alt={validatedData.backgroundImageAlt}
-              className="relative w-[58vw] max-w-[1100px] h-auto"
+              className="relative w-[64vw] max-w-[1100px] h-auto"
               style={{
                 filter:
                   'drop-shadow(0 40px 120px rgba(0,0,0,0.9)) drop-shadow(0 0 80px rgba(220,38,38,0.25))',
