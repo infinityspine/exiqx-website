@@ -96,7 +96,7 @@ const FootplateFeatures = memo(function FootplateFeatures({
           </motion.h2>
           <motion.p 
             variants={fadeUp}
-            className="text-gray-400 max-w-3xl mx-auto font-inter text-center"
+            className="text-gray-400 max-w-4xl mx-auto font-inter text-center"
             style={{
               fontSize: 'clamp(1.05rem, 1.8vw, 1.25rem)',
               lineHeight: '1.65',
