@@ -125,7 +125,7 @@ const CTAButton = memo(function CTAButton({
 })
 
 // ============================================================================
-// MAIN HERO COMPONENT - ELITE VERSION
+// MAIN HERO COMPONENT - ELITE VERSION (PERFORMANCE OPTIMIZED)
 // ============================================================================
 
 const HeroSection = memo(function HeroSection({
@@ -175,71 +175,76 @@ const HeroSection = memo(function HeroSection({
       <div className="hidden lg:block relative h-screen overflow-hidden">
         <div className="absolute inset-0 bg-black" />
 
-        {/* ENHANCED GRADIENT ORB */}
+        {/* OPTIMIZED GRADIENT ORB - Simpler animation */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <motion.div
             animate={{
-              scale: [1, 1.2, 1],
-              opacity: [0.2, 0.35, 0.2],
+              opacity: [0.25, 0.35, 0.25],
             }}
             transition={{
-              duration: 8,
+              duration: 10,
               repeat: Infinity,
-              ease: "easeInOut"
+              ease: "linear"
             }}
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-gradient-radial from-red-600/40 via-red-900/15 to-transparent blur-3xl"
+            style={{ willChange: 'opacity' }}
           />
         </div>
 
-        {/* ENHANCED PARTICLES */}
+        {/* REDUCED PARTICLES - Only 8 for performance */}
         {!shouldReduceMotion && (
           <div className="absolute inset-0 pointer-events-none">
-            {[...Array(25)].map((_, i) => (
+            {[...Array(8)].map((_, i) => (
               <motion.div
                 key={i}
-                className="absolute w-1 h-1 bg-white/25 rounded-full"
+                className="absolute w-1 h-1 bg-white/20 rounded-full"
                 style={{
                   left: `${Math.random() * 100}%`,
                   top: `${Math.random() * 100}%`,
+                  willChange: 'transform, opacity'
                 }}
                 animate={{
-                  y: [0, -35, 0],
-                  opacity: [0, 1, 0],
+                  y: [0, -30, 0],
+                  opacity: [0, 0.8, 0],
                 }}
                 transition={{
-                  duration: 3 + Math.random() * 2,
+                  duration: 4 + Math.random() * 2,
                   repeat: Infinity,
-                  delay: Math.random() * 2,
+                  delay: Math.random() * 3,
+                  ease: "linear"
                 }}
               />
             ))}
           </div>
         )}
 
-        {/* PRODUCT IMAGE - MAXIMUM DRAMA & OVERLAP */}
+        {/* PRODUCT IMAGE - GPU ACCELERATED */}
         <motion.div
-          style={{ y: heroImageY }}
-          className="pointer-events-none absolute right-[-11%] top-1/2 -translate-y-1/2 z-20"
+          style={{ 
+            y: heroImageY,
+            willChange: 'transform',
+          }}
+          className="pointer-events-none absolute right-[-11%] top-1/2 -translate-y-1/2 z-20 will-change-transform"
         >
           <div className="relative">
-            {/* ANIMATED SPOTLIGHT */}
+            {/* SIMPLIFIED SPOTLIGHT - Less intensive */}
             {!shouldReduceMotion && (
               <motion.div
                 animate={{
-                  opacity: [0.35, 0.65, 0.35],
-                  scale: [1, 1.12, 1],
+                  opacity: [0.4, 0.6, 0.4],
                 }}
                 transition={{
-                  duration: 4,
+                  duration: 5,
                   repeat: Infinity,
-                  ease: "easeInOut"
+                  ease: "linear"
                 }}
-                className="absolute inset-0 bg-gradient-radial from-red-500/45 via-red-600/12 to-transparent blur-3xl"
+                className="absolute inset-0 bg-gradient-radial from-red-500/40 via-red-600/10 to-transparent blur-3xl"
                 style={{
-                  width: '125%',
-                  height: '125%',
-                  left: '-12%',
-                  top: '-12%',
+                  width: '120%',
+                  height: '120%',
+                  left: '-10%',
+                  top: '-10%',
+                  willChange: 'opacity'
                 }}
               />
             )}
@@ -250,15 +255,19 @@ const HeroSection = memo(function HeroSection({
               className="relative w-[80vw] max-w-[1200px] h-auto"
               style={{
                 filter: 'drop-shadow(0 50px 140px rgba(0,0,0,0.95)) drop-shadow(0 0 90px rgba(220,38,38,0.3))',
+                transform: 'translateZ(0)'
               }}
             />
           </div>
         </motion.div>
 
-        {/* MASSIVE HERO TEXT */}
+        {/* MASSIVE HERO TEXT - GPU ACCELERATED */}
         <motion.div
-          style={{ y: heroContentY }}
-          className="absolute left-[4%] top-1/2 -translate-y-[45%] z-30 max-w-[950px]"
+          style={{ 
+            y: heroContentY,
+            willChange: 'transform',
+          }}
+          className="absolute left-[4%] top-1/2 -translate-y-[45%] z-30 max-w-[950px] will-change-transform"
           variants={staggerChildren}
           initial="hidden"
           animate="visible"
@@ -268,16 +277,18 @@ const HeroSection = memo(function HeroSection({
             variants={fadeUp}
             className="text-[clamp(4rem,8.5vw,8rem)] font-black tracking-[-0.025em] uppercase leading-[0.92] font-display mb-32"
             style={{
-              textShadow: '0 6px 40px rgba(0,0,0,0.9), 0 0 80px rgba(220,38,38,0.35)'
+              textShadow: '0 6px 40px rgba(0,0,0,0.9), 0 0 80px rgba(220,38,38,0.35)',
+              transform: 'translateZ(0)'
             }}
           >
             {validatedData.headline}
           </motion.h1>
 
-          {/* ENHANCED SUBHEADLINE - MORE PRESENCE */}
+          {/* ENHANCED SUBHEADLINE */}
           <motion.p
             variants={fadeUp}
             className="text-[clamp(1.2rem,2.1vw,1.65rem)] font-medium text-white/92 leading-[1.65] mb-22 max-w-[650px]"
+            style={{ transform: 'translateZ(0)' }}
           >
             {validatedData.subheadline}
           </motion.p>
@@ -296,7 +307,7 @@ const HeroSection = memo(function HeroSection({
             ))}
           </motion.div>
 
-          {/* ELEVATED TAGLINE WITH STRONGER ACCENT */}
+          {/* TAGLINE */}
           <motion.div
             variants={fadeUp}
             className="flex items-center gap-4"
@@ -314,42 +325,45 @@ const HeroSection = memo(function HeroSection({
         </motion.div>
       </div>
 
-      {/* MOBILE - ELITE */}
+      {/* MOBILE - ELITE (OPTIMIZED) */}
       <div className="lg:hidden bg-[#0a0a0a]">
-        {/* Background Effects */}
+        {/* Simplified Background Effects */}
         {!shouldReduceMotion && (
           <>
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
               <motion.div
                 animate={{
-                  scale: [1, 1.3, 1],
-                  opacity: [0.35, 0.5, 0.35],
+                  opacity: [0.4, 0.5, 0.4],
                 }}
                 transition={{
-                  duration: 6,
+                  duration: 8,
                   repeat: Infinity,
-                  ease: "easeInOut"
+                  ease: "linear"
                 }}
                 className="absolute top-[30%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-radial from-red-600/50 via-red-900/20 to-transparent blur-3xl"
+                style={{ willChange: 'opacity' }}
               />
             </div>
+            {/* Reduced particles for mobile - only 5 */}
             <div className="absolute inset-0 pointer-events-none">
-              {[...Array(12)].map((_, i) => (
+              {[...Array(5)].map((_, i) => (
                 <motion.div
                   key={i}
-                  className="absolute w-0.5 h-0.5 bg-white/25 rounded-full"
+                  className="absolute w-0.5 h-0.5 bg-white/20 rounded-full"
                   style={{
                     left: `${Math.random() * 100}%`,
                     top: `${Math.random() * 100}%`,
+                    willChange: 'transform, opacity'
                   }}
                   animate={{
-                    y: [0, -25, 0],
-                    opacity: [0, 0.9, 0],
+                    y: [0, -20, 0],
+                    opacity: [0, 0.8, 0],
                   }}
                   transition={{
-                    duration: 3 + Math.random() * 2,
+                    duration: 4 + Math.random() * 2,
                     repeat: Infinity,
-                    delay: Math.random() * 2,
+                    delay: Math.random() * 3,
+                    ease: "linear"
                   }}
                 />
               ))}
@@ -357,20 +371,20 @@ const HeroSection = memo(function HeroSection({
           </>
         )}
 
-        {/* Product Image - REFINED SCALE */}
+        {/* Product Image - Optimized */}
         <div className="relative w-full -mt-40 mb-0 flex items-start justify-center">
           {!shouldReduceMotion && (
             <motion.div
               animate={{
-                opacity: [0.4, 0.7, 0.4],
-                scale: [1, 1.15, 1],
+                opacity: [0.5, 0.7, 0.5],
               }}
               transition={{
-                duration: 4,
+                duration: 5,
                 repeat: Infinity,
-                ease: "easeInOut"
+                ease: "linear"
               }}
               className="absolute inset-0 bg-gradient-radial from-red-500/40 via-red-600/15 to-transparent blur-3xl pointer-events-none"
+              style={{ willChange: 'opacity' }}
             />
           )}
           
@@ -380,6 +394,7 @@ const HeroSection = memo(function HeroSection({
             className="w-[112%] max-w-[620px] h-auto object-contain relative z-10"
             style={{
               filter: 'drop-shadow(0 40px 80px rgba(0,0,0,0.8)) drop-shadow(0 0 70px rgba(220,38,38,0.4))',
+              transform: 'translateZ(0)'
             }}
           />
         </div>
@@ -392,7 +407,8 @@ const HeroSection = memo(function HeroSection({
             <h1 
               className="text-[clamp(1.65rem,5.5vw,2.2rem)] leading-[1.06] font-black text-white tracking-tight mb-4"
               style={{
-                textShadow: '0 4px 40px rgba(0,0,0,0.9), 0 0 80px rgba(220,38,38,0.4)'
+                textShadow: '0 4px 40px rgba(0,0,0,0.9), 0 0 80px rgba(220,38,38,0.4)',
+                transform: 'translateZ(0)'
               }}
             >
               {validatedData.headline}
@@ -414,7 +430,7 @@ const HeroSection = memo(function HeroSection({
               ))}
             </div>
 
-            {/* Tagline - ENHANCED ACCENT */}
+            {/* Tagline */}
             <div className="flex items-center justify-center gap-3">
               <div 
                 className="w-12 h-[1.5px] bg-gradient-to-r from-transparent via-red-500/70 to-transparent"
