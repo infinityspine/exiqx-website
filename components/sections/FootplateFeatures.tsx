@@ -50,44 +50,6 @@ const FootplateFeatures = memo(function FootplateFeatures({
     }
   ]
 
-  // Enhanced card hover variants
-  const cardHoverVariants = {
-    hover: {
-      y: shouldReduceMotion ? 0 : -12,
-      borderColor: shouldReduceMotion ? undefined : 'rgba(220, 38, 38, 0.4)',
-      boxShadow: shouldReduceMotion ? undefined : '0 20px 60px rgba(220, 38, 38, 0.15), 0 0 40px rgba(220, 38, 38, 0.1)',
-      transition: {
-        duration: 0.3,
-        ease: [0.77, 0, 0.175, 1]
-      }
-    }
-  }
-
-  // Icon container variants
-  const iconVariants = {
-    initial: { scale: 1, rotate: 0 },
-    hover: {
-      scale: shouldReduceMotion ? 1 : 1.15,
-      rotate: shouldReduceMotion ? 0 : 8,
-      transition: {
-        duration: 0.3,
-        ease: [0.77, 0, 0.175, 1]
-      }
-    }
-  }
-
-  // Icon glow variants
-  const iconGlowVariants = {
-    initial: { opacity: 0.3, scale: 1 },
-    hover: {
-      opacity: shouldReduceMotion ? 0.3 : 0.7,
-      scale: shouldReduceMotion ? 1 : 1.2,
-      transition: {
-        duration: 0.3
-      }
-    }
-  }
-
   return (
     <section
       id="features"
@@ -164,12 +126,18 @@ const FootplateFeatures = memo(function FootplateFeatures({
               <motion.div
                 key={index}
                 variants={fadeUp}
-                whileHover="hover"
-                initial="initial"
                 className="group flex"
               >
                 <motion.div
-                  variants={cardHoverVariants}
+                  whileHover={shouldReduceMotion ? {} : {
+                    y: -12,
+                    borderColor: 'rgba(220, 38, 38, 0.4)',
+                    boxShadow: '0 20px 60px rgba(220, 38, 38, 0.15), 0 0 40px rgba(220, 38, 38, 0.1)',
+                    transition: {
+                      duration: 0.3,
+                      ease: [0.77, 0, 0.175, 1]
+                    }
+                  }}
                   className="bg-[#0F0F0F] border border-red-500/20 rounded-2xl transition-all duration-300 flex flex-col justify-between w-full relative overflow-hidden"
                   style={{
                     padding: 'clamp(2rem, 3.5vw, 2.75rem)',
@@ -184,7 +152,14 @@ const FootplateFeatures = memo(function FootplateFeatures({
                     {/* Icon Container - Elite Treatment */}
                     <div className="relative">
                       <motion.div
-                        variants={iconVariants}
+                        whileHover={shouldReduceMotion ? {} : {
+                          scale: 1.15,
+                          rotate: 8,
+                          transition: {
+                            duration: 0.3,
+                            ease: [0.77, 0, 0.175, 1]
+                          }
+                        }}
                         className="bg-gradient-to-br from-red-600/20 to-red-600/10 backdrop-blur-sm rounded-xl flex items-center justify-center relative"
                         style={{
                           width: 'clamp(3.5rem, 6vw, 4rem)',
@@ -196,7 +171,12 @@ const FootplateFeatures = memo(function FootplateFeatures({
                       >
                         {/* Glow effect behind icon */}
                         <motion.div
-                          variants={iconGlowVariants}
+                          initial={{ opacity: 0.3, scale: 1 }}
+                          whileHover={shouldReduceMotion ? {} : {
+                            opacity: 0.7,
+                            scale: 1.2,
+                            transition: { duration: 0.3 }
+                          }}
                           className="absolute inset-0 bg-red-600/40 rounded-xl blur-xl"
                         />
                         
