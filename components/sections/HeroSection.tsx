@@ -41,7 +41,7 @@ interface HeroSectionProps {
 }
 
 // ============================================================================
-// DEFAULT CONTENT (UPDATED PHRASE)
+// DEFAULT CONTENT - ELITE COPY
 // ============================================================================
 
 const DEFAULT_CONTENT = {
@@ -49,11 +49,7 @@ const DEFAULT_CONTENT = {
   backgroundImage: '/hero-footplate.jpg',
   backgroundImageAlt: 'ExIQx Performance rack-mounted footplate in professional gym setting',
   headline: 'Patent-Protected Closed-Chain Forefoot Training.',
-
-  // UPDATED LINE — ONLY CHANGE REQUESTED
-  subheadline:
-    'Engineered for elite performance. Clinically validated. Trusted by athletes who refuse compromise.',
-
+  subheadline: 'Engineered for elite performance. Clinically validated. Trusted by athletes who refuse compromise.',
   subheadlineAccent: undefined,
   tagline: 'Patent-Protected • Precision-Engineered • Built in Arizona',
   ctaButtons: [
@@ -78,22 +74,18 @@ const DEFAULT_CONTENT = {
 
 const createButtonAnimations = (shouldReduce: boolean) => ({
   primary: {
-    whileHover: shouldReduce
-      ? {}
-      : {
-          scale: 1.05,
-          boxShadow: '0 10px 30px rgba(220,38,38,0.55)'
-        },
+    whileHover: shouldReduce ? {} : {
+      scale: 1.05,
+      boxShadow: '0 10px 30px rgba(220,38,38,0.55)'
+    },
     whileTap: shouldReduce ? {} : { scale: 0.96 }
   },
   secondary: {
-    whileHover: shouldReduce
-      ? {}
-      : {
-          scale: 1.05,
-          backgroundColor: 'rgba(255,255,255,0.14)',
-          borderColor: 'rgba(255,255,255,0.9)'
-        },
+    whileHover: shouldReduce ? {} : {
+      scale: 1.05,
+      backgroundColor: 'rgba(255,255,255,0.14)',
+      borderColor: 'rgba(255,255,255,0.9)'
+    },
     whileTap: shouldReduce ? {} : { scale: 0.96 }
   }
 })
@@ -102,12 +94,12 @@ const createButtonAnimations = (shouldReduce: boolean) => ({
 // CTA BUTTON COMPONENT
 // ============================================================================
 
-const CTAButton = memo(function CTAButton({
-  button,
-  shouldReduceMotion
-}: {
+const CTAButton = memo(function CTAButton({ 
+  button, 
+  shouldReduceMotion 
+}: { 
   button: z.infer<typeof CTAButtonSchema>
-  shouldReduceMotion: boolean
+  shouldReduceMotion: boolean 
 }) {
   const animations = createButtonAnimations(shouldReduceMotion)
   const isPrimary = button.variant === 'primary'
@@ -121,10 +113,9 @@ const CTAButton = memo(function CTAButton({
         rounded-xl px-8 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] 
         transition-all duration-300
         focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-black
-        ${
-          isPrimary
-            ? 'bg-gradient-to-r from-red-600 to-red-700 text-white hover:from-red-500 hover:to-red-600 shadow-2xl shadow-red-500/30'
-            : 'border border-white/20 bg-transparent text-white hover:bg-white/10 hover:border-white/40'
+        ${isPrimary 
+          ? 'bg-gradient-to-r from-red-600 to-red-700 text-white hover:from-red-500 hover:to-red-600 shadow-2xl shadow-red-500/30'
+          : 'border border-white/20 bg-transparent text-white hover:bg-white/10 hover:border-white/40'
         }
       `}
     >
@@ -134,7 +125,7 @@ const CTAButton = memo(function CTAButton({
 })
 
 // ============================================================================
-// MAIN HERO COMPONENT
+// MAIN HERO COMPONENT - ELITE VERSION
 // ============================================================================
 
 const HeroSection = memo(function HeroSection({
@@ -145,14 +136,15 @@ const HeroSection = memo(function HeroSection({
   subheadline = DEFAULT_CONTENT.subheadline,
   subheadlineAccent = DEFAULT_CONTENT.subheadlineAccent,
   tagline = DEFAULT_CONTENT.tagline,
-  ctaButtons = DEFAULT_CONTENT.ctaButtons
+  ctaButtons = DEFAULT_CONTENT.ctaButtons,
 }: HeroSectionProps) {
+  
   const shouldReduceMotion = !!useReducedMotion()
   const containerRef = useRef<HTMLElement>(null)
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ['start start', 'end start']
+    offset: ['start start', 'end start'],
   })
 
   const heroImageY = shouldReduceMotion ? undefined : useParallax(scrollYProgress, 60)
@@ -179,135 +171,245 @@ const HeroSection = memo(function HeroSection({
       animate="visible"
       variants={heroFade}
     >
-      {/* DESKTOP HERO */}
+      {/* DESKTOP - ELITE */}
       <div className="hidden lg:block relative h-screen overflow-hidden">
         <div className="absolute inset-0 bg-black" />
 
-        {/* BACKGROUND ORB */}
+        {/* ENHANCED GRADIENT ORB */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <motion.div
             animate={{
               scale: [1, 1.2, 1],
-              opacity: [0.15, 0.25, 0.15]
+              opacity: [0.2, 0.35, 0.2],
             }}
             transition={{
               duration: 8,
               repeat: Infinity,
-              ease: 'easeInOut'
+              ease: "easeInOut"
             }}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-red-600/30 via-red-900/10 to-transparent blur-3xl"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-gradient-radial from-red-600/40 via-red-900/15 to-transparent blur-3xl"
           />
         </div>
 
-        {/* FLOATING PARTICLES */}
+        {/* ENHANCED PARTICLES */}
         {!shouldReduceMotion && (
           <div className="absolute inset-0 pointer-events-none">
-            {[...Array(20)].map((_, i) => (
+            {[...Array(25)].map((_, i) => (
               <motion.div
                 key={i}
-                className="absolute w-1 h-1 bg-white/20 rounded-full"
+                className="absolute w-1 h-1 bg-white/25 rounded-full"
                 style={{
                   left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`
+                  top: `${Math.random() * 100}%`,
                 }}
                 animate={{
-                  y: [0, -30, 0],
-                  opacity: [0, 1, 0]
+                  y: [0, -35, 0],
+                  opacity: [0, 1, 0],
                 }}
                 transition={{
                   duration: 3 + Math.random() * 2,
                   repeat: Infinity,
-                  delay: Math.random() * 2
+                  delay: Math.random() * 2,
                 }}
               />
             ))}
           </div>
         )}
 
-        {/* PRODUCT IMAGE */}
+        {/* PRODUCT IMAGE - MASSIVE SCALE & DRAMATIC OVERLAP */}
         <motion.div
-          className="pointer-events-none absolute right-[2%] top-1/2 -translate-y-1/2 z-20 scale-[0.86]"
           style={{ y: heroImageY }}
+          className="pointer-events-none absolute right-[-8%] top-1/2 -translate-y-1/2 z-20"
         >
           <div className="relative">
+            {/* ANIMATED SPOTLIGHT */}
+            {!shouldReduceMotion && (
+              <motion.div
+                animate={{
+                  opacity: [0.35, 0.65, 0.35],
+                  scale: [1, 1.12, 1],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+                className="absolute inset-0 bg-gradient-radial from-red-500/45 via-red-600/12 to-transparent blur-3xl"
+                style={{
+                  width: '125%',
+                  height: '125%',
+                  left: '-12%',
+                  top: '-12%',
+                }}
+              />
+            )}
+            
             <img
               src="/images/footplate-hero.png"
               alt={validatedData.backgroundImageAlt}
-              className="relative w-[64vw] max-w-[1100px] h-auto"
+              className="relative w-[80vw] max-w-[1200px] h-auto"
               style={{
-                filter:
-                  'drop-shadow(0 40px 120px rgba(0,0,0,0.9)) drop-shadow(0 0 80px rgba(220,38,38,0.25))',
-                transform: 'scale(1.48)'
+                filter: 'drop-shadow(0 50px 140px rgba(0,0,0,0.95)) drop-shadow(0 0 90px rgba(220,38,38,0.3))',
               }}
             />
           </div>
         </motion.div>
 
-        {/* HERO TEXT */}
+        {/* MASSIVE HERO TEXT */}
         <motion.div
           style={{ y: heroContentY }}
-          className="absolute left-[5%] top-1/2 -translate-y-[45%] z-30 max-w-[840px]"
+          className="absolute left-[4%] top-1/2 -translate-y-[45%] z-30 max-w-[950px]"
           variants={staggerChildren}
+          initial="hidden"
+          animate="visible"
         >
+          {/* GIANT HEADLINE */}
           <motion.h1
             variants={fadeUp}
-            className="text-[clamp(3.5rem,7.5vw,7rem)] font-black tracking-[-0.02em] uppercase leading-[0.95] font-display mb-28"
+            className="text-[clamp(4rem,8.5vw,8rem)] font-black tracking-[-0.025em] uppercase leading-[0.92] font-display mb-32"
+            style={{
+              textShadow: '0 6px 40px rgba(0,0,0,0.9), 0 0 80px rgba(220,38,38,0.35)'
+            }}
           >
             {validatedData.headline}
           </motion.h1>
 
+          {/* REFINED SUBHEADLINE */}
           <motion.p
             variants={fadeUp}
-            className="text-[clamp(1.1rem,1.8vw,1.4rem)] font-medium text-white/90 leading-[1.7] mb-20 max-w-[600px]"
+            className="text-[clamp(1.15rem,2vw,1.5rem)] font-medium text-white/92 leading-[1.65] mb-22 max-w-[650px]"
           >
             {validatedData.subheadline}
           </motion.p>
 
-          <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-5 mb-20">
-            {validatedData.ctaButtons.map(button => (
-              <CTAButton key={button.href} button={button} shouldReduceMotion={shouldReduceMotion} />
+          {/* CTAs */}
+          <motion.div
+            variants={fadeUp}
+            className="flex flex-wrap items-center gap-5 mb-22"
+          >
+            {validatedData.ctaButtons.map((button) => (
+              <CTAButton
+                key={button.href}
+                button={button}
+                shouldReduceMotion={shouldReduceMotion}
+              />
             ))}
           </motion.div>
 
-          <motion.div variants={fadeUp} className="flex items-center gap-4">
-            <div className="w-12 h-[1px] bg-gradient-to-r from-red-500/60 to-transparent" />
-            <p className="text-[11px] uppercase tracking-[0.3em] text-white/50 font-medium">
+          {/* REFINED TAGLINE */}
+          <motion.div
+            variants={fadeUp}
+            className="flex items-center gap-4"
+          >
+            <div className="w-14 h-[1px] bg-gradient-to-r from-red-500/70 to-transparent" />
+            <p className="text-[11.5px] uppercase tracking-[0.32em] text-white/55 font-medium">
               {validatedData.tagline}
             </p>
           </motion.div>
         </motion.div>
       </div>
 
-      {/* MOBILE HERO */}
-      <div className="lg:hidden bg-[#0a0a0a] relative">
+      {/* MOBILE - ELITE */}
+      <div className="lg:hidden bg-[#0a0a0a]">
+        {/* Background Effects */}
+        {!shouldReduceMotion && (
+          <>
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+              <motion.div
+                animate={{
+                  scale: [1, 1.3, 1],
+                  opacity: [0.35, 0.5, 0.35],
+                }}
+                transition={{
+                  duration: 6,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+                className="absolute top-[30%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-radial from-red-600/50 via-red-900/20 to-transparent blur-3xl"
+              />
+            </div>
+            <div className="absolute inset-0 pointer-events-none">
+              {[...Array(12)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  className="absolute w-0.5 h-0.5 bg-white/25 rounded-full"
+                  style={{
+                    left: `${Math.random() * 100}%`,
+                    top: `${Math.random() * 100}%`,
+                  }}
+                  animate={{
+                    y: [0, -25, 0],
+                    opacity: [0, 0.9, 0],
+                  }}
+                  transition={{
+                    duration: 3 + Math.random() * 2,
+                    repeat: Infinity,
+                    delay: Math.random() * 2,
+                  }}
+                />
+              ))}
+            </div>
+          </>
+        )}
+
+        {/* Product Image */}
         <div className="relative w-full -mt-40 mb-0 flex items-start justify-center">
+          {!shouldReduceMotion && (
+            <motion.div
+              animate={{
+                opacity: [0.4, 0.7, 0.4],
+                scale: [1, 1.15, 1],
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              className="absolute inset-0 bg-gradient-radial from-red-500/40 via-red-600/15 to-transparent blur-3xl pointer-events-none"
+            />
+          )}
+          
           <img
             src="/images/footplate-hero.png"
             alt={validatedData.backgroundImageAlt}
             className="w-[120%] max-w-[620px] h-auto object-contain relative z-10"
             style={{
-              filter:
-                'drop-shadow(0 40px 80px rgba(0,0,0,0.8)) drop-shadow(0 0 70px rgba(220,38,38,0.4))'
+              filter: 'drop-shadow(0 40px 80px rgba(0,0,0,0.8)) drop-shadow(0 0 70px rgba(220,38,38,0.4))',
             }}
           />
         </div>
 
+        {/* Text Content */}
         <div className="relative px-6 pb-8 -mt-44">
           <div className="max-w-xl mx-auto text-center">
-            <h1 className="text-[clamp(1.65rem,5.5vw,2.2rem)] leading-[1.06] font-black text-white tracking-tight mb-4">
+            
+            {/* Headline */}
+            <h1 
+              className="text-[clamp(1.65rem,5.5vw,2.2rem)] leading-[1.06] font-black text-white tracking-tight mb-4"
+              style={{
+                textShadow: '0 4px 40px rgba(0,0,0,0.9), 0 0 80px rgba(220,38,38,0.4)'
+              }}
+            >
               {validatedData.headline}
             </h1>
 
+            {/* Subheadline */}
             <p className="text-[clamp(0.92rem,2.9vw,1.02rem)] text-white/88 leading-[1.58] mb-9">
               {validatedData.subheadline}
             </p>
 
+            {/* CTAs */}
             <div className="flex flex-col gap-4 mb-12">
-              {validatedData.ctaButtons.map(button => (
-                <CTAButton key={button.href} button={button} shouldReduceMotion={shouldReduceMotion} />
+              {validatedData.ctaButtons.map((button) => (
+                <CTAButton
+                  key={button.href}
+                  button={button}
+                  shouldReduceMotion={shouldReduceMotion}
+                />
               ))}
             </div>
 
+            {/* Tagline */}
             <div className="flex items-center justify-center gap-3">
               <div className="w-10 h-[1px] bg-gradient-to-r from-transparent via-red-500/60 to-transparent" />
               <p className="text-[9px] tracking-[0.28em] text-white/50 uppercase leading-[1.6] font-medium">
