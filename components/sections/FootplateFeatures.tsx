@@ -59,7 +59,7 @@ const FootplateFeatures = memo(function FootplateFeatures({
             variants={fadeUp}
             className="text-lg text-white/70 leading-relaxed"
           >
-            Patent-protected commercial-grade equipment engineered for D1 programs, PT clinics, and professional training facilities
+            Precision-engineered, patent-protected equipment for professional teams, collegiate athletics, elite high-school programs, and clinical facilities.
           </motion.p>
         </motion.div>
 
@@ -105,7 +105,7 @@ const FootplateFeatures = memo(function FootplateFeatures({
               Authentic Ground-Force Mechanics
             </h3>
             <p className="relative text-white/60 leading-relaxed">
-              Routes force through the plantar surface—mirroring the closed-chain vector of sprinting and jumping
+              Routes force through the forefoot to preserve the natural closed-chain vector of sprinting, jumping, and directional changes.
             </p>
           </motion.div>
 
