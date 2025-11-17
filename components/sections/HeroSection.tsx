@@ -226,8 +226,8 @@ const HeroSection = memo(function HeroSection({
 
         {/* PRODUCT IMAGE */}
         <motion.div
+          className="pointer-events-none absolute right-[-5%] top-1/2 -translate-y-1/2 z-20 scale-[1.34]"
           style={{ y: heroImageY }}
-          className="pointer-events-none absolute right-[2%] top-1/2 -translate-y-1/2 z-20"
         >
           <div className="relative">
             <img
