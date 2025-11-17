@@ -52,7 +52,7 @@ const DEFAULT_CONTENT = {
 
   // UPDATED LINE — ONLY CHANGE REQUESTED
   subheadline:
-    'Engineered for elite performance. Validated by clinicians. Trusted by athletes who refuse compromise.',
+    'Engineered for elite performance. Clinically validated. Trusted by athletes who refuse compromise.',
 
   subheadlineAccent: undefined,
   tagline: 'Patent-Protected • Precision-Engineered • Built in Arizona',
@@ -227,7 +227,7 @@ const HeroSection = memo(function HeroSection({
         {/* PRODUCT IMAGE */}
         <motion.div
           style={{ y: heroImageY }}
-          className="pointer-events-none absolute right-[-5%] top-1/2 -translate-y-1/2 z-20"
+          className="pointer-events-none absolute right-[-1%] top-1/2 -translate-y-1/2 z-20"
         >
           <div className="relative">
             <img
@@ -236,7 +236,8 @@ const HeroSection = memo(function HeroSection({
               className="relative w-[75vw] max-w-[1100px] h-auto"
               style={{
                 filter:
-                  'drop-shadow(0 40px 120px rgba(0,0,0,0.9)) drop-shadow(0 0 80px rgba(220,38,38,0.25))'
+                  'drop-shadow(0 40px 120px rgba(0,0,0,0.9)) drop-shadow(0 0 80px rgba(220,38,38,0.25))',
+                transform: 'scale(2.3)'
               }}
             />
           </div>
@@ -245,7 +246,7 @@ const HeroSection = memo(function HeroSection({
         {/* HERO TEXT */}
         <motion.div
           style={{ y: heroContentY }}
-          className="absolute left-[5%] top-1/2 -translate-y-[45%] z-30 max-w-[920px]"
+          className="absolute left-[5%] top-1/2 -translate-y-[45%] z-30 max-w-[840px]"
           variants={staggerChildren}
         >
           <motion.h1
