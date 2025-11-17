@@ -101,7 +101,7 @@ const FootplateFeatures = memo(function FootplateFeatures({
               <div className="h-7 w-7 rounded bg-red-500" aria-hidden="true" />
               <div className="absolute inset-0 rounded-2xl bg-red-500/10 blur-xl" aria-hidden="true" />
             </motion.div>
-            <h3 className="relative mb-2 font-display text-xl font-bold uppercase tracking-[0.03em] tracking-wide text-white transition-colors duration-300 group-hover:text-red-400">
+            <h3 className="relative mb-2 font-display text-xl font-bold uppercase tracking-wide text-white transition-colors duration-300 group-hover:text-red-400">
               Authentic Ground-Force Mechanics
             </h3>
             <p className="relative text-white/60 leading-relaxed">
@@ -139,7 +139,7 @@ const FootplateFeatures = memo(function FootplateFeatures({
               <div className="h-7 w-7 rounded bg-red-500" aria-hidden="true" />
               <div className="absolute inset-0 rounded-2xl bg-red-500/10 blur-xl" aria-hidden="true" />
             </motion.div>
-            <h3 className="relative mb-2 font-display text-xl font-bold uppercase tracking-[0.03em] text-white transition-colors duration-300 group-hover:text-red-400">
+            <h3 className="relative mb-2 font-display text-xl font-bold uppercase tracking-wide text-white transition-colors duration-300 group-hover:text-red-400">
               Precision-Engineered
             </h3>
             <p className="relative text-white/60 leading-relaxed">
@@ -177,8 +177,8 @@ const FootplateFeatures = memo(function FootplateFeatures({
               <div className="h-7 w-7 rounded bg-red-500" aria-hidden="true" />
               <div className="absolute inset-0 rounded-2xl bg-red-500/10 blur-xl" aria-hidden="true" />
             </motion.div>
-            <h3 className="relative mb-2 font-display text-xl font-bold uppercase tracking-[0.03em] text-white transition-colors duration-300 group-hover:text-red-400">
-              Adjustable 10° to 70°
+            <h3 className="relative mb-2 font-display text-xl font-bold uppercase tracking-wide text-white transition-colors duration-300 group-hover:text-red-400">
+              Adjustable 10°–70°
             </h3>
             <p className="relative text-white/60 leading-relaxed">
               User-tuned plantarflexion angles for any athlete, training demand, or rehabilitation phase.
