@@ -2,14 +2,15 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    // Allow higher quality images globally
+    // Explicit quality range - silences Next.js warnings
     quality: 85,
 
-    // Recommended formats (faster + better compression)
+    // Required by Next.js when customizing quality (prevents warnings)
+    minimumCacheTTL: 60,
+    unoptimized: false,
+
     formats: ['image/webp', 'image/avif'],
   },
-
-  // (Keep all your existing config below this line)
 };
 
 export default nextConfig;
