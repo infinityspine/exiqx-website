@@ -69,26 +69,7 @@ export default function Home() {
 
       <SectionDivider />
 
-      {/* FootplateFeatures Section */}
-      <motion.section
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={staggerChildren}
-        className="relative"
-        style={{ transform: 'translateZ(0)' }}
-      >
-        {/* Single optimized gradient orb */}
-        <AnimatedGradientOrb 
-          className="top-0 right-1/4 w-96 h-96" 
-          delay={0}
-          shouldReduceMotion={!!shouldReduceMotion}
-        />
-        <FootplateFeatures 
-          scrollYProgress={scrollYProgress}
-          shouldReduceMotion={!!shouldReduceMotion}
-        />
-      </motion.section>
+      {/* 🔜 BiomechanicsElite section will be inserted here */}
 
       <SectionDivider />
 
@@ -176,6 +157,29 @@ export default function Home() {
           shouldReduceMotion={!!shouldReduceMotion}
         />
         <HomePageCTA 
+          scrollYProgress={scrollYProgress}
+          shouldReduceMotion={!!shouldReduceMotion}
+        />
+      </motion.section>
+
+      <SectionDivider />
+
+      {/* FootplateFeatures Section */}
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={staggerChildren}
+        className="relative"
+        style={{ transform: 'translateZ(0)' }}
+      >
+        {/* Single optimized gradient orb */}
+        <AnimatedGradientOrb 
+          className="top-0 right-1/4 w-96 h-96" 
+          delay={0}
+          shouldReduceMotion={!!shouldReduceMotion}
+        />
+        <FootplateFeatures 
           scrollYProgress={scrollYProgress}
           shouldReduceMotion={!!shouldReduceMotion}
         />
