@@ -163,6 +163,52 @@ export default function Home() {
 
       <SectionDivider />
 
+      {/* Ground Force Vector Advantage Section */}
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={staggerChildren}
+        className="relative"
+        style={{ transform: 'translateZ(0)' }}
+      >
+        {/* Gradient orb */}
+        <AnimatedGradientOrb 
+          className="top-1/4 right-0 w-96 h-96"
+          delay={0.8}
+          shouldReduceMotion={!!shouldReduceMotion}
+        />
+        <GroundForceVectorAdvantage 
+          scrollYProgress={scrollYProgress}
+          shouldReduceMotion={!!shouldReduceMotion}
+        />
+      </motion.section>
+
+      <SectionDivider />
+
+      {/* Why Nordics Fail Section */}
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={staggerChildren}
+        className="relative"
+        style={{ transform: 'translateZ(0)' }}
+      >
+        {/* Gradient orb */}
+        <AnimatedGradientOrb 
+          className="top-0 left-1/3 w-72 h-72"
+          delay={1.2}
+          shouldReduceMotion={!!shouldReduceMotion}
+        />
+        <WhyNordicsFail 
+          scrollYProgress={scrollYProgress}
+          shouldReduceMotion={!!shouldReduceMotion}
+        />
+      </motion.section>
+
+      <SectionDivider />
+
       {/* UseCases Section */}
       <motion.section
         initial="hidden"
