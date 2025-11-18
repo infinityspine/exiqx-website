@@ -95,7 +95,7 @@ export default function Home() {
 
       <SectionDivider />
 
-      {/* Forefoot Torque Advantage Section */}
+      {/* Forefoot Lever Torque Advantage Section */}
       <motion.section
         initial="hidden"
         whileInView="visible"
@@ -110,7 +110,7 @@ export default function Home() {
           delay={0.6}
           shouldReduceMotion={!!shouldReduceMotion}
         />
-        <ForefootTorqueAdvantage 
+        <ForefootLeverTorqueAdvantage 
           scrollYProgress={scrollYProgress}
           shouldReduceMotion={!!shouldReduceMotion}
         />
@@ -135,29 +135,6 @@ export default function Home() {
         />
 
         <ForefootMechanicsDiagram />
-      </motion.section>
-
-      <SectionDivider />
-
-      {/* LeverArmAdvantage Section */}
-      <motion.section
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={staggerChildren}
-        className="relative"
-        style={{ transform: 'translateZ(0)' }}
-      >
-        {/* Single optimized gradient orb */}
-        <AnimatedGradientOrb 
-          className="top-1/2 left-1/2 w-96 h-96" 
-          delay={0.75}
-          shouldReduceMotion={!!shouldReduceMotion}
-        />
-        <LeverArmAdvantage 
-          scrollYProgress={scrollYProgress}
-          shouldReduceMotion={!!shouldReduceMotion}
-        />
       </motion.section>
 
       <SectionDivider />
