@@ -66,9 +66,8 @@ const FootplateFeatures = memo(function FootplateFeatures({
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative">
         {/* Section Header */}
         <motion.div 
-          className="text-center"
+          className="mb-[clamp(2rem,5vw,4rem)] text-center"
           style={{
-            marginBottom: 'clamp(3rem, 6vw, 5rem)',
             paddingLeft: 'clamp(1.5rem, 4vw, 3rem)',
             paddingRight: 'clamp(1.5rem, 4vw, 3rem)',
           }}
@@ -80,22 +79,18 @@ const FootplateFeatures = memo(function FootplateFeatures({
           <motion.h2
             id="features-heading"
             variants={fadeUp}
-            className="text-white font-black font-montserrat uppercase tracking-tight"
+            className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-[0.05em] text-white"
             style={{
-              fontSize: 'clamp(2.2rem, 4.5vw, 3.5rem)',
-              lineHeight: '1.05',
-              letterSpacing: '-0.02em',
-              marginBottom: 'clamp(1.2rem, 2.5vw, 1.8rem)',
+              transform: 'translateZ(0)'
             }}
           >
             Technical Specifications
           </motion.h2>
           <motion.p 
             variants={fadeUp}
-            className="text-gray-400 mx-auto font-inter text-center"
+            className="mt-4 text-base sm:text-lg text-white/70 leading-relaxed max-w-prose mx-auto"
             style={{
-              fontSize: 'clamp(1.05rem, 1.8vw, 1.25rem)',
-              lineHeight: '1.65',
+              transform: 'translateZ(0)'
             }}
           >
             Precision-engineered, patent-protected equipment for professional teams, collegiate athletics, elite high-school programs, and clinical facilities.
