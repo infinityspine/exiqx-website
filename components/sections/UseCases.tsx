@@ -19,7 +19,7 @@ const UseCases = memo(function UseCases({
   return (
     <section
       id="use-cases"
-      className="relative min-h-screen bg-black px-6 py-[clamp(4rem,10vw,7rem)]"
+      className="relative min-h-screen bg-black py-[clamp(4rem,10vw,7rem)]"
       aria-labelledby="use-cases-heading"
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative">
