@@ -5,6 +5,7 @@ import { fadeUp, staggerChildren } from '@/lib/motionPresets'
 import SectionDivider from '@/components/ui/SectionDivider'
 import HeroSection from '@/components/sections/HeroSection'
 import FootplateFeatures from '@/components/sections/FootplateFeatures'
+import LeverArmAdvantage from '@/components/sections/LeverArmAdvantage'
 import UseCases from '@/components/sections/UseCases'
 import Testimonials from '@/components/sections/Testimonials'
 import HomePageCTA from '@/components/sections/HomePageCTA'
@@ -84,6 +85,29 @@ export default function Home() {
           shouldReduceMotion={!!shouldReduceMotion}
         />
         <FootplateFeatures 
+          scrollYProgress={scrollYProgress}
+          shouldReduceMotion={!!shouldReduceMotion}
+        />
+      </motion.section>
+
+      <SectionDivider />
+
+      {/* LeverArmAdvantage Section */}
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={staggerChildren}
+        className="relative"
+        style={{ transform: 'translateZ(0)' }}
+      >
+        {/* Single optimized gradient orb */}
+        <AnimatedGradientOrb 
+          className="top-1/2 left-1/2 w-96 h-96" 
+          delay={0.75}
+          shouldReduceMotion={!!shouldReduceMotion}
+        />
+        <LeverArmAdvantage 
           scrollYProgress={scrollYProgress}
           shouldReduceMotion={!!shouldReduceMotion}
         />
