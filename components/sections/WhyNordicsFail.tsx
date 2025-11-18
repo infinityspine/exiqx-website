@@ -128,17 +128,6 @@ const WhyNordicsFail = memo(function WhyNordicsFail({
               </motion.div>
             ))}
           </motion.div>
-
-          {/* Final Centered Line */}
-          <motion.p
-            variants={fadeUp}
-            className="text-white/60 text-center text-base lg:text-lg font-light"
-            style={{
-              marginTop: 'clamp(2rem, 4vw, 3rem)'
-            }}
-          >
-            Your footplate corrects all three foundational biomechanical flaws.
-          </motion.p>
         </motion.div>
       </div>
     </section>
