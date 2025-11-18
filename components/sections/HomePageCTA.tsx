@@ -46,7 +46,7 @@ const CTASection = memo(function CTASection({
         aria-hidden="true"
       />
 
-      <div className="relative mx-auto max-w-4xl text-center">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 relative text-center">
         {/* Section Header */}
         <motion.div 
           className="mb-12"

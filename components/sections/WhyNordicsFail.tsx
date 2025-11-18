@@ -47,7 +47,7 @@ const WhyNordicsFail = memo(function WhyNordicsFail({
         />
       </div>
 
-      <div className="mx-auto max-w-6xl px-6 relative">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 relative">
         <motion.div
           initial="hidden"
           whileInView="visible"

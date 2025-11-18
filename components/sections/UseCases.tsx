@@ -22,7 +22,7 @@ const UseCases = memo(function UseCases({
       className="relative min-h-screen bg-black px-6 py-[clamp(4rem,10vw,7rem)]"
       aria-labelledby="use-cases-heading"
     >
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 relative">
         {/* Section Header */}
         <motion.div 
           className="mb-16 text-center"

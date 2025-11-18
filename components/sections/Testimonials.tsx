@@ -35,7 +35,7 @@ const Testimonials = memo(function Testimonials({
       className="relative min-h-screen bg-[#050505] px-6 py-[clamp(4rem,10vw,7rem)]"
       aria-labelledby="testimonials-heading"
     >
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 relative">
         {/* Section Header */}
         <motion.div 
           className="mb-16 text-center"
