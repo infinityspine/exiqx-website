@@ -5,9 +5,6 @@ import { fadeUp, staggerChildren } from '@/lib/motionPresets'
 import SectionDivider from '@/components/ui/SectionDivider'
 import HeroSection from '@/components/sections/HeroSection'
 import FootplateFeatures from '@/components/sections/FootplateFeatures'
-import ForefootLeverTorqueAdvantage from '@/components/sections/ForefootLeverTorqueAdvantage'
-import ForefootMechanicsDiagram from '@/components/sections/ForefootMechanicsDiagram'
-import GroundForceVectorAdvantage from '@/components/sections/GroundForceVectorAdvantage'
 import WhyNordicsFail from '@/components/sections/WhyNordicsFail'
 import UseCases from '@/components/sections/UseCases'
 import Testimonials from '@/components/sections/Testimonials'
@@ -88,73 +85,6 @@ export default function Home() {
           shouldReduceMotion={!!shouldReduceMotion}
         />
         <FootplateFeatures 
-          scrollYProgress={scrollYProgress}
-          shouldReduceMotion={!!shouldReduceMotion}
-        />
-      </motion.section>
-
-      <SectionDivider />
-
-      {/* Forefoot Lever Torque Advantage Section */}
-      <motion.section
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={staggerChildren}
-        className="relative"
-        style={{ transform: 'translateZ(0)' }}
-      >
-        {/* Gradient orb */}
-        <AnimatedGradientOrb 
-          className="top-1/2 left-1/3 w-96 h-96"
-          delay={0.6}
-          shouldReduceMotion={!!shouldReduceMotion}
-        />
-        <ForefootLeverTorqueAdvantage 
-          scrollYProgress={scrollYProgress}
-          shouldReduceMotion={!!shouldReduceMotion}
-        />
-      </motion.section>
-
-      <SectionDivider />
-
-      {/* Forefoot Mechanics Diagram Section */}
-      <motion.section
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={staggerChildren}
-        className="relative"
-        style={{ transform: 'translateZ(0)' }}
-      >
-        {/* Gradient orb */}
-        <AnimatedGradientOrb 
-          className="top-1/3 right-1/4 w-[28rem] h-[28rem]"
-          delay={0.8}
-          shouldReduceMotion={!!shouldReduceMotion}
-        />
-
-        <ForefootMechanicsDiagram />
-      </motion.section>
-
-      <SectionDivider />
-
-      {/* Ground Force Vector Advantage Section */}
-      <motion.section
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={staggerChildren}
-        className="relative"
-        style={{ transform: 'translateZ(0)' }}
-      >
-        {/* Gradient orb */}
-        <AnimatedGradientOrb 
-          className="top-1/4 right-0 w-96 h-96"
-          delay={0.8}
-          shouldReduceMotion={!!shouldReduceMotion}
-        />
-        <GroundForceVectorAdvantage 
           scrollYProgress={scrollYProgress}
           shouldReduceMotion={!!shouldReduceMotion}
         />
