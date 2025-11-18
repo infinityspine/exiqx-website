@@ -25,10 +25,6 @@ const CTASection = memo(function CTASection({
   return (
     <section
       className="relative bg-black border-t border-white/10"
-      style={{ 
-        paddingTop: 'clamp(6rem, 12vw, 10rem)',
-        paddingBottom: 'clamp(6rem, 12vw, 10rem)'
-      }}
     >
       <div className="mx-auto max-w-4xl px-6 text-center">
         <motion.div
