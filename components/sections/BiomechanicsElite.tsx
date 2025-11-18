@@ -56,29 +56,29 @@ const BiomechanicsElite = memo(function BiomechanicsElite({
           variants={staggerChildren}
         >
           {/* Headline */}
-          <motion.h2
-            id="biomechanics-elite-heading"
-            variants={fadeUp}
-            className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold uppercase tracking-[0.05em] text-white text-center"
-            style={{ 
-              marginBottom: 'clamp(1.5rem, 3vw, 2.5rem)',
-              transform: 'translateZ(0)'
-            }}
-          >
-            THE SCIENCE OF REAL ATHLETIC FORCE
-          </motion.h2>
+          <div className="mb-[clamp(2rem,5vw,4rem)]">
+            <motion.h2
+              id="biomechanics-elite-heading"
+              variants={fadeUp}
+              className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-[0.05em] text-white text-center"
+              style={{ 
+                transform: 'translateZ(0)'
+              }}
+            >
+              THE SCIENCE OF REAL ATHLETIC FORCE
+            </motion.h2>
 
-          {/* Subheadline */}
-          <motion.p
-            variants={fadeUp}
-            className="text-white/80 text-lg sm:text-xl lg:text-2xl font-light text-center max-w-4xl mx-auto mb-16 lg:mb-20"
-            style={{ 
-              transform: 'translateZ(0)',
-              lineHeight: '1.5'
-            }}
-          >
-            Forefoot-loaded closed-chain mechanics — built to match how athletes actually produce force.
-          </motion.p>
+            {/* Subheadline */}
+            <motion.p
+              variants={fadeUp}
+              className="mt-4 text-base sm:text-lg text-white/70 leading-relaxed max-w-prose mx-auto"
+              style={{ 
+                transform: 'translateZ(0)'
+              }}
+            >
+              Forefoot-loaded closed-chain mechanics — built to match how athletes actually produce force.
+            </motion.p>
+          </div>
 
           {/* Three Pillar Grid */}
           <motion.div 

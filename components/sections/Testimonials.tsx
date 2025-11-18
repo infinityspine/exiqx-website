@@ -38,7 +38,7 @@ const Testimonials = memo(function Testimonials({
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative">
         {/* Section Header */}
         <motion.div 
-          className="mb-16 text-center"
+          className="mb-[clamp(2rem,5vw,4rem)] text-center"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -47,14 +47,14 @@ const Testimonials = memo(function Testimonials({
           <motion.h2
             id="testimonials-heading"
             variants={fadeUp}
-            className="font-display text-4xl font-extrabold uppercase tracking-[0.05em] text-white lg:text-5xl"
+            className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-[0.05em] text-white"
             style={{ transform: 'translateZ(0)' }}
           >
             Trusted by Elite Athletes
           </motion.h2>
           <motion.p 
             variants={fadeUp}
-            className="mt-4 text-lg text-white/70 leading-relaxed"
+            className="mt-4 text-base sm:text-lg text-white/70 leading-relaxed max-w-prose mx-auto"
           >
             Hear from strength coaches and athletes who trust ExIQx equipment
           </motion.p>

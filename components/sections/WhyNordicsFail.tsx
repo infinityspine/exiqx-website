@@ -55,17 +55,18 @@ const WhyNordicsFail = memo(function WhyNordicsFail({
           variants={staggerChildren}
         >
           {/* Centered Title */}
-          <motion.h2
-            id="why-nordics-fail-heading"
-            variants={fadeUp}
-            className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-[0.05em] text-white text-center"
-            style={{ 
-              marginBottom: 'clamp(3rem, 6vw, 5rem)',
-              transform: 'translateZ(0)'
-            }}
-          >
-            WHY TRADITIONAL NORDICS FAIL
-          </motion.h2>
+          <div className="mb-[clamp(2rem,5vw,4rem)]">
+            <motion.h2
+              id="why-nordics-fail-heading"
+              variants={fadeUp}
+              className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-[0.05em] text-white text-center"
+              style={{ 
+                transform: 'translateZ(0)'
+              }}
+            >
+              WHY TRADITIONAL NORDICS FAIL
+            </motion.h2>
+          </div>
 
           {/* Three Card Grid */}
           <motion.div 
