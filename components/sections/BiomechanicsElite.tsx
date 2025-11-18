@@ -38,11 +38,7 @@ const BiomechanicsElite = memo(function BiomechanicsElite({
   return (
     <section
       id="biomechanics-elite"
-      className="relative bg-black border-t border-white/10"
-      style={{ 
-        paddingTop: 'clamp(6rem, 12vw, 10rem)',
-        paddingBottom: 'clamp(6rem, 12vw, 10rem)'
-      }}
+      className="relative bg-black border-t border-white/10 pt-[clamp(4rem,10vw,7rem)] pb-[clamp(4rem,10vw,7rem)]"
       aria-labelledby="biomechanics-elite-heading"
     >
       {/* Subtle radial red glow background */}
