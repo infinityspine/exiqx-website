@@ -43,7 +43,7 @@ const WhyNordicsFail = memo(function WhyNordicsFail({
       {/* Subtle red glow background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div 
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-red-600/8 via-red-900/4 to-transparent blur-3xl"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-red-600/6 via-red-900/3 to-transparent blur-[80px]"
         />
       </div>
 
