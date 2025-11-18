@@ -37,11 +37,7 @@ const WhyNordicsFail = memo(function WhyNordicsFail({
   return (
     <section
       id="why-nordics-fail"
-      className="relative bg-black border-t border-white/10"
-      style={{ 
-        paddingTop: 'clamp(5rem, 10vw, 8rem)',
-        paddingBottom: 'clamp(5rem, 10vw, 8rem)'
-      }}
+      className="relative bg-black border-t border-white/10 py-[clamp(4rem,10vw,7rem)]"
       aria-labelledby="why-nordics-fail-heading"
     >
       {/* Subtle red glow background */}

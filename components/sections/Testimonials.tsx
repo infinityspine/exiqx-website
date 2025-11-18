@@ -32,7 +32,7 @@ const Testimonials = memo(function Testimonials({
   return (
     <section
       id="testimonials"
-      className="relative min-h-screen bg-[#050505] px-6 py-24 lg:py-32"
+      className="relative min-h-screen bg-[#050505] px-6 py-[clamp(4rem,10vw,7rem)]"
       aria-labelledby="testimonials-heading"
     >
       <div className="mx-auto max-w-7xl">
