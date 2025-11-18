@@ -75,9 +75,6 @@ const WhyNordicsFail = memo(function WhyNordicsFail({
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
-            style={{
-              marginBottom: 'clamp(3rem, 6vw, 4rem)'
-            }}
           >
             {cards.map((card, index) => (
               <motion.div

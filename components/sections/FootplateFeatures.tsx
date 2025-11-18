@@ -67,10 +67,6 @@ const FootplateFeatures = memo(function FootplateFeatures({
         {/* Section Header */}
         <motion.div 
           className="mb-[clamp(2rem,5vw,4rem)] text-center"
-          style={{
-            paddingLeft: 'clamp(1.5rem, 4vw, 3rem)',
-            paddingRight: 'clamp(1.5rem, 4vw, 3rem)',
-          }}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -99,12 +95,7 @@ const FootplateFeatures = memo(function FootplateFeatures({
 
         {/* Feature Grid - Elite Cards */}
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full items-stretch max-w-7xl mx-auto"
-          style={{
-            gap: 'clamp(1.5rem, 3vw, 2.5rem)',
-            paddingLeft: 'clamp(1.5rem, 4vw, 3rem)',
-            paddingRight: 'clamp(1.5rem, 4vw, 3rem)',
-          }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full items-stretch max-w-7xl mx-auto gap-6 lg:gap-8"
           variants={staggerChildren}
           initial="hidden"
           whileInView="visible"

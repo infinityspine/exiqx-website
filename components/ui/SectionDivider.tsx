@@ -17,7 +17,7 @@ export default function SectionDivider({ align = 'center', label }: SectionDivid
 
   return (
     <motion.div
-      className={`relative h-px max-w-7xl ${alignMap[align]} my-16 lg:my-24`}
+      className={`relative h-px max-w-7xl ${alignMap[align]}`}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: '-80px' }}

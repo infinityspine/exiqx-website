@@ -187,14 +187,14 @@ const CTASection = memo(function CTASection({
         </motion.div>
 
         {/* Trust Signals */}
-        <div className="mt-12">
+        <div>
           <p className="text-xs uppercase tracking-[0.2em] text-white/40 leading-relaxed">
             EARLY ACCESS WAITLIST • LIMITED PRODUCTION RUN
           </p>
         </div>
 
         {/* Optional: Email Capture Form Placeholder */}
-        <div className="mt-16">
+        <div>
           <form className="mx-auto max-w-md" onSubmit={(e) => e.preventDefault()}>
             <div className="flex gap-2">
               <input

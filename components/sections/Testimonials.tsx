@@ -235,7 +235,7 @@ const Testimonials = memo(function Testimonials({
         </motion.div>
 
         {/* Optional: Trust Indicators */}
-        <div className="mt-16 text-center">
+        <div className="text-center">
           <p className="text-sm uppercase tracking-[0.2em] text-white/40 leading-relaxed">
             PATENT-PENDING • ENGINEERED IN ARIZONA • MADE IN THE USA
           </p>
