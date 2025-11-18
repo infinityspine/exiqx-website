@@ -70,7 +70,26 @@ export default function Home() {
 
       <SectionDivider />
 
-      {/* 🔜 BiomechanicsElite section will be inserted here */}
+      {/* BiomechanicsElite Section */}
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={staggerChildren}
+        className="relative"
+        style={{ transform: 'translateZ(0)' }}
+      >
+        {/* Single optimized gradient orb */}
+        <AnimatedGradientOrb 
+          className="top-0 right-1/4 w-96 h-96" 
+          delay={0.3}
+          shouldReduceMotion={!!shouldReduceMotion}
+        />
+        <BiomechanicsElite 
+          scrollYProgress={scrollYProgress}
+          shouldReduceMotion={!!shouldReduceMotion}
+        />
+      </motion.section>
 
       <SectionDivider />
 
