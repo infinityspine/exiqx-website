@@ -37,7 +37,7 @@ const CTASection = memo(function CTASection({
   return (
     <section
       id="cta"
-      className="relative bg-black"
+      className="relative bg-black pt-[clamp(4rem,8vw,6rem)]"
       aria-labelledby="cta-heading"
     >
       {/* Background Gradient */}
