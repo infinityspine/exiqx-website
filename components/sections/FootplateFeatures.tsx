@@ -63,7 +63,7 @@ const FootplateFeatures = memo(function FootplateFeatures({
         />
       </div>
 
-      <div className="mx-auto max-w-7xl relative">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 relative">
         {/* Section Header */}
         <motion.div 
           className="text-center"
