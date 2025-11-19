@@ -71,10 +71,7 @@ const BiomechanicsElite = memo(function BiomechanicsElite({
             {/* Subheadline */}
             <motion.p
               variants={fadeUp}
-              className="mt-4 text-base sm:text-lg text-white/70 leading-relaxed max-w-prose mx-auto"
-              style={{ 
-                transform: 'translateZ(0)'
-              }}
+              className="mt-4 text-base sm:text-lg text-white/70 leading-relaxed max-w-prose mx-auto text-center"
             >
               Forefoot-loaded closed-chain mechanics — built to match how athletes actually produce force.
             </motion.p>
