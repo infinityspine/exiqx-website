@@ -66,7 +66,7 @@ const BiomechanicsElite = memo(function BiomechanicsElite({
             <motion.h2
               id="biomechanics-elite-heading"
               variants={fadeUp}
-              className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-[0.05em] text-white text-center whitespace-nowrap sm:whitespace-normal"
+              className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-[0.05em] text-white text-center whitespace-normal sm:whitespace-nowrap"
             >
               THE SCIENCE OF REAL ATHLETIC FORCE
             </motion.h2>
