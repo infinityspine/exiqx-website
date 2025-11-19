@@ -56,14 +56,17 @@ const BiomechanicsElite = memo(function BiomechanicsElite({
           variants={staggerChildren}
         >
           {/* Headline */}
-          <div className="mb-[clamp(2rem,5vw,4rem)]">
+          <motion.div
+            className="text-center max-w-4xl mx-auto mb-[clamp(2rem,5vw,4rem)]"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerChildren}
+          >
             <motion.h2
               id="biomechanics-elite-heading"
               variants={fadeUp}
               className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-[0.05em] text-white text-center"
-              style={{ 
-                transform: 'translateZ(0)'
-              }}
             >
               THE SCIENCE OF REAL ATHLETIC FORCE
             </motion.h2>
@@ -75,7 +78,7 @@ const BiomechanicsElite = memo(function BiomechanicsElite({
             >
               Forefoot-loaded closed-chain mechanics — built to match how athletes actually produce force.
             </motion.p>
-          </div>
+          </motion.div>
 
           {/* Three Pillar Grid */}
           <motion.div 
