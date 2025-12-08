@@ -6,7 +6,6 @@ import SectionDivider from '@/components/ui/SectionDivider'
 import HeroSection from '@/components/sections/HeroSection'
 import BiomechanicsElite from '@/components/sections/BiomechanicsElite'
 import FootplateFeatures from '@/components/sections/FootplateFeatures'
-import WhyNordicsFail from '@/components/sections/WhyNordicsFail'
 import UseCases from '@/components/sections/UseCases'
 import Testimonials from '@/components/sections/Testimonials'
 import HomePageCTA from '@/components/sections/HomePageCTA'
@@ -86,29 +85,6 @@ export default function Home() {
           shouldReduceMotion={!!shouldReduceMotion}
         />
         <BiomechanicsElite 
-          scrollYProgress={scrollYProgress}
-          shouldReduceMotion={!!shouldReduceMotion}
-        />
-      </motion.section>
-
-      <SectionDivider />
-
-      {/* Why Nordics Fail Section */}
-      <motion.section
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={staggerChildren}
-        className="relative"
-        style={{ transform: 'translateZ(0)' }}
-      >
-        {/* Gradient orb */}
-        <AnimatedGradientOrb 
-          className="top-0 left-1/3 w-72 h-72"
-          delay={1.2}
-          shouldReduceMotion={!!shouldReduceMotion}
-        />
-        <WhyNordicsFail 
           scrollYProgress={scrollYProgress}
           shouldReduceMotion={!!shouldReduceMotion}
         />

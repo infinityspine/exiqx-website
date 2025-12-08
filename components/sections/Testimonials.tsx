@@ -50,13 +50,13 @@ const Testimonials = memo(function Testimonials({
             className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-[0.05em] text-white"
             style={{ transform: 'translateZ(0)' }}
           >
-            Trusted by Elite Athletes
+            TRUSTED BY PROFESSIONALS.
           </motion.h2>
           <motion.p 
             variants={fadeUp}
             className="mt-4 text-base sm:text-lg text-white/70 leading-relaxed max-w-prose mx-auto"
           >
-            Hear from strength coaches and athletes who trust ExIQx equipment
+            Real feedback from strength coaches and performance specialists.
           </motion.p>
         </motion.div>
 

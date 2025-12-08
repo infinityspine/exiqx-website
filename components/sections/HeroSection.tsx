@@ -48,22 +48,22 @@ const DEFAULT_CONTENT = {
   id: 'footplate',
   backgroundImage: '/hero-footplate.jpg',
   backgroundImageAlt: 'ExIQx Performance rack-mounted footplate in professional gym setting',
-  headline: 'Patent-Protected Closed-Chain Forefoot Training.',
-  subheadline: 'Precision-engineered for elite performance. Clinically validated. Built for athletes who refuse compromise.',
+  headline: 'Patent-Pending Plantarflexion Training Equipment.',
+  subheadline: 'Precision-engineered for professional facilities. Authentic ground-force mechanics without spinal loading.',
   subheadlineAccent: undefined,
-  tagline: 'Patent-Protected • Precision-Engineered • Built in Arizona',
+  tagline: 'Patent-Pending • Precision-Engineered • Made in Arizona',
   ctaButtons: [
     {
-      label: 'Request Demo',
+      label: 'Pre-Order',
       href: '/request-demo',
       variant: 'primary' as const,
-      ariaLabel: 'Request a professional demonstration'
+      ariaLabel: 'Pre-order the ExIQx footplate'
     },
     {
-      label: 'Request Early Access',
+      label: 'Learn More',
       href: '/early-access',
       variant: 'secondary' as const,
-      ariaLabel: 'Request early access to limited production'
+      ariaLabel: 'Learn more about ExIQx equipment'
     }
   ]
 }

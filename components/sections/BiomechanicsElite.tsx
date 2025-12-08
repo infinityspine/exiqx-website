@@ -30,7 +30,7 @@ const BiomechanicsElite = memo(function BiomechanicsElite({
     },
     {
       icon: Move,
-      title: 'NATURAL ATHLETIC VECTOR ALIGNMENT',
+      title: 'NATURAL FORCE VECTOR ALIGNMENT',
       body: 'Forefoot loading matches the forward/downward force vector athletes use in sport. Traditional Nordics reverse this vector through the back of the ankle, limiting transfer.'
     }
   ]
@@ -68,7 +68,7 @@ const BiomechanicsElite = memo(function BiomechanicsElite({
               variants={fadeUp}
               className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-[0.05em] text-white text-center whitespace-normal sm:whitespace-nowrap"
             >
-              THE SCIENCE OF REAL ATHLETIC FORCE
+              AUTHENTIC GROUND-FORCE MECHANICS.
             </motion.h2>
 
             {/* Subheadline */}
@@ -76,7 +76,7 @@ const BiomechanicsElite = memo(function BiomechanicsElite({
               variants={fadeUp}
               className="mt-4 text-base sm:text-lg text-white/70 leading-relaxed text-center max-w-2xl mx-auto"
             >
-              Forefoot-loaded closed-chain mechanics — built to match how athletes actually produce force.
+              Plantar loading that mirrors natural athletic movement.
             </motion.p>
           </motion.div>
 

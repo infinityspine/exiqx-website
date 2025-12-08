@@ -61,16 +61,13 @@ const CTASection = memo(function CTASection({
             className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-[0.05em] text-white"
             style={{ transform: 'translateZ(0)' }}
           >
-            Professional Performance Equipment
+            PRECISION-ENGINEERED FOR ELITE FACILITIES.
           </motion.h2>
           <motion.p 
             variants={fadeUp}
             className="mt-4 text-base sm:text-lg text-white/70 leading-relaxed max-w-prose mx-auto"
           >
-            Commercial-grade biomechanical training systems for{' '}
-            <span className="font-semibold text-accent">
-              D1 programs, PT clinics, and elite performance centers
-            </span>
+            Commercial-grade plantarflexion training for professional programs, PT clinics, and performance centers.
           </motion.p>
         </motion.div>
 
@@ -96,9 +93,9 @@ const CTASection = memo(function CTASection({
           >
             {/* Internal gradient glow on hover */}
             <div className="absolute inset-0 bg-gradient-to-br from-red-500/0 via-red-500/0 to-red-500/0 group-hover:from-red-500/5 group-hover:via-red-500/0 group-hover:to-transparent rounded-2xl transition-all duration-500 pointer-events-none" />
-            <div className="relative mb-2 text-2xl font-bold text-accent transition-colors duration-300 group-hover:text-red-400">50%</div>
+            <div className="relative mb-2 text-2xl font-bold text-accent transition-colors duration-300 group-hover:text-red-400">51%</div>
             <p className="relative text-sm text-white/70 leading-relaxed">
-              Reduction in hamstring injuries
+              Hamstring injury reduction
             </p>
           </motion.div>
 
