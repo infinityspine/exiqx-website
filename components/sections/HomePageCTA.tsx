@@ -65,7 +65,7 @@ const CTASection = memo(function CTASection({
           </motion.h2>
           <motion.p 
             variants={fadeUp}
-            className="mt-4 text-base sm:text-lg text-white/70 leading-relaxed max-w-prose mx-auto"
+            className="mt-4 text-base sm:text-lg text-white/70 leading-relaxed max-w-prose mx-auto text-center"
           >
             Commercial-grade plantarflexion training for professional programs, PT clinics, and performance centers.
           </motion.p>

@@ -84,7 +84,7 @@ const FootplateFeatures = memo(function FootplateFeatures({
           </motion.h2>
           <motion.p 
             variants={fadeUp}
-            className="mt-4 text-base sm:text-lg text-white/70 leading-relaxed max-w-prose mx-auto"
+            className="mt-4 text-base sm:text-lg text-white/70 leading-relaxed max-w-prose mx-auto text-center"
             style={{
               transform: 'translateZ(0)'
             }}

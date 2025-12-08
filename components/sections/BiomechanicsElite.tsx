@@ -74,7 +74,7 @@ const BiomechanicsElite = memo(function BiomechanicsElite({
             {/* Subheadline */}
             <motion.p
               variants={fadeUp}
-              className="mt-4 text-base sm:text-lg text-white/70 leading-relaxed text-center max-w-2xl mx-auto"
+              className="mt-4 text-base sm:text-lg text-white/70 leading-relaxed max-w-prose mx-auto text-center"
             >
               Plantar loading that mirrors natural athletic movement.
             </motion.p>

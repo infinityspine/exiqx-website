@@ -54,7 +54,7 @@ const Testimonials = memo(function Testimonials({
           </motion.h2>
           <motion.p 
             variants={fadeUp}
-            className="mt-4 text-base sm:text-lg text-white/70 leading-relaxed max-w-prose mx-auto"
+            className="mt-4 text-base sm:text-lg text-white/70 leading-relaxed max-w-prose mx-auto text-center"
           >
             Real feedback from strength coaches and performance specialists.
           </motion.p>

@@ -41,7 +41,7 @@ const UseCases = memo(function UseCases({
           </motion.h2>
           <motion.p 
             variants={fadeUp}
-            className="mt-4 text-base sm:text-lg text-white/70 leading-relaxed max-w-prose mx-auto"
+            className="mt-4 text-base sm:text-lg text-white/70 leading-relaxed max-w-prose mx-auto text-center"
           >
             Professional-grade training for facilities that demand precision.
           </motion.p>
