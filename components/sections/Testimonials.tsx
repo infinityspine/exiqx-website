@@ -38,7 +38,7 @@ const Testimonials = memo(function Testimonials({
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative">
         {/* Section Header */}
         <motion.div 
-          className="mb-[clamp(2rem,5vw,4rem)] text-center"
+          className="mb-[clamp(2rem,5vw,4rem)] text-center flex flex-col items-center"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}

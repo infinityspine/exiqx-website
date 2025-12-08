@@ -57,7 +57,7 @@ const BiomechanicsElite = memo(function BiomechanicsElite({
         >
           {/* Headline */}
           <motion.div
-            className="text-center max-w-none w-full mx-auto mb-[clamp(2rem,5vw,4rem)] flex flex-col items-center justify-center"
+            className="mb-[clamp(2rem,5vw,4rem)] text-center flex flex-col items-center"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
