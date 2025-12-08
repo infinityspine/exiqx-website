@@ -75,7 +75,7 @@ const FootplateFeatures = memo(function FootplateFeatures({
           <motion.h2
             id="features-heading"
             variants={fadeUp}
-            className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-[0.05em] text-white"
+            className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-[0.05em] text-white text-center"
             style={{
               transform: 'translateZ(0)'
             }}

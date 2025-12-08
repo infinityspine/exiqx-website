@@ -47,7 +47,7 @@ const Testimonials = memo(function Testimonials({
           <motion.h2
             id="testimonials-heading"
             variants={fadeUp}
-            className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-[0.05em] text-white"
+            className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-[0.05em] text-white text-center"
             style={{ transform: 'translateZ(0)' }}
           >
             TRUSTED BY PROFESSIONALS.
