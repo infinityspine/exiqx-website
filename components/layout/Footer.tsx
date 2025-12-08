@@ -151,7 +151,7 @@ const Footer = memo(function Footer() {
             className="inline-flex items-center gap-2 text-white/70 hover:text-white transition-colors duration-300 group"
             style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1rem)' }}
           >
-            <span>Request Early Access to Limited Production</span>
+            <span>Pre-Order the Rack-Mounted Footplate</span>
             <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
           </Link>
         </div>

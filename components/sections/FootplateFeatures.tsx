@@ -41,7 +41,7 @@ const FootplateFeatures = memo(function FootplateFeatures({
     {
       icon: Ruler,
       title: 'Precision-Engineered',
-      description: 'Hybrid aluminum–steel construction. CNC-machined to aerospace-level tolerances. Built in the USA.'
+      description: 'Hybrid aluminum–steel construction. CNC-machined to aerospace-level tolerances. Built in Arizona.'
     },
     {
       icon: Zap,
@@ -80,7 +80,7 @@ const FootplateFeatures = memo(function FootplateFeatures({
               transform: 'translateZ(0)'
             }}
           >
-            Technical Specifications
+            TECHNICAL SPECIFICATIONS
           </motion.h2>
           <motion.p 
             variants={fadeUp}
@@ -89,7 +89,7 @@ const FootplateFeatures = memo(function FootplateFeatures({
               transform: 'translateZ(0)'
             }}
           >
-            Precision-engineered, patent-protected equipment for professional teams, collegiate athletics, elite high-school programs, and clinical facilities.
+            Patent-pending equipment for professional facilities, collegiate programs, and clinical rehabilitation centers.
           </motion.p>
         </motion.div>
 
