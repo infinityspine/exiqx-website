@@ -115,7 +115,7 @@ const CTASection = memo(function CTASection({
             <div className="absolute inset-0 bg-gradient-to-br from-red-500/0 via-red-500/0 to-red-500/0 group-hover:from-red-500/5 group-hover:via-red-500/0 group-hover:to-transparent rounded-2xl transition-all duration-500 pointer-events-none" />
             <div className="relative mb-2 text-2xl font-bold text-accent transition-colors duration-300 group-hover:text-red-400">Patent-Pending</div>
             <p className="relative text-sm text-white/70 leading-relaxed">
-              Proprietary design technology
+              Proprietary technology
             </p>
           </motion.div>
 
@@ -135,7 +135,7 @@ const CTASection = memo(function CTASection({
             <div className="absolute inset-0 bg-gradient-to-br from-red-500/0 via-red-500/0 to-red-500/0 group-hover:from-red-500/5 group-hover:via-red-500/0 group-hover:to-transparent rounded-2xl transition-all duration-500 pointer-events-none" />
             <div className="relative mb-2 text-2xl font-bold text-accent transition-colors duration-300 group-hover:text-red-400">Lifetime</div>
             <p className="relative text-sm text-white/70 leading-relaxed">
-              Warranty on all components
+              Component warranty
             </p>
           </motion.div>
         </motion.div>
@@ -162,7 +162,7 @@ const CTASection = memo(function CTASection({
             className="inline-block rounded-xl bg-gradient-to-r from-red-600 to-red-700 px-8 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition-all duration-300 hover:from-red-500 hover:to-red-600 hover:scale-[1.02] shadow-2xl shadow-red-500/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-black will-change-transform"
             style={{ transform: 'translateZ(0)' }}
           >
-            Request Demo
+            Pre-Order
           </motion.a>
 
           {/* Secondary CTA with magnetic hover */}
@@ -179,41 +179,17 @@ const CTASection = memo(function CTASection({
             className="inline-block rounded-xl border border-white/20 bg-transparent px-10 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition-all duration-300 hover:bg-white/10 hover:border-white/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black will-change-transform"
             style={{ transform: 'translateZ(0)' }}
           >
-            Request Early Access
+            View Specs
           </motion.a>
         </motion.div>
 
         {/* Trust Signals */}
         <div>
           <p className="text-xs uppercase tracking-[0.2em] text-white/40 leading-relaxed">
-            EARLY ACCESS WAITLIST • LIMITED PRODUCTION RUN
+            PRE-ORDER NOW • LIMITED FIRST PRODUCTION RUN
           </p>
         </div>
 
-        {/* Optional: Email Capture Form Placeholder */}
-        <div>
-          <form className="mx-auto max-w-md" onSubmit={(e) => e.preventDefault()}>
-            <div className="flex gap-2">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 rounded-lg border border-zinc-800/60 bg-zinc-950/40 px-4 py-3 text-white placeholder-white/40 backdrop-blur-sm transition-all duration-300 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-black hover:border-red-900/50"
-                aria-label="Email address"
-              />
-              <motion.button
-                type="submit"
-                whileHover={shouldReduceMotion ? {} : { scale: 1.05 }}
-                whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
-                className="rounded-lg bg-accent px-6 py-3 text-sm font-semibold uppercase tracking-wider text-white transition-all duration-300 hover:bg-red-700 hover:shadow-[0_10px_30px_rgba(220,38,38,0.55)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-black"
-              >
-                Notify Me
-              </motion.button>
-            </div>
-            <p className="mt-2 text-xs text-white/40 leading-relaxed">
-              Be the first to know when we launch
-            </p>
-          </form>
-        </div>
       </div>
     </section>
   )
