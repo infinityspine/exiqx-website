@@ -205,7 +205,7 @@ const GHDHero = memo<Partial<GHDHeroProps>>((props) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8, duration: 0.6 }}
-            className="text-sm text-gray-400 mt-12 sm:mt-16"
+            className="text-sm text-gray-400 mt-12 sm:mt-16 lg:mt-24"
           >
             {microTagline}
           </motion.p>
