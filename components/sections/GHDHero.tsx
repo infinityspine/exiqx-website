@@ -97,7 +97,7 @@ const GHDHero = memo<Partial<GHDHeroProps>>((props) => {
   return (
     <section
       ref={containerRef}
-      className={`relative flex flex-col-reverse lg:flex-row items-center justify-between h-[calc(100vh-80px)] px-8 lg:px-8 overflow-hidden bg-black max-w-none ${className}`}
+      className={`relative flex flex-col-reverse lg:flex-row items-center justify-between h-[calc(100vh-80px)] px-6 lg:px-8 overflow-hidden bg-black max-w-none pt-24 sm:pt-32 lg:pt-36 ${className}`}
       aria-labelledby="hero-heading"
     >
       {/* Gradient Overlay */}
@@ -125,7 +125,7 @@ const GHDHero = memo<Partial<GHDHeroProps>>((props) => {
         style={{
           opacity: shouldReduceMotion ? 1 : contentOpacity,
         }}
-        className="z-10 max-w-xl text-left pt-24 sm:pt-32"
+        className="z-10 max-w-xl lg:max-w-[38rem] text-left"
       >
         {/* Optional Eyebrow */}
         {eyebrow && (
@@ -142,19 +142,19 @@ const GHDHero = memo<Partial<GHDHeroProps>>((props) => {
         {/* Headline */}
         <h1
           id="hero-heading"
-          className="text-white text-5xl font-black leading-tight mb-6"
+          className="text-white text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-6"
         >
           {headline}
         </h1>
 
         {/* Subheadline */}
-        <p className="text-lg text-gray-300 mb-8">
+        <p className="text-gray-300 text-base sm:text-lg mb-8 leading-relaxed">
           {subheadline}
         </p>
 
         {/* CTA Buttons */}
         {(primaryCTA || secondaryCTA) && (
-          <div className="flex gap-4">
+          <div className="flex gap-4 mt-6">
             {/* Primary CTA */}
             {primaryCTA && (
               <motion.a
@@ -222,12 +222,12 @@ const GHDHero = memo<Partial<GHDHeroProps>>((props) => {
         }}
         className="z-0 w-full lg:flex-1 will-change-transform"
       >
-        <div className="flex justify-center items-center lg:flex-1 w-full max-w-none pt-32 sm:pt-36 lg:pt-40">
+        <div className="flex justify-center items-center lg:flex-1 w-full max-w-none mt-8 sm:mt-12 lg:mt-16">
           <Image
             src={backgroundImage}
             alt="GHD Retrofit Hero"
-            width={2800}
-            height={2100}
+            width={3080}
+            height={2310}
             className="w-full h-auto object-contain pointer-events-none"
             priority
             quality={85}
