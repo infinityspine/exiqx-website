@@ -115,13 +115,13 @@ const GHDHero = memo<Partial<GHDHeroProps>>((props) => {
           alt="GHD-mounted ExIQx footplate system"
           fill
           priority
-          className="object-cover object-center scale-110"
+          className="object-contain object-center"
           sizes="100vw"
           quality={85}
         />
 
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/70 to-black/95" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-black/50 to-black/85" />
 
         {/* Optional Shimmer Effect */}
         {showShimmer && !shouldReduceMotion && (
