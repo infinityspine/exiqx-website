@@ -222,15 +222,17 @@ const GHDHero = memo<Partial<GHDHeroProps>>((props) => {
         }}
         className="z-0 w-full lg:w-1/2 will-change-transform"
       >
-        <Image
-          src={backgroundImage}
-          alt="GHD-mounted ExIQx footplate system"
-          width={800}
-          height={600}
-          className="object-contain pointer-events-none"
-          priority
-          quality={85}
-        />
+        <div className="w-[90%] max-w-[1200px] mx-auto">
+          <Image
+            src={backgroundImage}
+            alt="GHD Retrofit Hero"
+            width={1200}
+            height={900}
+            className="object-contain pointer-events-none"
+            priority
+            quality={85}
+          />
+        </div>
       </motion.div>
 
       {/* Scroll Indicator */}
