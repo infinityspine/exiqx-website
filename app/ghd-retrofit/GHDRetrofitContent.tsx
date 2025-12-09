@@ -81,8 +81,8 @@ export default function GHDRetrofitContent() {
             href: '/contact',
           }}
           microTagline="Patent-pending technology. Commercial-grade construction. Engineered in Arizona."
-          backgroundImage="/ghd-mounted-hero.jpg"
-          showShimmer={true}
+          backgroundImage="/images/ghd-hero-v3-6.png"
+          showShimmer={false}
         />
 
         <SectionDivider />
