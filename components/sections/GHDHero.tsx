@@ -125,7 +125,7 @@ const GHDHero = memo<Partial<GHDHeroProps>>((props) => {
         style={{
           opacity: shouldReduceMotion ? 1 : contentOpacity,
         }}
-        className="z-10 max-w-xl lg:max-w-[38rem] text-left pl-6 lg:pl-[4%]"
+        className="z-10 max-w-xl lg:max-w-[950px] text-left pl-6 lg:pl-[4%]"
       >
         {/* Optional Eyebrow */}
         {eyebrow && (
@@ -142,13 +142,17 @@ const GHDHero = memo<Partial<GHDHeroProps>>((props) => {
         {/* Headline */}
         <h1
           id="hero-heading"
-          className="text-white text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mb-6"
+          className="text-white text-[clamp(2.4rem,5vw,4.8rem)] lg:text-[clamp(4rem,8.5vw,8rem)] font-black tracking-[-0.025em] uppercase leading-[0.92] font-display mb-6 lg:mb-32"
+          style={{
+            textShadow: '0 6px 40px rgba(0,0,0,0.9), 0 0 80px rgba(220,38,38,0.35)',
+            transform: 'translateZ(0)'
+          }}
         >
           {headline}
         </h1>
 
         {/* Subheadline */}
-        <p className="text-gray-300 text-base sm:text-lg mb-8 leading-relaxed">
+        <p className="text-gray-300 text-base sm:text-lg lg:text-[clamp(1.2rem,2.1vw,1.65rem)] font-medium text-white/92 leading-relaxed lg:leading-[1.65] mb-8 lg:mb-22 max-w-[650px]">
           {subheadline}
         </p>
 
