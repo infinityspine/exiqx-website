@@ -97,7 +97,7 @@ const GHDHero = memo<Partial<GHDHeroProps>>((props) => {
   return (
     <section
       ref={containerRef}
-      className={`relative flex flex-col-reverse lg:flex-row items-center justify-between h-[calc(100vh-80px)] px-6 sm:px-12 lg:px-20 overflow-hidden bg-black ${className}`}
+      className={`relative flex flex-col-reverse lg:flex-row items-center justify-between h-[calc(100vh-80px)] px-8 lg:px-8 overflow-hidden bg-black max-w-none ${className}`}
       aria-labelledby="hero-heading"
     >
       {/* Gradient Overlay */}
@@ -220,9 +220,9 @@ const GHDHero = memo<Partial<GHDHeroProps>>((props) => {
         style={{
           y: shouldReduceMotion ? 0 : backgroundY,
         }}
-        className="z-0 w-full lg:w-1/2 lg:flex-1 will-change-transform"
+        className="z-0 w-full lg:flex-1 will-change-transform"
       >
-        <div className="flex justify-center items-start pt-24 sm:pt-28 lg:pt-32 w-full max-w-none">
+        <div className="flex justify-center items-center lg:flex-1 w-full max-w-none">
           <Image
             src={backgroundImage}
             alt="GHD Retrofit Hero"
