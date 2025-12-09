@@ -222,12 +222,12 @@ const GHDHero = memo<Partial<GHDHeroProps>>((props) => {
         }}
         className="z-0 w-full lg:flex-1 will-change-transform"
       >
-        <div className="flex justify-center items-center lg:flex-1 w-full max-w-none">
+        <div className="flex justify-center items-center lg:flex-1 w-full max-w-none pt-32 sm:pt-36 lg:pt-40">
           <Image
             src={backgroundImage}
             alt="GHD Retrofit Hero"
-            width={2550}
-            height={1900}
+            width={2800}
+            height={2100}
             className="w-full h-auto object-contain pointer-events-none"
             priority
             quality={85}
