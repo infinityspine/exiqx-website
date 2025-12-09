@@ -220,15 +220,15 @@ const GHDHero = memo<Partial<GHDHeroProps>>((props) => {
         style={{
           y: shouldReduceMotion ? 0 : backgroundY,
         }}
-        className="z-0 w-full lg:w-1/2 will-change-transform"
+        className="z-0 w-full lg:w-1/2 lg:flex-1 will-change-transform"
       >
-        <div className="w-[90%] max-w-[1200px] mx-auto">
+        <div className="flex justify-center items-center w-full max-w-none">
           <Image
             src={backgroundImage}
             alt="GHD Retrofit Hero"
-            width={1200}
-            height={900}
-            className="object-contain pointer-events-none"
+            width={1400}
+            height={1050}
+            className="w-full h-auto object-contain pointer-events-none"
             priority
             quality={85}
           />
