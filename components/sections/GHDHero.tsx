@@ -22,7 +22,7 @@ const GHDHeroPropsSchema = z.object({
   microTagline: z.string().optional(),
   primaryCTA: CTAButtonSchema.optional(),
   secondaryCTA: CTAButtonSchema.optional(),
-  backgroundImage: z.string().default('/ghd-mounted-hero.jpg'),
+  backgroundImage: z.string().default('/images/ghd-hero-v3-6.png'),
   showShimmer: z.boolean().default(false),
   className: z.string().optional(),
 })
