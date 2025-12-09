@@ -125,7 +125,7 @@ const GHDHero = memo<Partial<GHDHeroProps>>((props) => {
         style={{
           opacity: shouldReduceMotion ? 1 : contentOpacity,
         }}
-        className="z-10 max-w-xl lg:max-w-[38rem] text-left"
+        className="z-10 max-w-xl lg:max-w-[38rem] text-left pl-6 lg:pl-[4%]"
       >
         {/* Optional Eyebrow */}
         {eyebrow && (
@@ -222,7 +222,7 @@ const GHDHero = memo<Partial<GHDHeroProps>>((props) => {
         }}
         className="z-0 w-full lg:flex-1 will-change-transform"
       >
-        <div className="flex justify-center items-center lg:flex-1 w-full max-w-none mt-8 sm:mt-12 lg:mt-16">
+        <div className="flex justify-center items-center lg:flex-1 w-full max-w-none mt-2 sm:mt-4 lg:mt-6">
           <Image
             src={backgroundImage}
             alt="GHD Retrofit Hero"
