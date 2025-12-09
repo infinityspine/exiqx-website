@@ -226,8 +226,8 @@ const GHDHero = memo<Partial<GHDHeroProps>>((props) => {
           <Image
             src={backgroundImage}
             alt="GHD Retrofit Hero"
-            width={1850}
-            height={1380}
+            width={2128}
+            height={1587}
             className="w-full h-auto object-contain pointer-events-none"
             priority
             quality={85}
