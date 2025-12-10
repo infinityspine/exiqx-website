@@ -81,7 +81,7 @@ export default function FreestandingContent() {
             href: '/contact',
           }}
           microTagline="Patent-pending technology. Commercial-grade construction. Engineered in Arizona."
-          backgroundImage="/freestanding-hero.jpg"
+          backgroundImage="/images/Freestanding v2.7.png"
           showShimmer={true}
         />
 

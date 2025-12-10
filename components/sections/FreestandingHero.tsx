@@ -22,7 +22,7 @@ const FreestandingHeroPropsSchema = z.object({
   microTagline: z.string().optional(),
   primaryCTA: CTAButtonSchema.optional(),
   secondaryCTA: CTAButtonSchema.optional(),
-  backgroundImage: z.string().default('/freestanding-hero.jpg'),
+  backgroundImage: z.string().default('/images/Freestanding v2.7.png'),
   showShimmer: z.boolean().default(false),
   className: z.string().optional(),
 })
