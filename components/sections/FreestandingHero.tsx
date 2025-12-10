@@ -97,7 +97,7 @@ const FreestandingHero = memo<Partial<FreestandingHeroProps>>((props) => {
   return (
     <section
       ref={containerRef}
-      className={`relative flex flex-col-reverse lg:flex-row items-start lg:items-center justify-between min-h-[calc(100vh-80px)] px-6 lg:px-8 overflow-visible bg-black max-w-none pt-24 sm:pt-32 lg:pt-36 ${className}`}
+      className={`relative flex flex-col-reverse lg:flex-row items-start lg:items-center justify-between min-h-[calc(100vh-80px)] px-6 lg:px-8 overflow-visible bg-black max-w-none pt-12 sm:pt-32 lg:pt-36 ${className}`}
       aria-labelledby="hero-heading"
     >
       {/* Gradient Overlay */}
