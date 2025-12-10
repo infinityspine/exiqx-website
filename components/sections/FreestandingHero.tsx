@@ -97,57 +97,35 @@ const FreestandingHero = memo<Partial<FreestandingHeroProps>>((props) => {
   return (
     <section
       ref={containerRef}
-      className={`relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-black text-center ${className}`}
+      className={`relative flex flex-col-reverse lg:flex-row items-center justify-between h-[calc(100vh-80px)] px-6 lg:px-8 overflow-hidden bg-black max-w-none pt-24 sm:pt-32 lg:pt-36 ${className}`}
       aria-labelledby="hero-heading"
     >
-      {/* Background Image with Parallax */}
-      <motion.div
-        initial={{ opacity: 0, scale: shouldReduceMotion ? 1 : 1.1 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: ANIMATION_CONSTANTS.DURATION_SLOW }}
-        style={{
-          y: shouldReduceMotion ? 0 : backgroundY,
-        }}
-        className="absolute inset-0 z-0 will-change-transform"
-      >
-        <Image
-          src={backgroundImage}
-          alt="Freestanding ExIQx footplate system for professional facilities"
-          fill
-          priority
-          className="object-cover object-center scale-110"
-          sizes="100vw"
-          quality={85}
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/60 to-transparent z-0" />
+
+      {/* Optional Shimmer Effect */}
+      {showShimmer && !shouldReduceMotion && (
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent z-0"
+          animate={{ x: ['-200%', '200%'] }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            repeatDelay: 5,
+            ease: 'easeInOut',
+          }}
         />
+      )}
 
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/70 to-black/95" />
-
-        {/* Optional Shimmer Effect */}
-        {showShimmer && !shouldReduceMotion && (
-          <motion.div
-            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent"
-            animate={{ x: ['-200%', '200%'] }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              repeatDelay: 5,
-              ease: 'easeInOut',
-            }}
-          />
-        )}
-      </motion.div>
-
-      {/* Hero Content with Fade-out */}
+      {/* Text Block */}
       <motion.div
-        initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 40 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, x: shouldReduceMotion ? 0 : -40 }}
+        animate={{ opacity: 1, x: 0 }}
         transition={{ duration: ANIMATION_CONSTANTS.DURATION_MEDIUM, delay: 0.3 }}
         style={{
           opacity: shouldReduceMotion ? 1 : contentOpacity,
-          scale: shouldReduceMotion ? 1 : contentScale,
         }}
-        className="relative z-10 flex flex-col items-center justify-center text-center px-6 sm:px-8 lg:px-12"
+        className="z-10 max-w-xl lg:max-w-[950px] text-left pl-6 lg:pl-[4%]"
       >
         {/* Optional Eyebrow */}
         {eyebrow && (
@@ -155,66 +133,72 @@ const FreestandingHero = memo<Partial<FreestandingHeroProps>>((props) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.6 }}
-            className="text-xs tracking-[0.2em] text-white/50 uppercase mb-6 font-inter"
+            className="text-sm tracking-widest uppercase text-gray-400 mb-4"
           >
-            {eyebrow}
+            – {eyebrow}
           </motion.p>
         )}
 
         {/* Headline */}
         <h1
           id="hero-heading"
-          className="text-[clamp(2.4rem,5vw,4.8rem)] font-extrabold tracking-[0.05em] text-white uppercase leading-[1.05] mb-16 sm:mb-20 font-display"
+          className="text-white text-[clamp(2.4rem,5vw,4.8rem)] lg:text-[clamp(4rem,8.5vw,8rem)] font-black tracking-[-0.025em] uppercase leading-[0.92] font-display mb-6 lg:mb-32"
+          style={{
+            textShadow: '0 6px 40px rgba(0,0,0,0.9), 0 0 80px rgba(220,38,38,0.35)',
+            transform: 'translateZ(0)'
+          }}
         >
           {headline}
         </h1>
 
         {/* Subheadline */}
-        <p
-          className="text-[clamp(1.05rem,1.6vw,1.25rem)] font-medium text-white/85 max-w-2xl leading-[1.8] font-inter"
-          style={{ marginBottom: 'clamp(3.5rem, 9vw, 5rem)' }}
-        >
+        <p className="text-gray-300 text-base sm:text-lg lg:text-[clamp(1.2rem,2.1vw,1.65rem)] font-medium text-white/92 leading-relaxed lg:leading-[1.65] mb-8 lg:mb-22 max-w-[650px]">
           {subheadline}
         </p>
 
         {/* CTA Buttons */}
         {(primaryCTA || secondaryCTA) && (
-          <div className="flex flex-col sm:flex-row gap-5 justify-center items-center mb-12 sm:mb-14">
+          <div className="flex gap-4 mt-6">
             {/* Primary CTA */}
             {primaryCTA && (
-              <motion.button
-                onClick={() => handleLinkClick(primaryCTA.href)}
+              <motion.a
+                href={primaryCTA.href}
+                onClick={(e) => {
+                  e.preventDefault()
+                  handleLinkClick(primaryCTA.href)
+                }}
                 initial={{ scale: 1 }}
                 whileHover={shouldReduceMotion ? {} : {
                   scale: 1.05,
-                  boxShadow: '0 10px 30px rgba(220,38,38,0.55)'
                 }}
                 whileTap={shouldReduceMotion ? {} : { scale: 0.96 }}
                 transition={{ duration: ANIMATION_CONSTANTS.DURATION_FAST }}
-                className="bg-gradient-to-r from-red-600 to-red-700 text-white px-8 py-4 rounded-xl text-[11px] font-semibold uppercase tracking-[0.2em] transition-all duration-300 hover:from-red-500 hover:to-red-600 hover:scale-[1.02] shadow-2xl shadow-red-500/30 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-black font-inter"
+                className="bg-red-600 text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-red-700 transition focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2 focus:ring-offset-black"
                 aria-label={primaryCTA.text}
               >
                 {primaryCTA.text}
-              </motion.button>
+              </motion.a>
             )}
 
             {/* Secondary CTA */}
             {secondaryCTA && (
-              <motion.button
-                onClick={() => handleLinkClick(secondaryCTA.href)}
+              <motion.a
+                href={secondaryCTA.href}
+                onClick={(e) => {
+                  e.preventDefault()
+                  handleLinkClick(secondaryCTA.href)
+                }}
                 initial={{ scale: 1 }}
                 whileHover={shouldReduceMotion ? {} : {
                   scale: 1.05,
-                  backgroundColor: 'rgba(255,255,255,0.14)',
-                  borderColor: 'rgba(255,255,255,0.9)'
                 }}
                 whileTap={shouldReduceMotion ? {} : { scale: 0.96 }}
                 transition={{ duration: ANIMATION_CONSTANTS.DURATION_FAST }}
-                className="border border-white/20 bg-transparent text-white px-8 py-4 rounded-xl text-[11px] font-semibold uppercase tracking-[0.2em] transition-all duration-300 hover:bg-white/10 hover:border-white/40 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black font-inter"
+                className="border border-white px-6 py-3 rounded-full text-sm font-semibold text-white hover:bg-white hover:text-black transition focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black"
                 aria-label={secondaryCTA.text}
               >
                 {secondaryCTA.text}
-              </motion.button>
+              </motion.a>
             )}
           </div>
         )}
@@ -225,11 +209,34 @@ const FreestandingHero = memo<Partial<FreestandingHeroProps>>((props) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8, duration: 0.6 }}
-            className="text-[10px] sm:text-xs tracking-[0.18em] text-white/50 uppercase font-inter"
+            className="text-sm text-gray-400 mt-12 sm:mt-16 lg:mt-24"
           >
             {microTagline}
           </motion.p>
         )}
+      </motion.div>
+
+      {/* Product Image */}
+      <motion.div
+        initial={{ opacity: 0, scale: shouldReduceMotion ? 1 : 1.1 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: ANIMATION_CONSTANTS.DURATION_SLOW }}
+        style={{
+          y: shouldReduceMotion ? 0 : backgroundY,
+        }}
+        className="z-0 w-full lg:flex-1 will-change-transform"
+      >
+        <div className="flex justify-center items-center lg:flex-1 w-full max-w-none mt-2 sm:mt-4 lg:mt-6">
+          <Image
+            src={backgroundImage}
+            alt="Freestanding ExIQx footplate system for professional facilities"
+            width={3080}
+            height={2310}
+            className="w-full h-auto object-contain pointer-events-none"
+            priority
+            quality={85}
+          />
+        </div>
       </motion.div>
 
       {/* Scroll Indicator */}
