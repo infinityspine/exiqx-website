@@ -66,7 +66,7 @@ export default function FreestandingContent() {
         <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 blur-sm opacity-50" />
       </motion.div>
 
-      <main className="relative bg-black overflow-hidden">
+      <main className="relative bg-black overflow-visible">
         {/* Hero Section - No animation wrapper to preserve FreestandingHero's internal animations */}
         <FreestandingHero
           eyebrow="COMMERCIAL-GRADE FREESTANDING SYSTEM"

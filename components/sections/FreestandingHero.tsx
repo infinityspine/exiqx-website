@@ -97,7 +97,7 @@ const FreestandingHero = memo<Partial<FreestandingHeroProps>>((props) => {
   return (
     <section
       ref={containerRef}
-      className={`relative flex flex-col-reverse lg:flex-row items-center justify-between h-[calc(100vh-80px)] px-6 lg:px-8 overflow-visible bg-black max-w-none pt-24 sm:pt-32 lg:pt-36 ${className}`}
+      className={`relative flex flex-col-reverse lg:flex-row items-start lg:items-center justify-between min-h-[calc(100vh-80px)] px-6 lg:px-8 overflow-visible bg-black max-w-none pt-24 sm:pt-32 lg:pt-36 ${className}`}
       aria-labelledby="hero-heading"
     >
       {/* Gradient Overlay */}
@@ -224,18 +224,20 @@ const FreestandingHero = memo<Partial<FreestandingHeroProps>>((props) => {
         style={{
           y: shouldReduceMotion ? 0 : backgroundY,
         }}
-        className="z-0 w-full lg:flex-1 lg:min-w-0 will-change-transform overflow-visible"
+        className="z-0 w-full lg:w-[60%] lg:flex-shrink-0 will-change-transform overflow-visible"
       >
-        <div className="flex justify-center items-center w-full max-w-none mt-2 sm:mt-4 lg:mt-6 overflow-visible">
+        <div className="flex justify-center items-center w-full h-full max-w-none overflow-visible">
           <Image
             src={backgroundImage}
             alt="Freestanding ExIQx footplate system for professional facilities"
             width={4928}
             height={3696}
-            className="w-full lg:w-[85vw] h-auto object-contain pointer-events-none"
+            className="w-full h-auto object-contain pointer-events-none"
             style={{
+              width: '100%',
               maxWidth: 'none',
-              minWidth: '600px',
+              height: 'auto',
+              maxHeight: '90vh',
               transform: 'translateZ(0)',
               filter: 'drop-shadow(0 50px 140px rgba(0,0,0,0.95)) drop-shadow(0 0 90px rgba(220,38,38,0.3))'
             }}
