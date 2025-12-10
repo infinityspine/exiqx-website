@@ -230,8 +230,8 @@ const FreestandingHero = memo<Partial<FreestandingHeroProps>>((props) => {
           <Image
             src={backgroundImage}
             alt="Freestanding ExIQx footplate system for professional facilities"
-            width={3080}
-            height={2310}
+            width={4928}
+            height={3696}
             className="w-full h-auto object-contain pointer-events-none"
             priority
             quality={85}
