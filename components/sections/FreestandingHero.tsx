@@ -234,7 +234,7 @@ const FreestandingHero = memo<Partial<FreestandingHeroProps>>((props) => {
             height={3696}
             className="w-full h-auto object-contain pointer-events-none"
             style={{
-              width: '126%',
+              width: '120%',
               maxWidth: 'none',
               height: 'auto',
               maxHeight: 'none',
