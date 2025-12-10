@@ -97,7 +97,7 @@ const FreestandingHero = memo<Partial<FreestandingHeroProps>>((props) => {
   return (
     <section
       ref={containerRef}
-      className={`relative flex flex-col-reverse lg:flex-row items-center justify-between h-[calc(100vh-80px)] px-6 lg:px-8 overflow-hidden bg-black max-w-none pt-24 sm:pt-32 lg:pt-36 ${className}`}
+      className={`relative flex flex-col-reverse lg:flex-row items-center justify-between h-[calc(100vh-80px)] px-6 lg:px-8 overflow-visible bg-black max-w-none pt-24 sm:pt-32 lg:pt-36 ${className}`}
       aria-labelledby="hero-heading"
     >
       {/* Gradient Overlay */}
@@ -125,7 +125,7 @@ const FreestandingHero = memo<Partial<FreestandingHeroProps>>((props) => {
         style={{
           opacity: shouldReduceMotion ? 1 : contentOpacity,
         }}
-        className="z-10 max-w-xl lg:max-w-[950px] text-left pl-6 lg:pl-[4%]"
+        className="z-10 max-w-xl lg:max-w-[950px] lg:flex-shrink-0 text-left pl-6 lg:pl-[4%]"
       >
         {/* Optional Eyebrow */}
         {eyebrow && (
@@ -224,15 +224,21 @@ const FreestandingHero = memo<Partial<FreestandingHeroProps>>((props) => {
         style={{
           y: shouldReduceMotion ? 0 : backgroundY,
         }}
-        className="z-0 w-full lg:flex-1 will-change-transform"
+        className="z-0 w-full lg:flex-1 lg:min-w-0 will-change-transform overflow-visible"
       >
-        <div className="flex justify-center items-center lg:flex-1 w-full max-w-none mt-2 sm:mt-4 lg:mt-6">
+        <div className="flex justify-center items-center w-full max-w-none mt-2 sm:mt-4 lg:mt-6 overflow-visible">
           <Image
             src={backgroundImage}
             alt="Freestanding ExIQx footplate system for professional facilities"
             width={4928}
             height={3696}
-            className="w-full h-auto object-contain pointer-events-none"
+            className="w-full lg:w-[85vw] h-auto object-contain pointer-events-none"
+            style={{
+              maxWidth: 'none',
+              minWidth: '600px',
+              transform: 'translateZ(0)',
+              filter: 'drop-shadow(0 50px 140px rgba(0,0,0,0.95)) drop-shadow(0 0 90px rgba(220,38,38,0.3))'
+            }}
             priority
             quality={85}
           />
