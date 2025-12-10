@@ -224,7 +224,7 @@ const FreestandingHero = memo<Partial<FreestandingHeroProps>>((props) => {
         style={{
           y: shouldReduceMotion ? 0 : backgroundY,
         }}
-        className="z-0 w-full -mt-[272px] lg:mt-0 lg:w-[55%] lg:flex-shrink-0 will-change-transform overflow-visible lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2"
+        className="z-0 w-full -mt-[232px] lg:mt-0 lg:w-[55%] lg:flex-shrink-0 will-change-transform overflow-visible lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2"
       >
         <div className="flex justify-center items-center w-full h-full max-w-none overflow-visible">
           <Image
