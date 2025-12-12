@@ -326,7 +326,7 @@ const HeroSection = memo(function HeroSection({
       </div>
 
       {/* MOBILE - ELITE (OPTIMIZED) */}
-      <div className="lg:hidden bg-[#0a0a0a]">
+      <div className="lg:hidden bg-[#0a0a0a] overflow-x-hidden">
         {/* Simplified Background Effects */}
         {!shouldReduceMotion && (
           <>
@@ -400,15 +400,21 @@ const HeroSection = memo(function HeroSection({
         </div>
 
         {/* Text Content */}
-        <div className="relative px-6 pb-8 -mt-44">
+        <div className="relative px-8 pb-8 -mt-44 overflow-hidden">
           <div className="max-w-xl mx-auto text-center">
             
             {/* Headline */}
             <h1 
-              className="text-[clamp(1.65rem,5.5vw,2.2rem)] leading-[1.06] font-black text-white tracking-tight mb-4"
+              className="text-[clamp(1.65rem,5.5vw,2.2rem)] leading-[1.06] font-black text-white tracking-tight mb-4 break-words mx-auto"
               style={{
                 textShadow: '0 4px 40px rgba(0,0,0,0.9), 0 0 80px rgba(220,38,38,0.4)',
-                transform: 'translateZ(0)'
+                transform: 'translateZ(0)',
+                overflowWrap: 'anywhere',
+                wordBreak: 'break-word',
+                textAlign: 'center',
+                maxWidth: '100%',
+                hyphens: 'auto',
+                WebkitHyphens: 'auto'
               }}
             >
               {validatedData.headline}
