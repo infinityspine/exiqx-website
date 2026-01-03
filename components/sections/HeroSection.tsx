@@ -442,7 +442,7 @@ const HeroSection = memo(function HeroSection({
         </div>
 
         {/* Text Content */}
-        <div className="relative px-8 pt-[clamp(1rem,4vw,1.4rem)] pb-[clamp(1.25rem,4.5vw,1.75rem)] -mt-[clamp(1.5rem,5vw,2.5rem)] overflow-hidden">
+        <div className="relative px-6 sm:px-8 pt-[clamp(1rem,4vw,1.4rem)] pb-[clamp(1.25rem,4.5vw,1.75rem)] -mt-[clamp(1.5rem,5vw,2.5rem)]">
           <div className="max-w-xl mx-auto text-center">
             
             {/* Headline */}
