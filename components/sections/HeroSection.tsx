@@ -393,7 +393,7 @@ const HeroSection = memo(function HeroSection({
         )}
 
         {/* Product Image - Optimized */}
-        <div className="relative w-full -mt-40 mb-0 flex items-start justify-center">
+        <div className="relative w-full -mt-40 mb-[clamp(0.75rem,3vw,1.5rem)] flex items-start justify-center">
           {!shouldReduceMotion && (
             <motion.div
               animate={{
@@ -442,12 +442,12 @@ const HeroSection = memo(function HeroSection({
         </div>
 
         {/* Text Content */}
-        <div className="relative px-8 pb-8 -mt-44 overflow-hidden">
+        <div className="relative px-8 pt-[clamp(1.25rem,5vw,2rem)] pb-[clamp(1.75rem,6vw,2.75rem)] -mt-[clamp(8rem,22vw,9rem)] overflow-hidden">
           <div className="max-w-xl mx-auto text-center">
             
             {/* Headline */}
             <h1 
-              className="text-[clamp(1.65rem,5.5vw,2.2rem)] leading-[1.06] font-black text-white tracking-tight mb-4 break-words mx-auto"
+              className="text-[clamp(1.65rem,5.5vw,2.2rem)] leading-[1.06] font-black text-white tracking-tight mb-[clamp(1rem,4vw,1.5rem)] break-words mx-auto"
               style={{
                 textShadow: '0 4px 40px rgba(0,0,0,0.9), 0 0 80px rgba(220,38,38,0.4)',
                 transform: 'translateZ(0)',
@@ -463,12 +463,12 @@ const HeroSection = memo(function HeroSection({
             </h1>
 
             {/* Subheadline */}
-            <p className="text-[clamp(0.92rem,2.9vw,1.02rem)] text-white/88 leading-[1.58] mb-9">
+            <p className="text-[clamp(0.92rem,2.9vw,1.02rem)] text-white/88 leading-[1.58] mb-[clamp(1.5rem,6.5vw,2.5rem)]">
               {validatedData.subheadline}
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-col gap-4 mb-12">
+            <div className="flex flex-col gap-[clamp(0.9rem,3.8vw,1.25rem)] mb-[clamp(2.25rem,8vw,3.25rem)]">
               {validatedData.ctaButtons.map((button) => (
                 <CTAButton
                   key={button.href}
