@@ -347,7 +347,7 @@ const HeroSection = memo(function HeroSection({
       </div>
 
       {/* MOBILE - ELITE (OPTIMIZED) */}
-      <div className="lg:hidden bg-[#0a0a0a] overflow-x-hidden">
+      <div className="lg:hidden bg-[#0a0a0a] overflow-x-hidden pt-[clamp(4.75rem,15vw,6.75rem)]">
         {/* Simplified Background Effects */}
         {!shouldReduceMotion && (
           <>
@@ -393,7 +393,7 @@ const HeroSection = memo(function HeroSection({
         )}
 
         {/* Product Image - Optimized */}
-        <div className="relative w-full -mt-40 mb-[clamp(0.75rem,3vw,1.5rem)] flex items-start justify-center">
+        <div className="relative w-full mt-[clamp(0.5rem,2.5vw,1.25rem)] mb-[clamp(1rem,4vw,2rem)] flex items-start justify-center">
           {!shouldReduceMotion && (
             <motion.div
               animate={{
@@ -442,7 +442,7 @@ const HeroSection = memo(function HeroSection({
         </div>
 
         {/* Text Content */}
-        <div className="relative px-8 pt-[clamp(1.25rem,5vw,2rem)] pb-[clamp(1.75rem,6vw,2.75rem)] -mt-[clamp(8rem,22vw,9rem)] overflow-hidden">
+        <div className="relative px-8 pt-[clamp(1.5rem,6vw,2.25rem)] pb-[clamp(2.25rem,8vw,3.5rem)] -mt-[clamp(2rem,7vw,3.5rem)] overflow-hidden">
           <div className="max-w-xl mx-auto text-center">
             
             {/* Headline */}
