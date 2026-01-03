@@ -249,15 +249,36 @@ const HeroSection = memo(function HeroSection({
               />
             )}
             
-            <img
-              src="/images/footplate-hero.png"
-              alt={validatedData.backgroundImageAlt}
-              className="relative w-[80vw] max-w-[1200px] h-auto"
-              style={{
-                filter: 'drop-shadow(0 50px 140px rgba(0,0,0,0.95)) drop-shadow(0 0 90px rgba(220,38,38,0.3))',
-                transform: 'translateZ(0)'
-              }}
-            />
+            {shouldReduceMotion ? (
+              <img
+                src="/images/footplate-hero.png"
+                alt={validatedData.backgroundImageAlt}
+                className="relative w-[80vw] max-w-[1200px] h-auto"
+                style={{
+                  filter:
+                    'drop-shadow(0 50px 140px rgba(0,0,0,0.95)) drop-shadow(0 0 90px rgba(220,38,38,0.3))',
+                  transform: 'translateZ(0)',
+                }}
+              />
+            ) : (
+              <video
+                className="relative w-[80vw] max-w-[1200px] h-auto"
+                style={{
+                  filter:
+                    'drop-shadow(0 50px 140px rgba(0,0,0,0.95)) drop-shadow(0 0 90px rgba(220,38,38,0.3))',
+                  transform: 'translateZ(0)',
+                }}
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="auto"
+                poster="/images/footplate-hero.png"
+              >
+                <source src="/videos/rack-footplate-hero.webm" type="video/webm" />
+                <source src="/videos/rack-footplate-hero.mp4" type="video/mp4" />
+              </video>
+            )}
           </div>
         </motion.div>
 
@@ -388,15 +409,36 @@ const HeroSection = memo(function HeroSection({
             />
           )}
           
-          <img
-            src="/images/footplate-hero.png"
-            alt={validatedData.backgroundImageAlt}
-            className="w-[112%] max-w-[620px] h-auto object-contain relative z-10"
-            style={{
-              filter: 'drop-shadow(0 40px 80px rgba(0,0,0,0.8)) drop-shadow(0 0 70px rgba(220,38,38,0.4))',
-              transform: 'translateZ(0)'
-            }}
-          />
+          {shouldReduceMotion ? (
+            <img
+              src="/images/footplate-hero.png"
+              alt={validatedData.backgroundImageAlt}
+              className="w-[112%] max-w-[620px] h-auto object-contain relative z-10"
+              style={{
+                filter:
+                  'drop-shadow(0 40px 80px rgba(0,0,0,0.8)) drop-shadow(0 0 70px rgba(220,38,38,0.4))',
+                transform: 'translateZ(0)',
+              }}
+            />
+          ) : (
+            <video
+              className="w-[112%] max-w-[620px] h-auto object-contain relative z-10"
+              style={{
+                filter:
+                  'drop-shadow(0 40px 80px rgba(0,0,0,0.8)) drop-shadow(0 0 70px rgba(220,38,38,0.4))',
+                transform: 'translateZ(0)',
+              }}
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+              poster="/images/footplate-hero.png"
+            >
+              <source src="/videos/rack-footplate-hero.webm" type="video/webm" />
+              <source src="/videos/rack-footplate-hero.mp4" type="video/mp4" />
+            </video>
+          )}
         </div>
 
         {/* Text Content */}
