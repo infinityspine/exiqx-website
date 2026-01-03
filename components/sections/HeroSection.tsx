@@ -347,7 +347,7 @@ const HeroSection = memo(function HeroSection({
       </div>
 
       {/* MOBILE - ELITE (OPTIMIZED) */}
-      <div className="lg:hidden bg-[#0a0a0a] overflow-x-hidden pt-[clamp(4rem,13vw,6rem)]">
+      <div className="lg:hidden bg-[#0a0a0a] overflow-x-hidden pt-[clamp(3.5rem,12vw,5.5rem)] pb-[clamp(2rem,6vw,3rem)]">
         {/* Simplified Background Effects */}
         {!shouldReduceMotion && (
           <>
@@ -393,7 +393,7 @@ const HeroSection = memo(function HeroSection({
         )}
 
         {/* Product Image - Optimized */}
-        <div className="relative w-full mt-[clamp(0.5rem,2.5vw,1.25rem)] mb-[clamp(1rem,4vw,2rem)] flex items-start justify-center">
+        <div className="relative w-full mt-[clamp(0.25rem,2vw,1rem)] mb-[clamp(0.75rem,3vw,1.5rem)] flex items-center justify-center h-[clamp(220px,34vh,300px)]">
           {!shouldReduceMotion && (
             <motion.div
               animate={{
@@ -413,7 +413,7 @@ const HeroSection = memo(function HeroSection({
             <img
               src="/images/footplate-hero.png"
               alt={validatedData.backgroundImageAlt}
-              className="w-[112%] max-w-[620px] h-auto object-contain relative z-10"
+              className="w-[112%] max-w-[620px] h-full object-contain relative z-10"
               style={{
                 filter:
                   'drop-shadow(0 40px 80px rgba(0,0,0,0.8)) drop-shadow(0 0 70px rgba(220,38,38,0.4))',
@@ -422,7 +422,7 @@ const HeroSection = memo(function HeroSection({
             />
           ) : (
             <video
-              className="w-[112%] max-w-[620px] h-auto object-contain relative z-10"
+              className="w-[112%] max-w-[620px] h-full object-contain relative z-10"
               style={{
                 filter:
                   'drop-shadow(0 40px 80px rgba(0,0,0,0.8)) drop-shadow(0 0 70px rgba(220,38,38,0.4))',
@@ -442,12 +442,12 @@ const HeroSection = memo(function HeroSection({
         </div>
 
         {/* Text Content */}
-        <div className="relative px-8 pt-[clamp(1.25rem,5vw,2rem)] pb-[clamp(1.5rem,5.5vw,2.5rem)] -mt-[clamp(2rem,7vw,3.5rem)] overflow-hidden">
+        <div className="relative px-8 pt-[clamp(1.1rem,4.5vw,1.8rem)] pb-[clamp(2rem,6vw,3rem)] -mt-[clamp(2rem,7vw,3.5rem)] overflow-hidden">
           <div className="max-w-xl mx-auto text-center">
             
             {/* Headline */}
             <h1 
-              className="text-[clamp(1.65rem,5.5vw,2.2rem)] leading-[1.06] font-black text-white tracking-tight mb-[clamp(1rem,4vw,1.5rem)] break-words mx-auto"
+              className="text-[clamp(1.65rem,5.5vw,2.2rem)] leading-[1.06] font-black text-white tracking-tight mb-[clamp(0.9rem,3.5vw,1.35rem)] break-words mx-auto"
               style={{
                 textShadow: '0 4px 40px rgba(0,0,0,0.9), 0 0 80px rgba(220,38,38,0.4)',
                 transform: 'translateZ(0)',
@@ -475,12 +475,12 @@ const HeroSection = memo(function HeroSection({
             </h1>
 
             {/* Subheadline */}
-            <p className="text-[clamp(0.92rem,2.9vw,1.02rem)] text-white/88 leading-[1.58] mb-[clamp(1.25rem,5.5vw,2rem)]">
+            <p className="text-[clamp(0.92rem,2.9vw,1.02rem)] text-white/88 leading-[1.58] mb-[clamp(1.05rem,4.8vw,1.7rem)]">
               {validatedData.subheadline}
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-col gap-[clamp(0.75rem,3.2vw,1.05rem)] mb-[clamp(1.5rem,6vw,2.25rem)]">
+            <div className="flex flex-col gap-[clamp(0.7rem,3vw,0.95rem)] mb-[clamp(1.5rem,5.5vw,2rem)]">
               {validatedData.ctaButtons.map((button) => (
                 <CTAButton
                   key={button.href}
