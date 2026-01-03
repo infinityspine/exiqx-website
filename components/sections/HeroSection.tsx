@@ -451,18 +451,27 @@ const HeroSection = memo(function HeroSection({
               style={{
                 textShadow: '0 4px 40px rgba(0,0,0,0.9), 0 0 80px rgba(220,38,38,0.4)',
                 transform: 'translateZ(0)',
-                // Mobile typography: no hyphenation, no mid-word breaks
-                hyphens: 'none',
-                WebkitHyphens: 'none',
-                MozHyphens: 'none',
-                msHyphens: 'none',
-                wordBreak: 'normal',
-                overflowWrap: 'break-word',
                 textAlign: 'center',
                 maxWidth: '100%',
               }}
             >
-              {validatedData.headline}
+              <span>PATENT-PENDING</span>
+              <br />
+              <span
+                style={{
+                  hyphens: 'none',
+                  WebkitHyphens: 'none',
+                  MozHyphens: 'none',
+                  msHyphens: 'none',
+                  wordBreak: 'normal',
+                  overflowWrap: 'normal',
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                PLANTARFLEXION
+              </span>
+              <br />
+              <span>TRAINING EQUIPMENT.</span>
             </h1>
 
             {/* Subheadline */}
