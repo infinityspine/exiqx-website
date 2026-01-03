@@ -347,7 +347,7 @@ const HeroSection = memo(function HeroSection({
       </div>
 
       {/* MOBILE - ELITE (OPTIMIZED) */}
-      <div className="lg:hidden bg-[#0a0a0a] overflow-x-hidden pt-[clamp(4.75rem,15vw,6.75rem)]">
+      <div className="lg:hidden bg-[#0a0a0a] overflow-x-hidden pt-[clamp(4rem,13vw,6rem)]">
         {/* Simplified Background Effects */}
         {!shouldReduceMotion && (
           <>
@@ -442,7 +442,7 @@ const HeroSection = memo(function HeroSection({
         </div>
 
         {/* Text Content */}
-        <div className="relative px-8 pt-[clamp(1.5rem,6vw,2.25rem)] pb-[clamp(2.25rem,8vw,3.5rem)] -mt-[clamp(2rem,7vw,3.5rem)] overflow-hidden">
+        <div className="relative px-8 pt-[clamp(1.25rem,5vw,2rem)] pb-[clamp(1.5rem,5.5vw,2.5rem)] -mt-[clamp(2rem,7vw,3.5rem)] overflow-hidden">
           <div className="max-w-xl mx-auto text-center">
             
             {/* Headline */}
@@ -451,24 +451,27 @@ const HeroSection = memo(function HeroSection({
               style={{
                 textShadow: '0 4px 40px rgba(0,0,0,0.9), 0 0 80px rgba(220,38,38,0.4)',
                 transform: 'translateZ(0)',
-                overflowWrap: 'anywhere',
-                wordBreak: 'break-word',
+                // Mobile typography: no hyphenation, no mid-word breaks
+                hyphens: 'none',
+                WebkitHyphens: 'none',
+                MozHyphens: 'none',
+                msHyphens: 'none',
+                wordBreak: 'normal',
+                overflowWrap: 'break-word',
                 textAlign: 'center',
                 maxWidth: '100%',
-                hyphens: 'auto',
-                WebkitHyphens: 'auto'
               }}
             >
               {validatedData.headline}
             </h1>
 
             {/* Subheadline */}
-            <p className="text-[clamp(0.92rem,2.9vw,1.02rem)] text-white/88 leading-[1.58] mb-[clamp(1.5rem,6.5vw,2.5rem)]">
+            <p className="text-[clamp(0.92rem,2.9vw,1.02rem)] text-white/88 leading-[1.58] mb-[clamp(1.25rem,5.5vw,2rem)]">
               {validatedData.subheadline}
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-col gap-[clamp(0.9rem,3.8vw,1.25rem)] mb-[clamp(2.25rem,8vw,3.25rem)]">
+            <div className="flex flex-col gap-[clamp(0.75rem,3.2vw,1.05rem)] mb-[clamp(1.5rem,6vw,2.25rem)]">
               {validatedData.ctaButtons.map((button) => (
                 <CTAButton
                   key={button.href}
