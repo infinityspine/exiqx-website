@@ -442,7 +442,7 @@ const HeroSection = memo(function HeroSection({
         </div>
 
         {/* Text Content */}
-        <div className="relative px-6 sm:px-8 pt-[clamp(1rem,4vw,1.4rem)] pb-[clamp(1.25rem,4.5vw,1.75rem)] -mt-[clamp(1.5rem,5vw,2.5rem)]">
+        <div className="relative px-4 sm:px-6 pt-[clamp(1rem,4vw,1.4rem)] pb-[clamp(1.25rem,4.5vw,1.75rem)] -mt-[clamp(1.5rem,5vw,2.5rem)]">
           <div className="max-w-xl mx-auto text-center">
             
             {/* Headline */}
@@ -450,7 +450,6 @@ const HeroSection = memo(function HeroSection({
               className="text-[clamp(1.45rem,5vw,1.95rem)] leading-[1.04] font-black text-white tracking-tight mb-[clamp(0.75rem,3vw,1rem)] break-words mx-auto"
               style={{
                 textShadow: '0 4px 40px rgba(0,0,0,0.9), 0 0 80px rgba(220,38,38,0.4)',
-                transform: 'translateZ(0)',
                 textAlign: 'center',
                 maxWidth: '100%',
               }}
@@ -459,6 +458,7 @@ const HeroSection = memo(function HeroSection({
               <br />
               <span
                 style={{
+                  display: 'inline-block',
                   hyphens: 'none',
                   WebkitHyphens: 'none',
                   MozHyphens: 'none',
@@ -466,6 +466,7 @@ const HeroSection = memo(function HeroSection({
                   wordBreak: 'normal',
                   overflowWrap: 'normal',
                   whiteSpace: 'nowrap',
+                  letterSpacing: '-0.04em',
                 }}
               >
                 PLANTARFLEXION
