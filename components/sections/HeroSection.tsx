@@ -110,7 +110,7 @@ const CTAButton = memo(function CTAButton({
       aria-label={button.ariaLabel || button.label}
       {...animations[button.variant]}
       className={`
-        rounded-xl px-8 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] 
+        rounded-xl px-8 py-3.5 sm:py-4 text-[11px] font-semibold uppercase tracking-[0.2em] 
         transition-all duration-300
         focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-black
         ${isPrimary 
@@ -347,7 +347,7 @@ const HeroSection = memo(function HeroSection({
       </div>
 
       {/* MOBILE - ELITE (OPTIMIZED) */}
-      <div className="lg:hidden bg-[#0a0a0a] overflow-x-hidden pt-[clamp(3.5rem,12vw,5.5rem)] pb-[clamp(2rem,6vw,3rem)]">
+      <div className="lg:hidden bg-[#0a0a0a] overflow-x-hidden pt-[clamp(3rem,10vw,4.25rem)] pb-[clamp(1.5rem,5vw,2rem)]">
         {/* Simplified Background Effects */}
         {!shouldReduceMotion && (
           <>
@@ -393,7 +393,7 @@ const HeroSection = memo(function HeroSection({
         )}
 
         {/* Product Image - Optimized */}
-        <div className="relative w-full mt-[clamp(0.25rem,2vw,1rem)] mb-[clamp(0.75rem,3vw,1.5rem)] flex items-center justify-center h-[clamp(220px,34vh,300px)]">
+        <div className="relative w-full mt-[clamp(0.25rem,1.5vw,0.75rem)] mb-[clamp(1rem,3vw,1.5rem)] flex items-center justify-center h-[38vh] max-h-[250px]">
           {!shouldReduceMotion && (
             <motion.div
               animate={{
@@ -442,12 +442,12 @@ const HeroSection = memo(function HeroSection({
         </div>
 
         {/* Text Content */}
-        <div className="relative px-8 pt-[clamp(1.1rem,4.5vw,1.8rem)] pb-[clamp(2rem,6vw,3rem)] -mt-[clamp(2rem,7vw,3.5rem)] overflow-hidden">
+        <div className="relative px-8 pt-[clamp(1rem,4vw,1.4rem)] pb-[clamp(1.25rem,4.5vw,1.75rem)] -mt-[clamp(1.5rem,5vw,2.5rem)] overflow-hidden">
           <div className="max-w-xl mx-auto text-center">
             
             {/* Headline */}
             <h1 
-              className="text-[clamp(1.65rem,5.5vw,2.2rem)] leading-[1.06] font-black text-white tracking-tight mb-[clamp(0.9rem,3.5vw,1.35rem)] break-words mx-auto"
+              className="text-[clamp(1.65rem,5.5vw,2.2rem)] leading-[1.06] font-black text-white tracking-tight mb-[clamp(0.75rem,3vw,1rem)] break-words mx-auto"
               style={{
                 textShadow: '0 4px 40px rgba(0,0,0,0.9), 0 0 80px rgba(220,38,38,0.4)',
                 transform: 'translateZ(0)',
@@ -475,12 +475,12 @@ const HeroSection = memo(function HeroSection({
             </h1>
 
             {/* Subheadline */}
-            <p className="text-[clamp(0.92rem,2.9vw,1.02rem)] text-white/88 leading-[1.58] mb-[clamp(1.05rem,4.8vw,1.7rem)]">
+            <p className="text-[clamp(0.92rem,2.9vw,1.02rem)] text-white/88 leading-[1.5] mb-[clamp(1.25rem,4.5vw,1.5rem)]">
               {validatedData.subheadline}
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-col gap-[clamp(0.7rem,3vw,0.95rem)] mb-[clamp(1.5rem,5.5vw,2rem)]">
+            <div className="flex flex-col gap-3 mb-[clamp(1rem,3.5vw,1.25rem)]">
               {validatedData.ctaButtons.map((button) => (
                 <CTAButton
                   key={button.href}
