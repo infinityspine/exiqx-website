@@ -447,7 +447,7 @@ const HeroSection = memo(function HeroSection({
             
             {/* Headline */}
             <h1 
-              className="text-[clamp(1.65rem,5.5vw,2.2rem)] leading-[1.06] font-black text-white tracking-tight mb-[clamp(0.75rem,3vw,1rem)] break-words mx-auto"
+              className="text-[clamp(1.45rem,5vw,1.95rem)] leading-[1.04] font-black text-white tracking-tight mb-[clamp(0.75rem,3vw,1rem)] break-words mx-auto"
               style={{
                 textShadow: '0 4px 40px rgba(0,0,0,0.9), 0 0 80px rgba(220,38,38,0.4)',
                 transform: 'translateZ(0)',
