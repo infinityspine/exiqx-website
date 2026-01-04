@@ -176,6 +176,20 @@ const HeroSection = memo(function HeroSection({
     })
   }
 
+  // Softly feather the edges of the product render so it blends into the hero gradient
+  // (useful when the source video/image has a baked-in solid/dark background).
+  const productEdgeFadeStyle: React.CSSProperties = {
+    backgroundColor: 'transparent',
+    WebkitMaskImage:
+      'radial-gradient(closest-side, rgba(0,0,0,1) 74%, rgba(0,0,0,0) 100%)',
+    maskImage:
+      'radial-gradient(closest-side, rgba(0,0,0,1) 74%, rgba(0,0,0,0) 100%)',
+    WebkitMaskRepeat: 'no-repeat',
+    maskRepeat: 'no-repeat',
+    WebkitMaskSize: 'cover',
+    maskSize: 'cover',
+  }
+
   return (
     <motion.section
       ref={containerRef}
@@ -270,6 +284,7 @@ const HeroSection = memo(function HeroSection({
                 alt={validatedData.backgroundImageAlt}
                 className="relative w-[80vw] max-w-[1200px] h-auto"
                 style={{
+                  ...productEdgeFadeStyle,
                   filter:
                     'drop-shadow(0 50px 140px rgba(0,0,0,0.95)) drop-shadow(0 0 90px rgba(220,38,38,0.3))',
                   transform: 'translateZ(0)',
@@ -279,6 +294,7 @@ const HeroSection = memo(function HeroSection({
               <video
                 className="relative w-[80vw] max-w-[1200px] h-auto"
                 style={{
+                  ...productEdgeFadeStyle,
                   filter:
                     'drop-shadow(0 50px 140px rgba(0,0,0,0.95)) drop-shadow(0 0 90px rgba(220,38,38,0.3))',
                   transform: 'translateZ(0)',
@@ -323,7 +339,7 @@ const HeroSection = memo(function HeroSection({
           {/* ENHANCED SUBHEADLINE */}
           <motion.p
             variants={fadeUp}
-            className="text-[clamp(1.4rem,2.45vw,1.95rem)] font-medium text-white/94 leading-[1.75] mb-10 max-w-[650px]"
+            className="text-[clamp(1.51rem,2.65vw,2.11rem)] font-medium text-white/95 leading-[1.75] mb-10 max-w-[650px]"
             style={{ transform: 'translateZ(0)' }}
           >
             {renderSubheadlineLines(validatedData.subheadline)}
@@ -430,6 +446,7 @@ const HeroSection = memo(function HeroSection({
               alt={validatedData.backgroundImageAlt}
               className="w-[112%] max-w-[620px] h-full object-contain relative z-10"
               style={{
+                ...productEdgeFadeStyle,
                 filter:
                   'drop-shadow(0 40px 80px rgba(0,0,0,0.8)) drop-shadow(0 0 70px rgba(220,38,38,0.4))',
                 transform: 'translateZ(0)',
@@ -439,6 +456,7 @@ const HeroSection = memo(function HeroSection({
             <video
               className="w-[112%] max-w-[620px] h-full object-contain relative z-10"
               style={{
+                ...productEdgeFadeStyle,
                 filter:
                   'drop-shadow(0 40px 80px rgba(0,0,0,0.8)) drop-shadow(0 0 70px rgba(220,38,38,0.4))',
                 transform: 'translateZ(0)',
@@ -473,7 +491,7 @@ const HeroSection = memo(function HeroSection({
             </h1>
 
             {/* Subheadline */}
-            <p className="text-[clamp(1.18rem,3.9vw,1.38rem)] text-white/93 leading-[1.75] max-w-[650px] mx-auto mb-[clamp(2.2rem,6.5vw,2.5rem)]">
+            <p className="text-[clamp(1.27rem,4.2vw,1.49rem)] text-white/95 leading-[1.75] max-w-[650px] mx-auto mb-[clamp(2.2rem,6.5vw,2.5rem)]">
               {renderSubheadlineLines(validatedData.subheadline)}
             </p>
 
