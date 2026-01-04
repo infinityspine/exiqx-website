@@ -248,7 +248,7 @@ const HeroSection = memo(function HeroSection({
           </div>
         )}
 
-        {/* PRODUCT IMAGE - GPU ACCELERATED */}
+        {/* PRODUCT VIDEO (ALPHA WEBM) - GPU ACCELERATED */}
         <motion.div
           style={{ 
             y: heroImageY,
@@ -311,7 +311,7 @@ const HeroSection = memo(function HeroSection({
         </motion.div>
 
         {/* LEFT-SIDE VIGNETTE FOR TEXT READABILITY (does not cover the right-side video) */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-[58%] z-25 bg-gradient-to-r from-black/85 via-black/55 to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-1/2 z-25 bg-gradient-to-r from-black/85 via-black/55 to-transparent" />
 
         {/* MASSIVE HERO TEXT - GPU ACCELERATED */}
         <motion.div
@@ -473,7 +473,7 @@ const HeroSection = memo(function HeroSection({
         </div>
 
         {/* Mobile/Tablet left-side vignette for readability (keeps right side clear for alpha video) */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-[70%] z-[1] bg-gradient-to-r from-black/75 via-black/45 to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-[62%] sm:w-[58%] z-[1] bg-gradient-to-r from-black/75 via-black/45 to-transparent" />
 
         {/* Text Content */}
         <div className="relative z-10 px-4 sm:px-6 pt-[clamp(1rem,4vw,1.4rem)] pb-[clamp(1.25rem,4.5vw,1.75rem)]">
