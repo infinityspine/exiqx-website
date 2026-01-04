@@ -388,7 +388,7 @@ const HeroSection = memo(function HeroSection({
       </div>
 
       {/* MOBILE - ELITE (OPTIMIZED) */}
-      <div className="lg:hidden relative flex flex-col min-h-[100svh] bg-[#0a0a0a] overflow-x-hidden pt-[clamp(2rem,7vw,3rem)] pb-[clamp(1.25rem,4.5vw,1.75rem)]">
+      <div className="lg:hidden relative flex flex-col min-h-[100svh] bg-[#0a0a0a] overflow-x-hidden pt-[clamp(1.6rem,6vw,2.6rem)] pb-[clamp(0.9rem,3.75vw,1.4rem)]">
         {/* Simplified Background Effects */}
         {!shouldReduceMotion && (
           <>
@@ -483,12 +483,12 @@ const HeroSection = memo(function HeroSection({
         </div>
 
         {/* Text Content (starts below the product animation) */}
-        <div className="relative z-10 px-4 sm:px-6 pt-[clamp(0.35rem,1.5vw,0.6rem)] md:pt-[clamp(0.75rem,3.5vw,1.1rem)] pb-[clamp(1.25rem,4.5vw,1.75rem)]">
+        <div className="relative z-10 px-4 sm:px-6 pt-[clamp(0.25rem,1.25vw,0.5rem)] md:pt-[clamp(0.75rem,3.5vw,1.1rem)] pb-[clamp(0.9rem,3.75vw,1.4rem)]">
           <div className="max-w-xl w-full mx-auto text-center">
             
             {/* Headline */}
             <h1 
-              className="text-[clamp(2.35rem,8.3vw,3.5rem)] leading-[1.02] font-black text-white uppercase tracking-[0.02em] pt-[clamp(1.9rem,6vw,2.45rem)] pb-[clamp(0.75rem,3vw,1.1rem)] mb-[clamp(2rem,6vw,2.4rem)] md:mb-[clamp(1.5rem,5vw,2rem)] break-words mx-auto"
+              className="text-[clamp(2.35rem,8.3vw,3.5rem)] leading-[1.02] font-black text-white uppercase tracking-[0.02em] pt-[clamp(1.35rem,5vw,1.95rem)] pb-[clamp(0.6rem,2.6vw,0.95rem)] mb-[clamp(1.5rem,4.75vw,2rem)] md:mb-[clamp(1.5rem,5vw,2rem)] break-words mx-auto"
               style={{
                 textShadow: '0 4px 40px rgba(0,0,0,0.9), 0 0 80px rgba(220,38,38,0.4)',
                 textAlign: 'center',
@@ -499,12 +499,12 @@ const HeroSection = memo(function HeroSection({
             </h1>
 
             {/* Subheadline */}
-            <p className="text-[clamp(1.27rem,4.2vw,1.49rem)] text-white/95 leading-[1.75] max-w-[650px] mx-auto mb-[clamp(2.25rem,6.5vw,2.75rem)] md:mb-[clamp(2rem,6vw,2.5rem)]">
+            <p className="text-[clamp(1.27rem,4.2vw,1.49rem)] text-white/95 leading-[1.75] max-w-[650px] mx-auto mb-[clamp(1.75rem,5.25vw,2.25rem)] md:mb-[clamp(2rem,6vw,2.5rem)]">
               {renderSubheadlineLines(validatedData.subheadline, { mobile: true })}
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-col gap-2.5 mb-[clamp(1.75rem,5.5vw,2.25rem)] md:mb-[clamp(1.5rem,5vw,1.75rem)]">
+            <div className="flex flex-col gap-2.5 mb-[clamp(1.25rem,4.5vw,1.75rem)] md:mb-[clamp(1.5rem,5vw,1.75rem)]">
               {validatedData.ctaButtons.map((button) => (
                 <CTAButton
                   key={button.href}
