@@ -475,8 +475,14 @@ const HeroSection = memo(function HeroSection({
         {/* Mobile/Tablet left-side vignette for readability (keeps right side clear for alpha video) */}
         <div className="pointer-events-none absolute inset-y-0 left-0 w-[62%] sm:w-[58%] z-[1] bg-gradient-to-r from-black/75 via-black/45 to-transparent" />
 
+        {/* Spacer to prevent text overlapping the absolutely-positioned hero video */}
+        <div
+          aria-hidden="true"
+          className="relative z-[2] h-[42vh] max-h-[320px] min-h-[240px] sm:min-h-[260px]"
+        />
+
         {/* Text Content */}
-        <div className="relative z-10 px-4 sm:px-6 pt-[clamp(1rem,4vw,1.4rem)] pb-[clamp(1.25rem,4.5vw,1.75rem)]">
+        <div className="relative z-10 px-4 sm:px-6 mt-[clamp(1.25rem,5vw,2rem)] pt-[clamp(1rem,4vw,1.4rem)] pb-[clamp(1.25rem,4.5vw,1.75rem)]">
           <div className="max-w-xl mx-auto text-center">
             
             {/* Headline */}
