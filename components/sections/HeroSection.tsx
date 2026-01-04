@@ -48,8 +48,8 @@ const DEFAULT_CONTENT = {
   id: 'footplate',
   backgroundImage: '/hero-footplate.jpg',
   backgroundImageAlt: 'ExIQx Performance rack-mounted footplate in professional gym setting',
-  headline: 'Patent-Pending Plantarflexion Training Equipment.',
-  subheadline: 'Precision-engineered for professional facilities. Authentic ground-force mechanics without spinal loading.',
+  headline: 'GROUND-FORCE TRANSMISSION',
+  subheadline: 'Ground force transmits through the ball of the foot.\nTrain the interface.',
   subheadlineAccent: undefined,
   tagline: 'Patent-Pending • Precision-Engineered • Made in Arizona',
   ctaButtons: [
@@ -160,6 +160,13 @@ const HeroSection = memo(function HeroSection({
     tagline,
     ctaButtons
   })
+
+  const renderSubheadlineLines = (text: string) =>
+    text.split('\n').map((line, index) => (
+      <span key={`${index}-${line}`} className="block">
+        {line}
+      </span>
+    ))
 
   return (
     <motion.section
@@ -296,7 +303,7 @@ const HeroSection = memo(function HeroSection({
           {/* GIANT HEADLINE */}
           <motion.h1
             variants={fadeUp}
-            className="text-[clamp(4rem,8.5vw,8rem)] font-black tracking-[-0.025em] uppercase leading-[0.92] font-display mb-32"
+            className="text-[clamp(4.5rem,9.5vw,9.25rem)] font-black tracking-[0.05em] uppercase leading-[0.92] font-display pt-10 pb-10 mb-28"
             style={{
               textShadow: '0 6px 40px rgba(0,0,0,0.9), 0 0 80px rgba(220,38,38,0.35)',
               transform: 'translateZ(0)'
@@ -308,10 +315,10 @@ const HeroSection = memo(function HeroSection({
           {/* ENHANCED SUBHEADLINE */}
           <motion.p
             variants={fadeUp}
-            className="text-[clamp(1.2rem,2.1vw,1.65rem)] font-medium text-white/92 leading-[1.65] mb-22 max-w-[650px]"
+            className="text-[clamp(1.2rem,2.1vw,1.65rem)] font-medium text-white/92 leading-[1.75] mb-22 max-w-[680px]"
             style={{ transform: 'translateZ(0)' }}
           >
-            {validatedData.subheadline}
+            {renderSubheadlineLines(validatedData.subheadline)}
           </motion.p>
 
           {/* CTAs */}
@@ -447,37 +454,19 @@ const HeroSection = memo(function HeroSection({
             
             {/* Headline */}
             <h1 
-              className="text-[clamp(1.45rem,5vw,1.95rem)] leading-[1.04] font-black text-white tracking-tight mb-[clamp(0.75rem,3vw,1rem)] break-words mx-auto"
+              className="text-[clamp(2.05rem,7.4vw,3.05rem)] leading-[1.02] font-black text-white uppercase tracking-[0.08em] pt-[clamp(0.65rem,2.5vw,1rem)] pb-[clamp(0.75rem,3vw,1.1rem)] mb-[clamp(0.9rem,3.5vw,1.1rem)] break-words mx-auto"
               style={{
                 textShadow: '0 4px 40px rgba(0,0,0,0.9), 0 0 80px rgba(220,38,38,0.4)',
                 textAlign: 'center',
                 maxWidth: '100%',
               }}
             >
-              <span>PATENT-PENDING</span>
-              <br />
-              <span
-                style={{
-                  display: 'inline-block',
-                  hyphens: 'none',
-                  WebkitHyphens: 'none',
-                  MozHyphens: 'none',
-                  msHyphens: 'none',
-                  wordBreak: 'normal',
-                  overflowWrap: 'normal',
-                  whiteSpace: 'nowrap',
-                  letterSpacing: '-0.04em',
-                }}
-              >
-                PLANTARFLEXION
-              </span>
-              <br />
-              <span>TRAINING EQUIPMENT.</span>
+              {validatedData.headline}
             </h1>
 
             {/* Subheadline */}
-            <p className="text-[clamp(0.92rem,2.9vw,1.02rem)] text-white/88 leading-[1.5] mb-[clamp(1.25rem,4.5vw,1.5rem)]">
-              {validatedData.subheadline}
+            <p className="text-[clamp(1rem,3.3vw,1.15rem)] text-white/90 leading-[1.7] max-w-[42rem] mx-auto mb-[clamp(1.35rem,5vw,1.75rem)]">
+              {renderSubheadlineLines(validatedData.subheadline)}
             </p>
 
             {/* CTAs */}
