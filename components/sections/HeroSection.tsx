@@ -1,6 +1,6 @@
 'use client'
 
-import { memo, useRef } from 'react'
+import { memo, useEffect, useRef } from 'react'
 import { motion, useReducedMotion, useScroll } from 'framer-motion'
 import { z } from 'zod'
 import { heroFade, fadeUp, staggerChildren } from '@/lib/motionPresets'
@@ -141,6 +141,8 @@ const HeroSection = memo(function HeroSection({
   
   const shouldReduceMotion = !!useReducedMotion()
   const containerRef = useRef<HTMLElement>(null)
+  const desktopVideoRef = useRef<HTMLVideoElement>(null)
+  const mobileVideoRef = useRef<HTMLVideoElement>(null)
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -176,19 +178,18 @@ const HeroSection = memo(function HeroSection({
     })
   }
 
-  // Softly feather the edges of the product render so it blends into the hero gradient
-  // (useful when the source video/image has a baked-in solid/dark background).
-  const productEdgeFadeStyle: React.CSSProperties = {
-    backgroundColor: 'transparent',
-    WebkitMaskImage:
-      'radial-gradient(closest-side, rgba(0,0,0,1) 74%, rgba(0,0,0,0) 100%)',
-    maskImage:
-      'radial-gradient(closest-side, rgba(0,0,0,1) 74%, rgba(0,0,0,0) 100%)',
-    WebkitMaskRepeat: 'no-repeat',
-    maskRepeat: 'no-repeat',
-    WebkitMaskSize: 'cover',
-    maskSize: 'cover',
-  }
+  useEffect(() => {
+    if (!shouldReduceMotion) return
+    ;[desktopVideoRef.current, mobileVideoRef.current].forEach((videoEl) => {
+      if (!videoEl) return
+      videoEl.pause()
+      try {
+        videoEl.currentTime = 0
+      } catch {
+        // no-op (some browsers may restrict currentTime changes before metadata is loaded)
+      }
+    })
+  }, [shouldReduceMotion])
 
   return (
     <motion.section
@@ -278,40 +279,39 @@ const HeroSection = memo(function HeroSection({
               />
             )}
             
-            {shouldReduceMotion ? (
-              <img
-                src="/images/footplate-hero.png"
-                alt={validatedData.backgroundImageAlt}
-                className="relative w-[80vw] max-w-[1200px] h-auto"
-                style={{
-                  ...productEdgeFadeStyle,
-                  filter:
-                    'drop-shadow(0 50px 140px rgba(0,0,0,0.95)) drop-shadow(0 0 90px rgba(220,38,38,0.3))',
-                  transform: 'translateZ(0)',
-                }}
-              />
-            ) : (
-              <video
-                className="relative w-[80vw] max-w-[1200px] h-auto"
-                style={{
-                  ...productEdgeFadeStyle,
-                  filter:
-                    'drop-shadow(0 50px 140px rgba(0,0,0,0.95)) drop-shadow(0 0 90px rgba(220,38,38,0.3))',
-                  transform: 'translateZ(0)',
-                }}
-                autoPlay
-                loop
-                muted
-                playsInline
-                preload="auto"
-                poster="/images/footplate-hero.png"
-              >
-                <source src="/videos/rack-footplate-hero.webm" type="video/webm" />
-                <source src="/videos/rack-footplate-hero.mp4" type="video/mp4" />
-              </video>
-            )}
+            <video
+              ref={desktopVideoRef}
+              className="relative w-[80vw] max-w-[1200px] h-auto bg-transparent"
+              style={{
+                filter:
+                  'drop-shadow(0 50px 140px rgba(0,0,0,0.95)) drop-shadow(0 0 90px rgba(220,38,38,0.3))',
+                transform: 'translateZ(0)',
+              }}
+              src="/videos/exiqx-ground-force-transmission-hero-alpha.webm"
+              autoPlay={!shouldReduceMotion}
+              loop={!shouldReduceMotion}
+              muted
+              playsInline
+              preload="auto"
+              aria-hidden="true"
+              aria-label="ExIQx rack-mounted product hero animation with transparent background"
+              onCanPlay={() => {
+                if (!shouldReduceMotion) return
+                const v = desktopVideoRef.current
+                if (!v) return
+                v.pause()
+                try {
+                  v.currentTime = 0
+                } catch {
+                  // no-op
+                }
+              }}
+            />
           </div>
         </motion.div>
+
+        {/* LEFT-SIDE VIGNETTE FOR TEXT READABILITY (does not cover the right-side video) */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-[58%] z-25 bg-gradient-to-r from-black/85 via-black/55 to-transparent" />
 
         {/* MASSIVE HERO TEXT - GPU ACCELERATED */}
         <motion.div
@@ -378,7 +378,7 @@ const HeroSection = memo(function HeroSection({
       </div>
 
       {/* MOBILE - ELITE (OPTIMIZED) */}
-      <div className="lg:hidden bg-[#0a0a0a] overflow-x-hidden pt-[clamp(3rem,10vw,4.25rem)] pb-[clamp(1.5rem,5vw,2rem)]">
+      <div className="lg:hidden relative bg-[#0a0a0a] overflow-x-hidden pt-[clamp(3rem,10vw,4.25rem)] pb-[clamp(1.5rem,5vw,2rem)]">
         {/* Simplified Background Effects */}
         {!shouldReduceMotion && (
           <>
@@ -423,59 +423,60 @@ const HeroSection = memo(function HeroSection({
           </>
         )}
 
-        {/* Product Image - Optimized */}
-        <div className="relative w-full mt-[clamp(0.25rem,1.5vw,0.75rem)] mb-[clamp(1rem,3vw,1.5rem)] flex items-center justify-center h-[38vh] max-h-[250px]">
-          {!shouldReduceMotion && (
-            <motion.div
-              animate={{
-                opacity: [0.5, 0.7, 0.5],
-              }}
-              transition={{
-                duration: 5,
-                repeat: Infinity,
-                ease: "linear"
-              }}
-              className="absolute inset-0 bg-gradient-radial from-red-500/40 via-red-600/15 to-transparent blur-3xl pointer-events-none"
-              style={{ willChange: 'opacity' }}
-            />
-          )}
-          
-          {shouldReduceMotion ? (
-            <img
-              src="/images/footplate-hero.png"
-              alt={validatedData.backgroundImageAlt}
-              className="w-[112%] max-w-[620px] h-full object-contain relative z-10"
-              style={{
-                ...productEdgeFadeStyle,
-                filter:
-                  'drop-shadow(0 40px 80px rgba(0,0,0,0.8)) drop-shadow(0 0 70px rgba(220,38,38,0.4))',
-                transform: 'translateZ(0)',
-              }}
-            />
-          ) : (
+        {/* Product Video (Alpha WebM) - Background Layer (behind text) */}
+        <div className="pointer-events-none absolute inset-x-0 top-0 z-0 flex items-start justify-center pt-[clamp(2.75rem,10vw,4.25rem)]">
+          <div className="relative w-full max-w-[820px] h-[42vh] max-h-[320px]">
+            {!shouldReduceMotion && (
+              <motion.div
+                animate={{
+                  opacity: [0.45, 0.6, 0.45],
+                }}
+                transition={{
+                  duration: 6,
+                  repeat: Infinity,
+                  ease: "linear"
+                }}
+                className="absolute inset-0 bg-gradient-radial from-red-500/40 via-red-600/15 to-transparent blur-3xl"
+                style={{ willChange: 'opacity' }}
+              />
+            )}
+
             <video
-              className="w-[112%] max-w-[620px] h-full object-contain relative z-10"
+              ref={mobileVideoRef}
+              className="absolute right-[-12%] top-1/2 -translate-y-1/2 w-[122%] max-w-[760px] h-full object-contain bg-transparent opacity-35 sm:opacity-50 md:opacity-70"
               style={{
-                ...productEdgeFadeStyle,
                 filter:
                   'drop-shadow(0 40px 80px rgba(0,0,0,0.8)) drop-shadow(0 0 70px rgba(220,38,38,0.4))',
                 transform: 'translateZ(0)',
               }}
-              autoPlay
-              loop
+              src="/videos/exiqx-ground-force-transmission-hero-alpha.webm"
+              autoPlay={!shouldReduceMotion}
+              loop={!shouldReduceMotion}
               muted
               playsInline
               preload="auto"
-              poster="/images/footplate-hero.png"
-            >
-              <source src="/videos/rack-footplate-hero.webm" type="video/webm" />
-              <source src="/videos/rack-footplate-hero.mp4" type="video/mp4" />
-            </video>
-          )}
+              aria-hidden="true"
+              aria-label="ExIQx product hero animation with transparent background"
+              onCanPlay={() => {
+                if (!shouldReduceMotion) return
+                const v = mobileVideoRef.current
+                if (!v) return
+                v.pause()
+                try {
+                  v.currentTime = 0
+                } catch {
+                  // no-op
+                }
+              }}
+            />
+          </div>
         </div>
 
+        {/* Mobile/Tablet left-side vignette for readability (keeps right side clear for alpha video) */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-[70%] z-[1] bg-gradient-to-r from-black/75 via-black/45 to-transparent" />
+
         {/* Text Content */}
-        <div className="relative px-4 sm:px-6 pt-[clamp(1rem,4vw,1.4rem)] pb-[clamp(1.25rem,4.5vw,1.75rem)] -mt-[clamp(1.5rem,5vw,2.5rem)]">
+        <div className="relative z-10 px-4 sm:px-6 pt-[clamp(1rem,4vw,1.4rem)] pb-[clamp(1.25rem,4.5vw,1.75rem)]">
           <div className="max-w-xl mx-auto text-center">
             
             {/* Headline */}
