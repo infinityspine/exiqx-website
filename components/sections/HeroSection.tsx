@@ -178,7 +178,7 @@ const HeroSection = memo(function HeroSection({
           key={`${index}-${line}`}
           className={
             isLast
-              ? `block text-white/85${isMobile ? ' mt-4' : ''}`
+              ? `block text-white/85${isMobile ? ' mt-3' : ''}`
               : 'block'
           }
         >
@@ -388,7 +388,7 @@ const HeroSection = memo(function HeroSection({
       </div>
 
       {/* MOBILE - ELITE (OPTIMIZED) */}
-      <div className="lg:hidden relative flex flex-col min-h-[100svh] bg-[#0a0a0a] overflow-x-hidden pt-[clamp(2.5rem,8vw,3.5rem)] pb-[clamp(1.5rem,5vw,2rem)]">
+      <div className="lg:hidden relative flex flex-col min-h-[100svh] bg-[#0a0a0a] overflow-x-hidden pt-[clamp(2rem,7vw,3rem)] pb-[clamp(1.25rem,4.5vw,1.75rem)]">
         {/* Simplified Background Effects */}
         {!shouldReduceMotion && (
           <>
@@ -434,7 +434,7 @@ const HeroSection = memo(function HeroSection({
         )}
 
         {/* Product Video (Alpha WebM) - Top of mobile viewport */}
-        <div className="relative z-0 w-full flex items-center justify-center pt-[clamp(2.25rem,7vw,2.75rem)] md:pt-[clamp(1.5rem,5vw,1.9rem)] pb-[clamp(3rem,9vw,3.5rem)] md:pb-[clamp(1.25rem,5vw,2rem)]">
+        <div className="relative z-0 w-full flex items-center justify-center pt-[clamp(2.25rem,7vw,2.75rem)] md:pt-[clamp(1.5rem,5vw,1.9rem)] pb-[clamp(2.25rem,7vw,2.75rem)] md:pb-[clamp(1.25rem,5vw,2rem)]">
           <div className="relative w-full max-w-[820px] h-[32vh] max-h-[240px] min-h-[190px]">
             {!shouldReduceMotion && (
               <motion.div
@@ -483,12 +483,12 @@ const HeroSection = memo(function HeroSection({
         </div>
 
         {/* Text Content (starts below the product animation) */}
-        <div className="relative z-10 px-4 sm:px-6 pt-[clamp(0.5rem,2vw,0.75rem)] md:pt-[clamp(0.75rem,3.5vw,1.1rem)] pb-[clamp(1.25rem,4.5vw,1.75rem)]">
+        <div className="relative z-10 px-4 sm:px-6 pt-[clamp(0.35rem,1.5vw,0.6rem)] md:pt-[clamp(0.75rem,3.5vw,1.1rem)] pb-[clamp(1.25rem,4.5vw,1.75rem)]">
           <div className="max-w-xl w-full mx-auto text-center">
             
             {/* Headline */}
             <h1 
-              className="text-[clamp(2.35rem,8.3vw,3.5rem)] leading-[1.02] font-black text-white uppercase tracking-[0.02em] pt-[clamp(1.9rem,6vw,2.45rem)] pb-[clamp(0.75rem,3vw,1.1rem)] mb-[clamp(2.25rem,6.5vw,2.75rem)] md:mb-[clamp(1.5rem,5vw,2rem)] break-words mx-auto"
+              className="text-[clamp(2.35rem,8.3vw,3.5rem)] leading-[1.02] font-black text-white uppercase tracking-[0.02em] pt-[clamp(1.9rem,6vw,2.45rem)] pb-[clamp(0.75rem,3vw,1.1rem)] mb-[clamp(2rem,6vw,2.4rem)] md:mb-[clamp(1.5rem,5vw,2rem)] break-words mx-auto"
               style={{
                 textShadow: '0 4px 40px rgba(0,0,0,0.9), 0 0 80px rgba(220,38,38,0.4)',
                 textAlign: 'center',
@@ -499,12 +499,12 @@ const HeroSection = memo(function HeroSection({
             </h1>
 
             {/* Subheadline */}
-            <p className="text-[clamp(1.27rem,4.2vw,1.49rem)] text-white/95 leading-[1.75] max-w-[650px] mx-auto mb-[clamp(2.75rem,8vw,3.5rem)] md:mb-[clamp(2rem,6vw,2.5rem)]">
+            <p className="text-[clamp(1.27rem,4.2vw,1.49rem)] text-white/95 leading-[1.75] max-w-[650px] mx-auto mb-[clamp(2.25rem,6.5vw,2.75rem)] md:mb-[clamp(2rem,6vw,2.5rem)]">
               {renderSubheadlineLines(validatedData.subheadline, { mobile: true })}
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-col gap-2.5 mb-[clamp(2rem,6.5vw,2.5rem)] md:mb-[clamp(1.5rem,5vw,1.75rem)]">
+            <div className="flex flex-col gap-2.5 mb-[clamp(1.75rem,5.5vw,2.25rem)] md:mb-[clamp(1.5rem,5vw,1.75rem)]">
               {validatedData.ctaButtons.map((button) => (
                 <CTAButton
                   key={button.href}
