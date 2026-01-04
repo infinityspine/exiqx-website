@@ -378,7 +378,7 @@ const HeroSection = memo(function HeroSection({
       </div>
 
       {/* MOBILE - ELITE (OPTIMIZED) */}
-      <div className="lg:hidden relative bg-[#0a0a0a] overflow-x-hidden pt-[clamp(3rem,10vw,4.25rem)] pb-[clamp(1.5rem,5vw,2rem)]">
+      <div className="lg:hidden relative bg-[#0a0a0a] overflow-x-hidden pt-[clamp(2.5rem,8vw,3.5rem)] pb-[clamp(1.5rem,5vw,2rem)]">
         {/* Simplified Background Effects */}
         {!shouldReduceMotion && (
           <>
@@ -423,67 +423,9 @@ const HeroSection = memo(function HeroSection({
           </>
         )}
 
-        {/* Product Video (Alpha WebM) - Background Layer (behind text) */}
-        <div className="pointer-events-none absolute inset-x-0 top-0 z-0 flex items-start justify-center pt-[clamp(2.75rem,10vw,4.25rem)]">
-          <div className="relative w-full max-w-[820px] h-[42vh] max-h-[320px]">
-            {!shouldReduceMotion && (
-              <motion.div
-                animate={{
-                  opacity: [0.45, 0.6, 0.45],
-                }}
-                transition={{
-                  duration: 6,
-                  repeat: Infinity,
-                  ease: "linear"
-                }}
-                className="absolute inset-0 bg-gradient-radial from-red-500/40 via-red-600/15 to-transparent blur-3xl"
-                style={{ willChange: 'opacity' }}
-              />
-            )}
-
-            <video
-              ref={mobileVideoRef}
-              className="absolute right-[-12%] top-1/2 -translate-y-1/2 w-[122%] max-w-[760px] h-full object-contain bg-transparent opacity-35 sm:opacity-50 md:opacity-70"
-              style={{
-                filter:
-                  'drop-shadow(0 40px 80px rgba(0,0,0,0.8)) drop-shadow(0 0 70px rgba(220,38,38,0.4))',
-                transform: 'translateZ(0)',
-              }}
-              src="/videos/exiqx-ground-force-transmission-hero-alpha.webm"
-              autoPlay={!shouldReduceMotion}
-              loop={!shouldReduceMotion}
-              muted
-              playsInline
-              preload="auto"
-              aria-hidden="true"
-              aria-label="ExIQx product hero animation with transparent background"
-              onCanPlay={() => {
-                if (!shouldReduceMotion) return
-                const v = mobileVideoRef.current
-                if (!v) return
-                v.pause()
-                try {
-                  v.currentTime = 0
-                } catch {
-                  // no-op
-                }
-              }}
-            />
-          </div>
-        </div>
-
-        {/* Mobile/Tablet left-side vignette for readability (keeps right side clear for alpha video) */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-[62%] sm:w-[58%] z-[1] bg-gradient-to-r from-black/75 via-black/45 to-transparent" />
-
-        {/* Spacer to prevent text overlapping the absolutely-positioned hero video */}
-        <div
-          aria-hidden="true"
-          className="relative z-[2] h-[42vh] max-h-[320px] min-h-[240px] sm:min-h-[260px]"
-        />
-
-        {/* Text Content */}
-        <div className="relative z-10 px-4 sm:px-6 mt-[clamp(1.25rem,5vw,2rem)] pt-[clamp(1rem,4vw,1.4rem)] pb-[clamp(1.25rem,4.5vw,1.75rem)]">
-          <div className="max-w-xl mx-auto text-center">
+        {/* Text Content (Mobile-first: text/CTAs in the initial viewport; video reveals below the fold) */}
+        <div className="relative z-10 min-h-[100svh] md:min-h-[70vh] flex items-start justify-center px-4 sm:px-6 pt-[clamp(1rem,4vw,1.4rem)] pb-[clamp(1.25rem,4.5vw,1.75rem)]">
+          <div className="max-w-xl w-full mx-auto text-center">
             
             {/* Headline */}
             <h1 
@@ -531,6 +473,55 @@ const HeroSection = memo(function HeroSection({
                 }}
               />
             </div>
+          </div>
+        </div>
+
+        {/* Product Video (Alpha WebM) - Below the fold on mobile; becomes more present on tablet */}
+        <div className="relative z-0 w-full flex items-center justify-center pb-[clamp(1.25rem,5vw,2rem)]">
+          <div className="relative w-full max-w-[820px] h-[42vh] max-h-[320px]">
+            {!shouldReduceMotion && (
+              <motion.div
+                animate={{
+                  opacity: [0.45, 0.6, 0.45],
+                }}
+                transition={{
+                  duration: 6,
+                  repeat: Infinity,
+                  ease: "linear"
+                }}
+                className="absolute inset-0 bg-gradient-radial from-red-500/40 via-red-600/15 to-transparent blur-3xl"
+                style={{ willChange: 'opacity' }}
+              />
+            )}
+
+            <video
+              ref={mobileVideoRef}
+              className="absolute right-[-12%] top-1/2 -translate-y-1/2 w-[122%] max-w-[760px] h-full object-contain bg-transparent opacity-50 md:opacity-80"
+              style={{
+                filter:
+                  'drop-shadow(0 40px 80px rgba(0,0,0,0.8)) drop-shadow(0 0 70px rgba(220,38,38,0.4))',
+                transform: 'translateZ(0)',
+              }}
+              src="/videos/exiqx-ground-force-transmission-hero-alpha.webm"
+              autoPlay={!shouldReduceMotion}
+              loop={!shouldReduceMotion}
+              muted
+              playsInline
+              preload="auto"
+              aria-hidden="true"
+              aria-label="ExIQx product hero animation with transparent background"
+              onCanPlay={() => {
+                if (!shouldReduceMotion) return
+                const v = mobileVideoRef.current
+                if (!v) return
+                v.pause()
+                try {
+                  v.currentTime = 0
+                } catch {
+                  // no-op
+                }
+              }}
+            />
           </div>
         </div>
       </div>
