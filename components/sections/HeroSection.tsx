@@ -423,8 +423,57 @@ const HeroSection = memo(function HeroSection({
           </>
         )}
 
-        {/* Text Content (Mobile-first: text/CTAs in the initial viewport; video reveals below the fold) */}
-        <div className="relative z-10 min-h-[100svh] md:min-h-[70vh] flex items-start justify-center px-4 sm:px-6 pt-[clamp(1rem,4vw,1.4rem)] pb-[clamp(1.25rem,4.5vw,1.75rem)]">
+        {/* Product Video (Alpha WebM) - Top of mobile viewport */}
+        <div className="relative z-0 w-full flex items-center justify-center pt-[clamp(0.25rem,1.5vw,0.75rem)] pb-[clamp(1.25rem,5vw,2rem)]">
+          <div className="relative w-full max-w-[820px] h-[34vh] max-h-[260px] min-h-[200px]">
+            {!shouldReduceMotion && (
+              <motion.div
+                animate={{
+                  opacity: [0.45, 0.6, 0.45],
+                }}
+                transition={{
+                  duration: 6,
+                  repeat: Infinity,
+                  ease: "linear"
+                }}
+                className="absolute inset-0 bg-gradient-radial from-red-500/40 via-red-600/15 to-transparent blur-3xl"
+                style={{ willChange: 'opacity' }}
+              />
+            )}
+
+            <video
+              ref={mobileVideoRef}
+              className="absolute right-[-12%] top-1/2 -translate-y-1/2 w-[122%] max-w-[760px] h-full object-contain bg-transparent opacity-55 sm:opacity-70"
+              style={{
+                filter:
+                  'drop-shadow(0 40px 80px rgba(0,0,0,0.8)) drop-shadow(0 0 70px rgba(220,38,38,0.4))',
+                transform: 'translateZ(0)',
+              }}
+              src="/videos/exiqx-ground-force-transmission-hero-alpha.webm"
+              autoPlay={!shouldReduceMotion}
+              loop={!shouldReduceMotion}
+              muted
+              playsInline
+              preload="auto"
+              aria-hidden="true"
+              aria-label="ExIQx product hero animation with transparent background"
+              onCanPlay={() => {
+                if (!shouldReduceMotion) return
+                const v = mobileVideoRef.current
+                if (!v) return
+                v.pause()
+                try {
+                  v.currentTime = 0
+                } catch {
+                  // no-op
+                }
+              }}
+            />
+          </div>
+        </div>
+
+        {/* Text Content (starts below the product animation) */}
+        <div className="relative z-10 px-4 sm:px-6 pt-[clamp(0.75rem,3.5vw,1.1rem)] pb-[clamp(1.25rem,4.5vw,1.75rem)]">
           <div className="max-w-xl w-full mx-auto text-center">
             
             {/* Headline */}
@@ -473,55 +522,6 @@ const HeroSection = memo(function HeroSection({
                 }}
               />
             </div>
-          </div>
-        </div>
-
-        {/* Product Video (Alpha WebM) - Below the fold on mobile; becomes more present on tablet */}
-        <div className="relative z-0 w-full flex items-center justify-center pb-[clamp(1.25rem,5vw,2rem)]">
-          <div className="relative w-full max-w-[820px] h-[42vh] max-h-[320px]">
-            {!shouldReduceMotion && (
-              <motion.div
-                animate={{
-                  opacity: [0.45, 0.6, 0.45],
-                }}
-                transition={{
-                  duration: 6,
-                  repeat: Infinity,
-                  ease: "linear"
-                }}
-                className="absolute inset-0 bg-gradient-radial from-red-500/40 via-red-600/15 to-transparent blur-3xl"
-                style={{ willChange: 'opacity' }}
-              />
-            )}
-
-            <video
-              ref={mobileVideoRef}
-              className="absolute right-[-12%] top-1/2 -translate-y-1/2 w-[122%] max-w-[760px] h-full object-contain bg-transparent opacity-50 md:opacity-80"
-              style={{
-                filter:
-                  'drop-shadow(0 40px 80px rgba(0,0,0,0.8)) drop-shadow(0 0 70px rgba(220,38,38,0.4))',
-                transform: 'translateZ(0)',
-              }}
-              src="/videos/exiqx-ground-force-transmission-hero-alpha.webm"
-              autoPlay={!shouldReduceMotion}
-              loop={!shouldReduceMotion}
-              muted
-              playsInline
-              preload="auto"
-              aria-hidden="true"
-              aria-label="ExIQx product hero animation with transparent background"
-              onCanPlay={() => {
-                if (!shouldReduceMotion) return
-                const v = mobileVideoRef.current
-                if (!v) return
-                v.pause()
-                try {
-                  v.currentTime = 0
-                } catch {
-                  // no-op
-                }
-              }}
-            />
           </div>
         </div>
       </div>
