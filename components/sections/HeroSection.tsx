@@ -161,12 +161,20 @@ const HeroSection = memo(function HeroSection({
     ctaButtons
   })
 
-  const renderSubheadlineLines = (text: string) =>
-    text.split('\n').map((line, index) => (
-      <span key={`${index}-${line}`} className="block">
-        {line}
-      </span>
-    ))
+  const renderSubheadlineLines = (text: string) => {
+    const lines = text.split('\n')
+    return lines.map((line, index) => {
+      const isLast = index === lines.length - 1
+      return (
+        <span
+          key={`${index}-${line}`}
+          className={isLast ? 'block text-white/85' : 'block'}
+        >
+          {line}
+        </span>
+      )
+    })
+  }
 
   return (
     <motion.section
@@ -295,7 +303,7 @@ const HeroSection = memo(function HeroSection({
             y: heroContentY,
             willChange: 'transform',
           }}
-          className="absolute left-[4%] top-1/2 -translate-y-[45%] z-30 max-w-[950px] will-change-transform"
+          className="absolute left-[6%] top-1/2 -translate-y-[45%] z-30 max-w-[950px] will-change-transform"
           variants={staggerChildren}
           initial="hidden"
           animate="visible"
@@ -303,7 +311,7 @@ const HeroSection = memo(function HeroSection({
           {/* GIANT HEADLINE */}
           <motion.h1
             variants={fadeUp}
-            className="text-[clamp(4.5rem,9.5vw,9.25rem)] font-black tracking-[0.05em] uppercase leading-[0.92] font-display pt-10 pb-10 mb-28"
+            className="text-[clamp(5.15rem,10.8vw,10.6rem)] font-black tracking-[0.02em] uppercase leading-[0.92] font-display pt-16 pb-8 mb-12"
             style={{
               textShadow: '0 6px 40px rgba(0,0,0,0.9), 0 0 80px rgba(220,38,38,0.35)',
               transform: 'translateZ(0)'
@@ -315,7 +323,7 @@ const HeroSection = memo(function HeroSection({
           {/* ENHANCED SUBHEADLINE */}
           <motion.p
             variants={fadeUp}
-            className="text-[clamp(1.2rem,2.1vw,1.65rem)] font-medium text-white/92 leading-[1.75] mb-22 max-w-[680px]"
+            className="text-[clamp(1.4rem,2.45vw,1.95rem)] font-medium text-white/94 leading-[1.75] mb-10 max-w-[650px]"
             style={{ transform: 'translateZ(0)' }}
           >
             {renderSubheadlineLines(validatedData.subheadline)}
@@ -324,7 +332,7 @@ const HeroSection = memo(function HeroSection({
           {/* CTAs */}
           <motion.div
             variants={fadeUp}
-            className="flex flex-wrap items-center gap-5 mb-22"
+            className="flex flex-wrap items-center gap-4 mb-22"
           >
             {validatedData.ctaButtons.map((button) => (
               <CTAButton
@@ -454,7 +462,7 @@ const HeroSection = memo(function HeroSection({
             
             {/* Headline */}
             <h1 
-              className="text-[clamp(2.05rem,7.4vw,3.05rem)] leading-[1.02] font-black text-white uppercase tracking-[0.08em] pt-[clamp(0.65rem,2.5vw,1rem)] pb-[clamp(0.75rem,3vw,1.1rem)] mb-[clamp(0.9rem,3.5vw,1.1rem)] break-words mx-auto"
+              className="text-[clamp(2.35rem,8.3vw,3.5rem)] leading-[1.02] font-black text-white uppercase tracking-[0.02em] pt-[clamp(1.9rem,6vw,2.45rem)] pb-[clamp(0.75rem,3vw,1.1rem)] mb-[clamp(2.25rem,7vw,3rem)] break-words mx-auto"
               style={{
                 textShadow: '0 4px 40px rgba(0,0,0,0.9), 0 0 80px rgba(220,38,38,0.4)',
                 textAlign: 'center',
@@ -465,12 +473,12 @@ const HeroSection = memo(function HeroSection({
             </h1>
 
             {/* Subheadline */}
-            <p className="text-[clamp(1rem,3.3vw,1.15rem)] text-white/90 leading-[1.7] max-w-[42rem] mx-auto mb-[clamp(1.35rem,5vw,1.75rem)]">
+            <p className="text-[clamp(1.18rem,3.9vw,1.38rem)] text-white/93 leading-[1.75] max-w-[650px] mx-auto mb-[clamp(2.2rem,6.5vw,2.5rem)]">
               {renderSubheadlineLines(validatedData.subheadline)}
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-col gap-3 mb-[clamp(1rem,3.5vw,1.25rem)]">
+            <div className="flex flex-col gap-2.5 mb-[clamp(1rem,3.5vw,1.25rem)]">
               {validatedData.ctaButtons.map((button) => (
                 <CTAButton
                   key={button.href}
