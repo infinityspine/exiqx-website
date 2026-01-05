@@ -9,6 +9,7 @@ import FootplateFeatures from '@/components/sections/FootplateFeatures'
 import UseCases from '@/components/sections/UseCases'
 import Testimonials from '@/components/sections/Testimonials'
 import HomePageCTA from '@/components/sections/HomePageCTA'
+import WhoThisIsFor from '@/components/sections/WhoThisIsFor'
 
 // Optimized gradient orb component - simplified for performance
 const AnimatedGradientOrb = ({ 
@@ -88,6 +89,20 @@ export default function Home() {
           scrollYProgress={scrollYProgress}
           shouldReduceMotion={!!shouldReduceMotion}
         />
+      </motion.section>
+
+      <SectionDivider />
+
+      {/* Who This Is For Section */}
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={staggerChildren}
+        className="relative"
+        style={{ transform: 'translateZ(0)' }}
+      >
+        <WhoThisIsFor shouldReduceMotion={!!shouldReduceMotion} />
       </motion.section>
 
       <SectionDivider />
