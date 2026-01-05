@@ -5,26 +5,25 @@ export async function POST(req: NextRequest) {
   try {
     const { productId, quantity = 1 } = await req.json();
 
-    // Product configuration - adjust based on your needs
     const products = {
       'rack-mounted': {
         name: 'ExIQx Rack-Mounted System',
-        price: 139900, // $1,399 in cents
+        price: 139900,
         description: 'Patent-pending plantarflexion training equipment - Rack-mounted embodiment',
       },
       'ghd-retrofit': {
         name: 'ExIQx GHD Retrofit System',
-        price: 129900, // $1,299 in cents
+        price: 129900,
         description: 'Patent-pending plantarflexion training equipment - GHD retrofit embodiment',
       },
       'freestanding': {
         name: 'ExIQx Freestanding System',
-        price: 119900, // $1,199 in cents
+        price: 119900,
         description: 'Patent-pending plantarflexion training equipment - Freestanding embodiment',
       },
       'deposit': {
         name: 'Pre-Order Deposit',
-        price: 14900, // $149 in cents
+        price: 14900,
         description: 'Refundable deposit to reserve your ExIQx system',
       },
     };
@@ -65,7 +64,7 @@ export async function POST(req: NextRequest) {
       },
     });
 
-    return NextResponse.json({ sessionId: session.id });
+    return NextResponse.json({ url: session.url });
   } catch (error: any) {
     console.error('Stripe checkout error:', error);
     return NextResponse.json(

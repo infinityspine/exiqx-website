@@ -51,19 +51,17 @@ export default function OrderPage() {
         }),
       });
 
-      const { sessionId } = await response.json();
-      const stripe = await stripePromise;
-
-      const { error } = await stripe!.redirectToCheckout({
-        sessionId,
-      });
-
-      if (error) {
-        console.error('Stripe redirect error:', error);
+      const data = await response.json();
+      
+      if (data.url) {
+        // Redirect to Stripe Checkout
+        window.location.href = data.url;
+      } else {
+        console.error('No checkout URL returned');
+        setLoading(false);
       }
     } catch (error) {
       console.error('Checkout error:', error);
-    } finally {
       setLoading(false);
     }
   };
