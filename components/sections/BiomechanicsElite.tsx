@@ -20,17 +20,17 @@ const BiomechanicsElite = memo(function BiomechanicsElite({
   const pillars = [
     {
       icon: TrendingUp,
-      title: 'LONGER LEVER ARM = MORE TORQUE',
+      title: 'Greater Torque Generation',
       body: 'Force entering through the forefoot increases the distance to the knee joint (axis of rotation), creating higher posterior-chain torque and deeper hamstring recruitment.'
     },
     {
       icon: Zap,
-      title: 'AUTHENTIC GROUND-FORCE PATHWAY',
+      title: 'Plantar-Surface Loading',
       body: 'Routing energy through the metatarsal heads mirrors the natural closed-chain force pathway used in sprinting, jumping, and directional changes.'
     },
     {
       icon: Move,
-      title: 'NATURAL FORCE VECTOR ALIGNMENT',
+      title: 'Sport-Specific Force Transfer',
       body: 'Forefoot loading matches the forward/downward force vector athletes use in sport. Traditional Nordics reverse this vector through the back of the ankle, limiting transfer.'
     }
   ]

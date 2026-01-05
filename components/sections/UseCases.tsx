@@ -37,13 +37,13 @@ const UseCases = memo(function UseCases({
             className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-[0.05em] text-white text-center"
             style={{ transform: 'translateZ(0)' }}
           >
-            BUILT FOR PERFORMANCE AND REHABILITATION.
+            Designed for Facilities, Not Consumers
           </motion.h2>
           <motion.p 
             variants={fadeUp}
             className="mt-4 text-base sm:text-lg text-white/70 leading-relaxed max-w-prose mx-auto text-center"
           >
-            Professional-grade training for facilities that demand precision.
+            Professional-grade equipment for performance gyms and rehab clinics.
           </motion.p>
         </motion.div>
 
