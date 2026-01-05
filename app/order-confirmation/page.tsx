@@ -43,7 +43,7 @@ function OrderConfirmationContent() {
           </div>
           <h1 className="text-5xl font-bold mb-4">Order Confirmed!</h1>
           <p className="text-xl text-gray-400">
-            Thank you for your order. You'll receive a confirmation email shortly.
+            Thank you for your order. You will receive a confirmation email shortly.
           </p>
         </div>
 
