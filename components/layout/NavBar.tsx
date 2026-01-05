@@ -20,12 +20,10 @@ interface NavBarProps {
 
 const DEFAULT_BRAND_TEXT = 'EXIQX PERFORMANCE'
 const DEFAULT_NAV_ITEMS = [
-  { label: 'Rack-Mounted', href: '/rack-mounted', id: 'rack-mounted' },
-  { label: 'GHD Retrofit', href: '/ghd-retrofit', id: 'ghd-retrofit' },
-  { label: 'Freestanding', href: '/freestanding', id: 'freestanding' },
-  { label: 'Technology', href: '/technology', id: 'technology' },
-  { label: 'About', href: '/about', id: 'about' },
-  { label: 'Contact', href: '/contact', id: 'contact' },
+  { label: 'PRODUCT', href: '#footplate', id: 'footplate' },
+  { label: 'USE CASES', href: '#use-cases', id: 'use-cases' },
+  { label: 'ORDER', href: '/order', id: 'order' },
+  { label: 'CONTACT', href: '/contact', id: 'contact' },
 ]
 
 const SCROLL_THRESHOLD_RATIO = 0.95 // 95% of viewport height
