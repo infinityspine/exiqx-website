@@ -49,21 +49,21 @@ const DEFAULT_CONTENT = {
   backgroundImage: '/hero-footplate.jpg',
   backgroundImageAlt: 'ExIQx Performance rack-mounted footplate in professional gym setting',
   headline: 'GROUND-FORCE TRANSMISSION',
-  subheadline: 'Ground force transmits through the ball of the foot.\nTrain the interface.',
+  subheadline: 'A plantar-loaded training system for performance and rehabilitation.\nTrains the foot–ground interface without posterior ankle support.',
   subheadlineAccent: undefined,
   tagline: 'Patent-Pending • Precision-Engineered • Made in Arizona',
   ctaButtons: [
     {
-      label: 'Pre-Order',
+      label: 'ORDER PILOT UNIT',
       href: '/request-demo',
       variant: 'primary' as const,
-      ariaLabel: 'Pre-order the ExIQx footplate'
+      ariaLabel: 'Order a pilot unit'
     },
     {
-      label: 'Learn More',
+      label: 'SEE HOW IT WORKS',
       href: '/early-access',
       variant: 'secondary' as const,
-      ariaLabel: 'Learn more about ExIQx equipment'
+      ariaLabel: 'See how it works'
     }
   ]
 }
