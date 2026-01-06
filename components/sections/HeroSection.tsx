@@ -49,8 +49,8 @@ const DEFAULT_CONTENT = {
   backgroundImage: '/hero-footplate.jpg',
   backgroundImageAlt: 'ExIQx Performance rack-mounted footplate in professional gym setting',
   headline: 'TRAIN THE FOOT-GROUND INTERFACE.',
-  subheadline: 'The first nordic curl system that loads force through \nthe plantar surface—where it matters for sprinting, \njumping, and change of direction.',
-  subheadlineAccent: 'Built without posterior ankle support.\nBuilt for ground-reactive athletes.',
+  subheadline: 'The first Nordic curl system that loads force through \nthe plantar surface—where it matters for sprinting, \njumping, and change of direction.',
+  subheadlineAccent: 'Engineered without posterior ankle support.\nBuilt for ground-reactive athletes.',
   tagline: 'Patent-Pending • Precision-Engineered • Made in Arizona',
   ctaButtons: [
     {
@@ -186,6 +186,14 @@ const HeroSection = memo(function HeroSection({
         </span>
       )
     })
+  }
+
+  const renderPlainLines = (text: string) => {
+    return text.split('\n').map((line, index) => (
+      <span key={`${index}-${line}`} className="block">
+        {line}
+      </span>
+    ))
   }
 
   useEffect(() => {
@@ -337,7 +345,7 @@ const HeroSection = memo(function HeroSection({
           {/* HEADLINE */}
           <motion.h1
             variants={fadeUp}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-[0.02em] uppercase leading-[1.05] font-display"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-[0.02em] uppercase leading-[1.05] font-display text-white"
             style={{
               textShadow: '0 6px 40px rgba(0,0,0,0.9), 0 0 80px rgba(220,38,38,0.35)',
               transform: 'translateZ(0)'
@@ -349,21 +357,23 @@ const HeroSection = memo(function HeroSection({
           {/* SUBHEADLINE */}
           <motion.p
             variants={fadeUp}
-            className="mt-8 text-lg md:text-xl lg:text-2xl font-medium text-white/95 leading-[1.75] max-w-[650px]"
+            className="mt-8 text-lg md:text-xl lg:text-2xl font-medium text-gray-200/90 leading-relaxed max-w-[650px]"
             style={{ transform: 'translateZ(0)' }}
           >
-            {renderSubheadlineLines(validatedData.subheadline)}
+            {renderPlainLines(validatedData.subheadline)}
           </motion.p>
 
           {/* BODY COPY */}
           {validatedData.subheadlineAccent && (
-            <motion.p
+            <motion.div
               variants={fadeUp}
-              className="mt-6 text-base md:text-lg leading-relaxed text-white/85 max-w-[650px]"
+              className="mt-6 max-w-[650px] text-base md:text-lg leading-relaxed font-normal text-gray-300/80 space-y-2"
               style={{ transform: 'translateZ(0)' }}
             >
-              {renderSubheadlineLines(validatedData.subheadlineAccent)}
-            </motion.p>
+              {validatedData.subheadlineAccent.split('\n').map((line, index) => (
+                <p key={`${index}-${line}`}>{line}</p>
+              ))}
+            </motion.div>
           )}
 
           {/* CTAs */}
@@ -510,15 +520,17 @@ const HeroSection = memo(function HeroSection({
             </h1>
 
             {/* Subheadline */}
-            <p className="mt-8 text-lg md:text-xl lg:text-2xl font-medium text-white/95 leading-[1.75] max-w-[650px] mx-auto">
-              {renderSubheadlineLines(validatedData.subheadline, { mobile: true })}
+            <p className="mt-8 text-lg md:text-xl lg:text-2xl font-medium text-gray-200/90 leading-relaxed max-w-[650px] mx-auto">
+              {renderPlainLines(validatedData.subheadline)}
             </p>
 
             {/* Body Copy */}
             {validatedData.subheadlineAccent && (
-              <p className="mt-6 text-base md:text-lg leading-relaxed text-white/85 max-w-[650px] mx-auto">
-                {renderSubheadlineLines(validatedData.subheadlineAccent, { mobile: true })}
-              </p>
+              <div className="mt-6 max-w-[650px] mx-auto text-base md:text-lg leading-relaxed font-normal text-gray-300/80 space-y-2">
+                {validatedData.subheadlineAccent.split('\n').map((line, index) => (
+                  <p key={`${index}-${line}`}>{line}</p>
+                ))}
+              </div>
             )}
 
             {/* CTAs */}
