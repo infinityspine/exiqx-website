@@ -2,6 +2,7 @@
 
 import { memo, useEffect, useRef } from 'react'
 import { motion, useReducedMotion, useScroll } from 'framer-motion'
+import Link from 'next/link'
 import { z } from 'zod'
 import { heroFade, fadeUp, staggerChildren } from '@/lib/motionPresets'
 import { useParallax } from '@/hooks/useParallax'
@@ -55,7 +56,7 @@ const DEFAULT_CONTENT = {
   ctaButtons: [
     {
       label: 'RESERVE YOUR UNIT',
-      href: '/request-demo',
+      href: '/order',
       variant: 'primary' as const,
       ariaLabel: 'Reserve your unit'
     },
@@ -103,21 +104,38 @@ const CTAButton = memo(function CTAButton({
 }) {
   const animations = createButtonAnimations(shouldReduceMotion)
   const isPrimary = button.variant === 'primary'
+  const isInternalHref = button.href.startsWith('/')
+
+  const className = `
+    rounded-xl px-8 py-4 min-h-[44px] text-[11px] font-semibold uppercase tracking-[0.2em]
+    transition-all duration-300
+    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-black
+    ${isPrimary 
+      ? 'bg-gradient-to-r from-red-600 to-red-700 text-white hover:from-red-500 hover:to-red-600 shadow-2xl shadow-red-500/30'
+      : 'border border-white/20 bg-transparent text-white hover:bg-white/10 hover:border-white/40'
+    }
+  `
+
+  if (isInternalHref) {
+    const MotionLink = motion(Link)
+    return (
+      <MotionLink
+        href={button.href}
+        aria-label={button.ariaLabel || button.label}
+        {...animations[button.variant]}
+        className={className}
+      >
+        {button.label}
+      </MotionLink>
+    )
+  }
 
   return (
     <motion.a
       href={button.href}
       aria-label={button.ariaLabel || button.label}
       {...animations[button.variant]}
-      className={`
-        rounded-xl px-8 py-4 min-h-[44px] text-[11px] font-semibold uppercase tracking-[0.2em]
-        transition-all duration-300
-        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-black
-        ${isPrimary 
-          ? 'bg-gradient-to-r from-red-600 to-red-700 text-white hover:from-red-500 hover:to-red-600 shadow-2xl shadow-red-500/30'
-          : 'border border-white/20 bg-transparent text-white hover:bg-white/10 hover:border-white/40'
-        }
-      `}
+      className={className}
     >
       {button.label}
     </motion.a>
