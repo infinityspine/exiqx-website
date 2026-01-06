@@ -19,19 +19,19 @@ const BiomechanicsElite = memo(function BiomechanicsElite({
 
   const pillars = [
     {
-      icon: TrendingUp,
-      title: 'Greater Torque Generation',
-      body: 'Force entering through the forefoot increases the distance to the knee joint (axis of rotation), creating higher posterior-chain torque and deeper hamstring recruitment.'
+      icon: Zap,
+      title: 'PLANTAR SURFACE LOADING',
+      body: 'Routes force through the ball of the foot, mirroring the natural contact point in sprinting and jumping.'
     },
     {
-      icon: Zap,
-      title: 'Plantar-Surface Loading',
-      body: 'Routing energy through the metatarsal heads mirrors the natural closed-chain force pathway used in sprinting, jumping, and directional changes.'
+      icon: TrendingUp,
+      title: 'EXTENDED MOMENT ARM',
+      body: 'Forefoot loading increases distance to the knee, creating superior hamstring recruitment.'
     },
     {
       icon: Move,
-      title: 'Sport-Specific Force Transfer',
-      body: 'Forefoot loading matches the forward/downward force vector athletes use in sport. Traditional Nordics reverse this vector through the back of the ankle, limiting transfer.'
+      title: 'ATHLETIC FORCE VECTORS',
+      body: 'Trains forward/downward force application—the pattern used in real sport, not gym isolation.'
     }
   ]
 
@@ -57,7 +57,7 @@ const BiomechanicsElite = memo(function BiomechanicsElite({
         >
           {/* Headline */}
           <motion.div
-            className="mb-[clamp(2rem,5vw,4rem)] text-center flex flex-col items-center"
+            className="text-center flex flex-col items-center"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -66,23 +66,26 @@ const BiomechanicsElite = memo(function BiomechanicsElite({
             <motion.h2
               id="biomechanics-elite-heading"
               variants={fadeUp}
-              className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-[0.05em] text-white text-center whitespace-normal sm:whitespace-nowrap"
+              className="font-display text-3xl md:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight text-white text-center leading-tight max-w-5xl mx-auto"
             >
-              AUTHENTIC GROUND-FORCE MECHANICS.
+              <span className="block">TRAINING SYSTEM ENGINEERED FOR</span>
+              <span className="block">FORCE TRANSMISSION IN ATHLETIC PERFORMANCE.</span>
             </motion.h2>
 
             {/* Subheadline */}
             <motion.p
               variants={fadeUp}
-              className="mt-4 text-base sm:text-lg text-white/70 leading-relaxed max-w-prose mx-auto text-center"
+              className="mt-6 md:mt-8 text-base md:text-lg lg:text-xl font-medium text-gray-200/90 leading-relaxed max-w-4xl mx-auto text-center"
             >
-              Plantar loading that mirrors natural athletic movement.
+              <span className="block">Loads the plantar surface of the foot, especially the ball of the foot,</span>
+              <span className="block">where force transmission occurs in athletic performance—</span>
+              <span className="block">not the posterior ankle.</span>
             </motion.p>
           </motion.div>
 
           {/* Three Pillar Grid */}
           <motion.div 
-            className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12"
+            className="mt-12 md:mt-16 lg:mt-20 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8"
             variants={staggerChildren}
             initial="hidden"
             whileInView="visible"
@@ -119,9 +122,9 @@ const BiomechanicsElite = memo(function BiomechanicsElite({
                     <div className="mb-6 flex items-center justify-center">
                       <div className="relative">
                         <div className="absolute inset-0 bg-red-500/10 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                        <div className="relative bg-gradient-to-br from-red-500/10 to-red-900/5 rounded-xl p-4 border border-red-500/10 group-hover:border-red-500/30 transition-all duration-300">
+                        <div className="relative bg-gray-800/50 rounded-full p-3 md:p-4 border border-red-500/10 group-hover:border-red-500/30 transition-all duration-300 backdrop-blur-sm">
                           <IconComponent 
-                            className="w-8 h-8 lg:w-10 lg:h-10 text-red-500" 
+                            className="w-12 h-12 md:w-16 md:h-16 text-red-500" 
                             strokeWidth={1.5}
                           />
                         </div>
@@ -129,12 +132,12 @@ const BiomechanicsElite = memo(function BiomechanicsElite({
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-white font-bold text-base lg:text-lg mb-4 leading-tight text-center uppercase tracking-wide">
+                    <h3 className="mt-4 md:mt-6 text-white font-semibold text-lg md:text-xl leading-tight text-center uppercase tracking-wide">
                       {pillar.title}
                     </h3>
 
                     {/* Body Text */}
-                    <p className="text-white/70 text-sm lg:text-base font-light leading-relaxed text-center">
+                    <p className="mt-2 md:mt-3 text-gray-400 text-sm md:text-base font-normal leading-relaxed text-center">
                       {pillar.body}
                     </p>
                   </div>
