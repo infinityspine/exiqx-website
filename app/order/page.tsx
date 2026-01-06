@@ -12,27 +12,16 @@ export default function OrderPage() {
   const products = [
     {
       id: 'deposit',
-      name: 'Pre-Order Deposit',
+      name: 'PRE-ORDER DEPOSIT',
       price: '$149',
-      description: 'Reserve your ExIQx system with a refundable deposit',
+      description: 'Secure your place in line with a fully refundable deposit',
     },
     {
       id: 'rack-mounted',
-      name: 'Rack-Mounted System',
-      price: '$1,399',
+      name: 'RACK-MOUNTED SYSTEM',
+      price: '$799',
+      priceLabel: 'FOUNDING MEMBER PRICING',
       description: 'Complete system for power racks',
-    },
-    {
-      id: 'ghd-retrofit',
-      name: 'GHD Retrofit System',
-      price: '$1,299',
-      description: 'Upgrade your existing GHD',
-    },
-    {
-      id: 'freestanding',
-      name: 'Freestanding System',
-      price: '$1,199',
-      description: 'Standalone training station',
     },
   ];
 
@@ -69,9 +58,10 @@ export default function OrderPage() {
   return (
     <div className="min-h-screen bg-black text-white py-20 px-4">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-5xl font-bold mb-4">Early Facility Pilot Program</h1>
+        <h1 className="text-5xl font-bold mb-4">EARLY ADOPTER PROGRAM</h1>
         <p className="text-xl text-gray-400 mb-12">
-          Limited early units for select facilities. Full functionality, early pricing, direct feedback.
+          Limited first-run units for athletes and coaches who demand{' '}
+          precision engineering and proven performance.
         </p>
 
         <div className="grid gap-6 mb-12">
@@ -90,7 +80,14 @@ export default function OrderPage() {
                   <h3 className="text-2xl font-bold mb-2">{product.name}</h3>
                   <p className="text-gray-400">{product.description}</p>
                 </div>
-                <div className="text-3xl font-bold">{product.price}</div>
+                <div className="text-right">
+                  <div className="text-3xl font-bold">{product.price}</div>
+                  {'priceLabel' in product && product.priceLabel && (
+                    <div className="mt-2 inline-flex items-center rounded-full bg-gray-900/50 px-3 py-1 text-xs uppercase tracking-wide text-gray-300 border border-gray-700">
+                      {product.priceLabel}
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           ))}
@@ -106,6 +103,9 @@ export default function OrderPage() {
 
         <p className="text-center text-gray-400 mt-6 text-sm">
           Secure checkout powered by Stripe • SSL encrypted • PCI compliant
+        </p>
+        <p className="text-center text-gray-500 mt-3 text-xs uppercase tracking-[0.2em]">
+          PATENT-PENDING • PRECISION-ENGINEERED • MADE IN ARIZONA
         </p>
       </div>
     </div>
