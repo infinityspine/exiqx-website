@@ -54,16 +54,16 @@ const DEFAULT_CONTENT = {
   tagline: 'Patent-Pending • Precision-Engineered • Made in Arizona',
   ctaButtons: [
     {
-      label: 'ORDER PILOT UNIT',
+      label: 'RESERVE YOUR UNIT',
       href: '/request-demo',
       variant: 'primary' as const,
-      ariaLabel: 'Order a pilot unit'
+      ariaLabel: 'Reserve your unit'
     },
     {
-      label: 'SEE HOW IT WORKS',
+      label: 'HOW IT WORKS',
       href: '/early-access',
       variant: 'secondary' as const,
-      ariaLabel: 'See how it works'
+      ariaLabel: 'How it works'
     }
   ]
 }
@@ -110,7 +110,7 @@ const CTAButton = memo(function CTAButton({
       aria-label={button.ariaLabel || button.label}
       {...animations[button.variant]}
       className={`
-        rounded-xl px-8 py-3.5 sm:py-4 text-[11px] font-semibold uppercase tracking-[0.2em] 
+        rounded-xl px-8 py-4 min-h-[44px] text-[11px] font-semibold uppercase tracking-[0.2em]
         transition-all duration-300
         focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-black
         ${isPrimary 
