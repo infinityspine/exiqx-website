@@ -21,7 +21,7 @@ const BiomechanicsElite = memo(function BiomechanicsElite({
     {
       icon: Zap,
       title: 'PLANTAR SURFACE LOADING',
-      body: 'Routes force through the ball of the foot, mirroring the natural contact point in sprinting and jumping.'
+      body: 'Routes force through the ball of the foot—the natural contact point in sprinting, jumping, and change of direction.'
     },
     {
       icon: TrendingUp,
