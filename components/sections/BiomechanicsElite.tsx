@@ -26,7 +26,7 @@ const BiomechanicsElite = memo(function BiomechanicsElite({
     {
       icon: TrendingUp,
       title: 'EXTENDED MOMENT ARM',
-      body: 'Forefoot loading increases distance to the knee, creating superior hamstring recruitment.'
+      body: 'Forefoot loading increases force application distance to the knee, creating superior posterior-chain demand from foot to glutes.'
     },
     {
       icon: Move,
