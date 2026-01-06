@@ -62,7 +62,7 @@ const DEFAULT_CONTENT = {
     },
     {
       label: 'HOW IT WORKS',
-      href: '/early-access',
+      href: '#use-cases',
       variant: 'secondary' as const,
       ariaLabel: 'How it works'
     }
@@ -105,6 +105,7 @@ const CTAButton = memo(function CTAButton({
   const animations = createButtonAnimations(shouldReduceMotion)
   const isPrimary = button.variant === 'primary'
   const isInternalHref = button.href.startsWith('/')
+  const isHashHref = button.href.startsWith('#')
 
   const className = `
     rounded-xl px-8 py-4 min-h-[44px] text-[11px] font-semibold uppercase tracking-[0.2em]
@@ -115,6 +116,21 @@ const CTAButton = memo(function CTAButton({
       : 'border border-white/20 bg-transparent text-white hover:bg-white/10 hover:border-white/40'
     }
   `
+
+  const handleHashClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (!isHashHref) return
+    e.preventDefault()
+    const id = button.href.slice(1)
+    const section = document.getElementById(id)
+    if (!section) return
+
+    const cssVar = getComputedStyle(document.documentElement).getPropertyValue('--header-height').trim()
+    const headerHeight = Number.parseInt(cssVar.replace('px', ''), 10)
+    const yOffset = Number.isFinite(headerHeight) ? -headerHeight : -80
+    const y = section.getBoundingClientRect().top + window.scrollY + yOffset
+
+    window.scrollTo({ top: y, behavior: 'smooth' })
+  }
 
   if (isInternalHref) {
     const MotionLink = motion(Link)
@@ -136,6 +152,7 @@ const CTAButton = memo(function CTAButton({
       aria-label={button.ariaLabel || button.label}
       {...animations[button.variant]}
       className={className}
+      onClick={isHashHref ? handleHashClick : undefined}
     >
       {button.label}
     </motion.a>
