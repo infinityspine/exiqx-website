@@ -8,7 +8,7 @@ export async function POST(req: NextRequest) {
     const products = {
       'rack-mounted': {
         name: 'ExIQx Rack-Mounted System',
-        price: 139900,
+        price: 79900,
         description: 'Patent-pending plantarflexion training equipment - Rack-mounted embodiment',
       },
       'ghd-retrofit': {
