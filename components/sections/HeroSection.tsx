@@ -48,9 +48,9 @@ const DEFAULT_CONTENT = {
   id: 'footplate',
   backgroundImage: '/hero-footplate.jpg',
   backgroundImageAlt: 'ExIQx Performance rack-mounted footplate in professional gym setting',
-  headline: 'GROUND-FORCE TRANSMISSION',
-  subheadline: 'A plantar-loaded training system for performance and rehabilitation.\nTrains the foot–ground interface without posterior ankle support.',
-  subheadlineAccent: undefined,
+  headline: 'TRAIN THE FOOT-GROUND INTERFACE.',
+  subheadline: 'The first nordic curl system that loads force through \nthe plantar surface—where it matters for sprinting, \njumping, and change of direction.',
+  subheadlineAccent: 'Built without posterior ankle support.\nBuilt for ground-reactive athletes.',
   tagline: 'Patent-Pending • Precision-Engineered • Made in Arizona',
   ctaButtons: [
     {
@@ -334,10 +334,10 @@ const HeroSection = memo(function HeroSection({
           initial="hidden"
           animate="visible"
         >
-          {/* GIANT HEADLINE */}
+          {/* HEADLINE */}
           <motion.h1
             variants={fadeUp}
-            className="text-[clamp(5.15rem,10.8vw,10.6rem)] font-black tracking-[0.02em] uppercase leading-[0.92] font-display pt-16 pb-8 mb-12"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-[0.02em] uppercase leading-[1.05] font-display"
             style={{
               textShadow: '0 6px 40px rgba(0,0,0,0.9), 0 0 80px rgba(220,38,38,0.35)',
               transform: 'translateZ(0)'
@@ -346,19 +346,30 @@ const HeroSection = memo(function HeroSection({
             {validatedData.headline}
           </motion.h1>
 
-          {/* ENHANCED SUBHEADLINE */}
+          {/* SUBHEADLINE */}
           <motion.p
             variants={fadeUp}
-            className="text-[clamp(1.51rem,2.65vw,2.11rem)] font-medium text-white/95 leading-[1.75] mb-10 max-w-[650px]"
+            className="mt-8 text-lg md:text-xl lg:text-2xl font-medium text-white/95 leading-[1.75] max-w-[650px]"
             style={{ transform: 'translateZ(0)' }}
           >
             {renderSubheadlineLines(validatedData.subheadline)}
           </motion.p>
 
+          {/* BODY COPY */}
+          {validatedData.subheadlineAccent && (
+            <motion.p
+              variants={fadeUp}
+              className="mt-6 text-base md:text-lg leading-relaxed text-white/85 max-w-[650px]"
+              style={{ transform: 'translateZ(0)' }}
+            >
+              {renderSubheadlineLines(validatedData.subheadlineAccent)}
+            </motion.p>
+          )}
+
           {/* CTAs */}
           <motion.div
             variants={fadeUp}
-            className="flex flex-wrap items-center gap-4 mb-22"
+            className="mt-8 flex flex-wrap items-center gap-4"
           >
             {validatedData.ctaButtons.map((button) => (
               <CTAButton
@@ -372,7 +383,7 @@ const HeroSection = memo(function HeroSection({
           {/* TAGLINE */}
           <motion.div
             variants={fadeUp}
-            className="flex items-center gap-4"
+            className="mt-8 flex items-center gap-4"
           >
             <div 
               className="w-16 h-[1.5px] bg-gradient-to-r from-red-500/80 to-transparent"
@@ -488,7 +499,7 @@ const HeroSection = memo(function HeroSection({
             
             {/* Headline */}
             <h1 
-              className="text-[clamp(2.35rem,8.3vw,3.5rem)] leading-[1.02] font-black text-white uppercase tracking-[0.02em] pt-[clamp(1.35rem,5vw,1.95rem)] pb-[clamp(0.6rem,2.6vw,0.95rem)] mb-[clamp(1.5rem,4.75vw,2rem)] md:mb-[clamp(1.5rem,5vw,2rem)] break-words mx-auto"
+              className="text-4xl md:text-5xl lg:text-6xl leading-[1.05] font-bold text-white uppercase tracking-[0.02em] pt-[clamp(1.35rem,5vw,1.95rem)] break-words mx-auto"
               style={{
                 textShadow: '0 4px 40px rgba(0,0,0,0.9), 0 0 80px rgba(220,38,38,0.4)',
                 textAlign: 'center',
@@ -499,12 +510,19 @@ const HeroSection = memo(function HeroSection({
             </h1>
 
             {/* Subheadline */}
-            <p className="text-[clamp(1.27rem,4.2vw,1.49rem)] text-white/95 leading-[1.75] max-w-[650px] mx-auto mb-[clamp(1.75rem,5.25vw,2.25rem)] md:mb-[clamp(2rem,6vw,2.5rem)]">
+            <p className="mt-8 text-lg md:text-xl lg:text-2xl font-medium text-white/95 leading-[1.75] max-w-[650px] mx-auto">
               {renderSubheadlineLines(validatedData.subheadline, { mobile: true })}
             </p>
 
+            {/* Body Copy */}
+            {validatedData.subheadlineAccent && (
+              <p className="mt-6 text-base md:text-lg leading-relaxed text-white/85 max-w-[650px] mx-auto">
+                {renderSubheadlineLines(validatedData.subheadlineAccent, { mobile: true })}
+              </p>
+            )}
+
             {/* CTAs */}
-            <div className="flex flex-col gap-2.5 mb-[clamp(1.25rem,4.5vw,1.75rem)] md:mb-[clamp(1.5rem,5vw,1.75rem)]">
+            <div className="mt-8 flex flex-col gap-2.5">
               {validatedData.ctaButtons.map((button) => (
                 <CTAButton
                   key={button.href}
@@ -515,7 +533,7 @@ const HeroSection = memo(function HeroSection({
             </div>
 
             {/* Tagline */}
-            <div className="flex items-center justify-center gap-3">
+            <div className="mt-8 flex items-center justify-center gap-3">
               <div 
                 className="w-12 h-[1.5px] bg-gradient-to-r from-transparent via-red-500/70 to-transparent"
                 style={{
