@@ -31,7 +31,7 @@ const BiomechanicsElite = memo(function BiomechanicsElite({
     {
       icon: Move,
       title: 'ATHLETIC FORCE VECTORS',
-      body: 'Trains forward/downward force application—the pattern used in real sport, not gym isolation.'
+      body: 'Traditional Nordics route force through the posterior ankle. ExIQx routes force through the ball of the foot—where it matters in athletic performance.'
     }
   ]
 
