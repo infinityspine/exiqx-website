@@ -20,7 +20,7 @@ interface NavBarProps {
 
 const DEFAULT_BRAND_TEXT = 'EXIQX PERFORMANCE'
 const DEFAULT_NAV_ITEMS = [
-  { label: 'PRODUCT', href: '#footplate', id: 'footplate' },
+  { label: 'PRODUCT', href: '#technical-specifications', id: 'technical-specifications' },
   { label: 'TRAINING', href: '#use-cases', id: 'use-cases' },
   { label: 'ORDER', href: '/order', id: 'order' },
   { label: 'CONTACT', href: '/contact', id: 'contact' },
@@ -96,7 +96,15 @@ const NavBar = memo(function NavBar({
         closeMobileMenu()
         setTimeout(() => {
           const element = document.querySelector(href)
-          if (element) element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+          if (!element) return
+
+          // Account for the fixed navbar height using the global CSS var.
+          const cssVar = getComputedStyle(document.documentElement).getPropertyValue('--header-height').trim()
+          const headerHeight = cssVar.endsWith('px') ? Number(cssVar.replace('px', '')) : Number(cssVar) || 0
+          const top = element.getBoundingClientRect().top + window.scrollY - headerHeight
+          const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches ?? false
+
+          window.scrollTo({ top, behavior: prefersReducedMotion ? 'auto' : 'smooth' })
         }, MENU_CLOSE_DELAY)
       } else {
         closeMobileMenu()

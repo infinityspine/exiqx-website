@@ -52,9 +52,9 @@ const FootplateFeatures = memo(function FootplateFeatures({
 
   return (
     <section
-      id="features"
+      id="technical-specifications"
       className="relative bg-[#0A0A0A] border-t border-red-500/20 py-[clamp(4rem,10vw,7rem)]"
-      aria-labelledby="features-heading"
+      aria-labelledby="technical-specifications-heading"
     >
       {/* Ambient gradient background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -73,7 +73,7 @@ const FootplateFeatures = memo(function FootplateFeatures({
           variants={staggerChildren}
         >
           <motion.h2
-            id="features-heading"
+            id="technical-specifications-heading"
             variants={fadeUp}
             className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-[0.05em] text-white text-center"
             style={{
