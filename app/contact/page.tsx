@@ -260,7 +260,7 @@ export default function ContactPage() {
             >
               <div className="text-base sm:text-lg text-white/70 font-light leading-relaxed">
                 <p>
-                  Responses within 24–48 hours. Dedicated consultation available for institutional and high-volume facility orders.
+                  Responses within 24–48 hours. Dedicated consultation available for bulk orders and facility partnerships.
                 </p>
               </div>
             </motion.div>
