@@ -8,8 +8,8 @@ import { FileText, Settings, Wrench, Mail, Activity } from 'lucide-react'
 
 const specifications = [
   { feature: 'Model', value: 'Rack-Mounted Plantarflexion System (Founding Member Edition)' },
-  { feature: 'Footplate Angle Range', value: '10° – 70° user-adjustable via five-position radial locking plate' },
-  { feature: 'Adjustment Mechanism', value: 'Radial locking plate with five discrete holes + quick-release hitch pin for tool-free angle changes' },
+  { feature: 'Footplate Angle Range', value: '10° – 70° adjustable via radial locking plate for progressive training customization' },
+  { feature: 'Adjustment Mechanism', value: 'Tool-free angle adjustment via radial locking plate—enables customization for individual athlete needs and progressive training protocols' },
   { feature: 'Force Transmission', value: 'Routes force through plantar surface (ball of foot)—not posterior ankle of traditional equipment' },
   { feature: 'ROM Progression', value: 'Adjustable angles (10°-70°) for progressive eccentric and isometric training' },
   { feature: 'Construction', value: 'Hybrid aluminum + 11-gauge steel for optimal balance of precision and strength' },
