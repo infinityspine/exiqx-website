@@ -7,19 +7,19 @@ import GroundForceLink from '@/components/ui/GroundForceLink'
 import { FileText, Settings, Wrench, Mail, Activity } from 'lucide-react'
 
 const specifications = [
-  { feature: 'Model', value: 'Rack-Mounted Footplate (Launch Edition)' },
+  { feature: 'Model', value: 'Rack-Mounted Plantarflexion System (Founding Member Edition)' },
   { feature: 'Footplate Angle Range', value: '10° – 70° user-adjustable via five-position radial locking plate' },
   { feature: 'Adjustment Mechanism', value: 'Radial locking plate with five discrete holes + quick-release hitch pin for tool-free angle changes' },
-  { feature: 'Closed-Chain Mechanics', value: 'Force directed through plantar surface — from metatarsal heads to full posterior chain' },
-  { feature: 'Plantarflexion Alignment', value: 'User-tuned closed-chain intervals that mimic natural sprint and jump vectors' },
+  { feature: 'Force Transmission', value: 'Routes force through plantar surface (ball of foot)—not posterior ankle of traditional equipment' },
+  { feature: 'ROM Progression', value: 'Adjustable angles (10°-70°) for progressive eccentric and isometric training' },
   { feature: 'Construction', value: 'Hybrid aluminum + 11-gauge steel for optimal balance of precision and strength' },
-  { feature: 'Machining Tolerances', value: 'CNC-machined to aerospace-level precision for perfect bearing alignment and zero lateral play' },
+  { feature: 'Machining Quality', value: 'CNC-machined to commercial facility standards with precision bearing alignment' },
   { feature: 'Mounting Compatibility', value: 'Available in precision-fit variants for 3×3 uprights with 5⁄8-in or 1-in pin interfaces' },
   { feature: 'Footplate Width', value: '24 in standard' },
   { feature: 'Finish', value: 'Powder-coated black (custom colors available — contact for quote)' },
   { feature: 'Bearings / Hardware', value: 'Press-fit ball bearings • Stainless hardware • Quick-release pins' },
   { feature: 'Weight (Assembled)', value: '≈ 30 lb' },
-  { feature: 'Country of Manufacture', value: 'USA' },
+  { feature: 'Country of Manufacture', value: 'Arizona, USA' },
 ]
 
 export default function SpecificationsContent() {
@@ -226,7 +226,7 @@ export default function SpecificationsContent() {
                   Technical Specifications
                 </h2>
                 <p className="text-gray-400 font-inter" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1rem)', lineHeight: '1.6' }}>
-                  Complete technical breakdown of the ExIQx Footplate system
+                  Rack-Mounted Plantarflexion System — Launch Edition
                 </p>
               </div>
             </div>
