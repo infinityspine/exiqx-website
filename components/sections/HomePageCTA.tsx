@@ -32,7 +32,6 @@ const CTASection = memo(function CTASection({
   const hookShouldReduceMotion = useReducedMotion()
   const shouldReduceMotion = propShouldReduceMotion ?? hookShouldReduceMotion
   const primaryMagneticRef = useMagnetic<HTMLAnchorElement>(shouldReduceMotion ? 0 : 0.1)
-  const secondaryMagneticRef = useMagnetic<HTMLAnchorElement>(shouldReduceMotion ? 0 : 0.1)
 
   return (
     <section
@@ -61,13 +60,13 @@ const CTASection = memo(function CTASection({
             className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-[0.05em] text-white text-center"
             style={{ transform: 'translateZ(0)' }}
           >
-            PRECISION-ENGINEERED FOR ELITE FACILITIES.
+            PRECISION-ENGINEERED FOR SERIOUS PERFORMANCE.
           </motion.h2>
           <motion.p 
             variants={fadeUp}
             className="mt-4 text-base sm:text-lg text-white/70 leading-relaxed max-w-prose mx-auto text-center"
           >
-            Commercial-grade plantarflexion training for professional programs, PT clinics, and performance centers.
+            Patent-pending plantar surface loading for elite athletes, training facilities, and rehabilitation programs.
           </motion.p>
         </motion.div>
 
@@ -93,9 +92,9 @@ const CTASection = memo(function CTASection({
           >
             {/* Internal gradient glow on hover */}
             <div className="absolute inset-0 bg-gradient-to-br from-red-500/0 via-red-500/0 to-red-500/0 group-hover:from-red-500/5 group-hover:via-red-500/0 group-hover:to-transparent rounded-2xl transition-all duration-500 pointer-events-none" />
-            <div className="relative mb-2 text-2xl font-bold text-accent transition-colors duration-300 group-hover:text-red-400">51%</div>
+            <div className="relative mb-2 text-2xl font-bold text-accent transition-colors duration-300 group-hover:text-red-400">Patent-Pending</div>
             <p className="relative text-sm text-white/70 leading-relaxed">
-              Hamstring injury reduction
+              Plantar surface force transmission technology
             </p>
           </motion.div>
 
@@ -113,9 +112,9 @@ const CTASection = memo(function CTASection({
           >
             {/* Internal gradient glow on hover */}
             <div className="absolute inset-0 bg-gradient-to-br from-red-500/0 via-red-500/0 to-red-500/0 group-hover:from-red-500/5 group-hover:via-red-500/0 group-hover:to-transparent rounded-2xl transition-all duration-500 pointer-events-none" />
-            <div className="relative mb-2 text-2xl font-bold text-accent transition-colors duration-300 group-hover:text-red-400">Patent-Pending</div>
+            <div className="relative mb-2 text-2xl font-bold text-accent transition-colors duration-300 group-hover:text-red-400">Engineered in Arizona</div>
             <p className="relative text-sm text-white/70 leading-relaxed">
-              Proprietary technology
+              Designed and manufactured in the USA
             </p>
           </motion.div>
 
@@ -133,16 +132,16 @@ const CTASection = memo(function CTASection({
           >
             {/* Internal gradient glow on hover */}
             <div className="absolute inset-0 bg-gradient-to-br from-red-500/0 via-red-500/0 to-red-500/0 group-hover:from-red-500/5 group-hover:via-red-500/0 group-hover:to-transparent rounded-2xl transition-all duration-500 pointer-events-none" />
-            <div className="relative mb-2 text-2xl font-bold text-accent transition-colors duration-300 group-hover:text-red-400">Lifetime</div>
+            <div className="relative mb-2 text-2xl font-bold text-accent transition-colors duration-300 group-hover:text-red-400">Commercial Quality</div>
             <p className="relative text-sm text-white/70 leading-relaxed">
-              Component warranty
+              Built to professional facility standards
             </p>
           </motion.div>
         </motion.div>
 
         {/* CTA Buttons */}
         <motion.div 
-          className="flex flex-wrap items-center justify-center gap-4"
+          className="flex flex-col items-center justify-center"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -151,7 +150,7 @@ const CTASection = memo(function CTASection({
           {/* Primary CTA with magnetic hover */}
           <motion.a
             ref={primaryMagneticRef}
-            href="/request-demo"
+            href="/order"
             variants={fadeUp}
             whileHover={shouldReduceMotion ? {} : { 
               scale: 1.05, 
@@ -162,33 +161,15 @@ const CTASection = memo(function CTASection({
             className="inline-block rounded-xl bg-gradient-to-r from-red-600 to-red-700 px-8 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition-all duration-300 hover:from-red-500 hover:to-red-600 hover:scale-[1.02] shadow-2xl shadow-red-500/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-black will-change-transform"
             style={{ transform: 'translateZ(0)' }}
           >
-            Pre-Order
+            RESERVE YOUR UNIT
           </motion.a>
-
-          {/* Secondary CTA with magnetic hover */}
-          <motion.a
-            ref={secondaryMagneticRef}
-            href="/early-access"
+          <motion.p
             variants={fadeUp}
-            whileHover={shouldReduceMotion ? {} : { 
-              scale: 1.05, 
-              y: -3,
-              transition: { type: "spring", stiffness: 200, damping: 20 }
-            }}
-            transition={{ type: "spring", stiffness: 200, damping: 20 }}
-            className="inline-block rounded-xl border border-white/20 bg-transparent px-10 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition-all duration-300 hover:bg-white/10 hover:border-white/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black will-change-transform"
-            style={{ transform: 'translateZ(0)' }}
+            className="mt-3 text-xs uppercase tracking-[0.2em] text-white/40 leading-relaxed"
           >
-            View Specs
-          </motion.a>
+            Limited founding member production run
+          </motion.p>
         </motion.div>
-
-        {/* Trust Signals */}
-        <div>
-          <p className="text-xs uppercase tracking-[0.2em] text-white/40 leading-relaxed">
-            PRE-ORDER NOW • LIMITED FIRST PRODUCTION RUN
-          </p>
-        </div>
 
       </div>
     </section>
