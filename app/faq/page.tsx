@@ -21,52 +21,35 @@ export default function FAQPage() {
           </p>
           
           <h2 className="text-5xl font-extrabold uppercase tracking-tight mb-6 text-white">
-            What makes ExIQx footplates different from standard equipment?
+            WHAT MAKES EXIQX FOOTPLATES DIFFERENT FROM STANDARD EQUIPMENT?
           </h2>
           <div className="w-32 h-[4px] bg-[#e50914] mb-16"></div>
           <p className="text-lg md:text-xl text-gray-300 font-light leading-relaxed" style={{ marginBottom: '100px' }}>
-            ExIQx footplates are precision-engineered to replicate authentic ground-force vectors, ensuring 
-            biomechanically accurate movement patterns. Unlike standard equipment that may compromise on 
-            biomechanical integrity, our footplates are designed with scientific precision to deliver 
-            performance outcomes that translate directly to competitive environments. Every component is 
-            engineered to the highest standards of durability and precision.
+            ExIQx routes force through the ball of the foot—not the posterior ankle of traditional Nordic curls. This plantar surface loading mechanism trains the ground-force pathway used in sprinting, jumping, and change of direction. Our patent-pending system is the first Nordic curl device engineered specifically for athletic force transmission, not gym isolation.
           </p>
           
           <h2 className="text-5xl font-extrabold uppercase tracking-tight mb-6 text-white">
-            Which footplate configuration is right for my facility?
+            IS THE RACK-MOUNTED SYSTEM COMPATIBLE WITH MY FACILITY?
           </h2>
           <div className="w-32 h-[4px] bg-[#e50914] mb-16"></div>
           <p className="text-lg md:text-xl text-gray-300 font-light leading-relaxed" style={{ marginBottom: '100px' }}>
-            Our rack-mounted footplate integrates seamlessly with existing power rack systems, ideal for 
-            facilities maximizing space efficiency. The GHD retrofit option transforms standard glute-ham 
-            developers into biomechanically precise training tools. The freestanding model offers complete 
-            flexibility for facilities requiring standalone equipment. Each configuration maintains the same 
-            biomechanical precision—your choice depends on your facility's specific layout and training 
-            requirements.
+            The ExIQx Rack-Mounted Plantarflexion System integrates seamlessly with standard 3×3 power rack systems. Installation takes under 30 minutes with basic tools and a precision-fit pin interface. This founding member edition is designed for training facilities, collegiate programs, rehabilitation centers, and individual elite athletes with existing rack infrastructure.
           </p>
           
           <h2 className="text-5xl font-extrabold uppercase tracking-tight mb-6 text-white">
-            What is the installation process like?
+            WHAT IS THE INSTALLATION PROCESS LIKE?
           </h2>
           <div className="w-32 h-[4px] bg-[#e50914] mb-16"></div>
           <p className="text-lg md:text-xl text-gray-300 font-light leading-relaxed" style={{ marginBottom: '100px' }}>
-            Installation varies by configuration. Rack-mounted units require standard power rack compatibility 
-            and can typically be installed in under 30 minutes with basic tools. GHD retrofit installations 
-            are designed for straightforward integration with most standard GHD frames. Freestanding models 
-            require minimal assembly. All units include comprehensive installation instructions, and our 
-            support team is available to assist with any technical questions during setup.
+            The rack-mounted system installs in under 30 minutes with basic tools. The unit uses a quick-release hitch pin system for tool-free angle adjustments (10°-70°) and mounts to any standard 3×3 power rack. All units include comprehensive installation instructions, and our support team is available for technical assistance.
           </p>
           
           <h2 className="text-5xl font-extrabold uppercase tracking-tight mb-6 text-white">
-            What are your shipping timelines?
+            WHAT ARE YOUR SHIPPING TIMELINES?
           </h2>
           <div className="w-32 h-[4px] bg-[#e50914] mb-16"></div>
           <p className="text-lg md:text-xl text-gray-300 font-light leading-relaxed" style={{ marginBottom: '100px' }}>
-            Standard orders typically ship within 5-7 business days after order confirmation. Expedited 
-            shipping options are available for urgent requirements. International shipping timelines vary 
-            by destination and are calculated at checkout. All orders include tracking information, and 
-            you'll receive updates at each stage of the shipping process. For bulk orders or custom 
-            configurations, delivery timelines will be confirmed during the ordering process.
+            Founding member orders will ship based on production schedule. You'll receive email updates at key milestones: order confirmation, manufacturing start, and shipment dispatch. Expedited shipping options available. For bulk orders, delivery timelines will be confirmed during the ordering process.
           </p>
           
           <h2 className="text-5xl font-extrabold uppercase tracking-tight mb-6 text-white">
@@ -82,15 +65,11 @@ export default function FAQPage() {
           </p>
           
           <h2 className="text-5xl font-extrabold uppercase tracking-tight mb-6 text-white">
-            How do I maintain my ExIQx footplate?
+            HOW DO I MAINTAIN MY EXIQX SYSTEM?
           </h2>
           <div className="w-32 h-[4px] bg-[#e50914] mb-16"></div>
           <p className="text-lg md:text-xl text-gray-300 font-light leading-relaxed" style={{ marginBottom: '100px' }}>
-            ExIQx footplates are engineered for minimal maintenance requirements. Regular cleaning with 
-            standard gym equipment cleaners is sufficient. The precision-engineered components are built 
-            to withstand high-intensity training environments. Periodic inspection of mounting hardware 
-            is recommended to ensure optimal performance. All moving parts are designed for long-term 
-            durability and require no special lubrication or maintenance procedures beyond standard care.
+            ExIQx is engineered for minimal maintenance. Regular cleaning with standard gym equipment cleaners is sufficient. The precision-engineered bearings and powder-coated finish are built to withstand high-intensity training environments. Periodic inspection of mounting hardware is recommended. All moving parts are designed for long-term durability and require no special lubrication or maintenance beyond standard care.
           </p>
         </motion.div>
       </div>
