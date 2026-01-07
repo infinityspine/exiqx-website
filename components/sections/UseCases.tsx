@@ -146,13 +146,13 @@ const UseCases = memo(function UseCases({
                 INJURY PREVENTION & REHAB
               </h3>
               <p className="mb-4 text-white/70 font-light leading-relaxed">
-                Hamstring protocols and return-to-play progression through natural force pathways.
+                Hamstring and ACL protocols through plantar surface loading—not the posterior ankle loading of traditional equipment.
               </p>
               <ul className="space-y-2 text-white/60 font-light" role="list">
                 {[
-                  'Hamstring strain prevention protocols',
-                  'ACL rehab and return-to-play',
-                  'Safe eccentric loading progression'
+                  'Hamstring strain prevention and rehab',
+                  'ACL and Achilles return-to-play progression',
+                  'Eccentric loading through athletic force pathways'
                 ].map((item, index) => (
                   <motion.li
                     key={index}
