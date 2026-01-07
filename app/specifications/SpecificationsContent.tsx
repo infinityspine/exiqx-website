@@ -417,18 +417,9 @@ export default function SpecificationsContent() {
               />
 
               {[
-                {
-                  text: 'Closed-chain plantarflexion loading',
-                  description: 'channels force through the ball of the foot → knee → hip, mirroring sprint, jump, and gait mechanics.'
-                },
-                {
-                  text: 'Lengthened mechanical lever arm',
-                  description: '(ball-of-foot → knee) amplifies torque and posterior-chain recruitment.'
-                },
-                {
-                  text: 'Authentic ground-force vectoring',
-                  description: 'aligns training with the kinetic demands of sport and rehabilitation.'
-                }
+                'Plantar surface loading routes force through the ball of the foot—not the posterior ankle of traditional Nordic curls—training the ground-force pathway used in sprinting, jumping, and change of direction.',
+                'Extended moment arm from ball-of-foot loading increases posterior-chain demand from hamstrings to glutes, training the complete kinetic chain.',
+                'Athletic force transmission aligns training with sport-specific movement patterns for performance and injury prevention.'
               ].map((item, index) => (
                 <motion.div 
                   key={index}
@@ -440,7 +431,7 @@ export default function SpecificationsContent() {
                 >
                   <div className="text-red-500 text-2xl flex-shrink-0">→</div>
                   <p style={{ lineHeight: '1.7' }}>
-                    <strong className="text-white">{item.text}</strong> {item.description}
+                    {item}
                   </p>
                 </motion.div>
               ))}
