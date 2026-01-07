@@ -37,13 +37,13 @@ const UseCases = memo(function UseCases({
             className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-[0.05em] text-white text-center"
             style={{ transform: 'translateZ(0)' }}
           >
-            Designed for Facilities, Not Consumers
+            TRAINING APPLICATIONS.
           </motion.h2>
           <motion.p 
             variants={fadeUp}
             className="mt-4 text-base sm:text-lg text-white/70 leading-relaxed max-w-prose mx-auto text-center"
           >
-            Professional-grade equipment for performance gyms and rehab clinics.
+            Ground-force transmission training for performance, rehabilitation, and development.
           </motion.p>
         </motion.div>
 
@@ -83,16 +83,16 @@ const UseCases = memo(function UseCases({
               style={{ transform: 'translateZ(0)' }}
             >
               <h3 className="mb-4 font-display text-3xl font-bold uppercase tracking-[0.03em] text-white transition-colors duration-300 group-hover:text-red-400">
-                Nordic Hamstring Curls
+                PERFORMANCE TRAINING
               </h3>
               <p className="mb-4 text-white/70 font-light leading-relaxed">
-                Eccentric hamstring training for injury prevention and explosive power development.
+                Sprint development and explosive power through plantar surface loading.
               </p>
               <ul className="space-y-2 text-white/60 font-light" role="list">
                 {[
-                  'Reduces hamstring injury risk by up to 51%',
-                  'Improves sprint speed and acceleration',
-                  'Enhances knee flexion strength'
+                  'Maximum velocity sprint mechanics',
+                  'Explosive triple extension',
+                  'Athletic force vector training'
                 ].map((item, index) => (
                   <motion.li
                     key={index}
@@ -143,16 +143,16 @@ const UseCases = memo(function UseCases({
               style={{ transform: 'translateZ(0)' }}
             >
               <h3 className="mb-4 font-display text-3xl font-bold uppercase tracking-[0.03em] text-white transition-colors duration-300 group-hover:text-red-400">
-                Glute-Ham Raises
+                INJURY PREVENTION & REHAB
               </h3>
               <p className="mb-4 text-white/70 font-light leading-relaxed">
-                Complete posterior chain activation for comprehensive lower body development.
+                Hamstring protocols and return-to-play progression through natural force pathways.
               </p>
               <ul className="space-y-2 text-white/60 font-light" role="list">
                 {[
-                  'Strengthens glutes, hamstrings, and lower back',
-                  'Improves hip extension power',
-                  'Enhances athletic performance'
+                  'Hamstring strain prevention protocols',
+                  'ACL rehab and return-to-play',
+                  'Safe eccentric loading progression'
                 ].map((item, index) => (
                   <motion.li
                     key={index}
@@ -211,9 +211,9 @@ const UseCases = memo(function UseCases({
               </p>
               <ul className="space-y-2 text-white/60 font-light" role="list">
                 {[
-                  'Supports beginner to elite athletes',
-                  'Band-assisted progression option',
-                  'Weighted progression capability'
+                  'Beginner to elite athlete progression',
+                  'Band-assisted and weighted options',
+                  'Scalable for all training levels'
                 ].map((item, index) => (
                   <motion.li
                     key={index}
