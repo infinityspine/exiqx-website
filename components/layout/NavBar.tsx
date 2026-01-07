@@ -21,7 +21,7 @@ interface NavBarProps {
 const DEFAULT_BRAND_TEXT = 'EXIQX PERFORMANCE'
 const DEFAULT_NAV_ITEMS = [
   { label: 'PRODUCT', href: '#footplate', id: 'footplate' },
-  { label: 'USE CASES', href: '#use-cases', id: 'use-cases' },
+  { label: 'TRAINING', href: '#use-cases', id: 'use-cases' },
   { label: 'ORDER', href: '/order', id: 'order' },
   { label: 'CONTACT', href: '/contact', id: 'contact' },
 ]
