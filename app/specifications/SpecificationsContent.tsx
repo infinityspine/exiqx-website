@@ -112,7 +112,7 @@ export default function SpecificationsContent() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                Technical Data
+                Product Specifications
               </motion.p>
               <motion.h1 
                 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white font-montserrat leading-tight" 
@@ -121,7 +121,7 @@ export default function SpecificationsContent() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
               >
-                Full Specifications
+                Rack-Mounted Plantarflexion System
               </motion.h1>
               <motion.p 
                 className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto font-inter leading-relaxed"
@@ -129,7 +129,7 @@ export default function SpecificationsContent() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
-                Engineered for elite performance.
+                Patent-pending plantar surface loading technology for ground-force transmission training.
               </motion.p>
             </motion.div>
           </motion.div>
