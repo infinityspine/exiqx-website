@@ -207,13 +207,14 @@ const UseCases = memo(function UseCases({
                 Progressive Overload
               </h3>
               <p className="mb-4 text-white/70 font-light leading-relaxed">
-                Adjustable resistance system for continuous strength progression.
+                Scalable plantar surface loading with adjustable ROM—from band-assisted beginners to unassisted elite athletes.
               </p>
               <ul className="space-y-2 text-white/60 font-light" role="list">
                 {[
-                  'Beginner to elite athlete progression',
-                  'Band-assisted and weighted options',
-                  'Scalable for all training levels'
+                  'Band-assisted progression (beginner-friendly)',
+                  'Adjustable ROM for individual athlete needs',
+                  'Bodyweight eccentric and isometric training',
+                  'Advanced unassisted concentric variations'
                 ].map((item, index) => (
                   <motion.li
                     key={index}
