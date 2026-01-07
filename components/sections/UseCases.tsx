@@ -74,6 +74,8 @@ const UseCases = memo(function UseCases({
               />
               {/* Red accent gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              {/* Oval/vignette frame to match Cards 1 & 2 photo treatment */}
+              <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0)_45%,rgba(0,0,0,0.92)_100%)]" />
             </motion.div>
             
             {/* Content */}
