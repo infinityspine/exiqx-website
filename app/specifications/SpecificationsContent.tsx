@@ -183,14 +183,15 @@ export default function SpecificationsContent() {
                 transition: { type: "spring", stiffness: 200, damping: 20 }
               }}
             >
-              <div style={{ marginBottom: 'clamp(2rem, 4vw, 3rem)' }}>
+              <div className="space-y-4">
                 <p>
-                  The ExIQx Footplate is engineered for <strong className="text-white">biomechanical precision and elite durability</strong>. Each unit is built in the USA using hybrid aluminum + 11-gauge steel construction, CNC-machined to aerospace-level precision, and finished in a deep black powder coat.
+                  The ExIQx Rack-Mounted Plantarflexion System is the first Nordic curl device engineered for plantar surface loading—routing force through the ball of the foot, not the posterior ankle.
                 </p>
-              </div>
-              <div>
                 <p>
-                  The inaugural production run features the <strong className="text-white">Rack-Mounted Footplate</strong>, with GHD-Retrofit and Freestanding embodiments coming soon.
+                  Built in Arizona with CNC-machined aluminum and 11-gauge steel construction, finished in durable powder coat. Designed for commercial facility use and individual elite athletes.
+                </p>
+                <p>
+                  Patent-pending technology. Engineered for ground-force transmission training.
                 </p>
               </div>
             </motion.div>
