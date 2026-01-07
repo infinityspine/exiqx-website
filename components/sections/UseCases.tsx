@@ -85,10 +85,10 @@ const UseCases = memo(function UseCases({
               <h3 className="mb-4 font-display text-3xl font-bold uppercase tracking-[0.03em] text-white transition-colors duration-300 group-hover:text-red-400">
                 PERFORMANCE TRAINING
               </h3>
-              <p className="mb-4 text-white/70 font-light leading-relaxed">
+              <p className="mb-4 text-white/70 font-medium leading-relaxed text-lg md:text-xl">
                 Eccentric and isometric hamstring loading with plantar surface force transmission for sprint mechanics and injury-resistant strength.
               </p>
-              <ul className="space-y-2 text-white/60 font-light" role="list">
+              <ul className="space-y-2 text-white/60 font-normal text-base md:text-lg" role="list">
                 {[
                   'Eccentric hamstring strength development',
                   'Isometric force production capacity',
@@ -145,10 +145,10 @@ const UseCases = memo(function UseCases({
               <h3 className="mb-4 font-display text-3xl font-bold uppercase tracking-[0.03em] text-white transition-colors duration-300 group-hover:text-red-400">
                 INJURY PREVENTION & REHAB
               </h3>
-              <p className="mb-4 text-white/70 font-light leading-relaxed">
+              <p className="mb-4 text-white/70 font-medium leading-relaxed text-lg md:text-xl">
                 Hamstring and ACL protocols through plantar surface loading—not the posterior ankle loading of traditional equipment.
               </p>
-              <ul className="space-y-2 text-white/60 font-light" role="list">
+              <ul className="space-y-2 text-white/60 font-normal text-base md:text-lg" role="list">
                 {[
                   'Hamstring strain prevention and rehab',
                   'ACL and Achilles return-to-play progression',
@@ -206,10 +206,10 @@ const UseCases = memo(function UseCases({
               <h3 className="mb-4 font-display text-3xl font-bold uppercase tracking-[0.03em] text-white transition-colors duration-300 group-hover:text-red-400">
                 Progressive Overload
               </h3>
-              <p className="mb-4 text-white/70 font-light leading-relaxed">
+              <p className="mb-4 text-white/70 font-medium leading-relaxed text-lg md:text-xl">
                 Scalable plantar surface loading with adjustable ROM—from band-assisted beginners to unassisted elite athletes.
               </p>
-              <ul className="space-y-2 text-white/60 font-light" role="list">
+              <ul className="space-y-2 text-white/60 font-normal text-base md:text-lg" role="list">
                 {[
                   'Band-assisted progression (beginner-friendly)',
                   'Adjustable ROM for individual athlete needs',
