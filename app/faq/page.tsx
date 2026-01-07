@@ -33,7 +33,7 @@ export default function FAQPage() {
           </h2>
           <div className="w-32 h-[4px] bg-[#e50914] mb-16"></div>
           <p className="text-lg md:text-xl text-gray-300 font-light leading-relaxed" style={{ marginBottom: '100px' }}>
-            The ExIQx Rack-Mounted Plantarflexion System integrates seamlessly with standard 3×3 power rack systems. Installation takes under 30 minutes with basic tools and a precision-fit pin interface. This founding member edition is designed for training facilities, collegiate programs, rehabilitation centers, and individual elite athletes with existing rack infrastructure.
+            The ExIQx Rack-Mounted Plantarflexion System integrates with standard 3×3 power rack systems using a precision-fit pin interface—no tools required. Simply align the mounting bracket with your rack's uprights and insert the pin. This founding member edition is designed for training facilities, collegiate programs, rehabilitation centers, and individual elite athletes with existing rack infrastructure.
           </p>
           
           <h2 className="text-5xl font-extrabold uppercase tracking-tight mb-6 text-white">
@@ -41,7 +41,7 @@ export default function FAQPage() {
           </h2>
           <div className="w-32 h-[4px] bg-[#e50914] mb-16"></div>
           <p className="text-lg md:text-xl text-gray-300 font-light leading-relaxed" style={{ marginBottom: '100px' }}>
-            The rack-mounted system installs in under 30 minutes with basic tools. The unit uses a quick-release hitch pin system for tool-free angle adjustments (10°-70°) and mounts to any standard 3×3 power rack. All units include comprehensive installation instructions, and our support team is available for technical assistance.
+            Installation is instant—no tools required. Align the mounting bracket with your rack's uprights, insert the hitch pin, and you're ready to train. The quick-release pin system also enables tool-free angle adjustments (10°-70°). All units include setup instructions, and our support team is available for any questions.
           </p>
           
           <h2 className="text-5xl font-extrabold uppercase tracking-tight mb-6 text-white">
