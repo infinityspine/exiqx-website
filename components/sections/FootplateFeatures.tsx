@@ -35,18 +35,18 @@ const FootplateFeatures = memo(function FootplateFeatures({
   const features = [
     {
       icon: Shield,
-      title: 'Authentic Ground-Force Mechanics',
-      description: 'Routes force through the forefoot to preserve the natural closed-chain vector of sprinting, jumping, and directional changes.'
+      title: 'PLANTAR SURFACE LOADING',
+      description: 'Routes force through the ball of the foot—not the posterior ankle of traditional Nordics. Trains authentic athletic force transmission.'
     },
     {
       icon: Ruler,
-      title: 'Precision-Engineered',
-      description: 'Hybrid aluminum–steel construction. CNC-machined to aerospace-level tolerances. Built in Arizona.'
+      title: 'PRECISION CONSTRUCTION',
+      description: 'CNC-machined aluminum and steel. Engineered and manufactured in Arizona to commercial facility standards.'
     },
     {
       icon: Zap,
-      title: 'Adjustable 10°–70°',
-      description: 'User-tuned plantarflexion angles for any athlete, training demand, or rehabilitation phase.'
+      title: 'ADJUSTABLE ROM (10°–70°)',
+      description: 'Progressive plantarflexion angles from assisted beginner progressions to advanced unassisted variations.'
     }
   ]
 
@@ -89,7 +89,7 @@ const FootplateFeatures = memo(function FootplateFeatures({
               transform: 'translateZ(0)'
             }}
           >
-            Patent-pending equipment for professional facilities, collegiate programs, and clinical rehabilitation centers.
+            Plantar surface loading system for elite athletes, training facilities, and rehabilitation programs.
           </motion.p>
         </motion.div>
 
