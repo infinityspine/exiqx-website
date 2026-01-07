@@ -188,13 +188,13 @@ const UseCases = memo(function UseCases({
                 src="/images/training/adjustment-mechanism-detail.jpg"
                 alt="Close-up of ExIQx footplate angle adjustment mechanism"
                 fill
-                className="object-cover brightness-90"
+                className="object-cover grayscale brightness-75"
                 quality={85}
                 loading="lazy"
                 sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 600px"
               />
-              {/* Subtle red accent glow on one element */}
-              <div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-transparent" />
+              {/* Red accent gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
             </motion.div>
             
             {/* Content */}
