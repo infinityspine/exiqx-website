@@ -331,11 +331,11 @@ export default function SpecificationsContent() {
 
             <div className="text-gray-300 font-inter text-base sm:text-lg" style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(1.25rem, 2.5vw, 1.75rem)' }}>
               {[
-                'Hybrid aluminum/steel design provides stiffness and tactile feedback at a manageable 30 lb total weight.',
-                'Radial plate geometry locks angles securely and evenly distributes torque.',
-                'Laser-cut flanking plates ensure lateral stability under maximal posterior-chain loading.',
-                'Powder-coat finish resists abrasion and oxidation for long-term commercial use.',
-                'Quick-release architecture allows seamless integration into any 3×3 rack with precision-fit pin interfaces.',
+                'Patent-pending plantar surface loading mechanism routes force through the ball of the foot—the first Nordic curl device to train ground-force transmission pathways.',
+                'Radial locking plate with multiple angle positions (10°-70°) enables progressive ROM customization for beginner through elite training.',
+                'Hybrid aluminum and 11-gauge steel construction balances precision and durability at a manageable 30 lb total weight.',
+                'CNC-machined bearing interfaces and quick-release hitch pin enable tool-free angle changes and seamless rack integration.',
+                'Powder-coat finish resists abrasion and oxidation for long-term commercial facility use.',
               ].map((text, index) => (
                 <motion.div
                   key={index}
