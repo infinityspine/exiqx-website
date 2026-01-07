@@ -188,7 +188,7 @@ const UseCases = memo(function UseCases({
                 src="/images/training/adjustment-mechanism-detail.jpg"
                 alt="Close-up of ExIQx footplate angle adjustment mechanism"
                 fill
-                className="object-cover grayscale brightness-75 object-[50%_50%] scale-[1.15]"
+                className="object-cover grayscale brightness-75"
                 quality={85}
                 loading="lazy"
                 sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 600px"
