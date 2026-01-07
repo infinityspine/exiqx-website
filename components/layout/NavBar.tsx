@@ -20,8 +20,8 @@ interface NavBarProps {
 
 const DEFAULT_BRAND_TEXT = 'EXIQX PERFORMANCE'
 const DEFAULT_NAV_ITEMS = [
-  { label: 'PRODUCT', href: '#technical-specifications', id: 'technical-specifications' },
-  { label: 'TRAINING', href: '#use-cases', id: 'use-cases' },
+  { label: 'PRODUCT', href: '/#technical-specifications', id: 'technical-specifications' },
+  { label: 'TRAINING', href: '/#use-cases', id: 'use-cases' },
   { label: 'ORDER', href: '/order', id: 'order' },
   { label: 'CONTACT', href: '/contact', id: 'contact' },
 ]
@@ -45,6 +45,30 @@ const NavBar = memo(function NavBar({
   const pathname = usePathname()
 
   const validatedItems = z.array(NavItemSchema).parse(navItems)
+
+  const parseHref = useCallback((href: string) => {
+    // Supports: "#section", "/#section", "/order", etc.
+    const hashIndex = href.indexOf('#')
+    const hasHash = hashIndex !== -1
+    const path = hasHash ? href.slice(0, hashIndex) || '' : href
+    const hash = hasHash ? href.slice(hashIndex) : null
+    const id = hash ? hash.replace('#', '') : null
+    return { path, hash, id }
+  }, [])
+
+  const scrollToId = useCallback((id: string) => {
+    const element = document.getElementById(id)
+    if (!element) return false
+
+    // Account for the fixed navbar height using the global CSS var.
+    const cssVar = getComputedStyle(document.documentElement).getPropertyValue('--header-height').trim()
+    const headerHeight = cssVar.endsWith('px') ? Number(cssVar.replace('px', '')) : Number(cssVar) || 0
+    const top = element.getBoundingClientRect().top + window.scrollY - headerHeight
+    const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches ?? false
+
+    window.scrollTo({ top, behavior: prefersReducedMotion ? 'auto' : 'smooth' })
+    return true
+  }, [])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -76,13 +100,13 @@ const NavBar = memo(function NavBar({
     )
 
     validatedItems.forEach(({ id, href }) => {
-      if (href.startsWith('#')) {
-        const el = document.getElementById(id)
-        if (el) observer.observe(el)
-      }
+      const { hash } = parseHref(href)
+      if (!hash) return
+      const el = document.getElementById(id)
+      if (el) observer.observe(el)
     })
     return () => observer.disconnect()
-  }, [validatedItems])
+  }, [validatedItems, parseHref])
 
   const toggleMobileMenu = useCallback(() => {
     setIsMobileMenuOpen((prev) => !prev)
@@ -92,28 +116,42 @@ const NavBar = memo(function NavBar({
 
   const handleNavigation = useCallback(
     (href: string) => {
-      if (href.startsWith('#')) {
-        closeMobileMenu()
-        setTimeout(() => {
-          const element = document.querySelector(href)
-          if (!element) return
+      const { path, id } = parseHref(href)
+      const isAnchor = !!id
 
-          // Account for the fixed navbar height using the global CSS var.
-          const cssVar = getComputedStyle(document.documentElement).getPropertyValue('--header-height').trim()
-          const headerHeight = cssVar.endsWith('px') ? Number(cssVar.replace('px', '')) : Number(cssVar) || 0
-          const top = element.getBoundingClientRect().top + window.scrollY - headerHeight
-          const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches ?? false
-
-          window.scrollTo({ top, behavior: prefersReducedMotion ? 'auto' : 'smooth' })
-        }, MENU_CLOSE_DELAY)
-      } else {
-        closeMobileMenu()
-        setTimeout(() => {
+      closeMobileMenu()
+      setTimeout(() => {
+        if (!isAnchor) {
           router.push(href)
-        }, MENU_CLOSE_DELAY)
-      }
+          return
+        }
+
+        const targetPath = path || pathname
+        const needsRouteChange = targetPath !== pathname
+
+        const attemptScroll = () => {
+          if (!id) return
+          const ok = scrollToId(id)
+          if (ok) return
+          // If the element isn't in the DOM yet (route change), retry briefly.
+          const startedAt = performance.now()
+          const tick = () => {
+            if (scrollToId(id)) return
+            if (performance.now() - startedAt > 1500) return
+            requestAnimationFrame(tick)
+          }
+          requestAnimationFrame(tick)
+        }
+
+        if (needsRouteChange) {
+          router.push(targetPath || '/')
+          requestAnimationFrame(attemptScroll)
+        } else {
+          attemptScroll()
+        }
+      }, MENU_CLOSE_DELAY)
     },
-    [closeMobileMenu, router]
+    [closeMobileMenu, parseHref, pathname, router, scrollToId]
   )
 
   useEffect(() => {
@@ -198,11 +236,11 @@ const NavBar = memo(function NavBar({
 
           <div className="hidden gap-8 text-[11px] font-medium uppercase tracking-[0.18em] md:flex">
             {validatedItems.map((item) => {
-              // Check if this is a page route or section anchor
-              const isPageRoute = !item.href.startsWith('#')
-              const isActive = isPageRoute
-                ? pathname === item.href
-                : activeSection === item.id
+              const { path, id } = parseHref(item.href)
+              const isAnchor = !!id
+              const isActive = isAnchor
+                ? (path === '' || path === pathname) && activeSection === item.id
+                : pathname === item.href
 
               return (
                 <a
