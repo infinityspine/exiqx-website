@@ -441,78 +441,7 @@ export default function SpecificationsContent() {
 
         <SectionDivider />
 
-        {/* Section 5: Coming Soon - Elite Styling */}
-        <motion.section
-          className="relative py-24 lg:py-32 will-change-transform"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={fadeUp}
-          style={{ transform: 'translateZ(0)' }}
-        >
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div 
-              className="relative bg-gradient-to-br from-red-950/30 via-black to-red-950/20 border border-red-900/50 rounded-2xl text-center overflow-hidden shadow-2xl backdrop-blur-sm" 
-              style={{ padding: 'clamp(3.5rem, 7vw, 5.5rem) clamp(2.5rem, 5vw, 4rem)' }}
-              whileHover={{
-                borderColor: 'rgba(239, 68, 68, 0.7)',
-                transition: { duration: 0.3 }
-              }}
-            >
-              {/* Animated background */}
-              <motion.div
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-red-500/10 rounded-full blur-3xl"
-                animate={{
-                  scale: [1, 1.3, 1],
-                }}
-                transition={{
-                  duration: 8,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              />
-
-              <div className="relative z-10">
-                <h2 className="text-3xl sm:text-4xl font-bold text-white font-montserrat" style={{ marginBottom: 'clamp(2.5rem, 5vw, 3.5rem)' }}>
-                  Coming Soon
-                </h2>
-                <div className="text-gray-300 font-inter text-base sm:text-lg max-w-3xl mx-auto" style={{ lineHeight: '1.7', display: 'flex', flexDirection: 'column', gap: 'clamp(1.75rem, 3.5vw, 2.5rem)' }}>
-                  <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.2 }}
-                  >
-                    <strong className="text-white">GHD-Retrofit Edition</strong> — integrates directly with existing GHD platforms.
-                  </motion.p>
-                  <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.3 }}
-                  >
-                    <strong className="text-white">Freestanding Edition</strong> — portable, self-supporting design for facilities without rack systems.
-                  </motion.p>
-                  <motion.div 
-                    style={{ marginTop: 'clamp(2.5rem, 5vw, 3.5rem)', paddingTop: 'clamp(2.5rem, 5vw, 3.5rem)', borderTop: '1px solid rgba(127, 29, 29, 0.4)' }}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.4 }}
-                  >
-                    <p className="text-red-400 font-semibold">
-                      Stay tuned for early-access waitlist
-                    </p>
-                  </motion.div>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </motion.section>
-
-        <SectionDivider />
-
-        {/* Section 6: Download / Customization - Elite CTAs */}
+        {/* Section 5: Professional Inquiries - Elite CTAs */}
         <motion.section
           className="relative py-24 lg:py-32 will-change-transform"
           initial="hidden"
@@ -535,50 +464,28 @@ export default function SpecificationsContent() {
               </motion.div>
               <div>
                 <h2 className="text-3xl sm:text-4xl font-bold text-white font-montserrat" style={{ marginBottom: 'clamp(1.5rem, 3vw, 2.5rem)' }}>
-                  Download & Customization
+                  Professional Inquiries
                 </h2>
               </div>
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(2rem, 4vw, 3rem)' }}>
-              {/* Download placeholder - Elite */}
-              <motion.div 
-                className="bg-zinc-950/40 backdrop-blur-sm border border-zinc-800/60 rounded-2xl text-center shadow-xl hover:border-zinc-700 transition-all duration-300" 
-                style={{ padding: 'clamp(3rem, 6vw, 4.5rem) clamp(2rem, 4vw, 3rem)' }}
-                whileHover={{ y: -4 }}
-              >
-                <motion.div
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <FileText className="w-12 h-12 text-red-500 mx-auto" style={{ marginBottom: 'clamp(1.5rem, 3vw, 2rem)' }} />
-                </motion.div>
-                <h3 className="text-xl font-semibold text-white font-montserrat" style={{ marginBottom: 'clamp(0.75rem, 1.5vw, 1rem)' }}>
-                  Full Technical Data Sheet
-                </h3>
-                <p className="text-gray-400 font-inter" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1rem)', lineHeight: '1.6', marginBottom: 'clamp(2rem, 4vw, 2.5rem)' }}>
-                  Comprehensive technical documentation coming soon
-                </p>
-                <button
-                  disabled
-                  className="px-6 py-3 bg-zinc-800 text-gray-500 rounded-lg cursor-not-allowed font-semibold transition-all duration-300"
-                >
-                  Coming Soon
-                </button>
-              </motion.div>
-
-              {/* Contact CTA - Elite */}
+            <div className="grid gap-6 lg:gap-8 lg:grid-cols-2">
+              {/* Card 1: Bulk Orders */}
               <motion.div 
                 className="relative bg-gradient-to-br from-red-950/30 via-black to-red-950/20 border border-red-900/50 rounded-2xl overflow-hidden shadow-2xl backdrop-blur-sm" 
-                style={{ padding: 'clamp(4rem, 8vw, 6rem) clamp(2.5rem, 5vw, 4rem)' }}
-              whileHover={shouldReduceMotion ? {} : {
-                borderColor: 'rgba(239, 68, 68, 0.7)',
-                y: -6,
-                scale: 1.02,
-                transition: { type: "spring", stiffness: 170, damping: 22 }
-              }}
+                style={{ padding: 'clamp(3rem, 6vw, 4.5rem) clamp(2rem, 4vw, 3rem)' }}
+                whileHover={shouldReduceMotion ? {} : {
+                  borderColor: 'rgba(239, 68, 68, 0.7)',
+                  y: -6,
+                  scale: 1.02,
+                  transition: { type: "spring", stiffness: 170, damping: 22 }
+                }}
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
               >
-                {/* Multiple layered glow effects for depth */}
+                {/* Layered glow */}
                 <motion.div
                   className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[32rem] h-[32rem] bg-red-500/10 rounded-full blur-3xl"
                   animate={{
@@ -591,79 +498,80 @@ export default function SpecificationsContent() {
                     ease: "easeInOut",
                   }}
                 />
-                <motion.div
-                  className="absolute top-1/3 left-1/3 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl"
-                  animate={{
-                    scale: [1.2, 1, 1.2],
-                    opacity: [0.2, 0.4, 0.2],
-                  }}
-                  transition={{
-                    duration: 10,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: 1,
-                  }}
-                />
-
-                {/* Subtle animated border glow */}
-                <motion.div
-                  className="absolute inset-0 rounded-2xl"
-                  style={{
-                    background: 'linear-gradient(45deg, transparent, rgba(239, 68, 68, 0.1), transparent)',
-                  }}
-                  animate={{
-                    rotate: [0, 360],
-                  }}
-                  transition={{
-                    duration: 20,
-                    repeat: Infinity,
-                    ease: "linear",
-                  }}
-                />
-
                 <div className="relative z-10 flex flex-col items-center justify-center text-center">
                   <motion.h3 
                     className="text-2xl sm:text-3xl font-bold text-white font-montserrat tracking-tight"
                     style={{ marginBottom: 'clamp(1.25rem, 2.5vw, 1.75rem)' }}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.1 }}
                   >
-                    Custom Orders & Inquiries
+                    BULK ORDERS & FACILITY PARTNERSHIPS
                   </motion.h3>
-                  
-                  <motion.div
-                    className="w-full flex flex-col items-center"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
+                  <p 
+                    className="text-gray-300 font-inter max-w-2xl mx-auto text-center" 
+                    style={{ 
+                      fontSize: 'clamp(0.9375rem, 1.75vw, 1.0625rem)', 
+                      lineHeight: '1.75',
+                      marginBottom: 'clamp(2.25rem, 4.5vw, 3rem)'
+                    }}
                   >
-                    <p 
-                      className="text-gray-300 font-inter max-w-2xl mx-auto text-center" 
-                      style={{ 
-                        fontSize: 'clamp(0.9375rem, 1.75vw, 1.0625rem)', 
-                        lineHeight: '1.75',
-                        marginBottom: 'clamp(3rem, 6vw, 3.5rem)' // Increased mobile spacing significantly
-                      }}
-                    >
-                      For custom colors, bulk orders, or licensing inquiries —<br className="hidden sm:block" />
-                      <strong className="text-white block sm:inline mt-1 sm:mt-0">Contact ExIQx Performance</strong>
-                    </p>
-                  </motion.div>
+                    Multiple-unit orders for training facilities, collegiate programs, and rehabilitation centers.
+                  </p>
+                  <GroundForceLink href="/contact" className="inline-flex items-center justify-center gap-3">
+                    <Mail className="w-5 h-5" />
+                    <span>Contact Us</span>
+                  </GroundForceLink>
+                </div>
+              </motion.div>
 
-                  <motion.div
-                    variants={fadeUp}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, margin: "-50px" }}
+              {/* Card 2: Licensing */}
+              <motion.div 
+                className="relative bg-gradient-to-br from-red-950/30 via-black to-red-950/20 border border-red-900/50 rounded-2xl overflow-hidden shadow-2xl backdrop-blur-sm" 
+                style={{ padding: 'clamp(3rem, 6vw, 4.5rem) clamp(2rem, 4vw, 3rem)' }}
+                whileHover={shouldReduceMotion ? {} : {
+                  borderColor: 'rgba(239, 68, 68, 0.7)',
+                  y: -6,
+                  scale: 1.02,
+                  transition: { type: "spring", stiffness: 170, damping: 22 }
+                }}
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
+              >
+                {/* Layered glow */}
+                <motion.div
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[32rem] h-[32rem] bg-red-500/10 rounded-full blur-3xl"
+                  animate={{
+                    scale: [1, 1.3, 1],
+                    opacity: [0.3, 0.6, 0.3],
+                  }}
+                  transition={{
+                    duration: 8,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 0.6,
+                  }}
+                />
+                <div className="relative z-10 flex flex-col items-center justify-center text-center">
+                  <motion.h3 
+                    className="text-2xl sm:text-3xl font-bold text-white font-montserrat tracking-tight"
+                    style={{ marginBottom: 'clamp(1.25rem, 2.5vw, 1.75rem)' }}
                   >
-                    <GroundForceLink href="mailto:info@exiqx.com" className="inline-flex items-center justify-center gap-3">
-                      <Mail className="w-5 h-5" />
-                      <span>Contact Us</span>
-                    </GroundForceLink>
-                  </motion.div>
+                    LICENSING & PARTNERSHIP OPPORTUNITIES
+                  </motion.h3>
+                  <p 
+                    className="text-gray-300 font-inter max-w-2xl mx-auto text-center" 
+                    style={{ 
+                      fontSize: 'clamp(0.9375rem, 1.75vw, 1.0625rem)', 
+                      lineHeight: '1.75',
+                      marginBottom: 'clamp(2.25rem, 4.5vw, 3rem)'
+                    }}
+                  >
+                    Interested in distribution or technology licensing.
+                  </p>
+                  <GroundForceLink href="/contact" className="inline-flex items-center justify-center gap-3">
+                    <Mail className="w-5 h-5" />
+                    <span>Contact Us</span>
+                  </GroundForceLink>
                 </div>
               </motion.div>
             </div>
