@@ -86,13 +86,13 @@ const UseCases = memo(function UseCases({
                 PERFORMANCE TRAINING
               </h3>
               <p className="mb-4 text-white/70 font-light leading-relaxed">
-                Sprint development and explosive power through plantar surface loading.
+                Eccentric and isometric hamstring loading with plantar surface force transmission for sprint mechanics and injury-resistant strength.
               </p>
               <ul className="space-y-2 text-white/60 font-light" role="list">
                 {[
-                  'Maximum velocity sprint mechanics',
-                  'Explosive triple extension',
-                  'Athletic force vector training'
+                  'Eccentric hamstring strength development',
+                  'Isometric force production capacity',
+                  'Sprint-specific force transmission patterns'
                 ].map((item, index) => (
                   <motion.li
                     key={index}
