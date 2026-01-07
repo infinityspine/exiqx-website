@@ -7,7 +7,6 @@ import HeroSection from '@/components/sections/HeroSection'
 import BiomechanicsElite from '@/components/sections/BiomechanicsElite'
 import FootplateFeatures from '@/components/sections/FootplateFeatures'
 import UseCases from '@/components/sections/UseCases'
-import Testimonials from '@/components/sections/Testimonials'
 import HomePageCTA from '@/components/sections/HomePageCTA'
 
 // Optimized gradient orb component - simplified for performance
@@ -114,28 +113,8 @@ export default function Home() {
       </motion.section>
 
       <SectionDivider />
-
-      {/* Testimonials Section */}
-      <motion.section
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={staggerChildren}
-        className="relative"
-        style={{ transform: 'translateZ(0)' }}
-      >
-        {/* Single optimized gradient orb */}
-        <AnimatedGradientOrb 
-          className="top-0 left-1/3 w-80 h-80" 
-          delay={0.5}
-          shouldReduceMotion={!!shouldReduceMotion}
-        />
-        <Testimonials 
-          shouldReduceMotion={!!shouldReduceMotion}
-        />
-      </motion.section>
-
-      <SectionDivider />
+      {/* Testimonials hidden until we have real customer quotes */}
+      {/* <Testimonials shouldReduceMotion={!!shouldReduceMotion} /> */}
 
       {/* HomePageCTA Section */}
       <motion.section
