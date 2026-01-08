@@ -48,9 +48,9 @@ const UseCases = memo(function UseCases({
         </motion.div>
 
         {/* Use Cases Grid */}
-        <div className="w-full space-y-16">
+        <div className="w-full space-y-16 lg:space-y-12">
           {/* Use Case 1 */}
-          <div className="grid w-full min-w-0 items-center gap-8 lg:grid-cols-2">
+          <div className="grid w-full min-w-0 items-center gap-8 lg:grid-cols-12 lg:gap-10">
             <motion.div
               variants={fadeUp}
               whileHover={
@@ -61,11 +61,11 @@ const UseCases = memo(function UseCases({
                       transition: { type: 'spring', stiffness: 180, damping: 20 }
                     }
               }
-              className="relative aspect-[3/2] overflow-hidden rounded-lg bg-black"
+              className="relative aspect-[3/2] overflow-hidden rounded-lg bg-black lg:col-span-7"
             >
-                <Image
-                  src="/rack-mounted-hero.jpg"
-                  alt="Athlete performing rack-mounted Nordic hamstring curl on ExIQx system"
+              <Image
+                src="/rack-mounted-hero.jpg"
+                alt="Athlete performing rack-mounted Nordic hamstring curl on ExIQx system"
                 fill
                 className="object-contain grayscale"
                 quality={85}
@@ -74,7 +74,8 @@ const UseCases = memo(function UseCases({
               />
             </motion.div>
 
-            <motion.div variants={fadeUp} className="min-w-0 group">
+            <motion.div variants={fadeUp} className="min-w-0 group lg:col-span-5 lg:pl-10">
+              <div className="mb-3 font-mono text-xs tracking-[0.25em] text-white/40">01</div>
               <h3 className="mb-4 font-display text-3xl font-bold uppercase tracking-[0.03em] text-white">
                 PERFORMANCE TRAINING
               </h3>
@@ -91,7 +92,7 @@ const UseCases = memo(function UseCases({
           </div>
 
           {/* Use Case 2 */}
-          <div className="grid w-full min-w-0 items-center gap-12 lg:grid-cols-2">
+          <div className="grid w-full min-w-0 items-center gap-8 lg:grid-cols-12 lg:gap-10">
             <motion.div
               variants={fadeUp}
               whileHover={
@@ -102,11 +103,11 @@ const UseCases = memo(function UseCases({
                       transition: { type: 'spring', stiffness: 180, damping: 20 }
                     }
               }
-              className="relative aspect-[3/2] overflow-hidden rounded-lg bg-black lg:order-2"
+              className="relative aspect-[3/2] overflow-hidden rounded-lg bg-black lg:order-2 lg:col-span-7"
             >
               <Image
-                  src="/images/training/adjustment-mechanism-detail.jpg"
-                  alt="Close-up of ExIQx footplate angle adjustment mechanism"
+                src="/images/training/adjustment-mechanism-detail.jpg"
+                alt="Close-up of ExIQx footplate angle adjustment mechanism"
                 fill
                 className="object-contain grayscale"
                 quality={85}
@@ -115,7 +116,8 @@ const UseCases = memo(function UseCases({
               />
             </motion.div>
 
-            <motion.div variants={fadeUp} className="min-w-0 lg:order-1 group">
+            <motion.div variants={fadeUp} className="min-w-0 lg:order-1 group lg:col-span-5 lg:pr-10">
+              <div className="mb-3 font-mono text-xs tracking-[0.25em] text-white/40">02</div>
               <h3 className="mb-4 font-display text-3xl font-bold uppercase tracking-[0.03em] text-white">
                 INJURY PREVENTION & REHAB
               </h3>
@@ -132,7 +134,7 @@ const UseCases = memo(function UseCases({
           </div>
 
           {/* Use Case 3 */}
-          <div className="grid w-full min-w-0 items-center gap-8 lg:grid-cols-2">
+          <div className="grid w-full min-w-0 items-center gap-8 lg:grid-cols-12 lg:gap-10">
             <motion.div
               variants={fadeUp}
               whileHover={
@@ -143,11 +145,11 @@ const UseCases = memo(function UseCases({
                       transition: { type: 'spring', stiffness: 180, damping: 20 }
                     }
               }
-              className="relative aspect-[3/2] overflow-hidden rounded-lg bg-black"
+              className="relative aspect-[3/2] overflow-hidden rounded-lg bg-black lg:col-span-7"
             >
               <Image
-                  src="/Assisted_NordIQ.jpg"
-                  alt="Athlete performing assisted Nordic hamstring curl on ExIQx system"
+                src="/Assisted_NordIQ.jpg"
+                alt="Athlete performing assisted Nordic hamstring curl on ExIQx system"
                 fill
                 className="object-contain grayscale"
                 quality={85}
@@ -156,7 +158,8 @@ const UseCases = memo(function UseCases({
               />
             </motion.div>
 
-            <motion.div variants={fadeUp} className="min-w-0 group">
+            <motion.div variants={fadeUp} className="min-w-0 group lg:col-span-5 lg:pl-10">
+              <div className="mb-3 font-mono text-xs tracking-[0.25em] text-white/40">03</div>
               <h3 className="mb-4 font-display text-3xl font-bold uppercase tracking-[0.03em] text-white">
                 PROGRESSIVE OVERLOAD
               </h3>
