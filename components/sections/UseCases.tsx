@@ -103,7 +103,7 @@ const UseCases = memo(function UseCases({
                       transition: { type: 'spring', stiffness: 180, damping: 20 }
                     }
               }
-              className="relative aspect-[3/2] overflow-hidden rounded-lg bg-black lg:order-2 lg:col-span-7"
+              className="relative aspect-[3/2] overflow-hidden rounded-lg bg-black lg:order-2 lg:col-span-8"
             >
               <Image
                 src="/images/training/adjustment-mechanism-detail.jpg"
@@ -116,7 +116,7 @@ const UseCases = memo(function UseCases({
               />
             </motion.div>
 
-            <motion.div variants={fadeUp} className="min-w-0 lg:order-1 group lg:col-span-5 lg:pr-10">
+            <motion.div variants={fadeUp} className="min-w-0 lg:order-1 group lg:col-span-4 lg:pr-10">
               <div className="mb-3 font-mono text-xs tracking-[0.25em] text-white/40">02</div>
               <h3 className="mb-4 font-display text-3xl font-bold uppercase tracking-[0.03em] text-white">
                 INJURY PREVENTION & REHAB
@@ -145,7 +145,7 @@ const UseCases = memo(function UseCases({
                       transition: { type: 'spring', stiffness: 180, damping: 20 }
                     }
               }
-              className="relative aspect-[3/2] overflow-hidden rounded-lg bg-black lg:col-span-7"
+              className="relative aspect-[3/2] overflow-hidden rounded-lg bg-black lg:col-span-8"
             >
               <Image
                 src="/Assisted_NordIQ.jpg"
@@ -158,7 +158,7 @@ const UseCases = memo(function UseCases({
               />
             </motion.div>
 
-            <motion.div variants={fadeUp} className="min-w-0 group lg:col-span-5 lg:pl-10">
+            <motion.div variants={fadeUp} className="min-w-0 group lg:col-span-4 lg:pl-10">
               <div className="mb-3 font-mono text-xs tracking-[0.25em] text-white/40">03</div>
               <h3 className="mb-4 font-display text-3xl font-bold uppercase tracking-[0.03em] text-white">
                 PROGRESSIVE OVERLOAD
