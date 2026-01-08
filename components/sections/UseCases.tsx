@@ -67,15 +67,11 @@ const UseCases = memo(function UseCases({
                 src="/images/training/nordic-curl-athlete.jpg"
                 alt="Athlete performing Nordic hamstring curl on ExIQx footplate"
                 fill
-                className="object-contain object-center grayscale brightness-75"
+                className="object-contain object-center"
                 quality={85}
                 loading="lazy"
                 sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 600px"
               />
-              {/* Red accent gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-              {/* Oval/vignette frame to match Cards 1 & 2 photo treatment */}
-              <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0)_45%,rgba(0,0,0,0.92)_100%)]" />
             </motion.div>
             
             {/* Content */}
@@ -130,12 +126,11 @@ const UseCases = memo(function UseCases({
                 src="/images/training/glute-ham-raise-athlete-v2.jpg"
                 alt="Athlete performing glute-ham raise on ExIQx footplate"
                 fill
-                className="object-contain object-center grayscale brightness-75"
+                className="object-contain object-center"
                 quality={85}
                 loading="lazy"
                 sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 600px"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
             </motion.div>
             
             {/* Content - SECOND in DOM for mobile, FIRST on desktop (lg:order-1) */}
@@ -190,13 +185,11 @@ const UseCases = memo(function UseCases({
                 src="/images/training/adjustment-mechanism-detail.jpg"
                 alt="Close-up of ExIQx footplate angle adjustment mechanism"
                 fill
-                className="object-contain object-center grayscale brightness-75"
+                className="object-contain object-center"
                 quality={85}
                 loading="lazy"
                 sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 600px"
               />
-              {/* Red accent gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
             </motion.div>
             
             {/* Content */}
