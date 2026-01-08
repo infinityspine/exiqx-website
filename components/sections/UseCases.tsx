@@ -60,14 +60,14 @@ const UseCases = memo(function UseCases({
                 transition: { type: "spring", stiffness: 180, damping: 20 }
               }}
               transition={{ type: "spring", stiffness: 180, damping: 20 }}
-              className="relative w-full min-w-0 max-w-full aspect-[3/2] rounded-lg overflow-hidden border border-zinc-800/60 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-[0_10px_30px_rgba(220,38,38,0.2)] will-change-transform"
+              className="relative w-full min-w-0 max-w-full aspect-[3/2] rounded-lg overflow-hidden border border-zinc-800/60 transition-all duration-300 hover:border-red-900/50 will-change-transform"
               style={{ transform: 'translateZ(0)' }}
             >
               <Image
                 src="/images/training/nordic-curl-athlete.jpg"
                 alt="Athlete performing Nordic hamstring curl on ExIQx footplate"
                 fill
-                className="object-contain object-center grayscale brightness-75"
+                className="object-cover object-center grayscale brightness-75"
                 quality={85}
                 loading="lazy"
                 sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 600px"
@@ -113,7 +113,7 @@ const UseCases = memo(function UseCases({
             {/* Image with Elite Styling - FIRST in DOM for mobile */}
             <motion.div 
               variants={fadeUp}
-              className="relative w-full min-w-0 max-w-full aspect-[3/2] rounded-lg overflow-hidden lg:order-2 border border-zinc-800/60 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-[0_10px_30px_rgba(220,38,38,0.2)] will-change-transform"
+              className="relative w-full min-w-0 max-w-full aspect-[3/2] rounded-lg overflow-hidden lg:order-2 border border-zinc-800/60 transition-all duration-300 hover:border-red-900/50 will-change-transform"
               whileHover={shouldReduceMotion ? {} : { 
                 y: -6, 
                 scale: 1.02,
@@ -126,7 +126,7 @@ const UseCases = memo(function UseCases({
                 src="/images/training/glute-ham-raise-athlete-v2.jpg"
                 alt="Athlete performing glute-ham raise on ExIQx footplate"
                 fill
-                className="object-contain object-center grayscale brightness-75"
+                className="object-cover object-center grayscale brightness-75"
                 quality={85}
                 loading="lazy"
                 sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 600px"
@@ -178,14 +178,14 @@ const UseCases = memo(function UseCases({
                 transition: { type: "spring", stiffness: 180, damping: 20 }
               }}
               transition={{ type: "spring", stiffness: 180, damping: 20 }}
-              className="relative w-full min-w-0 max-w-full aspect-[3/2] rounded-lg overflow-hidden border border-zinc-800/60 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-[0_10px_30px_rgba(220,38,38,0.2)] will-change-transform"
+              className="relative w-full min-w-0 max-w-full aspect-[3/2] rounded-lg overflow-hidden border border-zinc-800/60 transition-all duration-300 hover:border-red-900/50 will-change-transform"
               style={{ transform: 'translateZ(0)' }}
             >
               <Image
                 src="/images/training/adjustment-mechanism-detail.jpg"
                 alt="Close-up of ExIQx footplate angle adjustment mechanism"
                 fill
-                className="object-contain object-center grayscale brightness-75"
+                className="object-cover object-center grayscale brightness-75"
                 quality={85}
                 loading="lazy"
                 sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 600px"
