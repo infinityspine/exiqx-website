@@ -67,7 +67,7 @@ const UseCases = memo(function UseCases({
                 src="/images/training/nordic-curl-athlete.jpg"
                 alt="Athlete performing Nordic hamstring curl on ExIQx footplate"
                 fill
-                className="object-contain object-center"
+                className="object-contain object-center grayscale brightness-75"
                 quality={85}
                 loading="lazy"
                 sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 600px"
@@ -126,7 +126,7 @@ const UseCases = memo(function UseCases({
                 src="/images/training/glute-ham-raise-athlete-v2.jpg"
                 alt="Athlete performing glute-ham raise on ExIQx footplate"
                 fill
-                className="object-contain object-center"
+                className="object-contain object-center grayscale brightness-75"
                 quality={85}
                 loading="lazy"
                 sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 600px"
@@ -185,7 +185,7 @@ const UseCases = memo(function UseCases({
                 src="/images/training/adjustment-mechanism-detail.jpg"
                 alt="Close-up of ExIQx footplate angle adjustment mechanism"
                 fill
-                className="object-contain object-center"
+                className="object-contain object-center grayscale brightness-75"
                 quality={85}
                 loading="lazy"
                 sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 600px"
