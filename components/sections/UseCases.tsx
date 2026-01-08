@@ -105,8 +105,8 @@ const UseCases = memo(function UseCases({
               className="relative aspect-[3/2] overflow-hidden rounded-lg bg-black lg:order-2"
             >
               <Image
-                  src="/Assisted_NordIQ.jpg"
-                  alt="Athlete performing assisted Nordic hamstring curl on ExIQx system"
+                  src="/images/training/adjustment-mechanism-detail.jpg"
+                  alt="Close-up of ExIQx footplate angle adjustment mechanism"
                 fill
                 className="object-contain grayscale"
                 quality={85}
@@ -146,8 +146,8 @@ const UseCases = memo(function UseCases({
               className="relative aspect-[3/2] overflow-hidden rounded-lg bg-black"
             >
               <Image
-                src="/images/training/adjustment-mechanism-detail.jpg"
-                alt="Close-up of ExIQx footplate angle adjustment mechanism"
+                  src="/Assisted_NordIQ.jpg"
+                  alt="Athlete performing assisted Nordic hamstring curl on ExIQx system"
                 fill
                 className="object-contain grayscale"
                 quality={85}
