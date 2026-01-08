@@ -22,7 +22,7 @@ const UseCases = memo(function UseCases({
       className="relative bg-black py-[clamp(4rem,10vw,7rem)]"
       aria-labelledby="use-cases-heading"
     >
-      <div className="mx-auto max-w-7xl px-6 lg:px-8 relative">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div 
           className="mb-[clamp(2rem,5vw,4rem)] text-center flex flex-col items-center"
@@ -48,9 +48,9 @@ const UseCases = memo(function UseCases({
         </motion.div>
 
         {/* Use Cases Grid */}
-        <div className="space-y-16">
+        <div className="w-full space-y-16">
           {/* Use Case 1 - Nordic Hamstring Curls */}
-          <div className="grid items-center gap-8 lg:grid-cols-2">
+          <div className="grid w-full min-w-0 items-center gap-8 lg:grid-cols-2">
             {/* Image with Elite Styling */}
             <motion.div 
               variants={fadeUp}
@@ -60,7 +60,7 @@ const UseCases = memo(function UseCases({
                 transition: { type: "spring", stiffness: 180, damping: 20 }
               }}
               transition={{ type: "spring", stiffness: 180, damping: 20 }}
-              className="relative aspect-[3/2] rounded-lg overflow-hidden border border-zinc-800/60 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-[0_10px_30px_rgba(220,38,38,0.2)] will-change-transform"
+              className="relative w-full min-w-0 max-w-full aspect-[3/2] rounded-lg overflow-hidden border border-zinc-800/60 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-[0_10px_30px_rgba(220,38,38,0.2)] will-change-transform"
               style={{ transform: 'translateZ(0)' }}
             >
               <Image
@@ -81,7 +81,7 @@ const UseCases = memo(function UseCases({
             {/* Content */}
             <motion.div
               variants={fadeUp}
-              className="group will-change-transform"
+              className="min-w-0 group will-change-transform"
               style={{ transform: 'translateZ(0)' }}
             >
               <h3 className="mb-4 font-display text-3xl font-bold uppercase tracking-[0.03em] text-white transition-colors duration-300 group-hover:text-red-400">
@@ -113,11 +113,11 @@ const UseCases = memo(function UseCases({
           </div>
 
           {/* Use Case 2 - Glute-Ham Raises */}
-          <div className="grid items-center gap-12 sm:gap-16 lg:grid-cols-2 lg:gap-12">
+          <div className="grid w-full min-w-0 items-center gap-12 sm:gap-16 lg:grid-cols-2 lg:gap-12">
             {/* Image with Elite Styling - FIRST in DOM for mobile */}
             <motion.div 
               variants={fadeUp}
-              className="relative aspect-[3/2] rounded-lg overflow-hidden lg:order-2 border border-zinc-800/60 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-[0_10px_30px_rgba(220,38,38,0.2)] will-change-transform"
+              className="relative w-full min-w-0 max-w-full aspect-[3/2] rounded-lg overflow-hidden lg:order-2 border border-zinc-800/60 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-[0_10px_30px_rgba(220,38,38,0.2)] will-change-transform"
               whileHover={shouldReduceMotion ? {} : { 
                 y: -6, 
                 scale: 1.02,
@@ -141,7 +141,7 @@ const UseCases = memo(function UseCases({
             {/* Content - SECOND in DOM for mobile, FIRST on desktop (lg:order-1) */}
             <motion.div 
               variants={fadeUp}
-              className="lg:order-1 group will-change-transform"
+              className="min-w-0 lg:order-1 group will-change-transform"
               style={{ transform: 'translateZ(0)' }}
             >
               <h3 className="mb-4 font-display text-3xl font-bold uppercase tracking-[0.03em] text-white transition-colors duration-300 group-hover:text-red-400">
@@ -173,7 +173,7 @@ const UseCases = memo(function UseCases({
           </div>
 
           {/* Use Case 3 - Progressive Overload */}
-          <div className="grid items-center gap-8 lg:grid-cols-2">
+          <div className="grid w-full min-w-0 items-center gap-8 lg:grid-cols-2">
             {/* Image with Elite Styling - Product Detail Shot */}
             <motion.div 
               variants={fadeUp}
@@ -183,7 +183,7 @@ const UseCases = memo(function UseCases({
                 transition: { type: "spring", stiffness: 180, damping: 20 }
               }}
               transition={{ type: "spring", stiffness: 180, damping: 20 }}
-              className="relative aspect-[3/2] rounded-lg overflow-hidden border border-zinc-800/60 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-[0_10px_30px_rgba(220,38,38,0.2)] will-change-transform"
+              className="relative w-full min-w-0 max-w-full aspect-[3/2] rounded-lg overflow-hidden border border-zinc-800/60 backdrop-blur-sm transition-all duration-300 hover:border-red-900/50 hover:shadow-[0_10px_30px_rgba(220,38,38,0.2)] will-change-transform"
               style={{ transform: 'translateZ(0)' }}
             >
               <Image
@@ -202,7 +202,7 @@ const UseCases = memo(function UseCases({
             {/* Content */}
             <motion.div
               variants={fadeUp}
-              className="group will-change-transform"
+              className="min-w-0 group will-change-transform"
               style={{ transform: 'translateZ(0)' }}
             >
               <h3 className="mb-4 font-display text-3xl font-bold uppercase tracking-[0.03em] text-white transition-colors duration-300 group-hover:text-red-400">
