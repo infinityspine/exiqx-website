@@ -105,8 +105,8 @@ const UseCases = memo(function UseCases({
               className="relative aspect-[3/2] overflow-hidden rounded-lg bg-black lg:order-2"
             >
               <Image
-                src="/images/training/glute-ham-raise-athlete-v2.jpg"
-                alt="Athlete performing glute-ham raise on ExIQx footplate"
+                  src="/Assisted_NordIQ.jpg"
+                  alt="Athlete performing assisted Nordic hamstring curl on ExIQx system"
                 fill
                 className="object-contain grayscale"
                 quality={85}
