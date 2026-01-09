@@ -1,8 +1,10 @@
+export const runtime = "nodejs";
+
 import { headers } from "next/headers";
 import Stripe from "stripe";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: "2023-10-16",
+  apiVersion: "2023-10-16" as Stripe.LatestApiVersion,
 });
 
 export async function POST(req: Request) {
@@ -27,10 +29,8 @@ export async function POST(req: Request) {
   }
 
   if (event.type === "checkout.session.completed") {
-    console.log("checkout.session.completed received");
+    console.log("checkout.session.completed received", event.data.object);
   }
 
   return new Response("OK", { status: 200 });
 }
-
-
