@@ -26,7 +26,7 @@ const UseCases = memo(function UseCases({
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
-          className="mb-[clamp(2rem,5vw,4rem)] text-center flex flex-col items-center"
+          className="text-center flex flex-col items-center"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
@@ -41,14 +41,14 @@ const UseCases = memo(function UseCases({
           </motion.h2>
           <motion.p
             variants={fadeUp}
-            className="mt-4 text-base sm:text-lg text-white/70 leading-relaxed max-w-prose mx-auto text-center"
+            className="mt-6 md:mt-8 text-base sm:text-lg text-white/70 leading-relaxed max-w-prose mx-auto text-center"
           >
             Ground-force transmission training for performance, rehabilitation, and development.
           </motion.p>
         </motion.div>
 
         {/* Use Cases Grid */}
-        <div className="w-full space-y-16 lg:space-y-12">
+        <div className="w-full mt-20 md:mt-28">
           {/* Use Case 1 */}
           <div className="grid w-full min-w-0 items-center gap-8 lg:grid-cols-12 lg:gap-10">
             <motion.div
@@ -75,15 +75,15 @@ const UseCases = memo(function UseCases({
             </motion.div>
 
             <motion.div variants={fadeUp} className="min-w-0 group lg:col-span-5 lg:pl-10">
-              <div className="mb-3 font-mono text-xs tracking-[0.25em] text-white/40">01</div>
-              <h3 className="mb-4 font-display text-3xl font-bold uppercase tracking-[0.03em] text-white">
+              <div className="mb-4 font-mono text-xs tracking-[0.25em] text-white/40">01</div>
+              <h3 className="mb-6 md:mb-8 font-display text-3xl font-bold uppercase tracking-[0.03em] text-white">
                 PERFORMANCE TRAINING
               </h3>
-              <p className="mb-4 text-white/70 font-medium leading-[1.8] text-lg md:text-xl">
+              <p className="text-white/70 font-medium leading-[1.8] text-lg md:text-xl">
                 Eccentric and isometric hamstring loading with plantar surface force transmission
                 for sprint mechanics and injury-resistant strength.
               </p>
-              <ul className="space-y-2 text-white/60 text-base md:text-lg">
+              <ul className="mt-6 space-y-2 text-white/60 text-base md:text-lg">
                 <li>• Eccentric hamstring strength development</li>
                 <li>• Isometric force production capacity</li>
                 <li>• Sprint-specific force transmission patterns</li>
@@ -92,7 +92,7 @@ const UseCases = memo(function UseCases({
           </div>
 
           {/* Use Case 2 */}
-          <div className="grid w-full min-w-0 items-center gap-8 lg:grid-cols-12 lg:gap-10">
+          <div className="mt-24 md:mt-32 grid w-full min-w-0 items-center gap-8 lg:grid-cols-12 lg:gap-10">
             <motion.div
               variants={fadeUp}
               whileHover={
@@ -117,15 +117,15 @@ const UseCases = memo(function UseCases({
             </motion.div>
 
             <motion.div variants={fadeUp} className="min-w-0 lg:order-1 group lg:col-span-4 lg:pr-10">
-              <div className="mb-3 font-mono text-xs tracking-[0.25em] text-white/40">02</div>
-              <h3 className="mb-4 font-display text-3xl font-bold uppercase tracking-[0.03em] text-white">
+              <div className="mb-4 font-mono text-xs tracking-[0.25em] text-white/40">02</div>
+              <h3 className="mb-6 md:mb-8 font-display text-3xl font-bold uppercase tracking-[0.03em] text-white">
                 INJURY PREVENTION & REHAB
               </h3>
-              <p className="mb-4 text-white/70 font-medium leading-[1.8] text-lg md:text-xl">
+              <p className="text-white/70 font-medium leading-[1.8] text-lg md:text-xl">
                 Hamstring and ACL protocols through plantar surface loading—not posterior ankle
                 loading of traditional equipment.
               </p>
-              <ul className="space-y-2 text-white/60 text-base md:text-lg">
+              <ul className="mt-6 space-y-2 text-white/60 text-base md:text-lg">
                 <li>• Hamstring strain prevention and rehab</li>
                 <li>• ACL and Achilles return-to-play progression</li>
                 <li>• Eccentric loading through athletic force pathways</li>
@@ -134,7 +134,7 @@ const UseCases = memo(function UseCases({
           </div>
 
           {/* Use Case 3 */}
-          <div className="grid w-full min-w-0 items-center gap-8 lg:grid-cols-12 lg:gap-10">
+          <div className="mt-24 md:mt-32 grid w-full min-w-0 items-center gap-8 lg:grid-cols-12 lg:gap-10">
             <motion.div
               variants={fadeUp}
               whileHover={
@@ -159,15 +159,15 @@ const UseCases = memo(function UseCases({
             </motion.div>
 
             <motion.div variants={fadeUp} className="min-w-0 group lg:col-span-4 lg:pl-10">
-              <div className="mb-3 font-mono text-xs tracking-[0.25em] text-white/40">03</div>
-              <h3 className="mb-4 font-display text-3xl font-bold uppercase tracking-[0.03em] text-white">
+              <div className="mb-4 font-mono text-xs tracking-[0.25em] text-white/40">03</div>
+              <h3 className="mb-6 md:mb-8 font-display text-3xl font-bold uppercase tracking-[0.03em] text-white">
                 PROGRESSIVE OVERLOAD
               </h3>
-              <p className="mb-4 text-white/70 font-medium leading-[1.8] text-lg md:text-xl">
+              <p className="text-white/70 font-medium leading-[1.8] text-lg md:text-xl">
                 Scalable plantar surface loading with adjustable ROM—from band-assisted beginners to
                 unassisted elite athletes.
               </p>
-              <ul className="space-y-2 text-white/60 text-base md:text-lg">
+              <ul className="mt-6 space-y-2 text-white/60 text-base md:text-lg">
                 <li>• Band-assisted progression (beginner-friendly)</li>
                 <li>• Adjustable ROM for individual athlete needs</li>
                 <li>• Bodyweight eccentric and isometric training</li>
