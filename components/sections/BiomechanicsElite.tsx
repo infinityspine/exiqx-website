@@ -66,7 +66,7 @@ const BiomechanicsElite = memo(function BiomechanicsElite({
             <motion.h2
               id="biomechanics-elite-heading"
               variants={fadeUp}
-              className="font-display text-3xl md:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight text-white text-center leading-[1.15] max-w-5xl mx-auto"
+              className="font-display text-3xl md:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight text-white text-center leading-[1.2] max-w-5xl mx-auto flex flex-col gap-2"
             >
               <span className="block">TRAINING SYSTEM ENGINEERED FOR</span>
               <span className="block">FORCE TRANSMISSION IN ATHLETIC PERFORMANCE.</span>
@@ -75,7 +75,7 @@ const BiomechanicsElite = memo(function BiomechanicsElite({
             {/* Subheadline */}
             <motion.p
               variants={fadeUp}
-              className="mt-12 md:mt-14 text-base md:text-lg lg:text-xl font-medium text-gray-200/90 leading-relaxed max-w-4xl mx-auto text-center"
+              className="mt-14 md:mt-16 text-base md:text-lg lg:text-xl font-medium text-gray-200/90 leading-relaxed max-w-4xl mx-auto text-center space-y-2"
             >
               <span className="block">Loads the plantar surface of the foot, especially the ball of the foot,</span>
               <span className="block">where force transmission occurs in athletic performance—</span>
