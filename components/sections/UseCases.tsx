@@ -26,7 +26,7 @@ const UseCases = memo(function UseCases({
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
-          className="text-center flex flex-col items-center"
+          className="text-center flex flex-col items-center gap-4 md:gap-6 lg:gap-8"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
@@ -41,7 +41,7 @@ const UseCases = memo(function UseCases({
           </motion.h2>
           <motion.p
             variants={fadeUp}
-            className="mt-6 md:mt-8 text-base sm:text-lg text-white/70 leading-relaxed max-w-prose mx-auto text-center"
+            className="text-base sm:text-lg text-white/70 leading-relaxed max-w-prose mx-auto text-center"
           >
             Ground-force transmission training for performance, rehabilitation, and development.
           </motion.p>

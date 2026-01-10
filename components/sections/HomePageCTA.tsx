@@ -48,7 +48,7 @@ const CTASection = memo(function CTASection({
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative text-center">
         {/* Section Header */}
         <motion.div 
-          className="mb-[clamp(2rem,5vw,4rem)] text-center flex flex-col items-center"
+          className="mb-[clamp(2rem,5vw,4rem)] text-center flex flex-col items-center gap-4 md:gap-6 lg:gap-8"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -64,7 +64,7 @@ const CTASection = memo(function CTASection({
           </motion.h2>
           <motion.p 
             variants={fadeUp}
-            className="mt-4 text-base sm:text-lg text-white/70 leading-relaxed max-w-prose mx-auto text-center"
+            className="text-base sm:text-lg text-white/70 leading-relaxed max-w-prose mx-auto text-center"
           >
             Patent-pending plantar surface loading for elite athletes, training facilities, and rehabilitation programs.
           </motion.p>
