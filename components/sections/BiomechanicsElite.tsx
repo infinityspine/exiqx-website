@@ -75,7 +75,7 @@ const BiomechanicsElite = memo(function BiomechanicsElite({
             {/* Subheadline */}
             <motion.p
               variants={fadeUp}
-              className="mt-12 md:mt-14 text-base md:text-lg lg:text-xl font-medium text-gray-200/90 leading-relaxed max-w-4xl mx-auto text-center"
+              className="mt-24 md:mt-28 text-base md:text-lg lg:text-xl font-medium text-gray-200/90 leading-relaxed max-w-4xl mx-auto text-center"
             >
               <span className="block">Loads the plantar surface of the foot, especially the ball of the foot,</span>
               <span className="block">where force transmission occurs in athletic performance—</span>
