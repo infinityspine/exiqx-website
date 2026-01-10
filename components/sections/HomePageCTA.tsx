@@ -36,7 +36,7 @@ const CTASection = memo(function CTASection({
   return (
     <section
       id="cta"
-      className="relative bg-black pt-[clamp(4rem,8vw,6rem)]"
+      className="relative bg-black py-[clamp(4.5rem,9vw,6.5rem)]"
       aria-labelledby="cta-heading"
     >
       {/* Background Gradient */}
@@ -72,7 +72,7 @@ const CTASection = memo(function CTASection({
 
         {/* Value Propositions */}
         <motion.div 
-          className="mb-12 grid gap-6 sm:grid-cols-3"
+          className="mb-16 md:mb-20 grid gap-6 sm:grid-cols-3"
           variants={staggerChildren}
           initial="hidden"
           whileInView="visible"
@@ -141,7 +141,7 @@ const CTASection = memo(function CTASection({
 
         {/* CTA Buttons */}
         <motion.div 
-          className="flex flex-col items-center justify-center"
+          className="flex flex-col items-center justify-center gap-5 md:gap-6"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -165,7 +165,7 @@ const CTASection = memo(function CTASection({
           </motion.a>
           <motion.p
             variants={fadeUp}
-            className="mt-3 text-xs uppercase tracking-[0.2em] text-white/40 leading-relaxed"
+            className="text-xs uppercase tracking-[0.2em] text-white/40 leading-relaxed"
           >
             Limited founding member production run
           </motion.p>
