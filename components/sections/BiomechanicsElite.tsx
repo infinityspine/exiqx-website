@@ -63,7 +63,7 @@ const BiomechanicsElite = memo(function BiomechanicsElite({
             viewport={{ once: true, margin: "-100px" }}
             variants={staggerChildren}
           >
-            <div className="mb-20 md:mb-24">
+            <div className="mb-10 md:mb-12">
               <motion.h2
                 id="biomechanics-elite-heading"
                 variants={fadeUp}
