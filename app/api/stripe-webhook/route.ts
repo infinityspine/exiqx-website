@@ -1,39 +1,34 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { stripe } from '@/lib/stripe';
-import type Stripe from 'stripe';
+export const runtime = "nodejs";
 
-const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET!;
+import { headers } from "next/headers";
+import Stripe from "stripe";
 
-export async function POST(req: NextRequest) {
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
+
+export async function POST(req: Request) {
+  const body = await req.text();
+  const signature = headers().get("stripe-signature");
+
+  if (!signature) {
+    return new Response("Missing Stripe signature", { status: 400 });
+  }
+
+  let event: Stripe.Event;
+
   try {
-    const body = await req.text();
-    const signature = req.headers.get('stripe-signature');
-
-    if (!signature) {
-      return NextResponse.json({ error: 'No signature' }, { status: 400 });
-    }
-
-    const event: Stripe.Event = stripe.webhooks.constructEvent(
+    event = stripe.webhooks.constructEvent(
       body,
       signature,
-      webhookSecret
+      process.env.STRIPE_WEBHOOK_SECRET!
     );
-
-    if (event.type === 'checkout.session.completed') {
-      const session = event.data.object as Stripe.Checkout.Session;
-      console.log('✅ Payment received:', {
-        sessionId: session.id,
-        customerEmail: session.customer_details?.email,
-        amount: session.amount_total,
-        productId: session.metadata?.productId,
-      });
-    }
-
-    return NextResponse.json({ received: true });
   } catch (err: any) {
-    console.error('❌ Webhook error:', err.message);
-    return NextResponse.json({ error: err.message }, { status: 400 });
+    console.error("Webhook signature verification failed:", err.message);
+    return new Response(`Webhook Error: ${err.message}`, { status: 400 });
   }
+
+  if (event.type === "checkout.session.completed") {
+    console.log("checkout.session.completed received", event.data.object);
+  }
+
+  return new Response("OK", { status: 200 });
 }
-
-
