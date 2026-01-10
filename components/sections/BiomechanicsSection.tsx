@@ -83,10 +83,10 @@ const BiomechanicsSection = memo(function BiomechanicsSection({ title, descripti
                     </div>
                   </div>
 
-                  <h3 className="mt-4 md:mt-6 text-white font-semibold text-lg md:text-xl uppercase tracking-wide text-center">
+                  <h3 className="mt-4 md:mt-6 mb-4 md:mb-6 text-white font-semibold text-lg md:text-xl uppercase tracking-wide text-center">
                     {pillar.title}
                   </h3>
-                  <p className="mt-2 md:mt-3 text-gray-400 text-sm md:text-base font-normal leading-relaxed text-center">
+                  <p className="text-gray-400 text-sm md:text-base font-normal leading-relaxed text-center">
                     {pillar.body}
                   </p>
                 </motion.div>
