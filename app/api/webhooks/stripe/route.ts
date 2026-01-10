@@ -2,7 +2,7 @@ export const runtime = "nodejs";
 
 import Stripe from "stripe";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
+const stripe = new (Stripe as any)(process.env.STRIPE_SECRET_KEY);
 
 export async function POST(req: Request) {
   const body = await req.text();
@@ -12,13 +12,13 @@ export async function POST(req: Request) {
     return new Response("Missing Stripe signature", { status: 400 });
   }
 
-  let event: Stripe.Event;
+  let event;
 
   try {
     event = stripe.webhooks.constructEvent(
       body,
       signature,
-      process.env.STRIPE_WEBHOOK_SECRET as string
+      process.env.STRIPE_WEBHOOK_SECRET
     );
   } catch {
     return new Response("Invalid signature", { status: 400 });
