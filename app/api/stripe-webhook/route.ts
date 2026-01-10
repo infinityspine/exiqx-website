@@ -1,13 +1,17 @@
 export const runtime = "nodejs";
 
-import { headers } from "next/headers";
 import Stripe from "stripe";
+import { headers } from "next/headers";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+  apiVersion: "2023-10-16",
+});
 
 export async function POST(req: Request) {
   const body = await req.text();
-  const signature = headers().get("stripe-signature");
+
+  const headersList = await headers();
+  const signature = headersList.get("stripe-signature");
 
   if (!signature) {
     return new Response("Missing Stripe signature", { status: 400 });
@@ -27,7 +31,10 @@ export async function POST(req: Request) {
   }
 
   if (event.type === "checkout.session.completed") {
-    console.log("checkout.session.completed received", event.data.object);
+    console.log(
+      "checkout.session.completed received",
+      event.data.object
+    );
   }
 
   return new Response("OK", { status: 200 });
