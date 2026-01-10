@@ -20,12 +20,12 @@ export async function POST(req: Request) {
       signature,
       process.env.STRIPE_WEBHOOK_SECRET as string
     );
-  } catch (err) {
+  } catch {
     return new Response("Invalid signature", { status: 400 });
   }
 
   if (event.type === "checkout.session.completed") {
-    console.log("checkout.session.completed", event.data.object);
+    console.log("checkout.session.completed");
   }
 
   return new Response("OK", { status: 200 });
