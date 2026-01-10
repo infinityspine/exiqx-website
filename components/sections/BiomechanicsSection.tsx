@@ -75,20 +75,22 @@ const BiomechanicsSection = memo(function BiomechanicsSection({ title, descripti
                   variants={fadeUp}
                   whileHover={shouldReduceMotion ? {} : { scale: 1.05 }}
                   transition={{ duration: 0.3 }}
-                  className="bg-black/40 border border-gray-800 rounded-xl p-6 md:p-8 backdrop-blur-sm flex flex-col items-center text-center transition-all duration-300 hover:border-gray-700"
+                  className="bg-black/40 border border-gray-800 rounded-xl p-6 md:p-8 backdrop-blur-sm flex flex-col items-center text-center gap-6 transition-all duration-300 hover:border-gray-700"
                 >
-                  <div className="mb-6 flex items-center justify-center">
+                  <div className="flex items-center justify-center">
                     <div className="bg-gray-800/50 rounded-full p-3 md:p-4">
                       <IconComponent className="w-12 h-12 md:w-16 md:h-16 text-red-500" strokeWidth={1.5} />
                     </div>
                   </div>
 
-                  <h3 className="mt-4 md:mt-6 mb-4 md:mb-6 text-white font-semibold text-lg md:text-xl uppercase tracking-wide text-center">
-                    {pillar.title}
-                  </h3>
-                  <p className="text-gray-400 text-sm md:text-base font-normal leading-relaxed text-center">
-                    {pillar.body}
-                  </p>
+                  <div className="flex flex-col items-center text-center gap-4 md:gap-5">
+                    <h3 className="text-white font-semibold text-lg md:text-xl uppercase tracking-wide text-center">
+                      {pillar.title}
+                    </h3>
+                    <p className="text-gray-400 text-sm md:text-base font-normal leading-relaxed text-center">
+                      {pillar.body}
+                    </p>
+                  </div>
                 </motion.div>
               )
             })}

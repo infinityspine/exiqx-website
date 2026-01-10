@@ -121,9 +121,9 @@ const BiomechanicsElite = memo(function BiomechanicsElite({
                   {/* Glowing red border on hover */}
                   <div className="absolute inset-0 rounded-2xl border-2 border-red-500/0 group-hover:border-red-500/20 transition-all duration-300 pointer-events-none" />
 
-                  <div className="relative z-10">
+                  <div className="relative z-10 flex flex-col items-center text-center gap-6">
                     {/* Icon Container */}
-                    <div className="mb-6 flex items-center justify-center">
+                    <div className="flex items-center justify-center">
                       <div className="relative">
                         <div className="absolute inset-0 bg-red-500/10 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                         <div className="relative bg-gray-800/50 rounded-full p-3 md:p-4 border border-red-500/10 group-hover:border-red-500/30 transition-all duration-300 backdrop-blur-sm">
@@ -135,15 +135,17 @@ const BiomechanicsElite = memo(function BiomechanicsElite({
                       </div>
                     </div>
 
-                    {/* Title */}
-                    <h3 className="mt-4 md:mt-6 mb-4 md:mb-6 text-white font-semibold text-lg md:text-xl leading-tight text-center uppercase tracking-wide">
-                      {pillar.title}
-                    </h3>
+                    <div className="flex flex-col items-center text-center gap-4 md:gap-5">
+                      {/* Title */}
+                      <h3 className="text-white font-semibold text-lg md:text-xl leading-tight text-center uppercase tracking-wide">
+                        {pillar.title}
+                      </h3>
 
-                    {/* Body Text */}
-                    <p className="text-gray-400 text-sm md:text-base font-normal leading-relaxed text-center">
-                      {pillar.body}
-                    </p>
+                      {/* Body Text */}
+                      <p className="text-gray-400 text-sm md:text-base font-normal leading-relaxed text-center">
+                        {pillar.body}
+                      </p>
+                    </div>
                   </div>
                 </motion.div>
               )
