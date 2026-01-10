@@ -42,17 +42,17 @@ const Footer = memo(function Footer() {
         <div className="flex flex-col items-center text-center space-y-8">
           {/* Logo */}
           <div className="flex items-center justify-center">
-            <Image
-              src="/exiqx-logo.png"
-              alt="ExIQx Performance"
-              width={320}
-              height={100}
+              <Image
+                src="/exiqx-logo.png"
+                alt="ExIQx Performance"
+                width={320}
+                height={100}
               quality={85}
-              className="w-auto transition-transform duration-300 hover:scale-[1.02]"
-              style={{ height: 'clamp(5rem, 8vw, 6.5rem)', maxWidth: '320px' }}
-              priority
-            />
-          </div>
+                className="w-auto transition-transform duration-300 hover:scale-[1.02]"
+                style={{ height: 'clamp(5rem, 8vw, 6.5rem)', maxWidth: '320px' }}
+                priority
+              />
+            </div>
 
           {/* Tagline */}
           <p className="text-white/60 font-inter text-sm md:text-base leading-relaxed max-w-2xl">
@@ -60,7 +60,7 @@ const Footer = memo(function Footer() {
           </p>
 
           {/* Links - Horizontal Row */}
-          <nav className="flex items-center gap-6 md:gap-8" aria-label="Footer">
+          <nav className="mt-6 md:mt-8 flex items-center gap-6 md:gap-8" aria-label="Footer">
             <Link href="/order" className="text-white hover:text-red-500 transition-colors">
               Order
             </Link>
