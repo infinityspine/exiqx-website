@@ -53,7 +53,7 @@ const FootplateFeatures = memo(function FootplateFeatures({
   return (
     <section
       id="technical-specifications"
-      className="relative bg-[#0A0A0A] border-t border-red-500/20 py-[clamp(4rem,10vw,7rem)]"
+      className="relative bg-[#0A0A0A] border-t border-red-500/20 pt-[clamp(5rem,12vw,8rem)] pb-[clamp(4rem,10vw,7rem)]"
       aria-labelledby="technical-specifications-heading"
     >
       {/* Ambient gradient background */}
