@@ -7,7 +7,7 @@ import GroundForceLink from '@/components/ui/GroundForceLink'
 import { FileText, Settings, Wrench, Mail, Activity } from 'lucide-react'
 
 const specifications = [
-  { feature: 'Model', value: 'Rack-Mounted Plantarflexion System (Founding Member Edition)' },
+  { feature: 'Model', value: 'EXIQX™ Nordic Forefoot Trainer - Rack-Mounted (Founding Member Edition)' },
   { feature: 'Footplate Angle Range', value: '10° – 70° adjustable via radial locking plate for progressive training customization' },
   { feature: 'Adjustment Mechanism', value: 'Tool-free angle adjustment via radial locking plate—enables customization for individual athlete needs and progressive training protocols' },
   { feature: 'Force Transmission', value: 'Routes force through plantar surface (ball of foot)—not posterior ankle of traditional equipment' },
@@ -121,7 +121,7 @@ export default function SpecificationsContent() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
               >
-                Rack-Mounted Plantarflexion System
+                EXIQX<sup className="text-xs">™</sup> Nordic Forefoot Trainer - Rack-Mounted
               </motion.h1>
               <div className="flex justify-center">
                 <motion.p 
@@ -185,7 +185,7 @@ export default function SpecificationsContent() {
             >
               <div className="space-y-4">
                 <p>
-                  The ExIQx Rack-Mounted Plantarflexion System is the first Nordic curl device engineered for plantar surface loading—routing force through the ball of the foot, not the posterior ankle.
+                  The EXIQX Nordic Forefoot Trainer - Rack-Mounted is the first Nordic curl device engineered for plantar surface loading—routing force through the ball of the foot, not the posterior ankle.
                 </p>
                 <p>
                   Built in Arizona with CNC-machined aluminum and 11-gauge steel construction, finished in durable powder coat. Designed for commercial facility use and individual elite athletes.
@@ -226,7 +226,7 @@ export default function SpecificationsContent() {
                   Technical Specifications
                 </h2>
                 <p className="text-gray-400 font-inter" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1rem)', lineHeight: '1.6' }}>
-                  Rack-Mounted Plantarflexion System — Launch Edition
+                  Nordic Forefoot Trainer - Rack-Mounted — Launch Edition
                 </p>
               </div>
             </div>

@@ -69,7 +69,7 @@ export default function GHDRetrofitContent() {
       <main className="relative bg-black overflow-hidden">
         {/* Hero Section - No animation wrapper to preserve GHDHero's internal animations */}
         <GHDHero
-          eyebrow="COMMERCIAL-GRADE GHD RETROFIT SYSTEM"
+          eyebrow="EXIQX™ NORDIC FOREFOOT TRAINER - GHD RETROFIT"
           headline="RETROFIT YOUR GHD"
           subheadline="Transform your commercial glute-ham developer into a precision posterior-chain loading station for professional training and clinical rehabilitation."
           primaryCTA={{
@@ -100,7 +100,7 @@ export default function GHDRetrofitContent() {
             {
               icon: 'zap',
               title: 'Athlete-Ready Flexibility',
-              body: 'Perfect for facilities with multiple GHD users. Swap between traditional GHD work and ExIQx loading in seconds without tools.',
+              body: 'Perfect for facilities with multiple GHD users. Swap between traditional GHD work and EXIQX™ loading in seconds without tools.',
             },
             {
               icon: 'award',
