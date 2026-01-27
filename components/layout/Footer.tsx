@@ -55,7 +55,7 @@ const Footer = memo(function Footer() {
             </div>
 
           {/* Tagline */}
-          <p className="text-white/60 font-inter text-sm md:text-base leading-relaxed max-w-2xl">
+          <p className="text-white/60 font-inter text-sm md:text-base leading-relaxed max-w-3xl">
             EXIQX<sup className="text-xs">™</sup> patent-pending plantar surface loading system for elite athletes and training facilities.
           </p>
 
