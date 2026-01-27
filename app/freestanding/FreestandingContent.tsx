@@ -69,7 +69,7 @@ export default function FreestandingContent() {
       <main className="relative bg-black overflow-visible">
         {/* Hero Section - No animation wrapper to preserve FreestandingHero's internal animations */}
         <FreestandingHero
-          eyebrow="COMMERCIAL-GRADE FREESTANDING SYSTEM"
+          eyebrow="EXIQX™ NORDIC FOREFOOT TRAINER - FREESTANDING"
           headline="FREESTANDING FOOTPLATE"
           subheadline="Commercial-grade posterior-chain loading without the rack. Ideal for PT clinics, performance centers, and facilities requiring portable precision training equipment."
           primaryCTA={{
