@@ -156,8 +156,8 @@ export default function JoinWaitlistPage() {
                     className="text-lg text-gray-400 max-w-3xl leading-relaxed text-center"
                   >
                     Be among the first to experience elite biomechanical training equipment. 
-                    Join the waitlist for exclusive early access to the ExIQx rack-mounted footplate, 
-                    GHD retrofit, and freestanding systems.
+                    Join the waitlist for exclusive early access to the EXIQX<sup className="text-xs">™</sup> Nordic Forefoot Trainer rack-mounted system,{' '}
+                    GHD retrofit, and freestanding configurations.
                   </motion.p>
                 </div>
 
