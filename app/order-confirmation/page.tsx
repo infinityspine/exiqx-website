@@ -1,3 +1,10 @@
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Order Confirmation | EXIQX™ Performance',
+  description: 'Your EXIQX™ order confirmation.',
+}
+
 export default function OrderConfirmation() {
   return (
     <div className="min-h-screen bg-black text-white flex items-center justify-center">

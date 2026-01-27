@@ -2,11 +2,11 @@ import type { Metadata } from 'next'
 import SpecificationsContent from './SpecificationsContent'
 
 export const metadata: Metadata = {
-  title: 'Full Specifications | ExIQx Performance',
-  description: 'Complete technical specifications for the ExIQx Footplate — engineered for elite performance.',
+  title: 'Technical Specifications | EXIQX™ Performance',
+  description: 'Complete technical specifications for EXIQX™ Nordic Forefoot Trainer systems - dimensions, materials, and installation requirements.',
   openGraph: {
-    title: 'Full Specifications | ExIQx Performance',
-    description: 'Engineered for elite performance.',
+    title: 'Technical Specifications | EXIQX™ Performance',
+    description: 'Complete technical specifications for EXIQX™ Nordic Forefoot Trainer systems - dimensions, materials, and installation requirements.',
     images: ['/specifications-hero.jpg'],
   },
 }

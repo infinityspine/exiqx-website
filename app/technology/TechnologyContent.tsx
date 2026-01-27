@@ -134,7 +134,7 @@ export default function TechnologyPage() {
             >
               <div className="text-base sm:text-lg text-white/70 font-light leading-relaxed">
                 <p>
-                  The ExIQx Footplate re-engineers posterior-chain training through biomechanical precision and authentic ground-force mechanics. <span className="text-red-500/90 font-semibold">Patent-protected technology</span> designed to honor the physics of human movement, creating commercial-grade training systems that translate directly to elite athletic performance and clinical rehabilitation.
+                  The EXIQX<sup className="text-xs">™</sup> Nordic Forefoot Trainer re-engineers posterior-chain training through biomechanical precision and authentic ground-force mechanics. <span className="text-red-500/90 font-semibold">Patent-protected technology</span> designed to honor the physics of human movement, creating commercial-grade training systems that translate directly to elite athletic performance and clinical rehabilitation.
                 </p>
               </div>
           </motion.div>
@@ -190,7 +190,7 @@ export default function TechnologyPage() {
                   transition: { type: "spring", stiffness: 120, damping: 18 }
                 }}
               >
-                Why We Invented the ExIQx Footplate
+                Why We Invented the EXIQX Nordic Forefoot Trainer
               </motion.h2>
             </div>
 
@@ -212,7 +212,7 @@ export default function TechnologyPage() {
                   Conventional Nordic and GHD-style devices stabilize the body by anchoring the posterior ankle and leg, transferring force through the Achilles and calf complex. This isolates the hamstrings but diverts kinetic energy away from the true ground-force pathway.
                 </p>
                 <p style={{ marginBottom: 'clamp(2rem, 4vw, 3rem)' }}>
-                  In natural athletic movement, energy transfers through the plantar surface—especially the ball of the foot—creating a closed-chain kinetic line that drives through the ankle, knee, and hip into the entire posterior chain. The ExIQx Footplate restores that authentic energy flow.
+                  In natural athletic movement, energy transfers through the plantar surface—especially the ball of the foot—creating a closed-chain kinetic line that drives through the ankle, knee, and hip into the entire posterior chain. The EXIQX Nordic Forefoot Trainer restores that authentic energy flow.
                 </p>
                 <p>
                   By routing force through the plantar surface instead of the posterior ankle, it mirrors sprinting and jumping mechanics, extending the lever arm from the ball of the foot to the knee for increased torque and full posterior-chain activation.
@@ -294,7 +294,7 @@ export default function TechnologyPage() {
             >
               <div className="text-base sm:text-lg text-white/70 font-light leading-relaxed">
                 <p style={{ marginBottom: 'clamp(2rem, 4vw, 3rem)' }}>
-                  ExIQx technology is engineered around user-adjustable <span className="text-red-500/90">closed-chain plantarflexion</span> mechanics, allowing precise alignment from 10° to 70° to match each athlete's preferred loading angle, performance objective, or rehabilitation phase.
+                  EXIQX technology is engineered around user-adjustable <span className="text-red-500/90">closed-chain plantarflexion</span> mechanics, allowing precise alignment from 10° to 70° to match each athlete's preferred loading angle, performance objective, or rehabilitation phase.
                 </p>
                 <p style={{ marginBottom: 'clamp(2rem, 4vw, 3rem)' }}>
                   Each interval positions the user in a true <span className="text-red-500/90">ground-force vector</span>, directing load through the plantar surface of the foot—from the <span className="text-red-500/90">metatarsal heads</span> and ball of the foot, through the ankle complex, calves, hamstrings, glutes, and spinal erectors.
@@ -378,7 +378,7 @@ export default function TechnologyPage() {
                   Hybrid construction combines CNC-machined ⅜" aluminum for lightweight precision with welded 11-gauge steel arms for structural strength. Every component is machined to aerospace-level tolerances for perfect bearing alignment and zero lateral play.
                 </p>
                 <p>
-                  The matte black powder coat provides corrosion resistance with custom finishes available on request. All ExIQx systems are engineered, machined, and assembled in the United States.
+                  The matte black powder coat provides corrosion resistance with custom finishes available on request. All EXIQX systems are engineered, machined, and assembled in the United States.
                 </p>
               </div>
             </motion.div>
@@ -548,7 +548,7 @@ export default function TechnologyPage() {
               }}
             >
               <p className="text-base sm:text-lg text-white/70 font-light leading-relaxed">
-                Explore the engineering, materials, and biomechanical design that make the ExIQx Footplate the most advanced posterior-chain training system available.
+                Explore the engineering, materials, and biomechanical design that make the EXIQX Nordic Forefoot Trainer the most advanced posterior-chain training system available.
               </p>
             </motion.div>
 
