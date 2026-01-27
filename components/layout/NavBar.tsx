@@ -22,7 +22,7 @@ const DEFAULT_BRAND_TEXT = 'EXIQX™ PERFORMANCE'
 const DEFAULT_NAV_ITEMS = [
   { label: 'PRODUCT', href: '/#technical-specifications', id: 'technical-specifications' },
   { label: 'TRAINING', href: '/#use-cases', id: 'use-cases' },
-  { label: 'ORDER', href: '/order', id: 'order' },
+  { label: 'JOIN WAITLIST', href: '/join-waitlist', id: 'join-waitlist' },
   { label: 'CONTACT', href: '/contact', id: 'contact' },
 ]
 
