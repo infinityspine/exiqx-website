@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Shipping & Returns | ExIQx Performance',
-  description: 'ExIQx Performance shipping policies, delivery timelines, and return procedures for elite biomechanical equipment.',
+  title: 'Shipping & Returns | EXIQX™ Performance',
+  description: 'EXIQX™ Performance shipping and returns policy.',
 }
 
 export default function ShippingAndReturnsLayout({

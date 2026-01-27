@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'FAQ | ExIQx Performance',
-  description: 'Frequently asked questions about ExIQx Performance footplates, installation, usage, shipping, and returns.',
+  title: 'FAQ | EXIQX™ Performance',
+  description: 'Frequently asked questions about EXIQX™ Nordic Forefoot Trainer systems, installation, shipping, and warranty.',
 }
 
 export default function FAQLayout({

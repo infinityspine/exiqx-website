@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Warranty | ExIQx Performance',
-  description: 'ExIQx Performance warranty coverage, quality assurance standards, and claims process for precision-engineered biomechanical equipment.',
+  title: 'Warranty | EXIQX™ Performance',
+  description: 'EXIQX™ Performance product warranty information.',
 }
 
 export default function WarrantyLayout({
