@@ -78,8 +78,8 @@ const NavBar = memo(function NavBar({
       const scrolled = currentScrollY > threshold
       setIsScrolled(scrolled)
       controls.start({
-        scale: scrolled ? 0.85 : 1,
-        opacity: scrolled ? 0.9 : 1,
+        scale: 1,
+        opacity: 1,
         transition: { duration: 0.4, ease: 'easeOut' },
       })
     }
@@ -227,8 +227,8 @@ const NavBar = memo(function NavBar({
             <Image
               src="/exiqx-logo.svg"
               alt="EXIQX™ Performance"
-              width={320}
-              height={100}
+              width={400}
+              height={125}
               priority
               quality={85}
               className="h-16 sm:h-20 w-auto transition-all duration-500"
