@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import GHDRetrofitContent from './GHDRetrofitContent'
 
 export const metadata: Metadata = {
-  title: 'GHD Retrofit Kit | ExIQx Performance',
-  description: 'Transform your existing GHD into an elite posterior-chain training station with our retrofit footplate system.',
+  title: 'EXIQX™ Nordic Forefoot Trainer - GHD Retrofit | EXIQX™ Performance',
+  description: 'The EXIQX™ Nordic Forefoot Trainer GHD retrofit kit - upgrade your existing GHD with forefoot loading technology.',
 }
 
 export default function GHDRetrofitPage() {

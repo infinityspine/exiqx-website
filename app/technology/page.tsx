@@ -2,11 +2,11 @@ import type { Metadata } from 'next'
 import TechnologyContent from './TechnologyContent'
 
 export const metadata: Metadata = {
-  title: 'Technology | ExIQx Performance',
-  description: 'The science behind the ExIQx Footplate — biomechanics, precision, and performance re-engineered from the ground up.',
+  title: 'Technology | EXIQX™ Performance',
+  description: 'The biomechanical science behind EXIQX™ plantar surface loading technology for Nordic forefoot training.',
   openGraph: {
-    title: 'Technology | ExIQx Performance',
-    description: 'Biomechanics, precision, and performance — re-engineered from the ground up.',
+    title: 'Technology | EXIQX™ Performance',
+    description: 'The biomechanical science behind EXIQX™ plantar surface loading technology for Nordic forefoot training.',
     images: ['/technology-hero.jpg'],
   },
 }
