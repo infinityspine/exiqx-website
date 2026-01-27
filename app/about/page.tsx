@@ -170,7 +170,7 @@ export default function AboutPage() {
             >
               <div className="text-base sm:text-lg text-white/70 font-light leading-relaxed">
                 <p style={{ marginBottom: 'clamp(2rem, 4vw, 3rem)' }}>
-                  ExIQx Performance is a commercial-grade performance equipment company specializing in patent-protected biomechanical training systems for elite athletic performance and clinical rehabilitation.
+                  EXIQX<sup className="text-xs">™</sup> Performance is a commercial-grade performance equipment company specializing in patent-protected biomechanical training systems for elite athletic performance and clinical rehabilitation.
                 </p>
                 <p>
                   We design professional training equipment anchored in mechanical truth—not trends or compromise. Every component respects the physics that govern human performance, engineered for D1 programs, PT clinics, and professional training facilities.
@@ -407,7 +407,7 @@ export default function AboutPage() {
             >
               <div className="text-base sm:text-lg text-white/70 font-light leading-relaxed">
                 <p style={{ marginBottom: 'clamp(2rem, 4vw, 3rem)' }}>
-                  We serve D1 programs, PT clinics, professional teams, and elite performance centers who pursue biomechanical authenticity. ExIQx exists for the relentless pursuit of mechanical perfection in commercial-grade training equipment.
+                  We serve D1 programs, PT clinics, professional teams, and elite performance centers who pursue biomechanical authenticity. EXIQX exists for the relentless pursuit of mechanical perfection in commercial-grade training equipment.
                 </p>
                 <p>
                   Advancing athletic performance and injury prevention through patent-protected technology and precision engineering.
