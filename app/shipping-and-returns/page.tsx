@@ -17,7 +17,7 @@ export default function ShippingAndReturnsPage() {
           <div className="w-32 h-[4px] bg-[#e50914] mb-16"></div>
           
           <p className="text-lg md:text-xl text-gray-300 font-light leading-relaxed" style={{ marginBottom: '100px' }}>
-            ExIQx Performance delivers equipment with precision and care. Standard orders process within 5-7 business days and ship via reliable carriers with full tracking. Expedited options available for urgent facility installations. International orders include transparent customs processing and duty calculation at checkout.
+            EXIQX<sup className="text-xs">™</sup> Performance delivers equipment with precision and care. Standard orders process within 5-7 business days and ship via reliable carriers with full tracking. Expedited options available for urgent facility installations. International orders include transparent customs processing and duty calculation at checkout.
           </p>
 
           <h2 className="text-5xl font-extrabold uppercase tracking-tight mb-6 text-white">

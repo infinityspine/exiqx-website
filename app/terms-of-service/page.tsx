@@ -54,10 +54,10 @@ export default function TermsOfServicePage() {
             </h2>
             <div className="space-y-4 text-white/80 font-inter leading-relaxed">
               <p>
-                By accessing and using the ExIQx Performance website ("the Site"), you accept and agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, you must not use the Site.
+                By accessing and using the EXIQX<sup className="text-xs">™</sup> Performance website ("the Site"), you accept and agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, you must not use the Site.
               </p>
               <p>
-                These Terms constitute a legally binding agreement between you and ExIQx Performance ("we," "our," or "us"). We reserve the right to modify these Terms at any time, and your continued use of the Site after such modifications constitutes acceptance of the updated Terms.
+                These Terms constitute a legally binding agreement between you and EXIQX Performance ("we," "our," or "us"). We reserve the right to modify these Terms at any time, and your continued use of the Site after such modifications constitutes acceptance of the updated Terms.
               </p>
             </div>
           </motion.div>
@@ -117,7 +117,7 @@ export default function TermsOfServicePage() {
               <div>
                 <h3 className="text-xl font-semibold text-white mb-3">Intellectual Property</h3>
                 <p>
-                  All content on the Site, including text, graphics, logos, images, software, and designs, is the property of ExIQx Performance or its licensors and is protected by copyright, trademark, and other intellectual property laws. You may not reproduce, distribute, modify, or create derivative works without our express written permission.
+                  All content on the Site, including text, graphics, logos, images, software, and designs, is the property of EXIQX Performance or its licensors and is protected by copyright, trademark, and other intellectual property laws. You may not reproduce, distribute, modify, or create derivative works without our express written permission.
                 </p>
               </div>
             </div>
@@ -147,7 +147,7 @@ export default function TermsOfServicePage() {
                 </li>
               </ul>
               <p>
-                ExIQx Performance is not responsible for any injuries, damages, or losses resulting from the misuse of our products, failure to follow instructions, or failure to consult appropriate medical professionals.
+                EXIQX Performance is not responsible for any injuries, damages, or losses resulting from the misuse of our products, failure to follow instructions, or failure to consult appropriate medical professionals.
               </p>
             </div>
           </motion.div>
@@ -281,7 +281,7 @@ export default function TermsOfServicePage() {
             </h2>
             <div className="space-y-4 text-white/80 font-inter leading-relaxed">
               <p>
-                You agree to indemnify, defend, and hold harmless ExIQx Performance, its officers, directors, employees, agents, and affiliates from and against any claims, damages, losses, liabilities, costs, and expenses (including reasonable attorneys' fees) arising from:
+                You agree to indemnify, defend, and hold harmless EXIQX Performance, its officers, directors, employees, agents, and affiliates from and against any claims, damages, losses, liabilities, costs, and expenses (including reasonable attorneys' fees) arising from:
               </p>
               <ul className="list-disc list-inside space-y-2 ml-4">
                 <li>Your use or misuse of the Site</li>
@@ -334,7 +334,7 @@ export default function TermsOfServicePage() {
                 If you have questions about these Terms of Service, please contact us:
               </p>
               <p>
-                <strong>ExIQx Performance</strong><br />
+                <strong>EXIQX Performance</strong><br />
                 Email: <a href="mailto:contact@exiqxperformance.com" className="text-red-400 hover:text-red-300 underline">contact@exiqxperformance.com</a>
               </p>
             </div>

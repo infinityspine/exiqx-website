@@ -17,7 +17,7 @@ export default function WarrantyPage() {
           <div className="w-32 h-[4px] bg-[#e50914] mb-16"></div>
           
           <p className="text-lg md:text-xl text-gray-300 font-light leading-relaxed" style={{ marginBottom: '100px' }}>
-            Every ExIQx product is backed by comprehensive warranty coverage against defects in materials and workmanship under normal use. Our warranty reflects confidence in precision engineering and uncompromising quality standards built for high-intensity training environments.
+            Every EXIQX<sup className="text-xs">™</sup> product is backed by comprehensive warranty coverage against defects in materials and workmanship under normal use. Our warranty reflects confidence in precision engineering and uncompromising quality standards built for high-intensity training environments.
           </p>
 
           <h2 className="text-5xl font-extrabold uppercase tracking-tight mb-6 text-white">
@@ -35,7 +35,7 @@ export default function WarrantyPage() {
           <div className="w-32 h-[4px] bg-[#e50914] mb-16"></div>
           
           <p className="text-lg md:text-xl text-gray-300 font-light leading-relaxed mb-0">
-            Quality standards are built into every manufacturing stage, from material selection through final inspection. Premium-grade materials and rigorous testing before shipment ensure warranty claims remain rare. When claims occur, we handle them with the same precision that goes into every ExIQx product.
+            Quality standards are built into every manufacturing stage, from material selection through final inspection. Premium-grade materials and rigorous testing before shipment ensure warranty claims remain rare. When claims occur, we handle them with the same precision that goes into every EXIQX product.
           </p>
         </motion.div>
       </div>
