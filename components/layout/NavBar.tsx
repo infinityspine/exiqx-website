@@ -222,12 +222,13 @@ const NavBar = memo(function NavBar({
             }}
             animate={controls}
             className="relative flex items-center rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+            style={{ height: 'auto' }}
           >
             <Image
               src="/exiqx-logo.svg"
               alt="EXIQX™ Performance"
-              width={260}
-              height={80}
+              width={320}
+              height={100}
               priority
               quality={85}
               className="h-16 sm:h-20 w-auto transition-all duration-500"
