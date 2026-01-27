@@ -13,9 +13,9 @@ export async function POST(req: Request) {
     }
 
     const data = await resend.emails.send({
-      from: "ExIQx Performance <no-reply@exiqx.com>",
+      from: "EXIQX Performance <onboarding@resend.dev>",
       to: "infinityspine@gmail.com",
-      subject: "New Waitlist Signup — ExIQx",
+      subject: "New Waitlist Signup — EXIQX",
       html: `
         <h2>New Waitlist Signup</h2>
         <p><strong>Email:</strong> ${email}</p>
