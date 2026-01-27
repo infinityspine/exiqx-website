@@ -18,7 +18,7 @@ interface NavBarProps {
   className?: string
 }
 
-const DEFAULT_BRAND_TEXT = 'EXIQX PERFORMANCE'
+const DEFAULT_BRAND_TEXT = 'EXIQX™ PERFORMANCE'
 const DEFAULT_NAV_ITEMS = [
   { label: 'PRODUCT', href: '/#technical-specifications', id: 'technical-specifications' },
   { label: 'TRAINING', href: '/#use-cases', id: 'use-cases' },
@@ -225,7 +225,7 @@ const NavBar = memo(function NavBar({
           >
             <Image
               src="/exiqx-logo.png"
-              alt="ExIQx Performance"
+              alt="EXIQX™ Performance"
               width={260}
               height={80}
               priority
