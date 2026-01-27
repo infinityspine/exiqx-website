@@ -97,7 +97,7 @@ export default function RequestDemoPage() {
               className="flex justify-center mb-12"
             >
               <p className="text-xl sm:text-2xl text-white/80 text-center leading-relaxed max-w-2xl">
-                Experience ExIQx Performance equipment firsthand. Schedule a demonstration 
+                Experience EXIQX<sup className="text-xs">™</sup> Performance equipment firsthand. Schedule a demonstration 
                 to see how our elite biomechanical systems can transform your training facility.
               </p>
             </motion.div>

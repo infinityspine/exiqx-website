@@ -113,7 +113,7 @@ export default function ContactPage() {
             >
               <div className="text-base sm:text-lg text-white/70 font-light leading-relaxed">
                 <p>
-                  ExIQx Performance provides precision-engineered support for technical specifications, facility integrations, and custom performance solutions.
+                  EXIQX<sup className="text-xs">™</sup> Performance provides precision-engineered support for technical specifications, facility integrations, and custom performance solutions.
                 </p>
               </div>
             </motion.div>

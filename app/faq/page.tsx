@@ -17,7 +17,7 @@ export default function FAQPage() {
           <div className="w-32 h-[4px] bg-[#e50914] mb-16"></div>
           
           <p className="text-lg md:text-xl text-gray-300 font-light leading-relaxed" style={{ marginBottom: '100px' }}>
-            Frequently asked questions about ExIQx Performance footplates, installation, usage, shipping, and returns.
+            Frequently asked questions about EXIQX<sup className="text-xs">™</sup> Performance systems, installation, usage, shipping, and returns.
           </p>
           
           <h2 className="text-5xl font-extrabold uppercase tracking-tight mb-6 text-white">
@@ -25,7 +25,7 @@ export default function FAQPage() {
           </h2>
           <div className="w-32 h-[4px] bg-[#e50914] mb-16"></div>
           <p className="text-lg md:text-xl text-gray-300 font-light leading-relaxed" style={{ marginBottom: '100px' }}>
-            ExIQx routes force through the ball of the foot—not the posterior ankle of traditional Nordic curls. This plantar surface loading mechanism trains the ground-force pathway used in sprinting, jumping, and change of direction. Our patent-pending system is the first Nordic curl device engineered specifically for athletic force transmission, not gym isolation.
+            EXIQX routes force through the ball of the foot—not the posterior ankle of traditional Nordic curls. This plantar surface loading mechanism trains the ground-force pathway used in sprinting, jumping, and change of direction. Our patent-pending system is the first Nordic curl device engineered specifically for athletic force transmission, not gym isolation.
           </p>
           
           <h2 className="text-5xl font-extrabold uppercase tracking-tight mb-6 text-white">
@@ -33,7 +33,7 @@ export default function FAQPage() {
           </h2>
           <div className="w-32 h-[4px] bg-[#e50914] mb-16"></div>
           <p className="text-lg md:text-xl text-gray-300 font-light leading-relaxed" style={{ marginBottom: '100px' }}>
-            The ExIQx Rack-Mounted Plantarflexion System integrates with standard 3×3 power rack systems using a precision-fit pin interface—no tools required. Simply align the mounting bracket with your rack's uprights and insert the pin. This founding member edition is designed for training facilities, collegiate programs, rehabilitation centers, and individual elite athletes with existing rack infrastructure.
+            The EXIQX<sup className="text-xs">™</sup> Nordic Forefoot Trainer - Rack-Mounted integrates with standard 3×3 power rack systems using a precision-fit pin interface—no tools required. Simply align the mounting bracket with your rack's uprights and insert the pin. This founding member edition is designed for training facilities, collegiate programs, rehabilitation centers, and individual elite athletes with existing rack infrastructure.
           </p>
           
           <h2 className="text-5xl font-extrabold uppercase tracking-tight mb-6 text-white">
@@ -57,7 +57,7 @@ export default function FAQPage() {
           </h2>
           <div className="w-32 h-[4px] bg-[#e50914] mb-16"></div>
           <p className="text-lg md:text-xl text-gray-300 font-light leading-relaxed" style={{ marginBottom: '100px' }}>
-            We stand behind the quality and performance of every ExIQx product. Unused items in original 
+            We stand behind the quality and performance of every EXIQX product. Unused items in original 
             packaging may be returned within 30 days of delivery for a full refund, excluding shipping 
             costs. Custom or personalized items are not eligible for return unless defective. All returns 
             must be authorized through our support team prior to shipping. For defective items or warranty 
@@ -69,7 +69,7 @@ export default function FAQPage() {
           </h2>
           <div className="w-32 h-[4px] bg-[#e50914] mb-16"></div>
           <p className="text-lg md:text-xl text-gray-300 font-light leading-relaxed" style={{ marginBottom: '100px' }}>
-            ExIQx is engineered for minimal maintenance. Regular cleaning with standard gym equipment cleaners is sufficient. The precision-engineered bearings and powder-coated finish are built to withstand high-intensity training environments. Periodic inspection of mounting hardware is recommended. All moving parts are designed for long-term durability and require no special lubrication or maintenance beyond standard care.
+            EXIQX is engineered for minimal maintenance. Regular cleaning with standard gym equipment cleaners is sufficient. The precision-engineered bearings and powder-coated finish are built to withstand high-intensity training environments. Periodic inspection of mounting hardware is recommended. All moving parts are designed for long-term durability and require no special lubrication or maintenance beyond standard care.
           </p>
         </motion.div>
       </div>
