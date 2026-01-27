@@ -16,8 +16,12 @@ const CTAButtonSchema = z.object({
 })
 
 const RackHeroPropsSchema = z.object({
-  headline: z.string().default('RACK-MOUNTED FOOTPLATE'),
-  subheadline: z.string().default('Engineered for elite posterior-chain loading through the plantar surface.'),
+  headline: z.string().default('EXIQX™ NORDIC FOREFOOT TRAINER'),
+  subheadline: z
+    .string()
+    .default(
+      'Nordic training through the forefoot. Eliminates posterior ankle restraints and requires force transmission through the plantar surface.'
+    ),
   eyebrow: z.string().optional(),
   microTagline: z.string().optional(),
   primaryCTA: CTAButtonSchema.optional(),
@@ -112,7 +116,7 @@ const RackHero = memo<Partial<RackHeroProps>>((props) => {
       >
         <Image
           src={backgroundImage}
-          alt="Rack-mounted ExIQx footplate in professional gym setting"
+          alt="Rack-mounted EXIQX™ footplate in professional gym setting"
           fill
           priority
           className="object-cover object-center scale-110"
