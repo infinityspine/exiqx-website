@@ -224,7 +224,7 @@ const NavBar = memo(function NavBar({
             className="relative flex items-center rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
           >
             <Image
-              src="/exiqx-logo.png"
+              src="/exiqx-logo.svg"
               alt="EXIQX™ Performance"
               width={260}
               height={80}

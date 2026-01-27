@@ -43,7 +43,7 @@ const Footer = memo(function Footer() {
           {/* Logo */}
           <div className="flex items-center justify-center">
               <Image
-                src="/exiqx-logo.png"
+                src="/exiqx-logo.svg"
                 alt="EXIQX™ Performance"
                 width={320}
                 height={100}
