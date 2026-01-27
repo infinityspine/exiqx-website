@@ -44,7 +44,7 @@ const Footer = memo(function Footer() {
           <div className="flex items-center justify-center">
               <Image
                 src="/exiqx-logo.png"
-                alt="ExIQx Performance"
+                alt="EXIQX™ Performance"
                 width={320}
                 height={100}
               quality={85}
@@ -56,7 +56,7 @@ const Footer = memo(function Footer() {
 
           {/* Tagline */}
           <p className="text-white/60 font-inter text-sm md:text-base leading-relaxed max-w-2xl">
-            Patent-pending plantar surface loading system for elite athletes and training facilities.
+            EXIQX<sup className="text-xs">™</sup> patent-pending plantar surface loading system for elite athletes and training facilities.
           </p>
 
           {/* Links - Horizontal Row */}
@@ -78,7 +78,10 @@ const Footer = memo(function Footer() {
         {/* Bottom Bar - Centered */}
         <div className="mt-12 pt-8 border-t border-white/10 text-center">
           <p className="text-white/50 text-sm">
-            © 2025 ExIQx Performance LLC
+            © 2025 ExIQx Performance LLC. All rights reserved.
+          </p>
+          <p className="text-white/40 text-xs mt-2">
+            EXIQX<sup className="text-[0.6em]">™</sup> is a trademark of ExIQx Performance LLC.
           </p>
           <p className="text-white/40 text-xs uppercase tracking-wider mt-2">
             Patent-Pending • Engineered in Arizona • Made in USA

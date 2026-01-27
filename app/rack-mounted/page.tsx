@@ -3,11 +3,11 @@ import type { Metadata } from 'next'
 import RackMountedContent from './RackMountedContent'
 
 export const metadata: Metadata = {
-  title: 'Rack-Mounted Footplates | ExIQx Performance',
-  description: 'Precision-mounted to your squat rack uprights for elite posterior chain loading through the plantar surface.',
+  title: 'EXIQX™ Nordic Forefoot Trainer - Rack-Mounted | EXIQX™ Performance',
+  description: 'The EXIQX™ Nordic Forefoot Trainer eliminates posterior ankle restraints—Nordic training through the forefoot.',
   openGraph: {
-    title: 'Rack-Mounted Footplates | ExIQx Performance',
-    description: 'Elite biomechanical equipment for peak athletic performance.',
+    title: 'EXIQX™ Nordic Forefoot Trainer - Rack-Mounted',
+    description: 'EXIQX™ Nordic Forefoot Trainer - patent-pending plantar surface loading for elite posterior chain training.',
     images: ['/rack-mounted-hero.jpg'],
   },
 }

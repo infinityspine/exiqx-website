@@ -17,8 +17,8 @@ const montserrat = Montserrat({
 })
 
 export const metadata: Metadata = {
-  title: 'ExIQx Performance',
-  description: 'Elite biomechanical athletic equipment',
+  title: 'EXIQX™ Performance',
+  description: 'EXIQX™ patent-pending plantar surface loading equipment for elite athletes and professional training facilities.',
 }
 
 export default function RootLayout({
