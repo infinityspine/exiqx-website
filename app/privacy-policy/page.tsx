@@ -54,7 +54,7 @@ export default function PrivacyPolicyPage() {
             </h2>
             <div className="space-y-4 text-white/80 font-inter leading-relaxed">
               <p>
-                ExIQx Performance ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our services.
+                EXIQX<sup className="text-xs">™</sup> Performance ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our services.
               </p>
               <p>
                 This policy applies to all information collected through our website, including any data you provide when contacting us, joining our waitlist, or using our services. By using our website, you consent to the data practices described in this policy.
@@ -273,7 +273,7 @@ export default function PrivacyPolicyPage() {
                 If you have questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:
               </p>
               <p>
-                <strong>ExIQx Performance</strong><br />
+                <strong>EXIQX Performance</strong><br />
                 Email: <a href="mailto:contact@exiqxperformance.com" className="text-red-400 hover:text-red-300 underline">contact@exiqxperformance.com</a>
               </p>
             </div>
