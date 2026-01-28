@@ -36,6 +36,7 @@ export async function POST(req: Request) {
 
     // Authoritative write to Supabase (server-only, service role key)
     const { error: insertError } = await supabase
+      .schema('public')
       .from('waitlist')
       .insert([{ email, source }])
 
