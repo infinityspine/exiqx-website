@@ -34,6 +34,10 @@ export async function POST(req: Request) {
 
     const source = 'website'
 
+    const { data: test, error: testErr } =
+      await supabase.schema('public').from('waitlist').select('id').limit(1)
+    console.log('WAITLIST SELECT TEST:', { test, testErr })
+
     // Authoritative write to Supabase (server-only, service role key)
     const { error: insertError } = await supabase
       .schema('public')
