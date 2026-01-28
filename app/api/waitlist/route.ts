@@ -2,7 +2,7 @@ export const runtime = 'nodejs'
 
 import { NextResponse } from 'next/server'
 import { createClient } from '@supabase/supabase-js'
-import { Resend } from 'resend'
+// import { Resend } from 'resend'
 
 export async function POST(req: Request) {
   try {
@@ -63,23 +63,24 @@ export async function POST(req: Request) {
       )
     }
 
-    // Send Resend email AFTER insert succeeds
-    try {
-      const resend = new Resend(process.env.RESEND_API_KEY)
-      await resend.emails.send({
-        from: 'EXIQX Performance <onboarding@resend.dev>',
-        to: 'infinityspine@gmail.com',
-        subject: 'New Waitlist Signup — EXIQX',
-        html: `
-        <h2>New Waitlist Signup</h2>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Source:</strong> ${source}</p>
-        <p><strong>Time:</strong> ${new Date().toLocaleString()}</p>
-      `,
-      })
-    } catch (emailErr) {
-      console.error('Resend email failed after successful Supabase insert', { email, source, error: emailErr })
-    }
+    // TEMP: Resend disabled while debugging Supabase insert failures.
+    // // Send Resend email AFTER insert succeeds
+    // try {
+    //   const resend = new Resend(process.env.RESEND_API_KEY)
+    //   await resend.emails.send({
+    //     from: 'EXIQX Performance <onboarding@resend.dev>',
+    //     to: 'infinityspine@gmail.com',
+    //     subject: 'New Waitlist Signup — EXIQX',
+    //     html: `
+    //     <h2>New Waitlist Signup</h2>
+    //     <p><strong>Email:</strong> ${email}</p>
+    //     <p><strong>Source:</strong> ${source}</p>
+    //     <p><strong>Time:</strong> ${new Date().toLocaleString()}</p>
+    //   `,
+    //   })
+    // } catch (emailErr) {
+    //   console.error('Resend email failed after successful Supabase insert', { email, source, error: emailErr })
+    // }
 
     return NextResponse.json({ success: true })
   } catch (err) {
