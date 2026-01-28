@@ -68,17 +68,18 @@ export default function JoinWaitlistPage() {
 
       if (!response.ok) {
         const payload = await response.json().catch(() => null)
-        const message =
-          typeof payload?.error === 'string'
-            ? payload.error
-            : `Request failed (${response.status})`
-        throw new Error(message)
+        console.error('Waitlist request failed', {
+          status: response.status,
+          payload,
+        })
+        throw new Error('Something went wrong. Please try again.')
       }
 
       setSuccess(true)
       setEmail('')
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Something went wrong. Please try again.')
+      console.error('Waitlist submit error:', err)
+      setError('Something went wrong. Please try again.')
     } finally {
       setLoading(false)
     }
