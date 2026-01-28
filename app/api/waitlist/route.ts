@@ -1,49 +1,34 @@
 export const runtime = 'nodejs'
 
+import { NextResponse } from 'next/server'
 import { createClient } from '@supabase/supabase-js'
 import { Resend } from 'resend'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
-
-const supabaseUrl = process.env.SUPABASE_URL
-const supabaseServiceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY
-
-if (!supabaseUrl || !supabaseServiceRoleKey) {
-  // Fail fast on misconfiguration so it’s obvious in Vercel Function Logs.
-  throw new Error('Missing SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY')
-}
-
-const supabaseAdmin = createClient(supabaseUrl, supabaseServiceRoleKey, {
-  auth: { persistSession: false },
-})
-
 export async function POST(req: Request) {
   try {
+    const supabaseUrl = process.env.SUPABASE_URL
+    const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY
+
+    if (!supabaseUrl || !supabaseKey) {
+      console.error('Missing Supabase env vars at runtime')
+      return NextResponse.json({ error: 'Server misconfiguration' }, { status: 500 })
+    }
+
+    const supabase = createClient(supabaseUrl, supabaseKey, {
+      auth: { persistSession: false },
+    })
+
     const body = await req.json().catch(() => null)
-    const email = typeof body?.email === 'string' ? body.email.trim() : ''
-    const source = typeof body?.source === 'string' ? body.source.trim() : 'website'
+    const email = typeof body?.email === 'string' ? body.email.trim().toLowerCase() : ''
 
-    if (!email) {
-      return new Response(JSON.stringify({ error: 'Email is required' }), {
-        status: 400,
-        headers: { 'content-type': 'application/json' },
-      })
-    }
+    if (!email) return NextResponse.json({ error: 'Email required' }, { status: 400 })
 
-    // Minimal email format check (server-side).
-    if (!email.includes('@') || email.length > 320) {
-      return new Response(JSON.stringify({ error: 'Invalid email' }), {
-        status: 400,
-        headers: { 'content-type': 'application/json' },
-      })
-    }
+    const source = 'website'
 
-    // 1) Authoritative write to Supabase (service role key, server-only)
-    const { data: inserted, error: insertError } = await supabaseAdmin
+    // Authoritative write to Supabase (server-only, service role key)
+    const { error: insertError } = await supabase
       .from('waitlist')
-      .insert({ email, source })
-      .select('id')
-      .single()
+      .insert([{ email, source }])
 
     if (insertError) {
       console.error('Supabase waitlist insert failed', {
@@ -51,16 +36,13 @@ export async function POST(req: Request) {
         source,
         error: insertError,
       })
-      return new Response(JSON.stringify({ error: 'Failed to join waitlist' }), {
-        status: 500,
-        headers: { 'content-type': 'application/json' },
-      })
+      return NextResponse.json({ error: 'Database insert failed' }, { status: 500 })
     }
 
-    // 2) Only after successful insert → send admin notification email
-    let emailResult
+    // Send Resend email AFTER insert succeeds
     try {
-      emailResult = await resend.emails.send({
+      const resend = new Resend(process.env.RESEND_API_KEY)
+      await resend.emails.send({
         from: 'EXIQX Performance <onboarding@resend.dev>',
         to: 'infinityspine@gmail.com',
         subject: 'New Waitlist Signup — EXIQX',
@@ -72,27 +54,12 @@ export async function POST(req: Request) {
       `,
       })
     } catch (emailErr) {
-      console.error('Resend email failed after successful Supabase insert', {
-        email,
-        source,
-        waitlistId: inserted?.id,
-        error: emailErr,
-      })
-      return new Response(JSON.stringify({ error: 'Joined waitlist, but notification failed' }), {
-        status: 502,
-        headers: { 'content-type': 'application/json' },
-      })
+      console.error('Resend email failed after successful Supabase insert', { email, source, error: emailErr })
     }
 
-    return new Response(JSON.stringify({ success: true, id: inserted?.id, emailResult }), {
-      status: 200,
-      headers: { 'content-type': 'application/json' },
-    })
+    return NextResponse.json({ success: true })
   } catch (err) {
     console.error('Waitlist route error', err)
-    return new Response(JSON.stringify({ error: 'Server error' }), {
-      status: 500,
-      headers: { 'content-type': 'application/json' },
-    })
+    return NextResponse.json({ error: 'Server error' }, { status: 500 })
   }
 }
