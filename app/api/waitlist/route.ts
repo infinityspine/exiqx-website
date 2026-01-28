@@ -9,6 +9,13 @@ export async function POST(req: Request) {
     const supabaseUrl = process.env.SUPABASE_URL
     const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY
 
+    console.log("ENV CHECK:", {
+      hasUrl: !!supabaseUrl,
+      url: supabaseUrl,
+      keyPrefix: supabaseKey?.slice(0, 12),
+      keyLen: supabaseKey?.length,
+    })
+
     if (!supabaseUrl || !supabaseKey) {
       console.error('Missing Supabase env vars at runtime')
       return NextResponse.json({ error: 'Server misconfiguration' }, { status: 500 })
