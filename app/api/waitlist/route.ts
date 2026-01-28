@@ -10,10 +10,10 @@ export async function POST(req: Request) {
     const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY
 
     console.log("ENV CHECK:", {
-      hasUrl: !!supabaseUrl,
-      url: supabaseUrl,
-      keyPrefix: supabaseKey?.slice(0, 12),
-      keyLen: supabaseKey?.length,
+      hasUrl: !!process.env.SUPABASE_URL,
+      hasKey: !!process.env.SUPABASE_SERVICE_ROLE_KEY,
+      keyPrefix: process.env.SUPABASE_SERVICE_ROLE_KEY?.slice(0,12),
+      keyLen: process.env.SUPABASE_SERVICE_ROLE_KEY?.length,
     })
 
     if (!supabaseUrl || !supabaseKey) {
@@ -50,7 +50,7 @@ export async function POST(req: Request) {
       })
       return NextResponse.json(
         {
-          error: insertError.message,
+          message: insertError.message,
           details: (insertError as any).details,
           hint: (insertError as any).hint,
           code: (insertError as any).code,
