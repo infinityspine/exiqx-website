@@ -33,12 +33,22 @@ export async function POST(req: Request) {
       .insert([{ email, source }])
 
     if (insertError) {
-      console.error('Supabase waitlist insert failed', {
-        email,
-        source,
-        error: insertError,
+      console.error("SUPABASE INSERT ERROR (raw):", insertError)
+      console.error("SUPABASE INSERT ERROR (fields):", {
+        message: insertError.message,
+        details: (insertError as any).details,
+        hint: (insertError as any).hint,
+        code: (insertError as any).code,
       })
-      return NextResponse.json({ error: 'Database insert failed' }, { status: 500 })
+      return NextResponse.json(
+        {
+          error: insertError.message,
+          details: (insertError as any).details,
+          hint: (insertError as any).hint,
+          code: (insertError as any).code,
+        },
+        { status: 500 }
+      )
     }
 
     // Send Resend email AFTER insert succeeds
