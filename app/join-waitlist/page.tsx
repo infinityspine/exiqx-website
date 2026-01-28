@@ -58,18 +58,27 @@ export default function JoinWaitlistPage() {
     setError('')
 
     try {
-      const response = await fetch('/api/waitlist', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, source: 'website' })
+      console.log('Submitting waitlist:', email)
+
+      const response = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, source: "website" }),
       })
 
-      if (!response.ok) throw new Error('Failed to join waitlist')
+      if (!response.ok) {
+        const payload = await response.json().catch(() => null)
+        const message =
+          typeof payload?.error === 'string'
+            ? payload.error
+            : `Request failed (${response.status})`
+        throw new Error(message)
+      }
 
       setSuccess(true)
       setEmail('')
     } catch (err) {
-      setError('Something went wrong. Please try again.')
+      setError(err instanceof Error ? err.message : 'Something went wrong. Please try again.')
     } finally {
       setLoading(false)
     }

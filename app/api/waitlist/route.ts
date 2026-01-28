@@ -21,6 +21,8 @@ export async function POST(req: Request) {
     const body = await req.json().catch(() => null)
     const email = typeof body?.email === 'string' ? body.email.trim().toLowerCase() : ''
 
+    console.log('WAITLIST HIT:', email)
+
     if (!email) return NextResponse.json({ error: 'Email required' }, { status: 400 })
 
     const source = 'website'
