@@ -340,7 +340,7 @@ const HeroSection = memo(function HeroSection({
                   'drop-shadow(0 50px 140px rgba(0,0,0,0.95)) drop-shadow(0 0 90px rgba(220,38,38,0.3))',
                 transform: 'translateZ(0)',
               }}
-              src="/videos/exiqx-ground-force-transmission-hero-alpha.webm"
+              src="/videos/hero_alpha.webm"
               autoPlay={!shouldReduceMotion}
               loop={!shouldReduceMotion}
               muted
@@ -515,7 +515,7 @@ const HeroSection = memo(function HeroSection({
                   'drop-shadow(0 40px 80px rgba(0,0,0,0.8)) drop-shadow(0 0 70px rgba(220,38,38,0.4))',
                 transform: 'translateZ(0)',
               }}
-              src="/videos/exiqx-ground-force-transmission-hero-alpha.webm"
+              src="/videos/hero_alpha.webm"
               autoPlay={!shouldReduceMotion}
               loop={!shouldReduceMotion}
               muted
