@@ -341,7 +341,7 @@ const HeroSection = memo(function HeroSection({
                 transform: 'translateZ(0)',
                 backgroundColor: 'transparent',
               }}
-              src="/videos/hero_alpha.webm"
+              src="/videos/hero_alpha_transparent.webm"
               autoPlay={!shouldReduceMotion}
               loop={!shouldReduceMotion}
               muted
@@ -517,7 +517,7 @@ const HeroSection = memo(function HeroSection({
                 transform: 'translateZ(0)',
                 backgroundColor: 'transparent',
               }}
-              src="/videos/hero_alpha.webm"
+              src="/videos/hero_alpha_transparent.webm"
               autoPlay={!shouldReduceMotion}
               loop={!shouldReduceMotion}
               muted
