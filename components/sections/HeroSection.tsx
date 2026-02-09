@@ -309,7 +309,7 @@ const HeroSection = memo(function HeroSection({
           }}
           className="pointer-events-none absolute right-[-11%] top-1/2 -translate-y-1/2 z-20 will-change-transform"
         >
-          <div className="relative">
+          <div className="relative bg-transparent">
             {/* SIMPLIFIED SPOTLIGHT - Less intensive */}
             {!shouldReduceMotion && (
               <motion.div
@@ -339,6 +339,7 @@ const HeroSection = memo(function HeroSection({
                 filter:
                   'drop-shadow(0 50px 140px rgba(0,0,0,0.95)) drop-shadow(0 0 90px rgba(220,38,38,0.3))',
                 transform: 'translateZ(0)',
+                backgroundColor: 'transparent',
               }}
               src="/videos/hero_alpha.webm"
               autoPlay={!shouldReduceMotion}
@@ -491,7 +492,7 @@ const HeroSection = memo(function HeroSection({
 
         {/* Product Video (Alpha WebM) - Top of mobile viewport */}
         <div className="relative z-0 w-full flex items-center justify-center pt-[clamp(2.25rem,7vw,2.75rem)] md:pt-[clamp(1.5rem,5vw,1.9rem)] pb-[clamp(2.25rem,7vw,2.75rem)] md:pb-[clamp(1.25rem,5vw,2rem)]">
-          <div className="relative w-full max-w-[820px] h-[32vh] max-h-[240px] min-h-[190px]">
+          <div className="relative w-full max-w-[820px] h-[32vh] max-h-[240px] min-h-[190px] bg-transparent">
             {!shouldReduceMotion && (
               <motion.div
                 animate={{
@@ -514,6 +515,7 @@ const HeroSection = memo(function HeroSection({
                 filter:
                   'drop-shadow(0 40px 80px rgba(0,0,0,0.8)) drop-shadow(0 0 70px rgba(220,38,38,0.4))',
                 transform: 'translateZ(0)',
+                backgroundColor: 'transparent',
               }}
               src="/videos/hero_alpha.webm"
               autoPlay={!shouldReduceMotion}
